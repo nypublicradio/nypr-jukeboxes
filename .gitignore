@@ -1,5 +1,25 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+.DS_Store
+
+# ignore emacs and vim tmp files
+.*.*.sw*
+\#*\#
+*~
+
+# Temp Directory
+.tmp/*
+!.tmp/.gitkeep
+
+# Django
+static/
+media/
+logs/
+
 # compiled output
 /dist
 /tmp
@@ -21,3 +41,5 @@ testem.log
 .node_modules.ember-try/
 bower.json.ember-try
 package.json.ember-try
+
+*.zip
