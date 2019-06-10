@@ -21,7 +21,21 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+    fastboot: {
+      hostWhitelist: process.env.HOST_WHITELIST ? process.env.HOST_WHITELIST.split(',') : []
+    },
+    siteSlug: 'wqxr',
+    siteName: 'WQXR',
+    siteId: 2,
+    clientSlug: 'wqxr_web',
+    webRoot: process.env.WQXR_URL,
+    adminRoot: process.env.ADMIN_ROOT,
+    authAPI: process.env.AUTH_SERVICE,
+    membershipAPI: process.env.MEMBERSHIP_SERVICE,
+    etagAPI: process.env.ETAG_API,
+    publisherAPI: process.env.PUBLISHER_API,
+    platformEventsAPI: process.env.PLATFORM_EVENTS_SERVICE
   };
 
   if (environment === 'development') {
@@ -41,6 +55,19 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    ENV.APP.LOG_VIEW_LOOKUPS = false;
+
+    ENV.APP.rootElement = '#ember-testing';
+
+    ENV.publisherAPI = 'http://example.com/api';
+    ENV.adminRoot = 'http://admin.example.com';
+    ENV.etagAPI = 'http://example.com/api/v1/browser_id/';
+    ENV.webRoot = 'http://example.com';
+    ENV.authAPI = 'http://example.com';
+    ENV.membershipAPI = 'http://example.com';
+    ENV.platformEventsAPI = 'http://example.com';
+    ENV.fastboot.hostWhitelist = ['/.*/'];
   }
 
   if (environment === 'production') {
