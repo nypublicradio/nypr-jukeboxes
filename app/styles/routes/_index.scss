@@ -1,0 +1,66 @@
+.jukebox-display {
+    > div {
+    font-size: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+
+  &-header {
+    flex-basis: 100%;
+    margin-bottom: 40px;
+    .jukebox-display__current-stream {
+      font-family: $font-pixel-heading;
+      font-size: 30px;
+    }
+  }
+
+  &-details {
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+    h2 {
+      width: 100%;
+      margin: 0 auto;
+    }
+    h3 {
+      margin: 0;
+    }
+  }
+
+  &-controls {
+    .listen-button {
+      border: none;
+    }
+    .icon {
+      max-width: 100px;
+      max-height: 100px;
+      display: inline;
+    }
+    .is-playing {
+      .icon--play {
+        display: none;
+      }
+      .icon--pause {
+        display: inline;
+      }
+    }
+    .icon--play {
+      display: inline;
+    }
+    .icon--pause {
+      display: none;
+    }
+
+    .listen-button.is-playing .listen-ui {
+      width: auto;
+    }
+  }
+}
+
+.stream-switcher {
+  .current-stream {
+    font-size: 25px;
+    color: #555;
+  }
+}

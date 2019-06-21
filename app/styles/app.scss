@@ -1,14 +1,31 @@
-@import "nypr-ui";
-@import "nypr-ui/brand-header";
+// This is just for Bryn, take out later
+@import url('https://fonts.googleapis.com/css?family=Monoton|Press+Start+2P|VT323&display=swap');
 
-@import 'normalize';
+@import "ember-basic-dropdown";
+
+@import "nypr-ui/vars";
+@import "nypr-ui/brand-header";
+@import "nypr-ui/colors"; // any color like "$light-gray"
+@import "nypr-ui/buttons";
+@import "nypr-audio-services/text-crawl";
+@import "nypr-player";
 
 @import 'mixins/mq';
 @import 'vars/colors';
+@import 'vars/fonts';
+
 
 @import 'normalize';
 //@import 'base';
 
 @import 'routes/index';
 
-//@import 'components/foo';
+@import 'components/nypr-player-overrides';
+
+body {
+  font-family: $font-pixel-body;
+}
+
+button {
+  @include btn;
+}
