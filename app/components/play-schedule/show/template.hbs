@@ -1,0 +1,23 @@
+<div class="playlist-show-image">
+</div>
+<div class="playlist-show-info">
+  <span class="playlist-show-info-time">
+    <time>{{startTime}}</time>
+    &ndash;
+    <time>{{endTime}}</time>
+  </span>
+  <h2 class="playlist-show-info-title">{{title}}</h2>
+  <span class="playlist-show-info-additional">
+    {{#if episode}}
+      {{link-to episode.title 'story' episode.slug}}
+    {{else}}
+      {{#if host}}
+        with {{link-to host.name 'person-detail' host.slug}}
+      {{else}}
+        &nbsp;
+      {{/if}}
+    {{/if}}
+  </span>
+</div>
+
+{{yield}}

@@ -1,0 +1,25 @@
+{{#each schedule.airings as |airing|}}
+  {{#if airing.isCurrent}}
+    <div class="playlist">
+      {{play-schedule/show
+        image     = (image-template airing.show.image.template 500 500 'l' 80)
+        title     = airing.title
+        startTime = airing.startTime
+        endTime   = airing.endTime
+        episode   = airing.episode
+      }}
+
+      <ol class="playlist-tracks">
+        {{#each airing.tracks as |track|}}
+          {{play-schedule/track
+            isLive    = track.isLive
+            startTime = track.startTime
+            title     = track.title
+            artist    = track.artist
+            length    = track.humanTrackLength
+          }}
+        {{/each}}
+      </ol>
+    </div>
+  {{/if}}
+{{/each}}

@@ -1,6 +1,8 @@
 
 <section class="jukebox-display" aria-label="stream metadata display">
-  <JukeboxDisplay @currentStream={{currentStream}} />
+  <JukeboxDisplay @currentStream={{currentStream.stream}} />
 </section>
 
-<StreamSwitcher @streams={{streams}} @currentStream={{mut currentStream}} />
+<StreamSwitcher @streams={{streams}} @currentStream={{mut currentStream.stream}} />
+
+<PlaySchedule @schedule={{streamMetadata.dailySchedule}}/>
