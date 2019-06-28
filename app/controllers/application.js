@@ -5,7 +5,8 @@ import { reads } from '@ember/object/computed';
 export default Controller.extend({
   dj             : service(),
   hifi           : service(),
+  currentStream  : service(),
 
   showPlayer: reads('dj.showPlayer'),
-  currentStream: reads('model.streams.firstObject')
+
 });

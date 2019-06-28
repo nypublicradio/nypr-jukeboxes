@@ -10,6 +10,9 @@ module.exports = function(environment) {
     'ember-cli-mirage': {
       autostart: true // https://github.com/samselikoff/ember-cli-mirage/blob/master/CHANGELOG.md#how-it-works-in-different-types-of-tests
     },
+    moment: {
+      includeTimezone: 'all'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -38,7 +41,8 @@ module.exports = function(environment) {
     membershipAPI: process.env.MEMBERSHIP_SERVICE,
     etagAPI: process.env.ETAG_API,
     publisherAPI: process.env.PUBLISHER_API,
-    platformEventsAPI: process.env.PLATFORM_EVENTS_SERVICE
+    platformEventsAPI: process.env.PLATFORM_EVENTS_SERVICE,
+    wqxrURL: process.env.WQXR_URL,
   };
 
   if (environment === 'development') {
