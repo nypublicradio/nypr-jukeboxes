@@ -7,6 +7,9 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    'ember-cli-mirage': {
+      autostart: true // https://github.com/samselikoff/ember-cli-mirage/blob/master/CHANGELOG.md#how-it-works-in-different-types-of-tests
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -58,9 +61,7 @@ module.exports = function(environment) {
 
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    ENV.APP.rootElement = '#ember-testing';
-
-    ENV.publisherAPI = 'http://example.com/api';
+    ENV.publisherAPI = '/api'; //ember-cli-fastboot-testing needs this
     ENV.adminRoot = 'http://admin.example.com';
     ENV.etagAPI = 'http://example.com/api/v1/browser_id/';
     ENV.webRoot = 'http://example.com';

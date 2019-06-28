@@ -16,11 +16,13 @@ You will need the following things properly installed on your computer.
 
 * `git clone <repository-url>` this repository
 * `cd nypr-jukeboxes`
-* `npm install`
+* `yarn install`
 
 ## Running / Development
 
-* `ember serve`
+This app uses mirage for testing, so for local development that uses real values from the API, you need to run ember serve with a proxy. This will make sure all xhr calls go the url specified by --proxy, instead of getting stubbed by mirage.
+
+* `ember serve --proxy https://api.demo.nypr.digital/api`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ### Code Generators
