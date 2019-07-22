@@ -1,23 +1,19 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
+import moment from 'moment';
 
 
 export default Route.extend({
   classNames: ['home'],
   fastboot: service(),
+  streamMetadata: service(),
 
   model() {
     let hash = {
+      //TODO: move this to the play-schedule component so it doesn't block render
+      playlist: this.get('streamMetadata').load(moment().format())
     };
     return RSVP.hash(hash);
   },
-
-  setupController(controller) {
-    this._super(...arguments);
-    let streams = this.controllerFor('application').get('model.streams')
-    let currentStream = this.controllerFor('application').get('currentStream')
-    controller.set('streams', streams);
-    controller.set('currentStream', currentStream);
-  }
 });
