@@ -79,7 +79,7 @@ jobs:
           <<: *node_key
           paths:
             - node_modules
-            - /home/circleci/.cache/Cypress
+            # - /home/circleci/.cache/Cypress
 
   test-static:
     <<: *defaults
@@ -91,17 +91,17 @@ jobs:
           name: Test
           command: npx ember test
 
-  test-static-cypress:
-    <<: *defaults
+  # test-static-cypress:
+  #   <<: *defaults
 
-    steps:
-      - checkout
-      - <<: *restore_node
-      - run:
-          name: Test with Cypress
-          command: yarn cy:test
-      - store_artifacts:
-          path: /home/circleci/project/cypress/videos
+  #   steps:
+  #     - checkout
+  #     - <<: *restore_node
+  #     - run:
+  #         name: Test with Cypress
+  #         command: yarn cy:test
+  #     - store_artifacts:
+  #         path: /home/circleci/project/cypress/videos
 
   deploy-static-qa:
     <<: *defaults
