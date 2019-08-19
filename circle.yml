@@ -75,11 +75,11 @@ jobs:
             if [ ! -d node_modules ]; then
               yarn --pure-lockfile
             fi
-      # - save_cache:
-      #     <<: *node_key
-      #     paths:
-      #       - node_modules
-            # - /home/circleci/.cache/Cypress
+      - save_cache:
+          <<: *node_key
+          paths:
+            - node_modules
+            - /home/circleci/.cache/Cypress
 
   test-static:
     <<: *defaults
