@@ -79,7 +79,7 @@
     "ember-cookies": "^0.4.0",
     "ember-hifi": "^1.15.0",
     "ember-simple-auth": "^1.8.2",
-    "nypr-audio-services": "^0.5.0",
+    "nypr-audio-services": "nypublicradio/nypr-audio-services#chore/upgrade-ember-fetch-6",
     "nypr-metrics": "0.5.3",
     "nypr-player": "^0.4.0",
     "nypr-publisher-lib": "^0.5.5",
