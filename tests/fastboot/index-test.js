@@ -1,10 +1,10 @@
-import { module, test } from 'qunit';
+import { module, skip } from 'qunit';
 import { setup, visit, mockServer } from 'ember-cli-fastboot-testing/test-support';
 
 module('FastBoot | index test', function(hooks) {
   setup(hooks);
 
-  test('it renders a page...', async function(assert) {
+  skip('it renders a page...', async function(assert) {
 
     await mockServer.get('/api/v1/list/streams/', {
       count: 1,
@@ -25,7 +25,7 @@ module('FastBoot | index test', function(hooks) {
     });
 
     await visit('/');
-    
+
     assert.dom('.jukebox-display__current-stream').hasText('WQXR 105.9 FM');
   });
 
