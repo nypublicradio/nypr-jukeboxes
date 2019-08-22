@@ -14,7 +14,7 @@ export default Service.extend({
   // if we continue with the monorepo implementation, this variable will
   // need to hook into embers location API, so that when the user switches
   // streams, the url updates as well. IE, If the new standards stream is playing,
-  // we are on newstandards.org. 
+  // we are on newstandards.org.
   slugFromHost: null,
   slugUpdater: observer('slugFromHost', 'stream', function() {
     this.set('slug', this.get('stream.slug') ? this.get('stream.slug') : this.get('slugFromHost'))
@@ -22,6 +22,7 @@ export default Service.extend({
   slug: null,
 
   init() {
+    this._super(...arguments);
     let slugFromHost;
     if (this.get('fastboot.isFastBoot')) {
       slugFromHost = HOSTDICT[this.get('fastboot.request.host')];
