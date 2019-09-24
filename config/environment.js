@@ -28,6 +28,10 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+    googleFonts: [
+      'Open+Sans:400,400i,600',
+      'Playfair+Display:900'
+    ],
     fastboot: {
       hostWhitelist: process.env.HOST_WHITELIST ? process.env.HOST_WHITELIST.split(',') : []
     },
