@@ -94,6 +94,7 @@
     "ember-concurrency": "0.9.0",
     "ember-simple-auth": "^1.8.2",
     "fastboot-app-server": "^1.1.2-beta.1",
+    "include-media": "^1.4.9",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
     "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#bkammin/DSODA-94_add_previous_to_stream_model",
     "url-parse": "^1.4.3"

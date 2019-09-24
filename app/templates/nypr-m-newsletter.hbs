@@ -1,0 +1,36 @@
+{{!-- BEGIN-SNIPPET nypr-m-newsletter.hbs --}}
+<div class="c-newsletter-form__graphic">
+  {{yield (hash graphic=(component 'blank-template'))}}
+</div>
+
+<div class="c-newsletter-form__inner u-spacing">
+
+  <div class="c-newsletter-form__text">
+    <p>
+      <span class="c-newsletter-form__icon o-icon o-icon--newsletter-form u-icon--s">
+        <NyprASvg @icon='arrow-dashed'/>
+      </span>
+      <span data-test-newsletter-blurb>
+        {{yield (hash blurb=(component 'blank-template'))}}
+      </span>
+    </p>
+  </div>
+
+  <NyprMNewsletterForm class="u-spacing" @endpoint={{@endpoint}} @params={{@params}} as |form|>
+    <form.label/>
+
+    <form.input/>
+
+    <form.submit class="o-button--c-quarternary">
+      <span class="c-newsletter-form__submit-icon o-icon o-icon--newsletter-form">
+        <NyprASvg @icon='arrow-dashed'/>
+      </span>
+      <span class="is-vishidden">Submit email</span>
+    </form.submit>
+
+    <form.legal>
+      {{yield (hash legal=(component form.legal))}}
+    </form.legal>
+  </NyprMNewsletterForm>
+</div>
+{{!-- END-SNIPPET --}}

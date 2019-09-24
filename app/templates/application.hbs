@@ -1,4 +1,11 @@
-<ShowHeader @activeTabIndex={{activeTabIndex}} @links={{links}} />
+{{horizontal-nav
+  navRoot='listen'
+  defaultSlug='listen'
+  channelSlug='listen'
+  links=links
+  activeTabIndex=activeTabIndex
+  didChangeIndex=(action 'updateNav')}}
+
 {{outlet}}
 
 <NyprPlayerIntegration as |integration|>
@@ -30,6 +37,26 @@
             isStream        = integration.isStream
           }}
     {{/content.for}}
+
   </NyprPlayer>
+
   {{/liquid-if}}
+
 </NyprPlayerIntegration>
+
+<NyprOFooter as |footer|>
+  <footer.slogan>
+    <p class="slogan">
+      WQXR is New York City’s only classical music radio station, broadcasting live on 105.9 FM. We share our audience’s
+      passion for music by playing the most outstanding pieces on air, online and through our app. WQXR is made possible
+      thanks to the generous support of our members and sponsors.
+    </p>
+  </footer.slogan>
+
+  <footer.nav @navItems={{array
+      (hash url='/advertising' title='Advertising')
+      (hash url='/contact' title='Contact Us')
+      (hash url='/newsletter' title='Newsletter')
+    }} />
+
+</NyprOFooter>
