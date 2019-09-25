@@ -75,7 +75,7 @@ $c-link-color: $c-secondary;
 $c-link-color--visited: $c-gray--dark;
 $c-button-color: $c-secondary;
 $c-border-color: $c-gray--dark;
-$c-body-bgcolor: $c-white;
+$c-body-bgcolor: $c-water-blue;
 $c-heading-bgcolor: $c-gray--dark;
 $c-dark-bg: $c-gray--dark;
 $c-main-nav-link-color: $c-white;
@@ -290,7 +290,16 @@ $space-quad:        $space*4;   // 64
     height: 50px;
 
     path {
-      fill: $c-black;
+      fill: $c-white;
     }
+  }
+}
+
+.wqxr-logo-icon {
+  width: 378px;
+  height: 93px;
+
+  path {
+    fill: $c-white;
   }
 }
