@@ -101,5 +101,10 @@
   },
   "fastbootDependencies": [
     "url-parse"
-  ]
+  ],
+  "ember-addon": {
+    "paths": [
+      "lib/pattern-lab-styles"
+    ]
+  }
 }
