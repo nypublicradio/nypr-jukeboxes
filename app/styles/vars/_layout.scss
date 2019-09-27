@@ -260,6 +260,7 @@ $large-only: "#{$screen} and (min-width: #{$large}px)";
       }
     }
 
+<<<<<<< HEAD
     &__copyright {
       justify-content: flex-end;
       opacity: .7;
@@ -267,6 +268,11 @@ $large-only: "#{$screen} and (min-width: #{$large}px)";
 
     .header-titles {
         width: 100%;
+=======
+    .header-titles {
+        width: 124px;
+        height: 38px;
+>>>>>>> Styling and start of logo placement
         font-family: PlayfairDisplay;
         font-size: 28px;
         font-weight: 900;
@@ -275,6 +281,7 @@ $large-only: "#{$screen} and (min-width: #{$large}px)";
         line-height: 1.36;
         letter-spacing: normal;
         text-transform: none;
+<<<<<<< HEAD
         color: white;
     }
 
@@ -334,3 +341,9 @@ $large-only: "#{$screen} and (min-width: #{$large}px)";
   //     }
   //   }
    }
+=======
+    }
+  }
+  
+  
+>>>>>>> Styling and start of logo placement

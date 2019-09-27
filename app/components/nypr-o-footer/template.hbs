@@ -1,5 +1,5 @@
 {{!-- BEGIN-SNIPPET nypr-o-footer.hbs --}}
-<NyprMToTop />
+<NyprMToTop/>
 
 <footer class="c-main-footer" data-test-main-footer>
 
@@ -11,39 +11,29 @@
 
         <div class="c-main-footer__branding">
 
-          {{!-- <div class="u-spacing"> --}}
-            <div class="c-main-footer__logo">
-              {{#link-to 'index'}}
-              <NyprASvg @icon='wqxr-logo' />
-              {{/link-to}}
-            </div>
-          {{!-- </div> --}}
+          <div class="c-main-footer__logo">
+            {{#link-to 'index'}}
+              <NyprASvg @icon='wqxr-logo'/>
+            {{/link-to}}
+          </div>
 
-    
-
-        </div>
-
-              <div class="c-main-footer__utility">
-
-            {{!-- <a href="mailto:tips@gothamist.com" target="_blank" rel="noopener" class="c-main-footer__send-story u-font--secondary-style u-font--xs"><strong>Send Us a Story Idea</strong></a> --}}
+          <div class="c-main-footer__utility">
 
             <div class="c-main-footer__social">
               <NyprMShareTools @label='Connect' as |share|>
-                <share.link @service='facebook' @username='WQXRClassical' />
-                <share.link @service='twitter' @username='WQXR' />
-                <share.link @service='instagram' @username='wqxr_classical' />
-                <share.link @service='youtube' @username='UCNaGXxDBmCNQGpwm3hxK9sw' />
+                <share.link @service='facebook' @username='Gothamist'/>
+                <share.link @service='twitter' @username='gothamist' />
+                <share.link @service='instagram' @username='Gothamist' />
+                <share.link @service='youtube' @username='UCY_2VeS5Q9_sMZRhtvF0c5Q'/>
               </NyprMShareTools>
             </div>
-
-            <div class="c-main-footer__slogan u-spacing">
-          {{yield (hash slogan=(component 'blank-template'))}}
-        </div>
-
-        
           </div>
 
-        
+        </div>
+
+        <div class="c-main-footer__slogan u-spacing">
+          {{yield (hash slogan=(component 'blank-template'))}}
+        </div>
 
         <div class="c-main-footer__nav">
           {{yield (hash nav=(component 'nypr-m-secondary-nav'))}}
@@ -63,25 +53,23 @@
 
     <div class="c-main-footer__brand-group">
       <div class="c-main-footer__nypr-logo">
-        <NyprASvg @icon='nypr-logo' />
+        <NyprASvg @icon='nypr-logo'/>
       </div>
 
-      <NyprMBrandsLinkroll @exclude='gothamist' />
+      <NyprMBrandsLinkroll @exclude='gothamist'/>
     </div>
 
     <div class="c-main-footer__bottom">
 
       <div class="c-main-footer__copyright">
-        <p class="u-font--secondary-style u-font--xs u-color--white">&copy; {{moment-format (now) 'YYYY'}} New York
-          Public Radio. All rights reserved.</p>
+        <p class="u-font--secondary-style u-font--xs u-color--white">&copy; {{moment-format (now) 'YYYY'}} New York Public Radio. All rights reserved.</p>
       </div>
 
       <div class="c-main-footer__terms-links">
         <a href="https://www.wnyc.org/terms" class="u-font--secondary-style u-font--xs" target="_blank" rel="noopener">
           <strong>Terms of Use</strong>
         </a>
-        <a href="https://www.wnyc.org/privacy" class="u-font--secondary-style u-font--xs" target="_blank"
-          rel="noopener">
+        <a href="https://www.wnyc.org/privacy" class="u-font--secondary-style u-font--xs" target="_blank" rel="noopener">
           <strong>Privacy Policy</strong>
         </a>
       </div>

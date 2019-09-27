@@ -295,11 +295,15 @@ $space-quad:        $space*4;   // 64
   }
 }
 
-.wqxr-logo-icon {
-  width: 378px;
-  height: 93px;
-
+.wqxr-logo-icon, .c-share-tools__group {
+  // width: 378px;
+  // height: 93px;
+  
   path {
     fill: $c-white;
   }
+}
+
+.wqxr-logo-icon {
+  max-width: 300%;
 }
