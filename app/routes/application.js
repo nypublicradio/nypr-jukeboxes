@@ -29,4 +29,8 @@ export default Route.extend({
     return RSVP.hash(hash);
   },
 
+  redirect: function () {
+    this.transitionTo('listen');
+  }
+
 });
