@@ -191,6 +191,10 @@ $large-only: "#{$screen} and (min-width: #{$large}px)";
     }
   
     &__brand-group {
+<<<<<<< HEAD
+=======
+      display: flex;
+>>>>>>> Overall styling before demo -- spacing, text transform to none, columns, padding, margins. The whole works
       justify-content: space-between;
   
       // @include media('>xlarge') {
@@ -217,7 +221,10 @@ $large-only: "#{$screen} and (min-width: #{$large}px)";
 
     .c-toggle-box__label {
       text-transform: none;
+<<<<<<< HEAD
       border: none;
+=======
+>>>>>>> Overall styling before demo -- spacing, text transform to none, columns, padding, margins. The whole works
     }
   
     &__bottom {

@@ -65,7 +65,7 @@
     "loader.js": "^4.2.3",
     "nypr-ads": "^0.2.0",
     "nypr-audio-services": "^0.5.0",
-    "nypr-design-system": "^2.0.5",
+    "nypr-design-system": "https://github.com/nypublicradio/nypr-design-system.git#88e3366",
     "nypr-metrics": "^0.5.3",
     "nypr-pattern-lab": "https://github.com/nypublicradio/pattern-lab#bkammin/change_package_name_to_pattern_lab",
     "nypr-player": "^0.4.0",

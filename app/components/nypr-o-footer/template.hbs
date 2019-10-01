@@ -1,5 +1,5 @@
 {{!-- BEGIN-SNIPPET nypr-o-footer.hbs --}}
-<NyprMToTop/>
+<NyprMToTop />
 
 <footer class="c-main-footer" data-test-main-footer>
 
@@ -11,28 +11,62 @@
 
         <div class="c-main-footer__branding">
 
-          <div class="c-main-footer__logo main-logo" >
+          <div class="c-main-footer__logo main-logo">
             {{#link-to 'index'}}
-              <NyprASvg @icon='wqxr-logo'/>
+            <NyprASvg @icon='wqxr-logo' />
             {{/link-to}}
           </div>
-
-          <div class="c-main-footer__utility">
-
-            <div class="c-main-footer__social">
-              <NyprMShareTools @label='Connect' as |share|>
-                <share.link @service='facebook' @username='Gothamist'/>
-                <share.link @service='twitter' @username='gothamist' />
-                <share.link @service='instagram' @username='Gothamist' />
-                <share.link @service='youtube' @username='UCY_2VeS5Q9_sMZRhtvF0c5Q'/>
-              </NyprMShareTools>
-            </div>
-          </div>
-
         </div>
 
-        <div class="c-main-footer__slogan u-spacing">
-          {{yield (hash slogan=(component 'blank-template'))}}
+        <div class="c-main-footer__utility">
+          <div class="c-main-footer__social">
+            <div class="c-main-footer__slogan u-spacing">
+              {{yield (hash slogan=(component 'blank-template'))}}
+            </div>
+
+            <NyprMShareTools @label='About Us' as |share|>
+              <div class="about-us-div">
+                <div class="about-us-left">
+                  <a href="https://www.wnyc.org/resources/912769/fcc_eeo_public_file_report.pdf" class="u-font--secondary-style u-font--xs u-color--white term-links"
+                    target="_blank" rel="noopener">
+                    EEO Report
+                  </a>
+                  <a href="https://publicfiles.fcc.gov/fm-profile/wqxr-fm" class="u-font--secondary-style u-font--xs u-color--white term-links"
+                    target="_blank" rel="noopener">
+                    WQXR FCC Public File
+                  </a>
+                  <a href="https://www.wnyc.org/privacy" class="u-font--secondary-style u-font--xs u-color--white term-links"
+                    target="_blank" rel="noopener">
+                    Privacy Policy
+                  </a>
+                </div>
+                <div class="about-us-right">
+                  <a href="https://www.wnyc.org/terms" class="u-font--secondary-style u-font--xs u-color--white term-links"
+                    target="_blank" rel="noopener">
+                    Terms of Use
+                  </a>
+                  <a href="https://wqxr.zendesk.com/hc/en-us " class="u-font--secondary-style u-font--xs u-color--white term-links"
+                    target="_blank" rel="noopener">
+                    Contact Us
+                  </a>
+                  <a href="https://sponsorship.wnyc.org/" class="u-font--secondary-style u-font--xs u-color--white term-links"
+                    target="_blank" rel="noopener">
+                    Sponsorship
+                  </a>
+                </div>
+
+              </div>
+            </NyprMShareTools>
+            <NyprMShareTools class="social-media-links" @label='Connect' as |share|>
+              <share.link @service='spotify' @username='3kRXZieRfyb2lCAFtVB76u' />
+              <share.link @service='facebook' @username='WQXRClassical' />
+              <share.link @service='twitter' @username='WQXR' />
+              <share.link @service='instagram' @username='wqxr_classical' />
+              <share.link @service='youtube' @username='UCNaGXxDBmCNQGpwm3hxK9sw' />
+
+            </NyprMShareTools>
+
+          </div>
         </div>
 
         <div class="c-main-footer__nav">
@@ -42,41 +76,24 @@
       </div>
 
       <div class="c-main-footer__col2">
-
         <div class="c-main-footer__signup">
           {{yield (hash signup=(component 'blank-template'))}}
         </div>
-
       </div>
-
     </div>
 
     <div class="c-main-footer__brand-group">
-      <div class="c-main-footer__nypr-logo">
-        <NyprASvg @icon='nypr-logo'/>
+      <div class="c-main-footer__nypr-logo logo-and-toggle">
+        <NyprASvg @icon='nypr-logo' />
       </div>
 
-      <NyprMBrandsLinkroll @exclude='gothamist'/>
-    </div>
-
-    <div class="c-main-footer__bottom">
+      <NyprMBrandsLinkroll @exclude='wqxr' />
 
       <div class="c-main-footer__copyright">
-        <p class="u-font--secondary-style u-font--xs u-color--white">&copy; {{moment-format (now) 'YYYY'}} New York Public Radio. All rights reserved.</p>
+        <p class="u-font--secondary-style u-font--xs u-color--white term-links">&copy; {{moment-format (now) 'YYYY'}} New York
+          Public Radio. All rights reserved.</p>
       </div>
-
-      <div class="c-main-footer__terms-links">
-        <a href="https://www.wnyc.org/terms" class="u-font--secondary-style u-font--xs" target="_blank" rel="noopener">
-          <strong>Terms of Use</strong>
-        </a>
-        <a href="https://www.wnyc.org/privacy" class="u-font--secondary-style u-font--xs" target="_blank" rel="noopener">
-          <strong>Privacy Policy</strong>
-        </a>
-      </div>
-
     </div>
-
   </div>
-
 </footer>
 {{!-- END-SNIPPET --}}
