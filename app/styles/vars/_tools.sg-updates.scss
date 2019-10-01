@@ -221,7 +221,7 @@ $space-quad:        $space*4;   // 64
     }
 
     &:hover {
-      //background-color: darken($c-black, 16);
+      background-color: darken($c-black, 16);
       opacity: 0.8;
     }
   }
