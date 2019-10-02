@@ -60,6 +60,7 @@ export default Service.extend({
     if (prefetchedSchedule) {
       this.set('isLoading', false)
       this.set('dailySchedule', prefetchedSchedule);
+      return prefetchedSchedule;
     } else {
       let requestUrl = this._scheduleUrlForDate(date);
       return this.getSchedule(requestUrl);
