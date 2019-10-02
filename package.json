@@ -91,7 +91,7 @@
     "ember-simple-auth": "^1.8.2",
     "fastboot-app-server": "^1.1.2-beta.1",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
-    "nypr-publisher-lib": "https://github.com/nypublicradio/nypr-publisher-lib#chore/upgrade-ember-fontawesome",
+    "nypr-publisher-lib": "https://github.com/nypublicradio/nypr-publisher-lib#bkammin/DSODA-94_add_previous_to_stream_model",
     "url-parse": "^1.4.3"
   },
   "fastbootDependencies": [

@@ -8918,9 +8918,9 @@ nypr-player@^0.4.0:
     ember-moment "^7.4.1"
     nypr-ui "^0.5.0"
 
-"nypr-publisher-lib@https://github.com/nypublicradio/nypr-publisher-lib#chore/upgrade-ember-fontawesome":
+"nypr-publisher-lib@https://github.com/nypublicradio/nypr-publisher-lib#bkammin/DSODA-94_add_previous_to_stream_model":
   version "0.5.7"
-  resolved "https://github.com/nypublicradio/nypr-publisher-lib#937509a7ee7119f4c27cd1dc503104c9788ff9bb"
+  resolved "https://github.com/nypublicradio/nypr-publisher-lib#19574d2b67f4b307dc9ac7dda1dbcac282f2f8a2"
   dependencies:
     "@fortawesome/ember-fontawesome" "^0.1.14"
     "@fortawesome/free-brands-svg-icons" "^5.10.1"
