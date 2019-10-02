@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
-import { get, set } from "@ember/object";
+import { set } from "@ember/object";
 
 export default Controller.extend({
   dj             : service(),
