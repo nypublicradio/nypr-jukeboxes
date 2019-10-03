@@ -3,7 +3,7 @@ $mq_tablet-portrait: 899px;
 $mq_tablet-landscape: 1199px;
 
 @mixin for-phone-only {
-  @media (max-width: 599px) { @content; }
+  @media only screen and (max-width: 599px) { @content; }
 }
 
 @mixin for-tablet-portrait-up {
