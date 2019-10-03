@@ -74,7 +74,6 @@ export default Service.extend({
 
   subscribeWOMS(response) {
     let stream = response.slug;
-    console.log('subscribing to WOMS for stream: ', stream);
     const socket = this.websockets.socketFor(`${this.womsHost}?stream=${stream}`);
 
     socket.on('open', this.socketOpenHandler, this);
@@ -99,15 +98,15 @@ export default Service.extend({
 
   socketClosedHandler(event) {
     // Runs when the socket is closed
-    console.log(`On close event has been called: ${event}`);
   },
 
   processWOMSData(metadata) {
-    console.log(metadata);
+    /*
     let composer  = metadata.mm_composer1;
     let track     = metadata.title;
     let ensemble  = metadata.mm_ensemble1;
     let conductor = metadata.mm_conductor;
+    */
   },
 
   processWhatsOn(response) {
