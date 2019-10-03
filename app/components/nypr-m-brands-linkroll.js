@@ -54,7 +54,6 @@ export default Component.extend({
   */
 
   items: computed('navItems', 'exclude', function() {
-    console.log('clicked')
     let { navItems, exclude } = this;
     if (!navItems || navItems.length === 0) {
       return [];
