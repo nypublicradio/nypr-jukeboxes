@@ -14,11 +14,13 @@ var DEFAULTSHOWTITLEDICT = {'wqxr': 'Evenings with Terrance McKnight'}
 
 
 export default Service.extend({
-  host: config.publisherAPI,
+  publisherHost: config.publisherAPI,
+  womsHost: config.womsAPI,
   store: service(),
   hifi: service(),
-  poll: service(),
-  currentStream : service(),
+  currentStream: service(),
+  websockets: service(),
+  socketRef: null,
   isLoading: false,
   dailySchedule: null,
   dailyScheduleUpdater: observer('currentStream.slug', function() {
@@ -38,10 +40,7 @@ export default Service.extend({
   }),
 
   init() {
-    let pollFunction = () => this.refreshStream();
-    let pollId = this.get('poll').addPoll({interval: 10 * 1000, callback: pollFunction});
-    this.set('pollId', pollId);
-
+    this.refreshStream();
     this._super(...arguments);
   },
 
@@ -69,8 +68,47 @@ export default Service.extend({
 
   refreshStream() {
     let promise = get(this, 'store').findRecord('stream', this.get('currentStream.slug'))
-    promise.then(response => this.processWhatsOn(response));
+    //promise.then(response => this.processWhatsOn(response));
+    promise.then(response => this.subscribeWOMS(response));
     return promise;
+  },
+
+  subscribeWOMS(response) {
+    let stream = response.slug;
+    console.log('subscribing to WOMS for stream: ', stream);
+    const socket = this.websockets.socketFor(`${this.womsHost}?stream=${stream}`);
+
+    socket.on('open', this.socketOpenHandler, this);
+    socket.on('message', this.socketMessageHandler, this);
+    socket.on('close', this.socketClosedHandler, this);
+
+    this.set('socketRef', socket);
+  },
+
+  socketOpenHandler(event) {
+    // Runs when the socket is opened
+    this.socketRef.send({'data': {'stream': 'wqxr'}}, true);
+  },
+
+  socketMessageHandler(event) {
+    // Handles incoming messages
+    let data = JSON.parse(event.data);
+    if ("Item" in data) {
+      this.processWOMSData(JSON.parse(data["Item"]["metadata"]));
+    }
+  },
+
+  socketClosedHandler(event) {
+    // Runs when the socket is closed
+    console.log(`On close event has been called: ${event}`);
+  },
+
+  processWOMSData(metadata) {
+    console.log(metadata);
+    let composer  = metadata.mm_composer1;
+    let track     = metadata.title;
+    let ensemble  = metadata.mm_ensemble1;
+    let conductor = metadata.mm_conductor;
   },
 
   processWhatsOn(response) {
@@ -181,7 +219,7 @@ export default Service.extend({
     let month = date.format('MMM').toLowerCase();
     let day   = date.format('DD');
 
-    let url = `${this.host}/v1/playlist-daily/${slug}/${year}/${month}/${day}/`;
+    let url = `${this.publisherHost}/v1/playlist-daily/${slug}/${year}/${month}/${day}/`;
     return url;
   },
 

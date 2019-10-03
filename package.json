@@ -59,6 +59,7 @@
     "ember-resolver": "^4.0.0",
     "ember-source": "^3.0.0",
     "ember-truth-helpers": "^2.0.0",
+    "ember-websockets": "^7.2.0",
     "imagesloaded": "^4.1.4",
     "loader.js": "^4.2.3",
     "nypr-ads": "^0.2.0",
