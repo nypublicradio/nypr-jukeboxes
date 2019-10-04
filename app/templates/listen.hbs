@@ -5,9 +5,26 @@
 <div>On Air Now</div>
 <div>{{model.stream.currentShow.showTitle}}</div>
 {{#if model.stream.previous}}
-  <div>Recently Played</div>
-  {{#each model.stream.previous as |item|}}
-    <div>{{item.catalogEntry.title}}</div>
-  {{/each}}
+  <div class="recently-played">
+    <div class="recently-played-label">RECENT MUSIC</div>
+    <div class="recently-played-song-list">
+    {{#each model.stream.previous as |item|}}
+      <div class="recently-played-song">
+        <div class="dot"></div>
+        <div class="metadata">
+          <div class="composer_start-time">
+            <div class="composer">{{item.catalogEntry.composer.name}}</div>
+            <div class="start-time">{{format-start-time item.startTime}}</div>
+          </div>
+          <div class="title_expand">
+          	<div class="title">{{item.catalogEntry.title}}</div>
+          	{{nypr-svg className="icon rotate-minus90" icon="caret-down"}}
+          </div>
+        </div>
+      </div>
+    {{/each}}
+    </div>
+    <a href="/playlist-history" class="view-full-playlist-history-button">VIEW FULL PLAYLIST HISTORY</a>
+  </div>
 {{/if}}
 {{outlet}}
