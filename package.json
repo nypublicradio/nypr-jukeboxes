@@ -39,6 +39,7 @@
     "ember-cli-eslint": "^4.0.0",
     "ember-cli-fastboot": "^2.0.0",
     "ember-cli-fastboot-testing": "^0.0.16",
+    "ember-cli-google-fonts": "^2.16.2",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
@@ -64,7 +65,6 @@
     "nypr-audio-services": "^0.5.0",
     "nypr-metrics": "^0.5.3",
     "nypr-player": "^0.4.0",
-    "nypr-publisher-lib": "^0.5.1",
     "nypr-ui": "^0.5.0",
     "qunit-dom": "^0.6.2",
     "sass": "^1.14.1"
@@ -80,9 +80,9 @@
     "ember-hifi": "^1.15.0",
     "ember-simple-auth": "^1.8.2",
     "nypr-audio-services": "nypublicradio/nypr-audio-services#chore/upgrade-ember-fetch-6",
-    "nypr-metrics": "0.5.3",
+    "nypr-metrics": "nypublicradio/nypr-metrics#kate/fix-listen-analytics-build-error",
     "nypr-player": "^0.4.0",
-    "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#chore/upgrade-ember-fontawesome",
+    "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#bkammin/DSODA-94_add_previous_to_stream_model",
     "nypr-ui": "^0.5.0"
   },
   "dependencies": {
@@ -91,6 +91,7 @@
     "ember-simple-auth": "^1.8.2",
     "fastboot-app-server": "^1.1.2-beta.1",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
+    "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#bkammin/DSODA-94_add_previous_to_stream_model",
     "url-parse": "^1.4.3"
   },
   "fastbootDependencies": [

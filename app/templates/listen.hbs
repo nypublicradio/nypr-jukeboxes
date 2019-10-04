@@ -1,0 +1,13 @@
+<div>Now Playing</div>
+<section class="jukebox-display" aria-label="stream metadata display">
+  <JukeboxDisplay @currentStream={{model.stream}} />
+</section>
+<div>On Air Now</div>
+<div>{{model.stream.currentShow.showTitle}}</div>
+{{#if model.stream.previous}}
+  <div>Recently Played</div>
+  {{#each model.stream.previous as |item|}}
+    <div>{{item.catalogEntry.title}}</div>
+  {{/each}}
+{{/if}}
+{{outlet}}

@@ -1,3 +1,11 @@
+{{horizontal-nav
+  navRoot='listen'
+  defaultSlug='listen'
+  channelSlug='listen'
+  links=links
+  activeTabIndex=activeTabIndex
+  didChangeIndex=(action 'updateNav')}}
+
 {{outlet}}
 
 <NyprPlayerIntegration as |integration|>
@@ -36,3 +44,4 @@
     </NyprPlayer>
   {{/liquid-if}}
 </NyprPlayerIntegration>
+

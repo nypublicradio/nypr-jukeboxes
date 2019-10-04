@@ -18,9 +18,12 @@
 @import 'routes/index';
 
 @import 'components/nypr-player-overrides';
+@import 'components/horizontal-nav';
+@import "components/sliding-bar";
 
 body {
   font-family: $font-pixel-body;
+  background-color: $water-blue;
 }
 
 button {

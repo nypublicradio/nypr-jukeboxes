@@ -1,0 +1,19 @@
+@mixin values-for-mobile-desktop($rule, $mobile-value, $desktop-value) {
+  #{$rule}: $mobile-value;
+
+  @media #{$mq_medium-and-up} {
+    #{$rule}: $desktop-value;
+  }
+}
+
+@mixin selector-to-grid-area($selector, $desktop-grid-area, $mobile-grid-area: $desktop-grid-area) {
+  #{$selector} {
+    grid-area: $mobile-grid-area;
+  }
+
+  @media #{$mq_medium-and-up} {
+    #{$selector} {
+      grid-area: $desktop-grid-area;
+    }
+  }
+}

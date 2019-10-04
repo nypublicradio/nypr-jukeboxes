@@ -1,12 +1,12 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import { get } from '@ember/object';
+import { get } from "@ember/object";
 import RSVP from 'rsvp';
 
 export default Route.extend({
   poll: service(),
   streamMetadata: service(),
-
+  currentStream: service(),
 
   beforeModel() {
     // Don't start poll in Fastboot
@@ -28,5 +28,13 @@ export default Route.extend({
     };
     return RSVP.hash(hash);
   },
+
+  setupController: function(controller, model) {
+    controller.set('currentStream', model.streams[0]);
+  },
+
+  redirect: function () {
+    this.transitionTo('listen');
+  }
 
 });
