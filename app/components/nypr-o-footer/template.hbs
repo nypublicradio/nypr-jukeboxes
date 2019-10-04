@@ -1,7 +1,7 @@
 {{!-- BEGIN-SNIPPET nypr-o-footer.hbs --}}
 {{!-- <NyprMToTop /> --}}
 
-<footer class="c-main-footer" data-test-main-footer>
+<footer class="c-main-footer">
 
   <div class="l-container l-wrap u-spacing--triple">
 
@@ -58,12 +58,14 @@
               </div>
             </NyprMShareTools>
             <NyprMShareTools class="social-media-links" @label='Connect' as |share|>
-              <share.link @service='spotify' @username='3kRXZieRfyb2lCAFtVB76u' />
-              <share.link @service='facebook' @username='WQXRClassical' />
-              <share.link @service='twitter' @username='WQXR' />
-              <share.link @service='instagram' @username='wqxr_classical' />
-              <share.link @service='youtube' @username='UCNaGXxDBmCNQGpwm3hxK9sw' />
-
+              <div class="about-us-div">
+                  <share.link @service='spotify' @username='3kRXZieRfyb2lCAFtVB76u' />
+                  <share.link @service='facebook' @username='WQXRClassical' />
+                  <share.link @service='twitter' @username='WQXR' />
+                  <share.link @service='instagram' @username='wqxr_classical' />
+                  <share.link @service='youtube' @username='UCNaGXxDBmCNQGpwm3hxK9sw' />
+         
+              </div>
             </NyprMShareTools>
           </div>
         </div>
@@ -78,17 +80,17 @@
 
     <div class="c-main-footer__brand-group">
       {{!-- <div class="brand-group"> --}}
-        <div class="c-main-footer__nypr-logo logo-and-toggle">
-          <NyprASvg @icon='nypr-logo' />
-        </div>
-        
-        <NyprMBrandsLinkroll @exclude='wqxr' />
+      <div class="c-main-footer__nypr-logo logo-and-toggle">
+        <NyprASvg @icon='nypr-logo' />
+      </div>
 
-        <div class="c-main-footer__copyright">
-          <p class="u-font--secondary-style u-font--xs u-color--white term-links">&copy; {{moment-format (now) 'YYYY'}}
-            New York
-            Public Radio. All rights reserved.</p>
-        </div>
+      <NyprMBrandsLinkroll @exclude='wqxr' />
+
+      <div class="c-main-footer__copyright">
+        <p class="u-font--secondary-style u-font--xs u-color--white term-links">&copy; {{moment-format (now) 'YYYY'}}
+          New York
+          Public Radio. All rights reserved.</p>
+      </div>
       {{!-- </div> --}}
     </div>
   </div>

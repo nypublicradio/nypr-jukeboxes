@@ -1,31 +1,3 @@
-@import '_include-media';
-@import "ember-basic-dropdown";
-
-@import "nypr-ui/vars";
-@import "nypr-ui/brand-header";
-@import "nypr-ui/colors"; // any color like "$light-gray"
-@import "nypr-ui/buttons";
-@import "nypr-audio-services/text-crawl";
-@import "nypr-player";
-
-@import 'mixins/mq';
-@import 'vars/colors';
-@import 'vars/fonts';
-@import 'vars/layout';
-@import 'vars/tools.sg-updates';
-
-@import "node_modules/nypr-pattern-lab/source/scss/themes/default/default.scss";
-
-@import 'normalize';
-//@import 'base';
-
-@import 'routes/index';
-
-@import 'components/nypr-player-overrides';
-@import 'components/horizontal-nav';
-@import "components/sliding-bar";
-@import "components/listen";
-
 /**
  * CONTENTS
  *
@@ -95,76 +67,77 @@
 \*------------------------------------*/
 //@import "fonts.css";
 //@import "settings.variables";
-@import "_library/settings.z-index";
+@import "settings.z-index";
+
 /*------------------------------------*\
     $TOOLS
 \*------------------------------------*/
 
-@import "_library/tools.include-media";
+@import "tools.include-media";
 $tests: false;
-@import '_library/tools.mq-tests';
+@import 'tools.mq-tests';
 
 /*------------------------------------*\
     $GENERIC
 \*------------------------------------*/
-@import "_library/generic.reset";
+@import "generic.reset";
 
 /*------------------------------------*\
     $BASE
 \*------------------------------------*/
-@import "_library/base.forms";
-@import "_library/base.headings";
-@import "_library/base.links";
-@import "_library/base.lists";
-@import "_library/base.main";
-@import "_library/base.media";
-@import "_library/base.tables";
-@import "_library/base.text";
+@import "base.forms";
+@import "base.headings";
+@import "base.links";
+@import "base.lists";
+@import "base.main";
+@import "base.media";
+@import "base.tables";
+@import "base.text";
 
 /*------------------------------------*\
     $LAYOUT
 \*------------------------------------*/
-@import "_library/layout.grids";
-@import "_library/layout.wrappers";
+@import "layout.grids";
+@import "layout.wrappers";
 
 /*------------------------------------*\
     $TEXT
 \*------------------------------------*/
-@import "_library/objects.text";
+@import "objects.text";
 
 /*------------------------------------*\
     $COMPONENTS
 \*------------------------------------*/
-@import "_library/objects.blocks";
-@import "_library/objects.cards";
-@import "_library/objects.components";
-@import "_library/objects.messaging";
-@import "_library/objects.leads";
-@import "_library/objects.buttons";
-@import "_library/objects.icons";
-@import "_library/objects.lists";
-@import "_library/objects.navs";
-@import "_library/objects.touts";
-@import "_library/objects.sections";
-@import "_library/objects.forms";
-@import "_library/objects.media";
+@import "objects.blocks";
+@import "objects.cards";
+@import "objects.components";
+@import "objects.messaging";
+@import "objects.leads";
+@import "objects.buttons";
+@import "objects.icons";
+@import "objects.lists";
+@import "objects.navs";
+@import "objects.touts";
+@import "objects.sections";
+@import "objects.forms";
+@import "objects.media";
 
 /*------------------------------------*\
     $PAGE STRUCTURE
 \*------------------------------------*/
-@import "_library/module.article";
-@import "_library/module.gallery";
-@import "_library/module.footer";
-@import "_library/module.header";
-@import "_library/module.main";
+@import "module.article";
+@import "module.gallery";
+@import "module.footer";
+@import "module.header";
+@import "module.main";
 
 /*------------------------------------*\
     $MODIFIERS
 \*------------------------------------*/
-@import "_library/modifier.animations";
-@import "_library/modifier.colors";
-@import "_library/modifier.display";
-@import "_library/modifier.spacing";
+@import "modifier.animations";
+@import "modifier.colors";
+@import "modifier.display";
+@import "modifier.spacing";
 
 /*------------------------------------*\
     $VENDORS
@@ -173,14 +146,4 @@ $tests: false;
 /*------------------------------------*\
     $TRUMPS
 \*------------------------------------*/
-@import "_library/trumps.helper-classes";
-
-
-body {
-  font-family: $font-pixel-body;
-  background-color: $water-blue;
-}
-
-button {
-  @include btn;
-}
+@import "trumps.helper-classes";
