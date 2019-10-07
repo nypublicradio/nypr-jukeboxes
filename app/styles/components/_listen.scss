@@ -33,8 +33,6 @@
     background-repeat: no-repeat;
     background-position: 3px center;
 
-    //padding-left: 20px;
-
     display: flex;
     flex-direction: row;
 
@@ -95,6 +93,30 @@
       margin-right: 16px;
       margin-top: auto;
       margin-bottom: auto;
+    }
+
+    .secondary-metadata-toggle-box {
+      > button:focus {
+        outline: none;
+      }
+
+      > button {
+        border: none;
+      }
+
+      .u-icon--xs {
+        height: 26px;
+      }
+
+      .secondary-metadata-content {
+        background-color: black;
+        color: white;
+        border-radius: 4px;
+        padding: 24px;
+        font-family: OpenSans;
+        font-size: 12px;
+        line-height: 1.5;
+      }
     }
   }
 

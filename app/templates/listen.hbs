@@ -17,8 +17,17 @@
             <div class="start-time">{{format-start-time item.startTime}}</div>
           </div>
           <div class="title_expand">
-          	<div class="title">{{item.catalogEntry.title}}</div>
-          	{{nypr-svg className="icon rotate-minus90" icon="caret-down"}}
+            <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
+              <toggle.trigger>
+                <div class="title">{{item.catalogEntry.title}}</div>
+              </toggle.trigger>
+              <toggle.dropdown>
+                <div class="secondary-metadata-content">
+                  <div>Performed by the {{item.catalogEntry.ensemble.name}}</div>
+                  <div>Conducted by {{item.catalogEntry.conductor.name}}</div>
+                </div>
+              </toggle.dropdown>
+            </NyprAToggleBox>
           </div>
         </div>
       </div>
