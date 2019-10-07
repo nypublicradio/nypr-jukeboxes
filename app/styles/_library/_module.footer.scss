@@ -29,6 +29,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    flex-wrap: wrap;
 
     @include media('>xlarge') {
       justify-content: flex-start;
