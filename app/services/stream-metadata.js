@@ -18,6 +18,7 @@ export default Service.extend({
   womsHost: config.womsAPI,
   store: service(),
   hifi: service(),
+  // poll: service(),
   currentStream: service(),
   websockets: service(),
   socketRef: null,
@@ -40,6 +41,12 @@ export default Service.extend({
   }),
 
   init() {
+    /*
+    let pollFunction = () => this.refreshStream();
+    let pollId = this.get('poll').addPoll({interval: 10 * 1000, callback: pollFunction});
+    this.set('pollId', pollId);
+    */
+
     this.refreshStream();
     this._super(...arguments);
   },
