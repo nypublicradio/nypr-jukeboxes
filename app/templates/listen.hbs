@@ -1,7 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <section class="jukebox-display" aria-label="stream metadata display">
   <JukeboxDisplay @currentStream={{model.stream}} />
   {{!-- <JukeboxDisplay /> just the play button and Listen here --}}
+=======
+<div>Now Playing</div>
+<section class="jukebox-display" aria-label="stream metadata display">
+  <JukeboxDisplay @currentStream={{model.stream}} />
+>>>>>>> go back to when this was working
 </section>
 <div>On Air Now</div>
 <div>{{model.stream.currentShow.showTitle}}</div>
@@ -11,6 +17,7 @@
     <div>{{item.catalogEntry.title}}</div>
   {{/each}}
 {{/if}}
+<<<<<<< HEAD
 =======
 <div class="listen">
   <div class="on-air-now">
@@ -118,4 +125,6 @@
 </div>
 
 >>>>>>> f4ea536bed4e089aa0f9c83395d4b2573e8a1c62
+=======
+>>>>>>> go back to when this was working
 {{outlet}}
