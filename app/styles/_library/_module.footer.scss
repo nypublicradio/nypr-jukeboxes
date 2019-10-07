@@ -28,7 +28,7 @@
   &__branding {
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: left;
     flex-wrap: wrap;
 
     @include media('>xlarge') {
