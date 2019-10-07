@@ -4,6 +4,7 @@ import { get } from "@ember/object";
 import RSVP from 'rsvp';
 
 export default Route.extend({
+  poll: service(),
   streamMetadata: service(),
   currentStream: service(),
 
