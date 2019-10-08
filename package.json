@@ -58,6 +58,7 @@
     "ember-qunit": "^4.5.1",
     "ember-resolver": "^4.0.0",
     "ember-source": "^3.0.0",
+    "ember-sticky-element": "^0.2.3",
     "ember-truth-helpers": "^2.0.0",
     "imagesloaded": "^4.1.4",
     "loader.js": "^4.2.3",

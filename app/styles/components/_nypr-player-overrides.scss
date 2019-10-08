@@ -48,3 +48,17 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
 .nypr-player-wrapper.liquid-container {
   transform: none;
 }
+
+.header{
+  padding: 25px;
+  .live-text {
+    background: white;
+    width: 99px;
+    color: $denim-blue;
+    border-radius: 25px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 10px;
+    font-family: OpenSans;
+  }
+}
