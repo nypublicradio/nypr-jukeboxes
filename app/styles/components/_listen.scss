@@ -80,6 +80,8 @@
       font-family: OpenSans;
       font-size: 14px;
       margin-right: 5px;
+      text-align: left;
+      line-height: 16px;
     }
 
     padding-bottom: 16px;
@@ -102,6 +104,7 @@
 
       > button {
         border: none;
+        padding-left: 0px;
       }
 
       .u-icon--xs {
