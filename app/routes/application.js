@@ -7,6 +7,7 @@ export default Route.extend({
   poll: service(),
   streamMetadata: service(),
   currentStream: service(),
+  woms: service(),
 
   beforeModel() {
     // Don't start poll in Fastboot
@@ -27,6 +28,10 @@ export default Route.extend({
       streams: this.get('streamMetadata').loadStreams()
     };
     return RSVP.hash(hash);
+  },
+
+  afterModel() {
+    this.get('woms').initializeWOMS();
   },
 
   setupController: function(controller, model) {
