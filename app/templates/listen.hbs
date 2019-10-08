@@ -7,6 +7,29 @@
 <div>{{model.stream.currentShow.showTitle}}</div>
 -->
 
+<div class="on-air-now">
+  <div class="on-air-now-label">ON AIR NOW</div>
+  <img class="show-image" src={{model.stream.currentShow.fullImage.url}} />
+  <div class="show-title">{{model.stream.currentShow.title}}</div>
+  <div class="message-the-show">
+    <NyprAToggleBox class="message-the-show-toggle-box" as |toggle|>
+      <toggle.trigger>
+        <div class="message-the-show-title">MESSAGE THE SHOW</div>
+      </toggle.trigger>
+      <toggle.dropdown>
+        <div class="message-the-show-content">Message the show...</div>
+      </toggle.dropdown>
+    </NyprAToggleBox>
+  </div>
+    {{#listen-button
+      class='play-button'
+      data-action="Clicked Play/Pause Stream: jukebox-display"
+      data-label=model.stream.name
+      itemPK=model.stream.slug
+      itemTitle=model.stream.name}}
+    {{/listen-button}}
+</div>
+
 <div class="currently-listening-to">
   <div class="currently-listening-to-label">CURRENTLY LISTENING TO</div>
   <div class="song-metadata currently-playing-song">
