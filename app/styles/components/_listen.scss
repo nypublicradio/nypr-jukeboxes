@@ -1,5 +1,129 @@
 @import '../vars/colors';
 
+.song-metadata {
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: row;
+
+  .metadata {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  .composer_start-time {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  .composer {
+    display: flex;
+    font-family: PlayfairDisplay;
+    font-size: 22px;
+    font-weight: 900;
+    justify-content: flex-start;
+    flex: 1;
+  }
+
+  .start-time {
+    display: flex;
+    font-family: OpenSans;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    justify-content: flex-end;
+  }
+
+  .title_expand {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  .title {
+    font-family: OpenSans;
+    font-size: 14px;
+    margin-right: 5px;
+    text-align: left;
+    line-height: 16px;
+  }
+
+  padding-bottom: 16px;
+  padding-top: 16px;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    margin-right: 16px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .secondary-metadata-toggle-box {
+    > button:focus {
+      outline: none;
+    }
+
+    > button {
+      border: none;
+      padding-left: 0px;
+    }
+
+    .u-icon--xs {
+      height: 26px;
+    }
+
+    .secondary-metadata-content {
+      background-color: black;
+      color: white;
+      border-radius: 4px;
+      padding: 24px;
+      font-family: OpenSans;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  }
+}
+
+.currently-listening-to {
+  max-width: 369px;
+  padding: 24px 24px 0px 24px;
+
+  .currently-listening-to-label {
+    font-family: OpenSans;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+
+  .currently-playing-song {
+    background-image: linear-gradient(#ffffff, #ffffff);
+    background-size: 2px 50%;
+    background-position: 3px bottom;
+
+    .composer {
+      color: #ffffff;
+    }
+
+    .start-time {
+      color: #ffffff;
+    }
+
+    .title {
+      color: #ffffff;
+    }
+
+    .dot {
+      background-color: #ffffff;
+    }
+  }
+}
+
 .recently-played {
   background-color: white;
   max-width: 369px;
@@ -30,96 +154,23 @@
   .recently-played-song {
   	background-image: linear-gradient($water-blue, $water-blue);
     background-size: 2px 100%;
-    background-repeat: no-repeat;
     background-position: 3px center;
-
-    display: flex;
-    flex-direction: row;
-
-    .metadata {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-    }
-
-    .composer_start-time {
-      display: flex;
-      flex-direction: row;
-      align-items: baseline;
-    }
 
     .composer {
       color: $denim-blue;
-      display: flex;
-      font-family: PlayfairDisplay;
-      font-size: 22px;
-      font-weight: 900;
-      justify-content: flex-start;
-      flex: 1;
     }
 
     .start-time {
-      display: flex;
       opacity: 0.5;
-      font-family: OpenSans;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 1.2px;
-      justify-content: flex-end;
       color: #000000;
-    }
-
-    .title_expand {
-      display: flex;
-      flex-direction: row;
-      align-items: baseline;
     }
 
     .title {
       color: #000000;
-      font-family: OpenSans;
-      font-size: 14px;
-      margin-right: 5px;
-      text-align: left;
-      line-height: 16px;
     }
-
-    padding-bottom: 16px;
-    padding-top: 16px;
 
     .dot {
       background-color: $water-blue;
-      width: 8px;
-      height: 8px;
-      border-radius: 4px;
-      margin-right: 16px;
-      margin-top: auto;
-      margin-bottom: auto;
-    }
-
-    .secondary-metadata-toggle-box {
-      > button:focus {
-        outline: none;
-      }
-
-      > button {
-        border: none;
-        padding-left: 0px;
-      }
-
-      .u-icon--xs {
-        height: 26px;
-      }
-
-      .secondary-metadata-content {
-        background-color: black;
-        color: white;
-        border-radius: 4px;
-        padding: 24px;
-        font-family: OpenSans;
-        font-size: 12px;
-        line-height: 1.5;
-      }
     }
   }
 
