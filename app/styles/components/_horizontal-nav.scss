@@ -31,7 +31,7 @@
 
 
 .horizontal-nav__container {
-  overflow-x: auto;
+  padding-left: 25px;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
