@@ -118,4 +118,20 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
     margin: 0;
     flex-direction: row;
   }
+  .live-text-box p {
+    text-align: center;
+   
+  } 
+  .donate-button {
+    color: white;
+    border-color: white;
+  }
+}
+
+@include for-phone-only {
+  
+  svg .live-text-box{
+  display: flex;
+  flex-direction: column;
+  }
 }
