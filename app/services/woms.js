@@ -51,7 +51,7 @@ export default Service.extend({
     // Runs when the socket is closed
   },
 
-  processWOMSData(metadata) {
+  processWOMSData(/*metadata*/) {
     //let composer  = metadata.mm_composer1;
     //let track     = metadata.title;
     //let ensemble  = metadata.mm_ensemble1;
