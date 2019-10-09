@@ -10,7 +10,7 @@ export default Route.extend({
     return this.store.findRecord("stream", 'wqxr')
     .then(stream => {
       return rsvp.hash({
-        stream: stream
+        stream: rsvp.resolve(stream)
       });
     });
   },
