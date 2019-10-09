@@ -50,15 +50,43 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
 }
 
 .header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 25px;
-  .live-text {
+  border-bottom: dotted 1px #0064b4;
+  svg {
+    min-width: 220px;    
+  }
+  .live-text-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: white;
-    width: 99px;
-    color: $denim-blue;
-    border-radius: 25px;
+    height: 14px;
+    min-width: 99px;
+    border-radius: 5px;
     text-align: center;
-    margin: 0 auto;
+
+    color: #0064b4;
+    margin: 0 99px;
     font-size: 10px;
     font-family: OpenSans;
+  }
+  .live-text-box p {
+    text-align: center;
+   
+  } 
+  .donate-button {
+    color: white;
+    border-color: white;
+  }
+}
+
+@include for-phone-only {
+  
+  svg .live-text-box{
+  display: flex;
+  flex-direction: column;
   }
 }
