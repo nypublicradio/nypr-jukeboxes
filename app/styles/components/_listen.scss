@@ -1,5 +1,11 @@
 @import '../vars/colors';
 
+.listen {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .on-air-now {
   max-width: 369px;
   padding: 24px;

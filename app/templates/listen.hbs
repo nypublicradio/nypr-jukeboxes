@@ -6,7 +6,7 @@
 <div>On Air Now</div>
 <div>{{model.stream.currentShow.showTitle}}</div>
 -->
-
+<div class="listen">
 <div class="on-air-now">
   <div class="on-air-now-label">ON AIR NOW</div>
   <img class="show-image" src={{model.stream.currentShow.fullImage.url}} />
@@ -30,6 +30,7 @@
     {{/listen-button}}
 </div>
 
+<div class="playlist-history">
 <div class="currently-listening-to">
   <div class="currently-listening-to-label">CURRENTLY LISTENING TO</div>
   <div class="song-metadata currently-playing-song">
@@ -87,4 +88,6 @@
     <a href="/playlist-history" class="view-full-playlist-history-button">VIEW FULL PLAYLIST HISTORY</a>
   </div>
 {{/if}}
+</div>
+</div>
 {{outlet}}

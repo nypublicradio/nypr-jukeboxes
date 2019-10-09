@@ -2,6 +2,7 @@ import Route from '@ember/routing/route';
 import rsvp from "rsvp";
 
 export default Route.extend({
+  class: 'listen',
   model() {
     let controller = this.controllerFor('application');
     controller.send('setNavSlug', 'listen');
