@@ -52,7 +52,7 @@
 }
 
 .on-air-now {
-  max-width: 369px;
+  width: 369px;
   padding: 24px;
 
   .on-air-now-label {
@@ -215,7 +215,7 @@
 }
 
 .currently-listening-to {
-  max-width: 369px;
+  width: 369px;
   padding: 24px 24px 0px 24px;
 
   .currently-listening-to-label {
@@ -258,7 +258,7 @@
 
 .recently-played {
   background-color: white;
-  max-width: 369px;
+  width: 369px;
   padding: 24px;
   border-radius: 4px;
   display: flex;
