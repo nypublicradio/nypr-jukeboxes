@@ -114,7 +114,7 @@
 
     .u-icon--xs {
       height: 26px;
-      color: #ffffff;
+      fill: #ffffff;
     }
   }
 
@@ -246,6 +246,12 @@
 
     .dot {
       background-color: #ffffff;
+    }
+  }
+
+  .title_expand {
+    .u-icon--xs {
+      fill: #ffffff;
     }
   }
 }
