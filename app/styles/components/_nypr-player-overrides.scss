@@ -120,18 +120,33 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
   }
   .live-text-box p {
     text-align: center;
-   
   } 
-  .donate-button {
+  a.donate-button {
     color: white;
     border-color: white;
   }
 }
 
+.donate-button {
+  color: white;
+  border-color: white;
+}
+
+.listen-playhistory{
+  position: sticky;
+  top: 0;
+}
+
 @include for-phone-only {
-  
-  svg .live-text-box{
+
+.header:not(.button)  {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   }
+  .header .live-text-box {
+    margin: 0;
+    flex-direction: row;
+  }
+ 
 }
