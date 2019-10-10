@@ -115,7 +115,7 @@
 
 .horizontal-nav__list-item > a {
   @include disable-subpixel-antialiasing;
-  @include values-for-mobile-desktop(font-size, 16px, 18px);
+  @include values-for-mobile-desktop(font-size, 12px, 18px);
 
   line-height: 0.8;
   font-weight: 600;

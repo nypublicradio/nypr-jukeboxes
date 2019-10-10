@@ -1,16 +1,18 @@
 <div class="header">
-
-  {{nypr-svg className="site-header-title-logo" icon="wqxr-log-frq"}}
+  <div class="wqxr-logo">
+    {{nypr-svg className="site-header-title-logo" icon="wqxr-log-frq"}}
+  </div>
 
   <div class="live-text-box">
     <p>LIVE FROM NYC</p>
   </div>
 
-  <button class="donate-button" onclick="location.href='https://www.wqxr.org/support/" type="button">
-    Donate</button>
+  <a class="donate-button" href="https://www.wqxr.org/support/"><button>Donate</button></a>
+
 </div>
 
-{{#sticky-element}}
+{{!-- {{#sticky-element}} --}}
+<div class="listen-playhistory">
 {{horizontal-nav
     navRoot='listen'
     defaultSlug='listen'
@@ -18,9 +20,10 @@
     links=links
     activeTabIndex=activeTabIndex
     didChangeIndex=(action 'updateNav')}}
-{{/sticky-element}}
-
+  </div>
+{{!-- {{/sticky-element}} --}}
 {{outlet}}
+
 
 <NyprPlayerIntegration as |integration|>
   {{#liquid-if showPlayer class="nypr-player-wrapper"}}
