@@ -128,9 +128,10 @@
 
 .song-metadata {
   background-repeat: no-repeat;
-
   display: flex;
   flex-direction: row;
+  padding-bottom: 16px;
+  padding-top: 16px;
 
   .metadata {
     display: flex;
@@ -176,16 +177,12 @@
     line-height: 16px;
   }
 
-  padding-bottom: 16px;
-  padding-top: 16px;
-
   .dot {
     width: 8px;
     height: 8px;
     border-radius: 4px;
     margin-right: 16px;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: 8px;
   }
 
   .secondary-metadata-toggle-box {
@@ -199,7 +196,15 @@
     }
 
     .u-icon--xs {
-      height: 26px;
+      height: 30px;
+    }
+
+    .o-text-with-icon .o-icon--caret .caret-down-icon {
+      width: 12px;
+    }
+
+    .o-text-with-icon > *:last-child {
+      margin-left: 0px;
     }
 
     .secondary-metadata-content {
@@ -229,8 +234,9 @@
 
   .currently-playing-song {
     background-image: linear-gradient(#ffffff, #ffffff);
-    background-size: 2px 50%;
+    background-size: 2px calc(100% - 24px);
     background-position: 3px bottom;
+    padding-bottom: 32px;
 
     .composer {
       color: #ffffff;
@@ -274,13 +280,13 @@
   }
 
   div:first-child {
-  	background-size: 2px 50%;
-  	background-position: 3px bottom;
+    background-size: 2px calc(100% - 24px);
+    background-position: 3px bottom;
   }
 
   div:last-child {
-  	background-size: 2px 50%;
-  	background-position: 3px top;
+    background-size: 2px 24px;
+    background-position: 3px top;
   }
 
   .recently-played-song {

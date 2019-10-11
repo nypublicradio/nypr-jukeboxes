@@ -39,7 +39,7 @@
     <div class="dot"></div>
     <div class="metadata">
       <div class="composer_start-time">
-        <div class="composer">{{model.stream.currentPlaylistItem.catalogEntry.composer.name}}</div>
+        <div class="composer">{{if model.stream.currentPlaylistItem.catalogEntry.composer.name model.stream.currentPlaylistItem.catalogEntry.composer.name "Lorem Ipsum"}}</div>
         <div class="start-time">NOW</div>
       </div>
       <div class="title_expand">
@@ -67,7 +67,7 @@
         <div class="dot"></div>
         <div class="metadata">
           <div class="composer_start-time">
-            <div class="composer">{{item.catalogEntry.composer.name}}</div>
+            <div class="composer">{{if item.catalogEntry.composer.name item.catalogEntry.composer.name "Lorem Ipsum"}}</div>
             <div class="start-time">{{format-start-time item.startTime}}</div>
           </div>
           <div class="title_expand">
