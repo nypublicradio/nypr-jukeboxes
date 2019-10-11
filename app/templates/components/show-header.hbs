@@ -1,0 +1,24 @@
+<div class="header">
+  <div class="wqxr-logo">
+    {{nypr-svg className="site-header-title-logo" icon="wqxr-log-frq"}}
+  </div>
+
+  <div class="live-text-box">
+    <p>LIVE FROM NYC</p>
+  </div>
+
+  <a class="donate-button" href="https://www.wqxr.org/support/"><button>Donate</button></a>
+
+</div>
+
+{{!-- {{#sticky-element}} --}}
+<div class="listen-playhistory">
+  <div class="new-donate"></div>
+{{horizontal-nav
+    navRoot='listen'
+    defaultSlug='listen'
+    channelSlug='listen'
+    links=links
+    activeTabIndex=activeTabIndex}}
+</div>
+{{!-- {{/sticky-element}} --}}
