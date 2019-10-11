@@ -135,6 +135,7 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
 .listen-playhistory{
   position: sticky;
   top: 0;
+  background-color: pink;
 }
 
 @include for-phone-only {
