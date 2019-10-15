@@ -4,24 +4,19 @@ import {get, set, computed} from '@ember/object';
 import config from '../config/environment';
 
 function isAboveViewport(element) {
-    console.log('hi')
     var rect = element.getBoundingClientRect();
-    console.log(rect)
-    return rect.top >= 0;
+    return rect.top > 0;
   }
 
   let triggerStickyClass = function() {
     let elScrollContainer   = document.querySelector(".header");
-    console.log(elScrollContainer);
     let elStickyContainer   = document.querySelector(".show-header--sticky-container");
     let sentinel = document.querySelector(".new-donate");
-  
+    
     if (!isAboveViewport(sentinel)) {
-      elScrollContainer.classList.add("covered");
-     // elStickyContainer.classList.add("shown");
+        document.getElementById('sticky-donate').style.visibility = 'visible';
     } else {
-      elScrollContainer.classList.remove("covered");
-     // elStickyContainer.classList.remove("shown");
+        document.getElementById('sticky-donate').style.visibility = 'hidden';
     }
   };
   
@@ -36,7 +31,6 @@ function isAboveViewport(element) {
             "scroll",
             triggerStickyClass
         );
-        console.log(document.querySelector(".header"))
       },
       activeTabIndex: null,
       actions: {
@@ -47,10 +41,6 @@ function isAboveViewport(element) {
                   activeTabIndex: get(this, 'activeTabIndex')
               })
           }
-          
-
-      
       }
-
   });
   
