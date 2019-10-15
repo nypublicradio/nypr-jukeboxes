@@ -3,8 +3,6 @@ import Component from '@ember/component';
 import {get, set, computed} from '@ember/object';
 import config from '../config/environment';
 
-console.log('test')
-
 function isAboveViewport(element) {
     console.log('hi')
     var rect = element.getBoundingClientRect();
@@ -19,11 +17,9 @@ function isAboveViewport(element) {
     let sentinel = document.querySelector(".new-donate");
   
     if (!isAboveViewport(sentinel)) {
-        console.log('pls')
       elScrollContainer.classList.add("covered");
      // elStickyContainer.classList.add("shown");
     } else {
-        console.log('pls')
       elScrollContainer.classList.remove("covered");
      // elStickyContainer.classList.remove("shown");
     }
