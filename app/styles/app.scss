@@ -23,8 +23,7 @@
 @import "components/sliding-bar";
 @import "components/listen";
 
-@import "vars/_theme.variables.scss"; // from pattern-lab
-@import "_objects.icons.scss"; // from pattern-lab
+@import "pattern-lab/_pattern-lab.scss";
 
 body {
   font-family: $font-pixel-body;

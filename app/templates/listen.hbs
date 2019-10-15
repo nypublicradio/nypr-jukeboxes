@@ -49,8 +49,14 @@
           </toggle.trigger>
           <toggle.dropdown>
             <div class="secondary-metadata-content">
-              <div>Performed by the {{model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}</div>
-              <div>Conducted by {{model.stream.currentPlaylistItem.catalogEntry.conductor.name}}</div>
+              {{#if model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}
+              <div class="secondary-metadata-content-field"><span class="secondary-metadata-content-label">Performed by the </span><span class="secondary-metadata-content-title">{{model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}</span></div>
+              {{/if}}
+              {{#if model.stream.currentPlaylistItem.catalogEntry.conductor.name}}
+              <div class="secondary-metadata-content-field">
+                <span class="secondary-metadata-content-label">Conducted by </span>
+                <span class="secondary-metadata-content-title">{{model.stream.currentPlaylistItem.catalogEntry.conductor.name}}</span></div>
+              {{/if}}
             </div>
           </toggle.dropdown>
         </NyprAToggleBox>
@@ -77,8 +83,18 @@
               </toggle.trigger>
               <toggle.dropdown>
                 <div class="secondary-metadata-content">
-                  <div>Performed by the {{item.catalogEntry.ensemble.name}}</div>
-                  <div>Conducted by {{item.catalogEntry.conductor.name}}</div>
+                  {{#if item.catalogEntry.ensemble.name}}
+                  <div class="secondary-metadata-content-field">
+                    <span class="secondary-metadata-content-label">Performed by the </span>
+                    <span class="secondary-metadata-content-title">{{item.catalogEntry.ensemble.name}}</span>
+                  </div>
+                  {{/if}}
+                  {{#if item.catalogEntry.conductor.name}}
+                  <div class="secondary-metadata-content-field">
+                    <span class="secondary-metadata-content-label">Conducted by </span>
+                    <span class="secondary-metadata-content-title">{{item.catalogEntry.conductor.name}}</span>
+                  </div>
+                  {{/if}}
                 </div>
               </toggle.dropdown>
             </NyprAToggleBox>
