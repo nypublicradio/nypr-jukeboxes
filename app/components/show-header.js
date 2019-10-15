@@ -9,10 +9,8 @@ function isAboveViewport(element) {
   }
 
   let triggerStickyClass = function() {
-    let elScrollContainer   = document.querySelector(".header");
-    let elStickyContainer   = document.querySelector(".show-header--sticky-container");
     let sentinel = document.querySelector(".new-donate");
-    
+
     if (!isAboveViewport(sentinel)) {
         document.getElementById('sticky-donate').style.visibility = 'visible';
     } else {
