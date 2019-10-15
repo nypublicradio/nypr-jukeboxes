@@ -12,9 +12,12 @@ function isAboveViewport(element) {
     let sentinel = document.querySelector(".new-donate");
 
     if (!isAboveViewport(sentinel)) {
+        let denim = [0 , 32, 56];
         document.getElementById('sticky-donate').style.visibility = 'visible';
+        document.getElementById('listen-playhistory').style.backgroundColor = 'rgb(' + [...denim].join(',') + ')';
     } else {
         document.getElementById('sticky-donate').style.visibility = 'hidden';
+        document.getElementById('listen-playhistory').style.backgroundColor = 'transparent';
     }
   };
   
