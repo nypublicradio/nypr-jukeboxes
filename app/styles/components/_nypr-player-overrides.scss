@@ -131,6 +131,9 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
   color: white;
   border-color: white;
 }
+#sticky-donate {
+  visibility: hidden;
+}
 
 .listen-playhistory {
   position: sticky;
