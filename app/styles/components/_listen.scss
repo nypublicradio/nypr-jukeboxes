@@ -10,6 +10,12 @@
       flex-direction: column;
       align-items: center;
       margin-bottom: 60px;
+      padding-left: 24px;
+      padding-right: 24px;
+
+      .playlist-history {
+        width: 100%;
+      }
   }
 }
 
@@ -61,6 +67,10 @@
 .on-air-now {
   width: 369px;
   padding: 24px;
+
+  @media #{$small-only} {
+    width: 100%;
+  }
 
   @media #{$small-only} {
     padding-left: 0px;
@@ -308,6 +318,10 @@
   width: 369px;
   padding: 24px 24px 0px 24px;
 
+  @media #{$small-only} {
+    width: 100%;
+  }
+
   .currently-listening-to-label {
     font-family: OpenSans;
     font-size: 10px;
@@ -325,6 +339,14 @@
 
     .composer {
       color: #ffffff;
+      font-size: 38px;
+      font-weight: 900px;
+      line-height: 0.95;
+
+      @media #{$small-only} {
+        font-size: 28px;
+        line-height: 1.18;
+      }
     }
 
     .start-time {
@@ -333,6 +355,12 @@
 
     .title {
       color: #ffffff;
+      font-size: 18px;
+
+      @media #{$small-only} {
+        font-size: 14px;
+        line-height: 1.71;
+      }
     }
 
     .dot {
@@ -354,6 +382,10 @@
   border-radius: 4px;
   display: flex;
   flex-direction: column;
+
+  @media #{$small-only} {
+    width: 100%;
+  }
 
   .recently-played-label {
     font-family: OpenSans;
@@ -381,6 +413,11 @@
 
     .composer {
       color: $denim-blue;
+
+      @media #{$small-only} {
+        font-size: 14px;
+        line-height: normal;
+      }
     }
 
     .start-time {
@@ -390,6 +427,11 @@
 
     .title {
       color: #000000;
+
+      @media #{$small-only} {
+        font-size: 12px;
+        line-height: normal;
+      }
     }
 
     .dot {
