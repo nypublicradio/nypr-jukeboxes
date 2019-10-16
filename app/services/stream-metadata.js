@@ -38,6 +38,10 @@ export default Service.extend({
   }),
 
   init() {
+    let pollFunction = () => this.refreshStream();
+    let pollId = this.get('poll').addPoll({interval: 10 * 1000, callback: pollFunction});
+    this.set('pollId', pollId);
+
     this._super(...arguments);
   },
 
@@ -71,7 +75,6 @@ export default Service.extend({
 
   processWhatsOn(response) {
     set(this, 'nowPlayingId', "entry_" + get(response, 'currentPlaylistItem.playlistEntryId'))
-
     let newTrack = get(response, 'currentPlaylistItem');
     if (newTrack) {
       let store     = get(this, 'store')
