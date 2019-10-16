@@ -22,6 +22,10 @@ module('Integration | Component | jukebox-display', function(hooks) {
     this.dj = this.owner.lookup('service:dj');
   });
 
+  skip('skip this test because SVG is in place to indicate currentStream.name', function(assert){
+    assert.ok(true);
+  });
+
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
@@ -47,8 +51,3 @@ module('Integration | Component | jukebox-display', function(hooks) {
   });
 
 });
-
-skip('skip this test because SVG is in place to indicate currentStream.name', function(assert){
-  assert.ok(true);
-});
-
