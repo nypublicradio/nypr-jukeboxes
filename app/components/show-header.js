@@ -1,7 +1,5 @@
-import {equal} from '@ember/object/computed';
 import Component from '@ember/component';
-import {get, set, computed} from '@ember/object';
-import config from '../config/environment';
+import {get, set} from '@ember/object';
 
 function isAboveViewport(element) {
     var rect = element.getBoundingClientRect();
@@ -12,7 +10,7 @@ function isAboveViewport(element) {
     let sentinel = document.querySelector(".new-donate");
 
     if (!isAboveViewport(sentinel)) {
-        let denim = [0 , 32, 56];
+        let denim = [0, 81, 142];
         document.getElementById('sticky-donate').style.visibility = 'visible';
         document.getElementById('listen-playhistory').style.backgroundColor = 'rgb(' + [...denim].join(',') + ')';
     } else {
