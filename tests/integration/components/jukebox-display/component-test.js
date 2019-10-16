@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
@@ -45,4 +45,8 @@ module('Integration | Component | jukebox-display', function(hooks) {
 
     assert.equal(find('.jukebox-display__current-stream').textContent.trim(), 'WQXR 105.9FM');
   });
+
+  skip('skip this test because SVG is in place to indicate currentStream.name', function(assert){
+    assert.ok(true);
+  })
 });
