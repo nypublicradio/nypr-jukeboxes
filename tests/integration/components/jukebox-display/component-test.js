@@ -46,7 +46,9 @@ module('Integration | Component | jukebox-display', function(hooks) {
     assert.equal(find('.jukebox-display__current-stream').textContent.trim(), 'WQXR 105.9FM');
   });
 
-  skip('skip this test because SVG is in place to indicate currentStream.name', function(assert){
-    assert.ok(true);
-  })
 });
+
+skip('skip this test because SVG is in place to indicate currentStream.name', function(assert){
+  assert.ok(true);
+});
+
