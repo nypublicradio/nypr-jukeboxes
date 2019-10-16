@@ -6,17 +6,17 @@
       <div class="on-air-now-label">ON AIR NOW</div>
       <img class="show-image" src={{model.stream.currentShow.fullImage.url}} />
       <div class="show-title">{{model.stream.currentShow.title}}</div>
-      <div class="message-the-show">
-        <NyprAToggleBox class="message-the-show-toggle-box" as |toggle|>
-          <toggle.trigger>
-            <div class="message-the-show-title">MESSAGE THE SHOW</div>
-          </toggle.trigger>
-          <toggle.dropdown>
-            <div class="message-the-show-content">Message the show...</div>
-          </toggle.dropdown>
-        </NyprAToggleBox>
+        <div class="message-the-show">
+          <NyprAToggleBox class="message-the-show-toggle-box" as |toggle|>
+            <toggle.trigger>
+              <div class="message-the-show-title">MESSAGE THE SHOW</div>
+            </toggle.trigger>
+            <toggle.dropdown>
+              <div class="message-the-show-content">Message the show...</div>
+            </toggle.dropdown>
+          </NyprAToggleBox>
+        </div>
       </div>
-    </div>
     </div>
     <div class="listen-play-button">
       {{#listen-button
@@ -29,80 +29,78 @@
     </div>
   </div>
 
-<div class="playlist-history">
-<div class="currently-listening-to">
-  <div class="currently-listening-to-label">CURRENTLY LISTENING TO</div>
-  <div class="song-metadata currently-playing-song">
-    <div class="dot"></div>
-    <div class="metadata">
-      <div class="composer_start-time">
-        <div class="composer">{{if model.stream.currentPlaylistItem.catalogEntry.composer.name model.stream.currentPlaylistItem.catalogEntry.composer.name "Lorem Ipsum"}}</div>
+  <div class="playlist-history">
+    <div class="currently-listening-to">
+      <div class="currently-listening-to-label">CURRENTLY LISTENING TO</div>
+        <div class="song-metadata currently-playing-song">
+          <div class="dot"></div>
+            <div class="metadata">
+            <div class="composer">{{if model.stream.currentPlaylistItem.catalogEntry.composer.name model.stream.currentPlaylistItem.catalogEntry.composer.name "Lorem Ipsum"}}</div>
+            <div class="title_expand">
+              <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
+                <toggle.trigger>
+                  <span class="title">{{model.stream.currentPlaylistItem.catalogEntry.title}}</span>
+                </toggle.trigger>
+                <toggle.dropdown>
+                  <div class="secondary-metadata-content">
+                    {{#if model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}
+                      <div class="secondary-metadata-content-field"><span class="secondary-metadata-content-label">Performed by the </span><span class="secondary-metadata-content-title">{{model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}</span></div>
+                    {{/if}}
+                    {{#if model.stream.currentPlaylistItem.catalogEntry.conductor.name}}
+                      <div class="secondary-metadata-content-field">
+                        <span class="secondary-metadata-content-label">Conducted by </span>
+                        <span class="secondary-metadata-content-title">{{model.stream.currentPlaylistItem.catalogEntry.conductor.name}}</span></div>
+                    {{/if}}
+                  </div>
+                </toggle.dropdown>
+              </NyprAToggleBox>
+            </div>  
+          </div>
         <div class="start-time">NOW</div>
       </div>
-      <div class="title_expand">
-        <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
-          <toggle.trigger>
-            <div class="title">{{model.stream.currentPlaylistItem.catalogEntry.title}}</div>
-          </toggle.trigger>
-          <toggle.dropdown>
-            <div class="secondary-metadata-content">
-              {{#if model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}
-              <div class="secondary-metadata-content-field"><span class="secondary-metadata-content-label">Performed by the </span><span class="secondary-metadata-content-title">{{model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}</span></div>
-              {{/if}}
-              {{#if model.stream.currentPlaylistItem.catalogEntry.conductor.name}}
-              <div class="secondary-metadata-content-field">
-                <span class="secondary-metadata-content-label">Conducted by </span>
-                <span class="secondary-metadata-content-title">{{model.stream.currentPlaylistItem.catalogEntry.conductor.name}}</span></div>
-              {{/if}}
-            </div>
-          </toggle.dropdown>
-        </NyprAToggleBox>
-      </div>
     </div>
-  </div>
-</div>
-{{#if model.stream.previous}}
-  <div class="recently-played">
-    <div class="recently-played-label">RECENT MUSIC</div>
-    <div class="recently-played-song-list">
-    {{#each model.stream.previous as |item|}}
-      <div class="song-metadata recently-played-song">
-        <div class="dot"></div>
-        <div class="metadata">
-          <div class="composer_start-time">
-            <div class="composer">{{if item.catalogEntry.composer.name item.catalogEntry.composer.name "Lorem Ipsum"}}</div>
-            <div class="start-time">{{format-start-time item.startTime}}</div>
-          </div>
-          <div class="title_expand">
-            <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
-              <toggle.trigger>
-                <div class="title">{{item.catalogEntry.title}}</div>
-              </toggle.trigger>
-              <toggle.dropdown>
-                <div class="secondary-metadata-content">
-                  {{#if item.catalogEntry.ensemble.name}}
-                  <div class="secondary-metadata-content-field">
-                    <span class="secondary-metadata-content-label">Performed by the </span>
-                    <span class="secondary-metadata-content-title">{{item.catalogEntry.ensemble.name}}</span>
-                  </div>
-                  {{/if}}
-                  {{#if item.catalogEntry.conductor.name}}
-                  <div class="secondary-metadata-content-field">
-                    <span class="secondary-metadata-content-label">Conducted by </span>
-                    <span class="secondary-metadata-content-title">{{item.catalogEntry.conductor.name}}</span>
-                  </div>
-                  {{/if}}
+
+    {{#if model.stream.previous}}
+      <div class="recently-played">
+        <div class="recently-played-label">RECENT MUSIC</div>
+        <div class="recently-played-song-list">
+          {{#each model.stream.previous as |item|}}
+            <div class="song-metadata recently-played-song">
+            <div class="dot"></div>
+            <div class="metadata">
+              <div class="composer">{{if item.catalogEntry.composer.name item.catalogEntry.composer.name "Lorem Ipsum"}}</div>
+                <div class="title_expand">
+                  <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
+                    <toggle.trigger>
+                      <span class="title">{{item.catalogEntry.title}}</span>
+                    </toggle.trigger>
+                    <toggle.dropdown>
+                      <div class="secondary-metadata-content">
+                        {{#if item.catalogEntry.ensemble.name}}
+                          <div class="secondary-metadata-content-field">
+                            <span class="secondary-metadata-content-label">Performed by the </span>
+                            <span class="secondary-metadata-content-title">{{item.catalogEntry.ensemble.name}}</span>
+                          </div>
+                        {{/if}}
+                        {{#if item.catalogEntry.conductor.name}}
+                          <div class="secondary-metadata-content-field">
+                            <span class="secondary-metadata-content-label">Conducted by </span>
+                            <span class="secondary-metadata-content-title">{{item.catalogEntry.conductor.name}}</span>
+                          </div>
+                        {{/if}}
+                      </div>
+                    </toggle.dropdown>
+                  </NyprAToggleBox>
                 </div>
-              </toggle.dropdown>
-            </NyprAToggleBox>
-          </div>
+              </div>
+              <div class="start-time">{{format-start-time item.startTime}}</div>
+            </div>
+          {{/each}}
         </div>
+        <a href="/playlist-history" class="view-full-playlist-history-button">VIEW FULL PLAYLIST HISTORY</a>
       </div>
-    {{/each}}
-    </div>
-    <a href="/playlist-history" class="view-full-playlist-history-button">VIEW FULL PLAYLIST HISTORY</a>
+    {{/if}}
   </div>
-{{/if}}
 </div>
-</div>
+
 {{outlet}}
