@@ -12,7 +12,7 @@
               <div class="message-the-show-title">MESSAGE THE SHOW</div>
             </toggle.trigger>
             <toggle.dropdown>
-              <div class="message-the-show-content">Message the show...</div>
+              <div class="message-the-show-content">Message the show...  (Design TBD)</div>
             </toggle.dropdown>
           </NyprAToggleBox>
         </div>
@@ -35,7 +35,7 @@
         <div class="song-metadata currently-playing-song">
           <div class="dot"></div>
             <div class="metadata">
-            <div class="composer">{{if model.stream.currentPlaylistItem.catalogEntry.composer.name model.stream.currentPlaylistItem.catalogEntry.composer.name "Lorem Ipsum"}}</div>
+            <div class="composer">{{model.stream.currentPlaylistItem.catalogEntry.composer.name}}</div>
             <div class="title_expand">
               <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
                 <toggle.trigger>
@@ -68,7 +68,7 @@
             <div class="song-metadata recently-played-song">
             <div class="dot"></div>
             <div class="metadata">
-              <div class="composer">{{if item.catalogEntry.composer.name item.catalogEntry.composer.name "Lorem Ipsum"}}</div>
+              <div class="composer">{{item.catalogEntry.composer.name}}</div>
                 <div class="title_expand">
                   <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
                     <toggle.trigger>
