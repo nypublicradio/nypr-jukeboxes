@@ -64,6 +64,7 @@
     "nypr-ads": "^0.2.0",
     "nypr-audio-services": "^0.5.0",
     "nypr-metrics": "^0.5.3",
+    "nypr-pattern-lab": "https://github.com/nypublicradio/pattern-lab#bkammin/change_package_name_to_pattern_lab",
     "nypr-player": "^0.4.0",
     "nypr-ui": "^0.5.0",
     "qunit-dom": "^0.6.2",

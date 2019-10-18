@@ -8905,6 +8905,10 @@ nypr-metrics@^0.5.3:
     ember-cli-babel "^6.6.0"
     ember-get-config "^0.2.2"
 
+"nypr-pattern-lab@https://github.com/nypublicradio/pattern-lab#bkammin/change_package_name_to_pattern_lab":
+  version "4.0.0"
+  resolved "https://github.com/nypublicradio/pattern-lab#6622a9d96ce9866c5af74010bce047ebfceb024e"
+
 nypr-player@^0.4.0:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/nypr-player/-/nypr-player-0.4.2.tgz#b3da60cf428f0944cf540295a8f8139a1f34b194"
