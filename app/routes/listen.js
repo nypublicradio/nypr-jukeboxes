@@ -1,16 +1,14 @@
 import Route from '@ember/routing/route';
-import rsvp from "rsvp";
+import { hash } from "rsvp";
 
 export default Route.extend({
-  model() {
+  async model() {
     let controller = this.controllerFor('application');
     controller.send('setNavSlug', 'listen');
 
-    return this.store.findRecord("stream", 'wqxr')
-    .then(stream => {
-      return rsvp.hash({
-        stream: stream
-      });
+    let stream = await this.store.findRecord("stream", 'wqxr')
+    return hash({
+      stream: stream
     });
   },
   afterModel() {
