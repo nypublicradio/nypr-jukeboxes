@@ -1,7 +1,6 @@
 <ShowHeader @activeTabIndex={{activeTabIndex}} @links={{links}} />
 {{outlet}}
 
-
 <NyprPlayerIntegration as |integration|>
   {{#liquid-if showPlayer class="nypr-player-wrapper"}}
   {{#liquid-if integration.revealNotificationBar class='player-notification-wrapper'}}

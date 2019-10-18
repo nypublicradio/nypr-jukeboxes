@@ -49,37 +49,80 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
   transform: none;
 }
 
-.header {
+// .header {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 25px;
+//   border-bottom: dotted 1px $blueblood;
+//   svg {
+//     min-width: 220px;    
+//   }
+//   .live-text-box {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background: white;
+//     height: 14px;
+//     max-width: 99px;
+//     border-radius: 5px;
+//     color: $blueblood;
+//     margin: 0 99px;
+//     font-size: 10px;
+//     font-family: OpenSans;
+//   }
+//   .live-text-box p {
+//     text-align: center;
+//   } 
+// .donate-button {
+//   color: white;
+//   border-color: white;
+//   }
+// }
+
+// .header .col {
+//   width: 33%;
+// }
+
+
+.flex-grid-thirds {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
-  border-bottom: dotted 1px #0064b4;
-  svg {
-    min-width: 220px;    
+  justify-content: space-between;
+}
+.flex-grid-thirds .col {
+  width: 33%;
+  .wqxr-icon {
+    float: right;
   }
-  .live-text-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    height: 14px;
-    min-width: 99px;
-    border-radius: 5px;
-    color: #0064b4;
-    margin: 0 99px;
-    font-size: 10px;
-    font-family: OpenSans;
+  p {
+    color: white;
   }
-  .live-text-box p {
-    text-align: center;
-  } 
 }
 
-.donate-button {
-  color: white;
-  border-color: white;
+@media (max-width: 400px) {
+  .flex-grid-thirds {
+    display: block;
+    .col {
+      width: 100%;
+      margin: 0 0 10px 0;
+    }
+  }
 }
+
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 20px;
+}
+.flex-grid { 
+  margin: 0 0 20px 0;
+}
+.col {
+  background: salmon;
+  padding: 20px;
+}
+
 #sticky-donate {
   visibility: hidden;
 }
