@@ -14,11 +14,11 @@ var DEFAULTSHOWTITLEDICT = {'wqxr': 'Evenings with Terrance McKnight'}
 
 
 export default Service.extend({
-  host: config.publisherAPI,
+  publisherHost: config.publisherAPI,
   store: service(),
   hifi: service(),
   poll: service(),
-  currentStream : service(),
+  currentStream: service(),
   isLoading: false,
   dailySchedule: null,
   dailyScheduleUpdater: observer('currentStream.slug', function() {
@@ -75,7 +75,6 @@ export default Service.extend({
 
   processWhatsOn(response) {
     set(this, 'nowPlayingId', "entry_" + get(response, 'currentPlaylistItem.playlistEntryId'))
-
     let newTrack = get(response, 'currentPlaylistItem');
     if (newTrack) {
       let store     = get(this, 'store')
@@ -181,7 +180,7 @@ export default Service.extend({
     let month = date.format('MMM').toLowerCase();
     let day   = date.format('DD');
 
-    let url = `${this.host}/v1/playlist-daily/${slug}/${year}/${month}/${day}/`;
+    let url = `${this.publisherHost}/v1/playlist-daily/${slug}/${year}/${month}/${day}/`;
     return url;
   },
 

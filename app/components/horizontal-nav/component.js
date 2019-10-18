@@ -4,7 +4,7 @@ import { computed, observer, set, get } from '@ember/object';
 import { run, debounce } from '@ember/runloop';
 import { reads } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
-import config from '../config/environment';
+import config from '../../config/environment';
 
 const easeOut = function (time, start, change, duration) {
   return start + change * Math.sin(Math.min(1, time / duration) * (Math.PI / 2));

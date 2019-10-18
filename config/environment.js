@@ -46,6 +46,7 @@ module.exports = function(environment) {
     etagAPI: process.env.ETAG_API,
     publisherAPI: process.env.PUBLISHER_API,
     platformEventsAPI: process.env.PLATFORM_EVENTS_SERVICE,
+    womsAPI: process.env.WOMS_API,
     wqxrURL: process.env.WQXR_URL,
   };
 

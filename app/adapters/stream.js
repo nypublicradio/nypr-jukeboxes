@@ -20,7 +20,7 @@ export default DS.JSONAPIAdapter.extend({
     let base = `${this.host}/${this.namespace}`;
     return rsvp.hash({
       stream: fetch(`${base}/list/streams/${id}/`).then(json),
-      whatsOn: fetch(`${base}/whats_on/${id}/3`).then(json),
+      whatsOn: fetch(`${base}/whats_on/${id}/3/`).then(json),
     });
   }
   // END-SNIPPET
