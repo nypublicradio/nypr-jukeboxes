@@ -12,14 +12,9 @@ export default Service.extend({
   currentStream: service(),
   streamMetadata: service(),
 
-  init() {
-    this._super(...arguments);
-  },
-
-  initializeWOMS() {
-    let promise = get(this, 'store').findRecord('stream', this.get('currentStream.slug'))
-    promise.then(response => this.subscribeWOMS(response));
-    return promise;
+  async initializeWOMS() {
+    let response = await get(this, 'store').findRecord('stream', this.get('currentStream.slug'))
+    this.subscribeWOMS(response)
   },
 
   subscribeWOMS(response) {
