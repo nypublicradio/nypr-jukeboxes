@@ -1,24 +1,35 @@
-<ShowHeader @activeTabIndex={{activeTabIndex}} @links={{links}} />
+{{horizontal-nav
+  navRoot='listen'
+  defaultSlug='listen'
+  channelSlug='listen'
+  links=links
+  activeTabIndex=activeTabIndex
+  didChangeIndex=(action 'updateNav')}}
+
 {{outlet}}
 
 <NyprPlayerIntegration as |integration|>
   {{#liquid-if showPlayer class="nypr-player-wrapper"}}
-  {{#liquid-if integration.revealNotificationBar class='player-notification-wrapper'}}
-  <integration.notification>
-    {{player-notification/autoplay-message
+    {{#liquid-if integration.revealNotificationBar class='player-notification-wrapper'}}
+      <integration.notification>
+        {{player-notification/autoplay-message
           duration   = integration.currentSound.duration
           position   = integration.currentSound.position
           audioType  = integration.currentAudioType
           isLoggedIn = session.isAuthenticated
         }}
-  </integration.notification>
-  {{/liquid-if}}
+      </integration.notification>
+    {{/liquid-if}}
 
-  <NyprPlayer @currentTitle={{integration.currentTitle}} @backdropImageUrl={{integration.backdropImageUrl}}
-    @storyTitle={{integration.storyTitle}} @showTitle={{integration.showTitle}} @isAudiostream={{integration.isStream}}
-    as |content|>
-    {{#content.for 'trackInfo'}}
-    {{nypr-player-integration/track-info
+    <NyprPlayer
+      @currentTitle     = {{integration.currentTitle}}
+      @backdropImageUrl = {{integration.backdropImageUrl}}
+      @storyTitle       = {{integration.storyTitle}}
+      @showTitle        = {{integration.showTitle}}
+      @isAudiostream    = {{integration.isStream}}
+      as |content|>
+        {{#content.for 'trackInfo'}}
+          {{nypr-player-integration/track-info
             currentAudio    = integration.currentAudio
             currentSound    = integration.currentSound
             showTitle       = integration.showTitle
@@ -29,7 +40,8 @@
             songDetails     = integration.songDetails
             isStream        = integration.isStream
           }}
-    {{/content.for}}
-  </NyprPlayer>
+        {{/content.for}}
+    </NyprPlayer>
   {{/liquid-if}}
 </NyprPlayerIntegration>
+

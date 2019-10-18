@@ -25,4 +25,5 @@ export default Controller.extend({
       set(this, 'activeTabIndex', activeTabIndex);
     },
   },
+
 });

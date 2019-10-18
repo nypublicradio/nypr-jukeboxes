@@ -4,6 +4,7 @@ $nypr-player-medium-breakpoint               : #{$mq_tablet-portrait};
 $nypr-player-medium-and-up                   : "(min-width: #{$nypr-player-medium-breakpoint})" !default;
 $nypr-player-small-only                      : "(max-width: #{$nypr-player-medium-breakpoint - 1})" !default;
 
+
 // text-crawl overflow styles
 .text-crawl {
     white-space: nowrap;
@@ -34,6 +35,7 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
     }
 }
 
+
 // hide empty controls on small widths (larger widths show volume here)
 @include for-phone-only {
   .nypr-player .ember-holygrail-right {
@@ -45,76 +47,4 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
 // liquid-fire compat
 .nypr-player-wrapper.liquid-container {
   transform: none;
-}
-
-.flex-grid-thirds {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: dotted 1px $blueblood;
-}
-.flex-grid-thirds .col {
-  flex: 1;
-  .wqxr-icon {
-    float: right;
-    margin-top: 10px;
-  }
-  button {
-    color: white;
-    border-color: white;
-  }
-}
-
-.live-nyc-txt {
-  color: $blueblood;
-  background: white;
-  text-align: center;
-  border-radius: 5px;
-  max-width: 150px;
-}
-
-#wqxr-logo{
-  flex: 2;
-}
-
-.donate-button {
-  color: white;
-  border-color: white;
-  }
-
-@media (max-width: 400px) {
-  .flex-grid-thirds {
-    display: block;
-    .col {
-      width: 100%;
-      margin: 0 0 10px 0;
-    }
-  }
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.flex-grid { 
-  margin: 0 0 20px 0;
-}
-.col {
-  padding: 20px;
-}
-
-#sticky-donate {
-  visibility: hidden;
-}
-
-@include for-phone-only {
-
-.header:not(.button)  {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  }
-  .header .live-text-box {
-    margin: 0;
-    flex-direction: row;
-  }
 }
