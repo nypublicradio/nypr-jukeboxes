@@ -4,7 +4,6 @@ $nypr-player-medium-breakpoint               : #{$mq_tablet-portrait};
 $nypr-player-medium-and-up                   : "(min-width: #{$nypr-player-medium-breakpoint})" !default;
 $nypr-player-small-only                      : "(max-width: #{$nypr-player-medium-breakpoint - 1})" !default;
 
-
 // text-crawl overflow styles
 .text-crawl {
     white-space: nowrap;
@@ -35,7 +34,6 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
     }
 }
 
-
 // hide empty controls on small widths (larger widths show volume here)
 @include for-phone-only {
   .nypr-player .ember-holygrail-right {
@@ -49,55 +47,39 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
   transform: none;
 }
 
-// .header {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   padding: 25px;
-//   border-bottom: dotted 1px $blueblood;
-//   svg {
-//     min-width: 220px;    
-//   }
-//   .live-text-box {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     background: white;
-//     height: 14px;
-//     max-width: 99px;
-//     border-radius: 5px;
-//     color: $blueblood;
-//     margin: 0 99px;
-//     font-size: 10px;
-//     font-family: OpenSans;
-//   }
-//   .live-text-box p {
-//     text-align: center;
-//   } 
-// .donate-button {
-//   color: white;
-//   border-color: white;
-//   }
-// }
-
-// .header .col {
-//   width: 33%;
-// }
-
-
 .flex-grid-thirds {
   display: flex;
   justify-content: space-between;
+  border-bottom: dotted 1px $blueblood;
 }
 .flex-grid-thirds .col {
-  width: 33%;
+  flex: 1;
   .wqxr-icon {
     float: right;
+    margin-top: 10px;
   }
-  p {
+  button {
     color: white;
+    border-color: white;
   }
 }
+
+.live-nyc-txt {
+  color: $blueblood;
+  background: white;
+  text-align: center;
+  border-radius: 5px;
+  max-width: 150px;
+}
+
+#wqxr-logo{
+  flex: 2;
+}
+
+.donate-button {
+  color: white;
+  border-color: white;
+  }
 
 @media (max-width: 400px) {
   .flex-grid-thirds {
@@ -112,24 +94,16 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
 * {
   box-sizing: border-box;
 }
-body {
-  padding: 20px;
-}
+
 .flex-grid { 
   margin: 0 0 20px 0;
 }
 .col {
-  background: salmon;
   padding: 20px;
 }
 
 #sticky-donate {
   visibility: hidden;
-}
-
-#listen-playhistory {
-  position: sticky;
-  top: 0;
 }
 
 @include for-phone-only {
@@ -143,5 +117,4 @@ body {
     margin: 0;
     flex-direction: row;
   }
- 
 }

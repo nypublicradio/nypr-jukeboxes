@@ -1,21 +1,10 @@
-{{!-- <div class="header">
-  <div class="col wqxr-logo">
-    {{nypr-svg className="site-header-title-logo" icon="wqxr-log-frq"}}
-  </div>
-
-  <div class="col live-text-box">
-    <p>LIVE FROM NYC</p>
-  </div>
-
-  <div class="col">
-    <a href="https://www.wqxr.org/support/" target="_blank"><button class="donate-button">Donate</button></a>
-  </div>
-</div> --}}
-
 <div class="flex-grid-thirds">
-  <div class="col">{{nypr-svg className="site-header-title-logo" icon="wqxr-log-frq"}}</div>
-  <div class="col"> <p>LIVE FROM NYC</p></div>
-  <div class="col">  <a href="https://www.wqxr.org/support/" target="_blank"><button class="donate-button">Donate</button></a></div>
+  <div class="col" id="wqxr-logo">{{nypr-svg className="site-header-title-logo" icon="wqxr-log-frq"}}</div>
+  <div class="col">
+    <p class="live-nyc-txt">LIVE FROM NYC</p>
+  </div>
+  <div class="col donate-button"> <a href="https://www.wqxr.org/support/" target="_blank"><button
+        >Donate</button></a></div>
 </div>
 
 {{#sticky-element}}

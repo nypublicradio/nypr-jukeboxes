@@ -7,6 +7,7 @@
 @import '../mixins/disable-subpixel-antialiasing';
 
 .horizontal-nav {
+  display: flex;
   position: relative;
   overflow: hidden;
 }
@@ -93,6 +94,7 @@
 }
 
 .horizontal-nav__list {
+  flex: 1;
   list-style: none;
   padding: 0;
   margin: 0;
