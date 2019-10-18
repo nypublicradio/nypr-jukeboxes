@@ -118,15 +118,22 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
     margin: 0;
     flex-direction: row;
   }
-  .live-text-box p {
-    text-align: center;
-  } 
 }
 
-.donate-button {
-  color: white;
-  border-color: white;
+* {
+  box-sizing: border-box;
 }
+body {
+  padding: 20px;
+}
+.flex-grid { 
+  margin: 0 0 20px 0;
+}
+.col {
+  background: salmon;
+  padding: 20px;
+}
+
 #sticky-donate {
   visibility: hidden;
 }
