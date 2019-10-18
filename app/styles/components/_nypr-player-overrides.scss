@@ -96,51 +96,19 @@ $nypr-player-small-only                      : "(max-width: #{$nypr-player-mediu
   box-sizing: border-box;
 }
 
-.flex-grid { 
-  margin: 0 0 20px 0;
-}
-.col {
-  padding: 20px;
-}
-
-#sticky-donate {
-  visibility: hidden;
-}
-
-@include for-phone-only {
-
-.header:not(.button)  {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  }
-  .header .live-text-box {
-    margin: 0;
-    flex-direction: row;
-  }
-}
-
-* {
-  box-sizing: border-box;
-}
 body {
   padding: 20px;
 }
+
 .flex-grid { 
   margin: 0 0 20px 0;
 }
 .col {
-  background: salmon;
   padding: 20px;
 }
 
 #sticky-donate {
   visibility: hidden;
-}
-
-#listen-playhistory {
-  position: sticky;
-  top: 0;
 }
 
 @include for-phone-only {
@@ -154,5 +122,4 @@ body {
     margin: 0;
     flex-direction: row;
   }
- 
 }
