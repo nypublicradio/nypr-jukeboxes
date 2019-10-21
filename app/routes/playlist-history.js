@@ -6,11 +6,18 @@ import moment from 'moment';
 export default Route.extend({
   streamMetadata: service(),
 
-  model() {
+  model({ year, month, day }) {
     let controller = this.controllerFor('application');
     controller.send('setNavSlug', 'playlist-history');
+
+    let date = moment().format();
+    if (moment(year + '/' + month + '/' + day).isValid()) {
+      date = moment(year + '/' + month + '/' + day).format();
+    }
+
     let hash = {
-      playlist: this.get('streamMetadata').load(moment().format())
+      playlist: this.get('streamMetadata').load(date),
+      date: date
     };
     return RSVP.hash(hash);
   },

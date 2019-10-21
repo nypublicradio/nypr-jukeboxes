@@ -1,0 +1,59 @@
+@import '../vars/colors';
+@import '../vars/layout';
+
+
+.playlist-history-date-display {
+  .playlist-history-day {
+	font-family: PlayfairDisplay;
+  	font-size: 32px;
+  	font-weight: 900;
+  	line-height: 1.31;
+  	text-align: center;
+  	color: #ffffff;
+  }
+
+  .playlist-history-date {
+    font-family: PlayfairDisplay;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1.22;
+    text-align: center;
+    color: #ffffff;
+  }
+}
+
+.playlist-history-display {
+  width: 756px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .date-selector {
+  	display: flex;
+    font-family: Lato;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    color: #ffffff;
+
+    a span {
+      color: #ffffff;
+    }
+    
+    .date-selector-back {
+	      	
+    }
+
+    .date-selector-forward {
+      margin-left: auto;
+
+      svg {
+      	transform: rotate(180deg);
+      }
+    }
+
+	svg {
+	  display: inline;
+	  height: 8px;
+	}
+  }
+}
