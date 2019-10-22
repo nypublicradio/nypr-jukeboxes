@@ -12,6 +12,8 @@
     defaultSlug='listen'
     channelSlug='listen'
     links=links
+    class=(if state.isSticky "is-sticky")
+    id=(if state.isSticky "sticky-donate")
     activeTabIndex=activeTabIndex}}
   <a href="https://www.wqxr.org/support/" target="_blank"
     class="donate-button-link"><button class="donate-button">Donate</button></a>

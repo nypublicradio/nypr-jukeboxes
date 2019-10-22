@@ -101,6 +101,13 @@ body {
   }
 }
 
+.horizontal-nav.is-sticky { 
+  background-color: $blueblood;
+  #sticky-donate {
+    visibility: visible;
+  }
+}
+
 /* masks for fading scrollable edge */
 .horizontal-nav.is-left-scrollable {
   .horizontal-nav__container {
