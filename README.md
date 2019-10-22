@@ -1,5 +1,8 @@
 # nypr-jukeboxes
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/a3974ae872fd966336bc/maintainability)](https://codeclimate.com/github/nypublicradio/nypr-jukeboxes/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a3974ae872fd966336bc/test_coverage)](https://codeclimate.com/github/nypublicradio/nypr-jukeboxes/test_coverage)
+
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
