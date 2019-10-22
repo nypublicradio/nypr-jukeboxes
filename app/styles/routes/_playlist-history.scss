@@ -2,9 +2,43 @@
 @import '../vars/layout';
 
 
+
+.play-schedule-show {
+  position: relative;
+  .dot {
+    position: absolute;
+    background-color: #0064b4; //$denim-blue;
+    left: -7px;
+    top: -7px;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #ffffff;
+
+
+  }
+}
+
+.play-schedule {
+  background-image: linear-gradient(#ffffff, #ffffff);
+  background-size: 2px calc(100% - 8px);
+  background-position: 0px center;
+  background-repeat: no-repeat;
+
+  > div.playlist:first-of-type {
+    .dot {
+      background-color: #ffffff;
+    }
+  }
+}
+
 .playlist-history-date-display {
+  margin-bottom: 48px;
+
   .playlist-history-day {
-	font-family: PlayfairDisplay;
+	  font-family: PlayfairDisplay;
   	font-size: 32px;
   	font-weight: 900;
   	line-height: 1.31;
@@ -29,11 +63,12 @@
 
   .date-selector {
   	display: flex;
-    font-family: Lato;
+    font-family: OpenSans;
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 1.3px;
     color: #ffffff;
+    margin-bottom: 54px;
 
     a span {
       color: #ffffff;
@@ -51,9 +86,66 @@
       }
     }
 
-	svg {
-	  display: inline;
-	  height: 8px;
-	}
+	  svg {
+	    display: inline;
+	    height: 8px;
+	  }
+  }
+
+  .playlist-show-info {
+    display: flex;
+    flex-direction: row;
+    padding: 24px;
+    border-width: 2px;
+    border-color: #ffffff;
+    border-style: solid;
+    border-radius: 4px;
+    margin-bottom: 32px;
+
+    .playlist-show-metadata {
+      flex: 1;
+    }
+
+    .playlist-show-expand {
+      width: 56px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        transform: rotate(270deg);
+      }
+    }
+  }
+
+  .playlist-show-info-on-air-now {
+    background-color: #ffffff;
+    border-radius: 4px;
+    color: $denim-blue;
+    display: inline-block;
+    padding: 2px 8px;
+    font-family: OpenSans;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .playlist-show-info-title {
+    color: #ffffff;
+    font-family: OpenSans;
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  .playlist-show-info-time {
+    margin-bottom: 8px;
+  }
+
+  .playlist-show-info-time-range {
+    color: #ffffff;
+    opacity: 0.5;
+    font-family: OpenSans;
+    font-size: 12px;
+    font-weight: bold;
   }
 }

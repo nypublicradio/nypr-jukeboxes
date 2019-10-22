@@ -4,11 +4,11 @@ import moment from 'moment';
 export function formattedPickerDate(params) {
   let momentDate = moment(params[0],'YYYY-MM-DDThh:mm:ss').add(params[1], 'days').startOf('day');
   if (isToday(momentDate)) {
-  	return 'Today';
+    return 'TODAY';
   } else if (isYesterday(momentDate)) {
-  	return 'Yesterday';
+    return 'YESTERDAY';
   } else {
-  	return momentDate.format("dddd, MMMM Do, YYYY");
+    return momentDate.format("dddd, MMMM Do, YYYY");
   }
 }
 
