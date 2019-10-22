@@ -75,11 +75,18 @@ jobs:
             if [ ! -d node_modules ]; then
               yarn --pure-lockfile
             fi
+      - run:
+          name: Install CodeClimate
+          command: |
+            mkdir -p ../codeclimate
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ../codeclimate/cc-test-reporter
+            chmod +x ../codeclimate/cc-test-reporter
       - save_cache:
           <<: *node_key
           paths:
             - node_modules
             - /home/circleci/.cache/Cypress
+            - ../codeclimate
 
   test-static:
     <<: *defaults
@@ -88,8 +95,14 @@ jobs:
       - checkout
       - <<: *restore_node
       - run:
+          name: Set up CodeClimate
+          command: ../codeclimate/cc-test-reporter before-build
+      - run:
           name: Test
           command: npx ember test
+      - run:
+          name: Upload CodeClimate test results
+          command: ../codeclimate/cc-test-reporter after-build --exit-code $?
 
   # test-static-cypress:
   #   <<: *defaults
