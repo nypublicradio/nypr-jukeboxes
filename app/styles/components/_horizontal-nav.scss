@@ -7,6 +7,7 @@
 @import '../mixins/disable-subpixel-antialiasing';
 
 .horizontal-nav {
+  display: flex;
   position: relative;
   overflow: hidden;
 }
@@ -31,14 +32,13 @@
 
 
 .horizontal-nav__container {
-  overflow-x: auto;
+  padding-left: 25px;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
     display: none;
   }
 
-  background-color: rgba(0, 0, 0, 0);
   box-shadow: none;
   padding-bottom: 12px;
 
@@ -94,6 +94,7 @@
 }
 
 .horizontal-nav__list {
+  flex: 1;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -115,7 +116,7 @@
 
 .horizontal-nav__list-item > a {
   @include disable-subpixel-antialiasing;
-  @include values-for-mobile-desktop(font-size, 16px, 18px);
+  @include values-for-mobile-desktop(font-size, 12px, 18px);
 
   line-height: 0.8;
   font-weight: 600;
