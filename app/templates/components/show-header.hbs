@@ -3,11 +3,11 @@
   <div class="col">
     <p class="live-nyc-txt">LIVE FROM NYC</p>
   </div>
-  <div class="col donate-button"> <a href="https://www.wqxr.org/support/" target="_blank"><button
-        >Donate</button></a></div>
+  <div class="col donate-button"> <a href="https://www.wqxr.org/support/" target="_blank"><button>Donate</button></a>
+  </div>
 </div>
 
-{{#sticky-element}}
+{{#sticky-element as |state|}}
 <div id="listen-playhistory">
   <div class="new-donate"></div>
   {{horizontal-nav
@@ -15,6 +15,8 @@
     defaultSlug='listen'
     channelSlug='listen'
     links=links
+    class=(if state.isSticky "is-sticky")
+    id=(if state.isSticky "sticky-donate")
     activeTabIndex=activeTabIndex}}
 </div>
 {{/sticky-element}}
