@@ -5,7 +5,6 @@ import moment from 'moment';
 
 
 export default Route.extend({
-  classNames: ['home'],
   fastboot: service(),
   streamMetadata: service(),
 

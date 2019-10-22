@@ -9,10 +9,10 @@
   <h2 class="playlist-show-info-title">{{title}}</h2>
   <span class="playlist-show-info-additional">
     {{#if episode}}
-      {{link-to episode.title 'story' episode.slug}}
+      {{link-to episode.title "story" episode.slug}}
     {{else}}
       {{#if host}}
-        with {{link-to host.name 'person-detail' host.slug}}
+        with {{link-to host.name "person-detail" host.slug}}
       {{else}}
         &nbsp;
       {{/if}}

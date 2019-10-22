@@ -67,10 +67,9 @@ export default Service.extend({
     }
   },
 
-  refreshStream() {
-    let promise = get(this, 'store').findRecord('stream', this.get('currentStream.slug'))
-    promise.then(response => this.processWhatsOn(response));
-    return promise;
+  async refreshStream() {
+    let response = await get(this, 'store').findRecord('stream', this.get('currentStream.slug'))
+    this.processWhatsOn(response)
   },
 
   processWhatsOn(response) {
