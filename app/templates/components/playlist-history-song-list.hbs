@@ -1,0 +1,34 @@
+{{#each tracks as |track|}}
+	<div class="song-metadata">
+	  <div class="dot"></div>
+	  <div class="metadata">
+	    <div class="composer">{{track.catalogEntry.composer.name}}</div>
+	    <div class="title_expand">
+	      <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
+	        <toggle.trigger>
+	          <span class="title">{{track.catalogEntry.title}}</span>
+	        </toggle.trigger>
+	        <toggle.dropdown>
+	          <div class="secondary-metadata-content">
+	            {{#if track.catalogEntry.ensemble.name}}
+	              <div class="secondary-metadata-content-field">
+	                <span class="secondary-metadata-content-label">Performed by the </span>
+	                <span class="secondary-metadata-content-title">{{track.catalogEntry.ensemble.name}}</span>
+	              </div>
+	            {{/if}}
+	            {{#if track.catalogEntry.conductor.name}}
+	              <div class="secondary-metadata-content-field">
+	                <span class="secondary-metadata-content-label">Conducted by </span>
+	                <span class="secondary-metadata-content-title">{{track.catalogEntry.conductor.name}}</span>
+	              </div>
+	            {{/if}}
+	          </div>
+	        </toggle.dropdown>
+	      </NyprAToggleBox>
+	    </div>
+	  </div>
+	  <div class="start-time">{{track.startTime}}</div>
+	</div>
+{{/each}}
+
+{{yield}}

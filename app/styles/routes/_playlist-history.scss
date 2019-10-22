@@ -5,7 +5,9 @@
 
 .play-schedule-show {
   position: relative;
-  .dot {
+  margin-bottom: 32px;
+
+  .play-schedule-show-header .show-dot {
     position: absolute;
     background-color: #0064b4; //$denim-blue;
     left: -7px;
@@ -16,8 +18,6 @@
     border-style: solid;
     border-width: 2px;
     border-color: #ffffff;
-
-
   }
 }
 
@@ -28,7 +28,7 @@
   background-repeat: no-repeat;
 
   > div.playlist:first-of-type {
-    .dot {
+    .show-dot {
       background-color: #ffffff;
     }
   }
@@ -100,7 +100,6 @@
     border-color: #ffffff;
     border-style: solid;
     border-radius: 4px;
-    margin-bottom: 32px;
 
     .playlist-show-metadata {
       flex: 1;
@@ -147,5 +146,10 @@
     font-family: OpenSans;
     font-size: 12px;
     font-weight: bold;
+  }
+
+  .play-schedule-show-playlist {
+    background-color: #ffffff;
+    padding: 40px 56px;
   }
 }

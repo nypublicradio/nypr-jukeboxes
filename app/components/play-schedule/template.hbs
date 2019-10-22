@@ -7,20 +7,8 @@
         startTime = airing.startTime
         endTime   = airing.endTime
         episode   = airing.episode
+        tracks    = airing.tracks
       }}
-<!--
-      <ol class="playlist-tracks">
-        {{#each airing.tracks as |track|}}
-          {{play-schedule/track
-            isLive    = track.isLive
-            startTime = track.startTime
-            title     = track.title
-            artist    = track.artist
-            length    = track.humanTrackLength
-          }}
-        {{/each}}
-      </ol>
--->
     </div>
   {{/if}}
 {{/each}}

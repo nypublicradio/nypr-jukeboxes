@@ -1,0 +1,160 @@
+@import '../vars/colors';
+@import '../vars/layout';
+
+
+
+.playlist-history-song-list {
+	> div.song-metadata:first-of-type {
+    background-size: 2px calc(100% - 24px);
+    background-position: 3px bottom;
+  }
+
+  > div.song-metadata:last-of-type {
+    background-size: 2px 24px;
+    background-position: 3px top;
+  }
+}
+
+.song-metadata {
+  background-repeat: no-repeat;
+  background-image: linear-gradient($water-blue, $water-blue);
+  background-size: 2px 100%;
+  background-position: 3px center;
+
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 16px;
+  padding-top: 16px;
+
+  .metadata {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  .composer {
+    color: $denim-blue;
+    display: flex;
+    font-family: PlayfairDisplay;
+    font-size: 22px;
+    font-weight: 900;
+    justify-content: flex-start;
+    flex: 1;
+  }
+
+  .start-time {
+    display: flex;
+    font-family: OpenSans;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    justify-content: flex-end;
+    margin-top: 4px;
+    opacity: 0.5;
+    color: #000000;
+  }
+
+  .title_expand {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  .title {
+    color: #000000;
+    font-family: OpenSans;
+    font-size: 14px;
+    margin-right: 5px;
+    text-align: left;
+    line-height: 16px;
+    text-transform: none;
+  }
+
+  .title_expand {
+    .u-icon--xs path {
+      fill: #000000;
+    }
+  }
+
+  .dot {
+    background-color: $water-blue;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    margin-right: 16px;
+    margin-top: 8px;
+  }
+
+  .secondary-metadata-toggle-box {
+    .c-toggle-box__dropdown {
+      background-color: transparent;
+    }
+
+    .c-toggle-box__label:before {
+      bottom: -10px;
+      right: 14px;
+      background-color: #000000;
+    }
+
+    .ember-basic-dropdown-content {
+      right: 0px;
+    }
+
+    > button:focus {
+      outline: none;
+    }
+
+    > button {
+      border: none;
+      border-radius: 0px;
+      padding-left: 0px;
+      line-height: normal;
+
+      .o-text-with-icon {
+        display: block;
+        text-align: left;
+      }
+    }
+
+    .o-text-with-icon .o-icon--caret {
+      margin-left: -6px;
+      padding-top: 4px;
+    }
+
+    .o-text-with-icon .o-icon--caret .caret-down-icon {
+      width: 12px;
+    }
+
+    .secondary-metadata-content {
+      background-color: black;
+      color: white;
+      border-radius: 4px;
+      padding: 24px;
+      font-family: OpenSans;
+      font-size: 12px;
+      line-height: 1.5;
+
+      div:last-child {
+        margin-bottom: 0px;
+      }
+
+      .secondary-metadata-content-field {
+        margin-bottom: 12px;
+
+        .secondary-metadata-content-label {
+          font-family: OpenSans;
+          font-size: 12px;
+          line-height: 1.5;
+        }
+
+        .secondary-metadata-content-title {
+          font-family: OpenSans;
+          font-size: 12px;
+          font-weight: bold;
+          line-height: 1.5;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
