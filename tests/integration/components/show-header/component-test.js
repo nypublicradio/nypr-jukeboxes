@@ -12,15 +12,7 @@ module('Integration | Component | show-header', function(hooks) {
 
     await render(hbs`<ShowHeader />`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <ShowHeader>
-        template block text
-      </ShowHeader>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom('[data-test-element="header-logo"]').exists();
+    assert.dom('[data-test-element="header-tagline"]').exists();
   });
 });

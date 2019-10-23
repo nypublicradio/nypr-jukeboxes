@@ -64,6 +64,7 @@
     "ember-resolver": "^5.0.1",
     "ember-source": "~3.9.0",
     "ember-sticky-element": "^0.2.3",
+    "ember-test-selectors": "^2.1.0",
     "ember-truth-helpers": "^2.0.0",
     "ember-websockets": "^7.2.0",
     "eslint-plugin-ember": "^7.1.0",
