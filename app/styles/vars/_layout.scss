@@ -192,12 +192,7 @@ $large-only: "#{$screen} and (min-width: #{$large}px)";
   
     &__brand-group {
       justify-content: space-between;
-  
-      // @include media('>xlarge') {
-      //   display: flex;
-      //   align-items: center;
-      //   justify-content: flex-start;
-      // }
+
       .logo-and-toggle {
         justify-content: flex-start;
         opacity: .7;
@@ -278,12 +273,6 @@ $large-only: "#{$screen} and (min-width: #{$large}px)";
         color: white;
     }
 
-    // @include for-desktop-up {
-    //   .about-and-connect {
-    //     display: none;
-    //     visibility: hidden;
-    //   }
-    // }
     @include for-desktop-up {
       .about-and-contact {
         all: unset;
