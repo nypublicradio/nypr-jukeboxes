@@ -101,10 +101,14 @@ body {
   }
 }
 
+.horizontal-nav .donate-button {
+  display: none;
+}
+
 .horizontal-nav.is-sticky { 
   background-color: $blueblood;
-  #sticky-donate {
-    visibility: visible;
+  .donate-button {
+    display: inline-flex;
   }
 }
 
