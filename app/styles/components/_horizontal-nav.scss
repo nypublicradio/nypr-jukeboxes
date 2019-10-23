@@ -7,8 +7,99 @@
 @import '../mixins/disable-subpixel-antialiasing';
 
 .horizontal-nav {
+  display: flex;
   position: relative;
   overflow: hidden;
+  padding-top: 20px;
+}
+
+.donate-button-link {
+  display: block;
+  position: absolute;
+  top: 0; 
+  right: 0;
+  padding: 50px;
+}
+
+.horizontal-nav-container.is-sticky { 
+  background-color: $denim-blue;
+  .donate-button-link {
+    position: relative;
+    padding-top: 30px;
+    padding-left: 20px;
+  }
+}
+
+.static-main-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: dotted 1px $blueblood;
+}
+.static-main-header .col {
+  flex: 1;
+  .wqxr-icon {
+    float: right;
+    margin-top: 10px;
+  }
+  button {
+    color: white;
+    border-color: white;
+  }
+}
+
+.horizontal-nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.live-nyc-txt {
+  color: $blueblood;
+  background: white;
+  text-align: center;
+  border-radius: 5px;
+  max-width: 150px;
+}
+
+.donate-button {
+  color: white;
+  border-color: white;
+  }
+
+@media (max-width: 400px) {
+  .static-main-header {
+    display: block;
+    .col {
+      width: 100%;
+      margin: 0 0 10px 0;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// body {
+//   padding: 20px;
+// }
+
+.col {
+  padding: 20px;
+}
+
+@include for-phone-only {
+
+.header:not(.button)  {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  }
+  .header .live-text-box {
+    margin: 0;
+    flex-direction: row;
+  }
 }
 
 /* masks for fading scrollable edge */
@@ -31,14 +122,13 @@
 
 
 .horizontal-nav__container {
-  overflow-x: auto;
+  padding-left: 25px;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
     display: none;
   }
 
-  background-color: rgba(0, 0, 0, 0);
   box-shadow: none;
   padding-bottom: 12px;
 
@@ -94,6 +184,7 @@
 }
 
 .horizontal-nav__list {
+  flex: 1;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -115,7 +206,7 @@
 
 .horizontal-nav__list-item > a {
   @include disable-subpixel-antialiasing;
-  @include values-for-mobile-desktop(font-size, 16px, 18px);
+  @include values-for-mobile-desktop(font-size, 12px, 18px);
 
   line-height: 0.8;
   font-weight: 600;
