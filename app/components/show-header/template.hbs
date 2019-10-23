@@ -8,15 +8,11 @@
 </div>
 
 {{#sticky-element as |state|}}
-<div id="listen-playhistory">
-  <div class="new-donate"></div>
   {{horizontal-nav
     navRoot='listen'
     defaultSlug='listen'
     channelSlug='listen'
     links=links
     class=(if state.isSticky "is-sticky")
-    id=(if state.isSticky "sticky-donate")
     activeTabIndex=activeTabIndex}}
-</div>
 {{/sticky-element}}

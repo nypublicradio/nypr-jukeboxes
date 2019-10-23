@@ -107,10 +107,6 @@ body {
   padding: 20px;
 }
 
-#sticky-donate {
-  visibility: hidden;
-}
-
 @include for-phone-only {
 
 .header:not(.button)  {
