@@ -9,16 +9,95 @@
 .horizontal-nav {
   position: relative;
   overflow: hidden;
+  padding-top: 20px;
 }
 
-.horizontal-nav .donate-button {
-  display: none;
+.donate-button-link {
+  display: block;
+  position: absolute;
+  top: 0; 
+  right: 0;
+  padding: 50px;
 }
 
-.horizontal-nav.is-sticky { 
+.horizontal-nav-container.is-sticky { 
   background-color: $blueblood;
-  .donate-button {
-    display: inline-flex;
+  .donate-button-link {
+    position: relative;
+    padding-top: 30px;
+    padding-left: 20px;
+  }
+}
+
+.static-main-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: dotted 1px $blueblood;
+}
+.static-main-header .col {
+  flex: 1;
+  .wqxr-icon {
+    float: right;
+    margin-top: 10px;
+  }
+  button {
+    color: white;
+    border-color: white;
+  }
+}
+
+.horizontal-nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.live-nyc-txt {
+  color: $blueblood;
+  background: white;
+  text-align: center;
+  border-radius: 5px;
+  max-width: 150px;
+}
+
+.donate-button {
+  color: white;
+  border-color: white;
+  }
+
+@media (max-width: 400px) {
+  .static-main-header {
+    display: block;
+    .col {
+      width: 100%;
+      margin: 0 0 10px 0;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+}
+
+.col {
+  padding: 20px;
+}
+
+@include for-phone-only {
+
+.header:not(.button)  {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  }
+  .header .live-text-box {
+    margin: 0;
+    flex-direction: row;
   }
 }
 

@@ -3,9 +3,6 @@ import { get, set } from '@ember/object';
 
 export default Component.extend({
   classNames: ['show-header'],
-  didRender() {
-    this._super(...arguments);
-  },
   activeTabIndex: null,
   actions: {
     updateNav(index) {
