@@ -10,26 +10,22 @@
 
 <NyprPlayerIntegration as |integration|>
   {{#liquid-if showPlayer class="nypr-player-wrapper"}}
-    {{#liquid-if integration.revealNotificationBar class='player-notification-wrapper'}}
-      <integration.notification>
-        {{player-notification/autoplay-message
+  {{#liquid-if integration.revealNotificationBar class='player-notification-wrapper'}}
+  <integration.notification>
+    {{player-notification/autoplay-message
           duration   = integration.currentSound.duration
           position   = integration.currentSound.position
           audioType  = integration.currentAudioType
           isLoggedIn = session.isAuthenticated
         }}
-      </integration.notification>
-    {{/liquid-if}}
+  </integration.notification>
+  {{/liquid-if}}
 
-    <NyprPlayer
-      @currentTitle     = {{integration.currentTitle}}
-      @backdropImageUrl = {{integration.backdropImageUrl}}
-      @storyTitle       = {{integration.storyTitle}}
-      @showTitle        = {{integration.showTitle}}
-      @isAudiostream    = {{integration.isStream}}
-      as |content|>
-        {{#content.for 'trackInfo'}}
-          {{nypr-player-integration/track-info
+  <NyprPlayer @currentTitle={{integration.currentTitle}} @backdropImageUrl={{integration.backdropImageUrl}}
+    @storyTitle={{integration.storyTitle}} @showTitle={{integration.showTitle}} @isAudiostream={{integration.isStream}}
+    as |content|>
+    {{#content.for 'trackInfo'}}
+    {{nypr-player-integration/track-info
             currentAudio    = integration.currentAudio
             currentSound    = integration.currentSound
             showTitle       = integration.showTitle
@@ -40,8 +36,27 @@
             songDetails     = integration.songDetails
             isStream        = integration.isStream
           }}
-        {{/content.for}}
-    </NyprPlayer>
+    {{/content.for}}
+
+  </NyprPlayer>
+
   {{/liquid-if}}
+
 </NyprPlayerIntegration>
 
+<NyprOFooter as |footer|>
+  <footer.slogan>
+    <p class="slogan">
+      WQXR is New York City’s only classical music radio station, broadcasting live on 105.9 FM. We share our audience’s
+      passion for music by playing the most outstanding pieces on air, online and through our app. WQXR is made possible
+      thanks to the generous support of our members and sponsors.
+    </p>
+  </footer.slogan>
+
+  <footer.nav @navItems={{array
+      (hash url='/advertising' title='Advertising')
+      (hash url='/contact' title='Contact Us')
+      (hash url='/newsletter' title='Newsletter')
+    }} />
+
+</NyprOFooter>

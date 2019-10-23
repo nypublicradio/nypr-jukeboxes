@@ -1,3 +1,4 @@
+@import '_include-media';
 @import "ember-basic-dropdown";
 
 @import "nypr-ui/vars";
@@ -10,6 +11,8 @@
 @import 'mixins/mq';
 @import 'vars/colors';
 @import 'vars/fonts';
+@import 'vars/layout';
+@import 'vars/tools.sg-updates';
 
 @import "node_modules/nypr-pattern-lab/source/scss/themes/default/default.scss";
 
@@ -22,6 +25,7 @@
 @import 'components/horizontal-nav';
 @import "components/sliding-bar";
 @import "components/listen";
+@import 'components/footer';
 
 body {
   font-family: $font-pixel-body;

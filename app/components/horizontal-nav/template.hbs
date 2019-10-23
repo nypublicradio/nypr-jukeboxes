@@ -2,10 +2,11 @@
   <nav class="horizontal-nav__nav">
     <ul class="horizontal-nav__list">
       {{#each parsedLinks as |link index|}}
-        <li class="{{if (eq index activeTabIndex) 'is-active '}}horizontal-nav__list-item">
-          {{link-to link.title link.nav-slug classNames="horizontal-nav__link"}}
-        </li>
+      <li class="{{if (eq index activeTabIndex) 'is-active '}}horizontal-nav__list-item">
+        {{link-to link.title link.nav-slug classNames="horizontal-nav__link"}}
+      </li>
       {{/each}}
+      <a href="https://www.wqxr.org/support/" target="_blank" id="sticky-donate"><button class="donate-button">Donate</button></a>
     </ul>
     {{sliding-bar class="horizontal-nav__indicator" positionX=indicatorX width=indicatorWidth}}
   </nav>

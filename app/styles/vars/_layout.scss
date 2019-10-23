@@ -18,4 +18,4 @@ $screen: "only screen";
 $large: 768; 
 
 $small-only:    "#{$screen} and (max-width: #{$large - 1}px)";
-$large-only: "#{$screen} and (min-width: #{$large}px)"; 
+$large-only: "#{$screen} and (min-width: #{$large}px)";
