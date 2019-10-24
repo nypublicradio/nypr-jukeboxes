@@ -2,8 +2,7 @@ import Service from '@ember/service';
 import { inject as service} from '@ember/service';
 import { inject } from '@ember/service';
 import config from '../config/environment';
-import { observer } from '@ember/object';
-import DS from 'ember-data';
+import { observer, get } from '@ember/object';
 
 var HOSTDICT = {};
 HOSTDICT[config.wqxrURL] = 'wqxr';
