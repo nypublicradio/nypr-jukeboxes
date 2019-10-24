@@ -17,7 +17,6 @@ export default Service.extend({
   publisherHost: config.publisherAPI,
   store: service(),
   hifi: service(),
-  poll: service(),
   currentStream: service(),
   isLoading: false,
   dailySchedule: null,
@@ -37,22 +36,6 @@ export default Service.extend({
     return moment(get(this, 'scheduleDate'), 'YYYY/MMM/DD').add(1, 'day').format('YYYY/MMM/DD')
   }),
 
-  init() {
-    let pollFunction = () => this.refreshStream();
-    let pollId = this.get('poll').addPoll({interval: 10 * 1000, callback: pollFunction});
-    this.set('pollId', pollId);
-
-    this._super(...arguments);
-  },
-
-  loadStreams() {
-    return this.store.findAll('stream', {reload: true}).then(s => {
-      s = s.filterBy('liveWQXR').filterBy('hasPlaylists').sortBy('sitePriority').uniq();
-      this.set('streams', s)
-      return s;
-    })
-  },
-
   load(date) {
     this.set('isLoading', true)
     this.set('scheduleDate', moment(date).format('YYYY/MMM/DD'));
@@ -64,51 +47,6 @@ export default Service.extend({
     } else {
       let requestUrl = this._scheduleUrlForDate(date);
       return this.getSchedule(requestUrl);
-    }
-  },
-
-  async refreshStream() {
-    let response = await get(this, 'store').findRecord('stream', this.get('currentStream.slug'))
-    this.processWhatsOn(response)
-  },
-
-  processWhatsOn(response) {
-    set(this, 'nowPlayingId', "entry_" + get(response, 'currentPlaylistItem.playlistEntryId'))
-    let newTrack = get(response, 'currentPlaylistItem');
-    if (newTrack) {
-      let store     = get(this, 'store')
-      let startTime = get(newTrack, 'startTime')
-      let trackId   = "entry_" + get(newTrack, 'playlistEntryId');
-      if (trackId && !store.peekRecord('track', trackId)) {
-        newTrack = store.createRecord('track', {
-          id             : trackId,
-          playlistEntryId: trackId,
-          catalogEntry   : get(newTrack, 'catalogEntry'),
-          startTime      : moment(startTime).format('hh:mm a'),
-        });
-      } else {
-        newTrack = null;
-      }
-    }
-
-    let newShow = get(response, 'currentShow')
-    if (newShow) {
-      let airing = this.findAiring(fixTimestamp(get(newShow, 'start')));
-      if (airing && newTrack) {
-        let tracks = [newTrack];
-        tracks.pushObjects(get(airing, 'tracks'))
-        set(airing, 'tracks', tracks)
-      }
-      if(airing && get(newShow, 'episodePk')) {
-        this.get('store').findRecord('story', get(newShow, 'episodePk')).then(story => {
-          airing.set('episode', story);
-        });
-      }
-      if(airing && !get(airing, 'isCurrent')){
-        set(airing, 'isCurrent', true)
-      }
-      // if airing not found, do nothing with track. most likely scenario is that
-      // the clock hit midnight and the next day's schedule has not been loaded.
     }
   },
 
@@ -161,9 +99,9 @@ export default Service.extend({
       // basically a event - and it can either be a show event or airing, as defined in publisher.
       var airing = get(this, 'store').createRecord('airing', attrs)
 
-      get(this, 'store').findRecord('show', attrs.showSlug).then(show => {
-        airing.set('show', show);
-      })
+      //get(this, 'store').findRecord('show', attrs.showSlug).then(show => {
+      //  airing.set('show', show);
+      //})
 
       set(this, 'dailySchedule', dailySchedule);
       dailySchedule.get('airings').addObject(airing);
