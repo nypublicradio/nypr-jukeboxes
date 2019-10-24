@@ -43,13 +43,15 @@ export default Service.extend({
   },
 
   refreshStream() {
-    let promise = get(this, 'store').findRecord('stream', this.get('slug'))
-    promise.then(stream => this._refreshShow(stream));
+    let promise = get(this, 'store').findRecord('stream', this.get('slug'));
+    promise.then(stream => {
+      this._refreshShow(stream);
+    });
     return promise;
   },
 
   _refreshShow(stream) {
-    get(this, 'store').findRecord('show', stream.currentShow.group_slug).then(show => {
+    return get(this, 'store').findRecord('show', stream.currentShow.group_slug).then(show => {
       stream.set('about', show.about);
     })
   }
