@@ -25,8 +25,8 @@
             </div>
 
             {{!-- <div class="about-and-contact"> --}}
-              <NyprMShareTools @label='About Us' as |share|>
-                <div class="about-us-div">
+              <NyprMShareTools class="about-us-div" @label='About Us' as |share|>
+                {{!-- <div class="about-us-div"> --}}
                   <div class="about-us-left">
                     <a href="https://www.wnyc.org/resources/912769/fcc_eeo_public_file_report.pdf"
                       class="u-font--secondary-style u-font--xs u-color--white term-links" target="_blank"
@@ -61,18 +61,17 @@
                       Sponsorship
                     </a>
                   </div>
-
-                </div>
+                {{!-- </div> --}}
               </NyprMShareTools>
               <NyprMShareTools class="social-media-links" @label='Connect' as |share|>
-                <div class="about-us-div">
+                <div class="social-media__container">
                   <share.link @service='spotify' @username='3kRXZieRfyb2lCAFtVB76u' />
                   <share.link @service='facebook' @username='WQXRClassical' />
                   <share.link @service='twitter' @username='WQXR' />
                   <share.link @service='instagram' @username='wqxr_classical' />
                   <share.link @service='youtube' @username='UCNaGXxDBmCNQGpwm3hxK9sw' />
-
                 </div>
+                <div class="feedback">Send Us Your Feedback</div>
               </NyprMShareTools>
             {{!-- </div> --}}
           </div>

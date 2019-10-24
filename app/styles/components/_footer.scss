@@ -249,10 +249,22 @@
         color: white;
     }
 
+    .social-media__container {
+      fill: white;
+      display: flex;
+    }
+
     @include for-desktop-up {
       .about-and-contact {
         all: unset;
-
+      }
+      .social-media-links {
+        display: flex;
+        flex-direction: column;
+        .feedback  {
+          color: blue;
+          background: white;
+        }
       }
     }
 
@@ -272,6 +284,9 @@
       }
        .about-us-div {
         margin-bottom: 50px;
+      }
+      .social-media__container {
+        width: 100%;
       }
     }
 
