@@ -326,7 +326,7 @@ $space-quad:        $space*4;   // 64
   display: flex;
   text-decoration: underline;
   fill: white;
-  .about-us-left {
+ .about-us-left {
     display: flex;
     flex-direction: column;
     margin-right: 10px;
@@ -335,10 +335,13 @@ $space-quad:        $space*4;   // 64
     display: flex;
     flex-direction: column;
   }
+  .about-us-div, a {
+    font-family: 'Open Sans', sans-serif;
+    text-transform: none;
+  }
 }
 
 .term-links {
   text-transform: none;
   padding: 2px;
 }
-

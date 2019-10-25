@@ -1,3 +1,5 @@
+@import '../vars/fonts';
+
 /**
  * Wrapping element to keep content contained and centered.
  */
@@ -119,6 +121,8 @@
     &__slogan {
       p {
         color: $c-white;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
         font-size: 14px; // Not in the type scale
         display: flex;
         flex-direction: row;
@@ -189,6 +193,9 @@
     .c-toggle-box__label {
       text-transform: none;
       border: none;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
     }
   
     &__bottom {
@@ -231,27 +238,41 @@
       }
     }
 
-    &__copyright {
+    &__copyright, p {
       justify-content: flex-end;
       opacity: .7;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      text-transform: none;
     }
 
-    .header-titles {
-        width: 100%;
-        font-family: PlayfairDisplay;
-        font-size: 28px;
-        font-weight: 900;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.36;
-        letter-spacing: normal;
-        text-transform: none;
-        color: white;
+    .c-share-tools {
+      align-items: flex-start;
+    }
+
+    .c-share-tools__label {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      text-transform: none;
     }
 
     .social-media__container {
       fill: white;
       display: flex;
+      padding-bottom: 30px;
+    }
+
+    .feedback  a {
+      color: $c-denim-blue;
+      background: white;
+      border-radius: 15.5px;
+      width: 208.6px;
+      height: 25px;
+      font-family: 'OpenSans', sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-align: center;
     }
 
     @include for-desktop-up {
@@ -261,10 +282,7 @@
       .social-media-links {
         display: flex;
         flex-direction: column;
-        .feedback  {
-          color: blue;
-          background: white;
-        }
+    
       }
     }
 
@@ -275,9 +293,6 @@
       }
       .c-main-footer_brand-group {
         flex-direction: column;
-      }
-      .c-share-tools {
-        align-items: flex-start;
       }
       .c-main-footer__slogan p {
         margin-bottom: 50px;
