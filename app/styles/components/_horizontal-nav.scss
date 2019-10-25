@@ -18,11 +18,12 @@
   position: absolute;
   top: 0; 
   right: 0;
-  padding: 50px;
+  // padding: 50px;
 }
 
 .horizontal-nav-container.is-sticky { 
   background-color: $denim-blue;
+  z-index: 100;
   .donate-button-link {
     position: relative;
     padding-top: 30px;
@@ -31,7 +32,7 @@
 }
 
 .static-main-header {
-  padding: 20px;
+  // padding: 20px;
   display: flex;
   justify-content: space-between;
   border-bottom: dotted 1px $blueblood;
@@ -42,10 +43,15 @@
     float: right;
     margin-top: 10px;
   }
+
   button {
     color: white;
     border-color: white;
   }
+}
+
+#live-nyc-txt-box {
+  margin-top: 15px;
 }
 
 .horizontal-nav-container {
@@ -55,6 +61,9 @@
 }
 
 .live-nyc-txt {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  font-weight: bold;
   color: $blueblood;
   background: white;
   text-align: center;
@@ -63,6 +72,10 @@
 }
 
 .donate-button {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   color: white;
   border-color: white;
   }
@@ -95,6 +108,10 @@
   .header .live-text-box {
     margin: 0;
     flex-direction: row;
+  }
+
+  .static-main-header .col .wqxr-icon {
+    float: left;
   }
 }
 
