@@ -261,8 +261,7 @@
       padding-bottom: 30px;
     }
 
-    .feedback a {
-      color: $c-denim-blue;
+    .feedback  {
       background: white;
       border-radius: 15.5px;
       width: 208.6px;
@@ -272,6 +271,11 @@
       font-weight: bold;
       letter-spacing: 1px;
       text-align: center;
+      padding: 6px 20px 10px 22px;
+    }
+
+    .feedback a {
+      color: $c-denim-blue;
     }
 
     .jl-logo {

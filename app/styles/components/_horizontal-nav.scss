@@ -10,7 +10,6 @@
   display: flex;
   position: relative;
   overflow: hidden;
-  padding-top: 20px;
 }
 
 .donate-button-link {
@@ -18,7 +17,8 @@
   position: absolute;
   top: 0; 
   right: 0;
-  // padding: 50px;
+  padding-top: 20px;
+  padding-right: 5%;
 }
 
 .horizontal-nav-container.is-sticky { 
@@ -26,8 +26,9 @@
   z-index: 100;
   .donate-button-link {
     position: relative;
-    padding-top: 30px;
     padding-left: 30px;
+    padding-top: 10px;
+    padding-right: 0%;
   }
 }
 
@@ -112,6 +113,17 @@
 
   .static-main-header .col .wqxr-icon {
     float: left;
+  }
+
+  .donate-button-link {
+    padding-right: 5%;
+    padding-top: 10%;
+  }
+
+  .horizontal-nav-container.is-sticky { 
+    .donate-button-link {
+      padding-right: 0%;
+    }
   }
 }
 
