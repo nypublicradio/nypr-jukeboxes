@@ -1,7 +1,0 @@
-{{#each streams as |stream|}}
-  <button onclick={{action (mut currentStream) stream}}
-          class={{if (eq currentStream.slug stream.slug) "current-stream"}}
-          aria-label="Switch to {{stream.name}}">
-          {{stream.name}}
-  </button>
-{{/each}}

@@ -1,15 +1,21 @@
 import Route from '@ember/routing/route';
-import { hash } from "rsvp";
+import { inject as service} from '@ember/service';
+import rsvp from "rsvp";
 
 export default Route.extend({
+  currentStream: service(),
+
   async model() {
     let controller = this.controllerFor('application');
     controller.send('setNavSlug', 'listen');
 
-    let stream = await this.store.findRecord("stream", 'wqxr')
-    return hash({
-      stream: stream
-    });
+    return await this.get('currentStream').refreshStream().then(stream => {
+      let showSlug = stream.currentShow.group_slug;
+      return rsvp.hash({
+        stream: stream,
+        show: this.store.findRecord('show', showSlug),
+      });
+    })
   },
   afterModel() {
     let controller = this.controllerFor('application');

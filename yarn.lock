@@ -9294,7 +9294,6 @@ nypr-ads@^0.2.0:
 
 nypr-audio-services@^0.5.0, nypr-audio-services@nypublicradio/nypr-audio-services#jkeen/upgrades:
   version "0.5.9"
-  uid "27ee78c34df574c6c2f0406096c84f80d7c5cf48"
   resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/27ee78c34df574c6c2f0406096c84f80d7c5cf48"
   dependencies:
     ember-cli-babel "^6.6.0"
@@ -9389,7 +9388,7 @@ nypr-player@^0.4.0:
 
 nypr-publisher-lib@nypublicradio/nypr-publisher-lib#bkammin/DSODA-94_add_previous_to_stream_model:
   version "0.5.7"
-  resolved "https://codeload.github.com/nypublicradio/nypr-publisher-lib/tar.gz/19574d2b67f4b307dc9ac7dda1dbcac282f2f8a2"
+  resolved "https://codeload.github.com/nypublicradio/nypr-publisher-lib/tar.gz/f914808e9f12a25fd07e598c57fc3553448a0bd7"
   dependencies:
     "@fortawesome/ember-fontawesome" "^0.1.14"
     "@fortawesome/free-brands-svg-icons" "^5.10.1"

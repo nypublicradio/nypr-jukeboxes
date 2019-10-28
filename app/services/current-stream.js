@@ -1,8 +1,8 @@
 import Service from '@ember/service';
+import { inject as service} from '@ember/service';
 import { inject } from '@ember/service';
 import config from '../config/environment';
-import { observer } from '@ember/object';
-import DS from 'ember-data';
+import { observer, get } from '@ember/object';
 
 var HOSTDICT = {};
 HOSTDICT[config.wqxrURL] = 'wqxr';
@@ -10,6 +10,8 @@ HOSTDICT[config.wqxrURL] = 'wqxr';
 export default Service.extend({
   fastboot: inject(),
   store: inject(),
+  poll: service(),
+
   // TODO: onload, this variable infers the slug from the host domain.
   // if we continue with the monorepo implementation, this variable will
   // need to hook into embers location API, so that when the user switches
@@ -30,9 +32,27 @@ export default Service.extend({
       slugFromHost = HOSTDICT[window.location.hostname];
     }
     slugFromHost = slugFromHost ? slugFromHost : 'wqxr';
-    let promise = this.get('store').findAll('stream').then(s => s.filterBy('slug', slugFromHost))
     this.set('slugFromHost', slugFromHost);
     this.set('slug', slugFromHost);
-    this.set('stream', DS.PromiseObject.create({promise}).then(p => {this.set('stream', p[0])}));
+  },
+
+  startPolling() {
+    let pollFunction = () => this.refreshStream();
+    let pollId = this.get('poll').addPoll({interval: 10 * 1000, callback: pollFunction});
+    this.set('pollId', pollId);
+  },
+
+  refreshStream() {
+    let promise = get(this, 'store').findRecord('stream', this.get('slug'));
+    promise.then(stream => {
+      this._refreshShow(stream);
+    });
+    return promise;
+  },
+
+  _refreshShow(stream) {
+    return get(this, 'store').findRecord('show', stream.currentShow.group_slug).then(show => {
+      stream.set('about', show.about);
+    })
   }
 });
