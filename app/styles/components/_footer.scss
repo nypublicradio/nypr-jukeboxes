@@ -238,8 +238,7 @@
       }
     }
 
-    &__copyright, p {
-      justify-content: flex-end;
+    &__copyright p {
       opacity: .7;
       font-family: 'Open Sans', sans-serif;
       font-weight: 600;
@@ -262,7 +261,7 @@
       padding-bottom: 30px;
     }
 
-    .feedback  a {
+    .feedback a {
       color: $c-denim-blue;
       background: white;
       border-radius: 15.5px;
@@ -273,6 +272,10 @@
       font-weight: bold;
       letter-spacing: 1px;
       text-align: center;
+    }
+
+    .jl-logo {
+      margin-top: 4px;
     }
 
     @include for-desktop-up {
