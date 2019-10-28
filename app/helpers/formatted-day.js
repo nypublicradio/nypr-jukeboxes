@@ -2,13 +2,13 @@ import { helper } from '@ember/component/helper';
 import moment from 'moment';
   
 export function formattedDay(timestamp) {
-  let momentDate = moment(timestamp,'YYYY-MM-DDThh:mm:ss');
+  let momentDate = moment(timestamp,'YYYY-MM-DDTHH:mm:ss');
   if (isToday(momentDate)) {
-  	return 'Today';
+    return 'Today';
   } else if (isYesterday(momentDate)) {
-  	return 'Yesterday';
+    return 'Yesterday';
   } else {
-  	return momentDate.format('dddd');
+    return momentDate.format('dddd');
   }
 }
 
@@ -18,8 +18,8 @@ function isToday(momentDate) {
 }
 
 function isYesterday(momentDate) {
-	let yesterday = moment().subtract(1, 'days').startOf('day');
-    return momentDate.isSame(yesterday, 'd');
+  let yesterday = moment().subtract(1, 'days').startOf('day');
+  return momentDate.isSame(yesterday, 'd');
 }
 
 export default helper(formattedDay);

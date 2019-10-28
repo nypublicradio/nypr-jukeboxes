@@ -2,16 +2,24 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import moment from 'moment';
 
 module('Integration | Helper | can-show-schedule-for-date', function(hooks) {
   setupRenderingTest(hooks);
 
-  // Replace this with your real tests.
   test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
+    this.set('inputValue', moment().format('YYYY-MM-DDTHH:mm:ss'));
 
-    await render(hbs`{{can-show-schedule-for-date inputValue}}`);
+    this.set('increment', 0);
+    await render(hbs`{{can-show-schedule-for-date inputValue increment}}`);
+    assert.equal(this.element.textContent.trim(), 'true');
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    this.set('increment', 1);
+    await render(hbs`{{can-show-schedule-for-date inputValue increment}}`);
+    assert.equal(this.element.textContent.trim(), 'false');
+
+		this.set('increment', -1);
+    await render(hbs`{{can-show-schedule-for-date inputValue increment}}`);
+    assert.equal(this.element.textContent.trim(), 'true');
   });
 });

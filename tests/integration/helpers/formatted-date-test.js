@@ -2,16 +2,25 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import moment from 'moment';
 
 module('Integration | Helper | formatted-date', function(hooks) {
   setupRenderingTest(hooks);
 
-  // Replace this with your real tests.
   test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
-
+    let today = moment();
+    this.set('inputValue', today.format('YYYY-MM-DDTHH:mm:ss'));
     await render(hbs`{{formatted-date inputValue}}`);
+    assert.equal(this.element.textContent.trim(), today.format("dddd, MMMM Do, YYYY"));
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    let yesterday = moment().add(-1, 'days');
+    this.set('inputValue', yesterday.format('YYYY-MM-DDTHH:mm:ss'));
+    await render(hbs`{{formatted-date inputValue}}`);
+    assert.equal(this.element.textContent.trim(), yesterday.format("dddd, MMMM Do, YYYY"));
+
+    let beforeYesterday = moment().add(-2, 'days');
+    this.set('inputValue', beforeYesterday.format('YYYY-MM-DDTHH:mm:ss'));
+    await render(hbs`{{formatted-date inputValue}}`);
+    assert.equal(this.element.textContent.trim(), beforeYesterday.format("MMMM Do, YYYY"));
   });
 });

@@ -2,7 +2,7 @@ import { helper } from '@ember/component/helper';
 import moment from 'moment';
   
 export function formattedPickerDate(params) {
-  let momentDate = moment(params[0],'YYYY-MM-DDThh:mm:ss').add(params[1], 'days').startOf('day');
+  let momentDate = moment(params[0],'YYYY-MM-DDTHH:mm:ss').add(params[1], 'days').startOf('day');
   if (isToday(momentDate)) {
     return 'TODAY';
   } else if (isYesterday(momentDate)) {
