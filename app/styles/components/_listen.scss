@@ -256,9 +256,14 @@
     margin-right: 16px;
     margin-top: 8px;
   }
+  
+  .ember-basic-dropdown-content{
+    background-color: pink;
+    }
 
   .secondary-metadata-toggle-box {
     .c-toggle-box__dropdown {
+      top: 0;
       background-color: transparent;
     }
 

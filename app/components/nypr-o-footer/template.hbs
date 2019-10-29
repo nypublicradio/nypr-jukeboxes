@@ -73,7 +73,7 @@
         <NyprASvg @icon='nypr-logo' />
       </div>
 
-      <NyprMBrandsLinkroll @exclude='wqxr' />
+      <NyprMBrandsLinkroll @exclude='wqxr' @calculatePosition = {{this.calculatePosition}} as |toggle| />
 
       <div class="c-main-footer__copyright">
         <p class="u-font--secondary-style u-font--xs u-color--white term-links">&copy; {{moment-format (now) 'YYYY'}}
