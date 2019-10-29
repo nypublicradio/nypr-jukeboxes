@@ -6,6 +6,10 @@
   flex-direction: row;
   justify-content: center;
 
+  .playlist-history {
+    width: 504px;
+  }
+
   @media #{$small-only} {
       flex-direction: column;
       align-items: center;
@@ -71,8 +75,8 @@
 }
 
 .on-air-now {
-  width: 369px;
   padding: 24px;
+  width: 369px;
 
   @media #{$small-only} {
     width: 100%;
@@ -226,6 +230,7 @@
     font-weight: bold;
     letter-spacing: 1.2px;
     justify-content: flex-end;
+    margin-left: 32px;
     margin-top: 4px;
   }
 
@@ -258,13 +263,13 @@
     }
 
     .c-toggle-box__label:before {
-      bottom: -10px;
-      right: 14px;
+      bottom: -22px;
       background-color: #000000;
     }
 
     .ember-basic-dropdown-content {
-      right: 0px;
+      margin-top: 12px;
+      right: -20px;
     }
 
     > button:focus {
@@ -275,21 +280,18 @@
       border: none;
       border-radius: 0px;
       padding-left: 0px;
+      padding-right: 0px;
       line-height: normal;
 
       .o-text-with-icon {
-        display: block;
         text-align: left;
       }
     }
 
     .o-text-with-icon .o-icon--caret {
-      margin-left: -6px;
+      margin-left: 8px;
       padding-top: 4px;
-    }
-
-    .o-text-with-icon .o-icon--caret .caret-down-icon {
-      width: 12px;
+      min-width: 16px;
     }
 
     .secondary-metadata-content {
@@ -300,6 +302,7 @@
       font-family: OpenSans;
       font-size: 12px;
       line-height: 1.5;
+      width: 263px;
 
       div:last-child {
         margin-bottom: 0px;
@@ -317,9 +320,7 @@
         .secondary-metadata-content-title {
           font-family: OpenSans;
           font-size: 12px;
-          font-weight: bold;
           line-height: 1.5;
-          text-decoration: underline;
         }
       }
     }
@@ -327,7 +328,6 @@
 }
 
 .currently-listening-to {
-  width: 369px;
   padding: 24px 24px 0px 24px;
 
   @media #{$small-only} {
@@ -359,6 +359,10 @@
         font-size: 28px;
         line-height: 1.18;
       }
+    }
+
+    .title_expand {
+      margin-top: 16px;
     }
 
     .start-time {
@@ -397,7 +401,6 @@
 
 .recently-played {
   background-color: white;
-  width: 369px;
   padding: 24px;
   border-radius: 4px;
   display: flex;

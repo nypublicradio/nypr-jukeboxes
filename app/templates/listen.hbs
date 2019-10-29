@@ -46,35 +46,42 @@
   </div>
 
   <div class="playlist-history">
-    <div class="currently-listening-to">
-      <div class="currently-listening-to-label">CURRENTLY LISTENING TO</div>
-        <div class="song-metadata currently-playing-song">
-          <div class="dot"></div>
-            <div class="metadata">
-            <div class="composer">{{model.stream.currentPlaylistItem.catalogEntry.composer.name}}</div>
-            <div class="title_expand">
-              <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
-                <toggle.trigger>
-                  <span class="title">{{model.stream.currentPlaylistItem.catalogEntry.title}}</span>
-                </toggle.trigger>
-                <toggle.dropdown>
-                  <div class="secondary-metadata-content">
-                    {{#if model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}
-                      <div class="secondary-metadata-content-field"><span class="secondary-metadata-content-label">Performed by the </span><span class="secondary-metadata-content-title">{{model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}</span></div>
-                    {{/if}}
-                    {{#if model.stream.currentPlaylistItem.catalogEntry.conductor.name}}
-                      <div class="secondary-metadata-content-field">
-                        <span class="secondary-metadata-content-label">Conducted by </span>
-                        <span class="secondary-metadata-content-title">{{model.stream.currentPlaylistItem.catalogEntry.conductor.name}}</span></div>
-                    {{/if}}
-                  </div>
-                </toggle.dropdown>
-              </NyprAToggleBox>
+    {{#if model.stream.currentPlaylistItem.catalogEntry}}
+      <div class="currently-listening-to">
+        <div class="currently-listening-to-label">CURRENTLY LISTENING TO</div>
+          <div class="song-metadata currently-playing-song">
+            <div class="dot"></div>
+              <div class="metadata">
+              <div class="composer">{{model.stream.currentPlaylistItem.catalogEntry.composer.name}}</div>
+              <div class="title_expand">
+                {{#if (or model.stream.currentPlaylistItem.catalogEntry.ensemble.name
+                          model.stream.currentPlaylistItem.catalogEntry.conductor.name)}}
+                <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
+                  <toggle.trigger>
+                    <span class="title">{{model.stream.currentPlaylistItem.catalogEntry.title}}</span>
+                  </toggle.trigger>
+                  <toggle.dropdown>
+                    <div class="secondary-metadata-content">
+                      {{#if model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}
+                        <div class="secondary-metadata-content-field"><span class="secondary-metadata-content-label">Performed by the </span><span class="secondary-metadata-content-title">{{model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}</span></div>
+                      {{/if}}
+                      {{#if model.stream.currentPlaylistItem.catalogEntry.conductor.name}}
+                        <div class="secondary-metadata-content-field">
+                          <span class="secondary-metadata-content-label">Conducted by </span>
+                          <span class="secondary-metadata-content-title">{{model.stream.currentPlaylistItem.catalogEntry.conductor.name}}</span></div>
+                      {{/if}}
+                    </div>
+                  </toggle.dropdown>
+                </NyprAToggleBox>
+                {{else}}
+                  <div class="title">{{model.stream.currentPlaylistItem.catalogEntry.title}}</div>
+                {{/if}}
+              </div>
             </div>
-          </div>
-        <div class="start-time">NOW</div>
+          <div class="start-time">NOW</div>
+        </div>
       </div>
-    </div>
+    {{/if}}
 
     {{#if model.stream.previous}}
       <div class="recently-played">
@@ -86,6 +93,8 @@
             <div class="metadata">
               <div class="composer">{{item.catalogEntry.composer.name}}</div>
                 <div class="title_expand">
+                  {{#if (or item.catalogEntry.ensemble.name
+                            item.catalogEntry.conductor.name)}}
                   <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
                     <toggle.trigger>
                       <span class="title">{{item.catalogEntry.title}}</span>
@@ -107,6 +116,9 @@
                       </div>
                     </toggle.dropdown>
                   </NyprAToggleBox>
+                  {{else}}
+                    <div class="title">{{item.catalogEntry.title}}</div>
+                  {{/if}}
                 </div>
               </div>
               <div class="start-time">{{format-start-time item.startTime}}</div>
