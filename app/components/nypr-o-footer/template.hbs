@@ -1,16 +1,8 @@
-{{!-- BEGIN-SNIPPET nypr-o-footer.hbs --}}
-{{!-- <NyprMToTop /> --}}
-
 <footer class="c-main-footer">
-
   <div class="l-container l-wrap u-spacing--triple">
-
     <div class="c-main-footer__inner">
-
       <div class="c-main-footer__col1 top-half-header u-spacing--triple">
-
         <div class="c-main-footer__branding">
-
           <div class="c-main-footer__logo main-logo">
             {{#link-to 'index'}}
             <NyprASvg @icon='wqxr-logo' />
@@ -24,56 +16,47 @@
               {{yield (hash slogan=(component 'blank-template'))}}
             </div>
 
-            {{!-- <div class="about-and-contact"> --}}
-              <NyprMShareTools class="about-us-div" @label='About Us' as |share|>
-                {{!-- <div class="about-us-div"> --}}
-                  <div class="about-us-left">
-                    <a href="https://www.wnyc.org/resources/912769/fcc_eeo_public_file_report.pdf"
-                      class="u-font--secondary-style u-font--xs u-color--white term-links" target="_blank"
-                      rel="noopener">
-                      EEO Report
-                    </a>
-                    <a href="https://publicfiles.fcc.gov/fm-profile/wqxr-fm"
-                      class="u-font--secondary-style u-font--xs u-color--white term-links" target="_blank"
-                      rel="noopener">
-                      WQXR FCC Public File
-                    </a>
-                    <a href="https://www.wnyc.org/privacy"
-                      class="u-font--secondary-style u-font--xs u-color--white term-links" target="_blank"
-                      rel="noopener">
-                      Privacy Policy
-                    </a>
-                  </div>
-                  <div class="about-us-right">
-                    <a href="https://www.wnyc.org/terms"
-                      class="u-font--secondary-style u-font--xs u-color--white term-links" target="_blank"
-                      rel="noopener">
-                      Terms of Use
-                    </a>
-                    <a href="https://wqxr.zendesk.com/hc/en-us "
-                      class="u-font--secondary-style u-font--xs u-color--white term-links" target="_blank"
-                      rel="noopener">
-                      Contact Us
-                    </a>
-                    <a href="https://sponsorship.wnyc.org/"
-                      class="u-font--secondary-style u-font--xs u-color--white term-links" target="_blank"
-                      rel="noopener">
-                      Sponsorship
-                    </a>
-                  </div>
-                {{!-- </div> --}}
-              </NyprMShareTools>
-              <NyprMShareTools class="social-media-links" @label='Connect' as |share|>
-                <div class="social-media__container">
-                  <share.link @service='spotify' @username='3kRXZieRfyb2lCAFtVB76u' />
-                  <share.link @service='facebook' @username='WQXRClassical' />
-                  <share.link @service='twitter' @username='WQXR' />
-                  <share.link @service='instagram' @=username='wqxr_classical' />
-                  <share.link @service='youtube' @username='UCNaGXxDBmCNQGpwm3hxK9sw' />
-                </div>
-                <div class="feedback"><a href="mailto:beta@wqxr.org">SEND US YOUR FEEDBACK</a></div>
-              </NyprMShareTools>
-            {{!-- </div> --}}
+            <NyprMShareTools class="about-us-div" @label='About Us' as |share|>
+              <div class="about-us-left">
+                <a href="https://www.wnyc.org/resources/912769/fcc_eeo_public_file_report.pdf"
+                  class="u-font--secondary-style u-font--xs u-color--white term-links" target="_blank" rel="noopener">
+                  EEO Report
+                </a>
+                <a href="https://publicfiles.fcc.gov/fm-profile/wqxr-fm"
+                  class="u-font--secondary-style u-font--xs u-color--white term-links" target="_blank" rel="noopener">
+                  WQXR FCC Public File
+                </a>
+                <a href="https://www.wnyc.org/privacy"
+                  class="u-font--secondary-style u-font--xs u-color--white term-links" target="_blank" rel="noopener">
+                  Privacy Policy
+                </a>
+              </div>
+              <div class="about-us-right">
+                <a href="https://www.wnyc.org/terms"
+                  class="u-font--secondary-style u-font--xs u-color--white term-links" target="_blank" rel="noopener">
+                  Terms of Use
+                </a>
+                <a href="https://wqxr.zendesk.com/hc/en-us "
+                  class="u-font--secondary-style u-font--xs u-color--white term-links" target="_blank" rel="noopener">
+                  Contact Us
+                </a>
+                <a href="https://sponsorship.wnyc.org/"
+                  class="u-font--secondary-style u-font--xs u-color--white term-links" target="_blank" rel="noopener">
+                  Sponsorship
+                </a>
+              </div>
+            </NyprMShareTools>
+            
+            <NyprMShareTools class="social-media-links" @label='Connect' as |share|>
+              <div class="social-media__container">
+                <share.link @service='spotify' @username='3kRXZieRfyb2lCAFtVB76u' />
+                <share.link @service='facebook' @username='WQXRClassical' />
+                <share.link @service='twitter' @username='WQXR' />
+                <share.link @service='instagram' @=username='wqxr_classical' />
+                <share.link @service='youtube' @username='UCNaGXxDBmCNQGpwm3hxK9sw' />
+              </div>
+              <div class="feedback"><a href="mailto:beta@wqxr.org">SEND US YOUR FEEDBACK</a></div>
+            </NyprMShareTools>
           </div>
         </div>
       </div>
@@ -86,7 +69,6 @@
     </div>
 
     <div class="c-main-footer__brand-group">
-      {{!-- <div class="brand-group"> --}}
       <div class="c-main-footer__nypr-logo logo-and-toggle">
         <NyprASvg @icon='nypr-logo' />
       </div>
@@ -98,8 +80,6 @@
           New York
           Public Radio. All Rights Reserved.</p>
       </div>
-      {{!-- </div> --}}
     </div>
   </div>
 </footer>
-{{!-- END-SNIPPET --}}
