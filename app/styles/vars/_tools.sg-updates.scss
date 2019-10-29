@@ -301,7 +301,7 @@ $space-quad:        $space*4;   // 64
 }
 
 .social-media-links {
-  .c-share-tools__group a:first-child{
+  .c-share-tools__group a:first-child {
     padding-left: 0;
     margin-left: 0;
     width: 30px;
@@ -311,16 +311,22 @@ $space-quad:        $space*4;   // 64
 .wqxr-logo-icon, .c-share-tools__group {
   margin-top: 10px;
   align-items: flex-start;
+  width: 100%;
   path {
     fill: $c-white;
   }
 }
 
-.about-us-div {
+.social-media-links .c-share-tools__group {
+  fill: white;
+  flex-direction: column;
+}
+
+.about-us-div .c-share-tools__group {
   display: flex;
   text-decoration: underline;
   fill: white;
-  .about-us-left {
+ .about-us-left {
     display: flex;
     flex-direction: column;
     margin-right: 10px;
@@ -329,10 +335,13 @@ $space-quad:        $space*4;   // 64
     display: flex;
     flex-direction: column;
   }
+  .about-us-div, a {
+    font-family: 'Open Sans', sans-serif;
+    text-transform: none;
+  }
 }
 
 .term-links {
   text-transform: none;
   padding: 2px;
 }
-

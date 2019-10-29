@@ -10,7 +10,6 @@
   display: flex;
   position: relative;
   overflow: hidden;
-  padding-top: 20px;
 }
 
 .donate-button-link {
@@ -18,20 +17,22 @@
   position: absolute;
   top: 0; 
   right: 0;
-  padding: 50px;
+  padding-top: 20px;
+  padding-right: 5%;
 }
 
 .horizontal-nav-container.is-sticky { 
   background-color: $denim-blue;
+  z-index: 100;
   .donate-button-link {
     position: relative;
-    padding-top: 30px;
-    padding-left: 20px;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-right: 0%;
   }
 }
 
 .static-main-header {
-  padding: 20px;
   display: flex;
   justify-content: space-between;
   border-bottom: dotted 1px $blueblood;
@@ -42,10 +43,15 @@
     float: right;
     margin-top: 10px;
   }
+
   button {
     color: white;
     border-color: white;
   }
+}
+
+#live-nyc-txt-box {
+  margin-top: 15px;
 }
 
 .horizontal-nav-container {
@@ -55,14 +61,21 @@
 }
 
 .live-nyc-txt {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  font-weight: bold;
   color: $blueblood;
   background: white;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 4px;
   max-width: 150px;
 }
 
 .donate-button {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   color: white;
   border-color: white;
   }
@@ -81,10 +94,6 @@
   box-sizing: border-box;
 }
 
-// body {
-//   padding: 20px;
-// }
-
 .col {
   padding: 20px;
 }
@@ -99,6 +108,21 @@
   .header .live-text-box {
     margin: 0;
     flex-direction: row;
+  }
+
+  .static-main-header .col .wqxr-icon {
+    float: left;
+  }
+
+  .donate-button-link {
+    padding-right: 5%;
+    padding-top: 10%;
+  }
+
+  .horizontal-nav-container.is-sticky { 
+    .donate-button-link {
+      padding-right: 0%;
+    }
   }
 }
 
@@ -220,6 +244,14 @@
   @media #{$mq_medium-and-up} {
     height: 18px;
   }
+}
+
+.horizontal-nav__list-item > a {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
 }
 
 .horizontal-nav__link {
