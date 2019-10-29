@@ -1,0 +1,35 @@
+<div class="dot"></div>
+<div class="metadata">
+  <div class="composer">{{composerName}}</div>
+  <div class="title_expand">
+    {{#if (or ensembleName conductorName)}}
+    <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
+      <toggle.trigger>
+        <span class="title">{{trackTitle}}</span>
+      </toggle.trigger>
+      <toggle.dropdown>
+        <div class="secondary-metadata-content">
+          {{#if ensembleName}}
+            <div class="secondary-metadata-content-field">
+              <span class="secondary-metadata-content-label">Performed by the </span>
+              <span class="secondary-metadata-content-title">{{ensembleName}}</span>
+            </div>
+          {{/if}}
+          {{#if conductorName}}
+            <div class="secondary-metadata-content-field">
+              <span class="secondary-metadata-content-label">Conducted by </span>
+              <span class="secondary-metadata-content-title">{{conductorName}}</span>
+            </div>
+          {{/if}}
+        </div>
+      </toggle.dropdown>
+    </NyprAToggleBox>
+    {{else}}
+      <span class="title">{{trackTitle}}</span>
+    {{/if}}
+  </div>
+</div>
+<div class="start-time">{{format-start-time startTime}}</div>
+
+
+{{yield}}

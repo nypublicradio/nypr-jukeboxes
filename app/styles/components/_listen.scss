@@ -212,7 +212,7 @@
     margin-bottom: 8px;
   }
 
-  .currently-playing-song {
+  .song-metadata {
     background-image: linear-gradient(#ffffff, #ffffff);
     background-size: 2px calc(100% - 30px);
     background-position: 3px bottom;
@@ -295,7 +295,7 @@
     background-position: 3px top;
   }
 
-  .recently-played-song {
+  .song-metadata {
     background-image: linear-gradient($water-blue, $water-blue);
     background-size: 2px 100%;
     background-position: 3px center;
