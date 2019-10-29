@@ -7,7 +7,7 @@ export default Controller.extend({
   dj             : service(),
   hifi           : service(),
   currentStream  : service(),
-  links: [ { 'href': null, 'nav-slug': 'listen', 'title': 'Listen'}, { 'href': null, 'nav-slug': 'playlist-history', 'title': 'Playlist History'} ],
+  links: [ { 'href': null, 'nav-slug': 'listen', 'title': 'LISTEN'}, { 'href': null, 'nav-slug': 'playlist-history', 'title': 'PLAY HISTORY'} ],
 
   showPlayer: reads('dj.showPlayer'),
 
