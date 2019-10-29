@@ -35,7 +35,7 @@
   .composer {
     color: $denim-blue;
     display: flex;
-    font-family: PlayfairDisplay;
+    font-family: 'Playfair Display', serif;
     font-size: 22px;
     font-weight: 900;
     justify-content: flex-start;
@@ -44,7 +44,7 @@
 
   .start-time {
     display: flex;
-    font-family: OpenSans;
+    font-family: 'Open Sans', sans-serif;
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 1.2px;
@@ -62,7 +62,7 @@
 
   .title {
     color: #000000;
-    font-family: OpenSans;
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     margin-right: 5px;
     text-align: left;
@@ -127,7 +127,7 @@
       color: white;
       border-radius: 4px;
       padding: 24px;
-      font-family: OpenSans;
+      font-family: 'Open Sans', sans-serif;
       font-size: 12px;
       line-height: 1.5;
       width: 263px;
@@ -140,13 +140,13 @@
         margin-bottom: 12px;
 
         .secondary-metadata-content-label {
-          font-family: OpenSans;
+          font-family: 'Open Sans', sans-serif;
           font-size: 12px;
           line-height: 1.5;
         }
 
         .secondary-metadata-content-title {
-          font-family: OpenSans;
+          font-family: 'Open Sans', sans-serif;
           font-size: 12px;
           font-weight: bold;
           line-height: 1.5;
