@@ -264,13 +264,12 @@
 
     .c-toggle-box__label:before {
       bottom: -22px;
-      right: 14px;
       background-color: #000000;
     }
 
     .ember-basic-dropdown-content {
       margin-top: 12px;
-      right: 0px;
+      right: -20px;
     }
 
     > button:focus {
@@ -281,21 +280,18 @@
       border: none;
       border-radius: 0px;
       padding-left: 0px;
+      padding-right: 0px;
       line-height: normal;
 
       .o-text-with-icon {
-        display: block;
         text-align: left;
       }
     }
 
     .o-text-with-icon .o-icon--caret {
-      margin-left: -6px;
+      margin-left: 8px;
       padding-top: 4px;
-    }
-
-    .o-text-with-icon .o-icon--caret .caret-down-icon {
-      width: 12px;
+      min-width: 16px;
     }
 
     .secondary-metadata-content {
