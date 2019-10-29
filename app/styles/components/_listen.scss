@@ -263,12 +263,13 @@
     }
 
     .c-toggle-box__label:before {
-      bottom: -10px;
+      bottom: -22px;
       right: 14px;
       background-color: #000000;
     }
 
     .ember-basic-dropdown-content {
+      margin-top: 12px;
       right: 0px;
     }
 
@@ -305,6 +306,7 @@
       font-family: OpenSans;
       font-size: 12px;
       line-height: 1.5;
+      width: 263px;
 
       div:last-child {
         margin-bottom: 0px;
