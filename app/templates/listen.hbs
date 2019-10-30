@@ -52,10 +52,10 @@
       <div class="currently-listening-to">
         <div class="currently-listening-to-label">CURRENTLY LISTENING TO</div>
         <TrackInfo
-          @trackTitle={{model.stream.currentPlaylistItem.catalogEntry.title}}
-          @ensembleName={{model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}
-          @conductorName={{model.stream.currentPlaylistItem.catalogEntry.conductor.name}}
-          @composerName={{model.stream.currentPlaylistItem.catalogEntry.composer.name}}
+          @trackTitle={{this.currentStream.trackTitle}}
+          @ensembleName={{this.currentStream.ensembleName}}
+          @conductorName={{this.currentStream.conductorName}}
+          @composerName={{this.currentStream.composerName}}
           @startTime="now"
         />
       </div>
