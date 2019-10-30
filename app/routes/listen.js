@@ -17,6 +17,15 @@ export default Route.extend({
       });
     })
   },
+
+  activate() {
+    this.controllerFor('application').set('showPlayer', false);
+  },
+
+  deactivate() {
+    this.controllerFor('application').set('showPlayer', true);
+  },
+
   afterModel() {
     let controller = this.controllerFor('application');
     controller.send('updateNav');

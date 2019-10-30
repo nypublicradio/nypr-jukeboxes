@@ -18,8 +18,9 @@
 //@import 'base';
 
 @import 'routes/index';
+@import 'components/jukebox-player';
+@import 'nypr-player';
 
-@import 'components/nypr-player-overrides';
 @import 'components/horizontal-nav';
 @import "components/sliding-bar";
 @import "components/listen";

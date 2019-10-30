@@ -5,5 +5,5 @@ import { inject as service } from '@ember/service';
 export default Controller.extend({
   currentStream: service('current-stream'),
   streamMetadata: service(),
-  streams: alias('streamMetadata.streams'),
+  streams: alias('streamMetadata.streams')
 });
