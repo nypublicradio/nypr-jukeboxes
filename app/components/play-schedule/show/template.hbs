@@ -12,18 +12,7 @@
         </span>
       </div>
 
-      <h2 class="playlist-show-info-title">{{title}}</h2>
-      <span class="playlist-show-info-additional">
-        {{#if episode}}
-          {{link-to episode.title 'story' episode.slug}}
-        {{else}}
-          {{#if host}}
-            with {{link-to host.name 'person-detail' host.slug}}
-          {{else}}
-            &nbsp;
-          {{/if}}
-        {{/if}}
-      </span>
+      <div class="playlist-show-info-title">{{title}}</div>
     </div>
 
     {{#if tracks}}
@@ -35,7 +24,17 @@
 </div>
 
 {{#if (and tracks this.isPlaylistVisible)}}
-    <PlaylistHistorySongList @tracks={{tracks}} class="play-schedule-show-playlist" />
+  <div class="play-schedule-show-playlist">
+    {{#each tracks as |track|}}
+      <TrackInfo
+        @trackTitle={{track.catalogEntry.title}}
+        @ensembleName={{track.catalogEntry.ensemble.name}}
+        @conductorName={{track.catalogEntry.conductor.name}}
+        @composerName={{track.catalogEntry.composer.name}}
+        @startTime={{track.startTime}}
+      />
+    {{/each}}
+  </div>
 {{/if}}
 
 {{yield}}

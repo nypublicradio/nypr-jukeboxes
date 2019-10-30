@@ -151,5 +151,15 @@
   .play-schedule-show-playlist {
     background-color: #ffffff;
     padding: 40px 56px;
+
+    > div.song-metadata:first-of-type {
+      background-size: 2px calc(100% - 24px);
+      background-position: 3px bottom;
+    }
+
+    > div.song-metadata:last-of-type {
+      background-size: 2px 24px;
+      background-position: 3px top;
+    }
   }
 }
