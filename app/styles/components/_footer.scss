@@ -50,7 +50,7 @@
     }
   }
 
-  /*------------------------------------*\
+/*------------------------------------*\
     $FOOTER
 \*------------------------------------*/
 
@@ -312,3 +312,22 @@
       }
     }
    }
+
+/*------------------------------------*\
+    $FOOTER
+\*------------------------------------*/
+
+.ember-basic-dropdown-content {
+    background-color: black;
+
+    .u-has-accent--secondary, .o-rte-text .u-has-accent--secondary{
+      color: white;
+      text-decoration: underline;
+      font-size: 10px;
+      text-transform: uppercase;
+      border-bottom-color: transparent;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: bold;
+      margin: 20px;
+    }
+  }

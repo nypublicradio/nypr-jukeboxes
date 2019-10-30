@@ -253,10 +253,6 @@
     margin-top: 8px;
   }
 
-  .ember-basic-dropdown-content {
-    background-color: pink;
-  }
-
   .secondary-metadata-toggle-box {
     .c-toggle-box__dropdown {
       top: 0;
@@ -266,11 +262,6 @@
     .c-toggle-box__label:before {
       bottom: -22px;
       background-color: #000000;
-    }
-
-    .ember-basic-dropdown-content {
-      margin-top: 12px;
-      right: -20px;
     }
 
     > button:focus {
