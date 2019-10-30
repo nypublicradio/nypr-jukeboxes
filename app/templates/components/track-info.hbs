@@ -10,16 +10,10 @@
       <toggle.dropdown>
         <div class="secondary-metadata-content">
           {{#if ensembleName}}
-            <div class="secondary-metadata-content-field">
-              <span class="secondary-metadata-content-label">Performed by the </span>
-              <span class="secondary-metadata-content-title">{{ensembleName}}</span>
-            </div>
+            <div class="ensemble secondary-metadata-content-field">Performed by the {{ensembleName}}</div>
           {{/if}}
           {{#if conductorName}}
-            <div class="secondary-metadata-content-field">
-              <span class="secondary-metadata-content-label">Conducted by </span>
-              <span class="secondary-metadata-content-title">{{conductorName}}</span>
-            </div>
+            <div class="conductor secondary-metadata-content-field">Conducted by {{conductorName}}</div>
           {{/if}}
         </div>
       </toggle.dropdown>
