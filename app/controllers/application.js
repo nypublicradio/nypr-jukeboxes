@@ -1,7 +1,6 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { set } from "@ember/object";
-import { /*, printSprites */ } from 'ember-animated';
 import move from 'ember-animated/motions/move';
 import { easeInAndOut } from 'ember-animated/easings/cosine';
 
@@ -14,7 +13,6 @@ export default Controller.extend({
   showPlayer: true,
 
   * showPlayerAnimation(context) { //eslint-disable-line
-    // printSprites(context, 'placeholder')
     let { insertedSprites, removedSprites } = context;
     for (let sprite of insertedSprites) {
       sprite.startTranslatedBy(0, 500);

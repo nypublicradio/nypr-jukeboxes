@@ -14,7 +14,5 @@ export default Component.extend({
         await this.dj.play(this.streamSlug);
       }
     },
-
-
   }
 });

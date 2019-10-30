@@ -48,30 +48,6 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
   }
 
   background-color: $nypr-player-background-color!important;
-
-  //
-  // .svg-path-circle-icon.outer {
-  //   fill: transparent;
-  //   color: transparent;
-  // }
-  //
-  // .nypr-player-button.mod-listen .svg-path-circle-icon.outer {
-  //   stroke: $global-player-button-stroke;
-  // }
-  //
-  // .nypr-player-button.mod-listen:active .svg-path-circle-icon.outer {
-  //   stroke: $white;
-  // }
-  //
-  // .nypr-player-button.mod-rewind path:first-child,
-  // .nypr-player-button.mod-fastforward path:first-child{
-  //   fill: $global-player-button-stroke;
-  // }
-  //
-  // .nypr-player-button.mod-rewind:active path:first-child,
-  // .nypr-player-button.mod-fastforward:active path:first-child{
-  //   fill: $white;
-  // }
 }
 
 .nypr-player-button.mod-listen {
