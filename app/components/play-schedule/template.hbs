@@ -1,4 +1,4 @@
-{{#each schedule.airings as |airing|}}
+{{#each schedule.airings as |airing index|}}
   {{#if airing.isCurrent}}
     <div class="playlist">
       {{play-schedule/show
@@ -8,6 +8,7 @@
         endTime   = airing.endTime
         episode   = airing.episode
         tracks    = airing.tracks
+        isPlaylistVisible = (if (eq index 0) true false)
       }}
     </div>
   {{/if}}

@@ -34,7 +34,7 @@
   </div>
 </div>
 
-{{#if this.isPlaylistVisible}}
+{{#if (and tracks this.isPlaylistVisible)}}
     <PlaylistHistorySongList @tracks={{tracks}} class="play-schedule-show-playlist" />
 {{/if}}
 
