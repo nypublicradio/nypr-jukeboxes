@@ -21,8 +21,12 @@ export default Route.extend({
     };
     return RSVP.hash(hash);
   },
-  afterModel() {
-    let controller = this.controllerFor('application');
-    controller.send('updateNav');
-  },
+  actions: {
+    didTransition: function() {
+      let controller = this.controllerFor('application');
+      Ember.run.scheduleOnce('afterRender', this, function() {
+        controller.send('updateNav');
+      });
+    }
+  }
 });

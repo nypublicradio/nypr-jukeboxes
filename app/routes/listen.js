@@ -26,8 +26,13 @@ export default Route.extend({
     this.controllerFor('application').set('showPlayer', true);
   },
 
-  afterModel() {
-    let controller = this.controllerFor('application');
-    controller.send('updateNav');
-  },
+  actions: {
+    didTransition: function() {
+      let controller = this.controllerFor('application');
+      Ember.run.scheduleOnce('afterRender', this, function() {
+        controller.send('updateNav');
+      });
+    }
+  }
 });
+
