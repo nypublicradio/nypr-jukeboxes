@@ -1,4 +1,5 @@
 @import '../vars/colors';
+@import '../vars/fonts';
 
 .listen {
   display: flex;
@@ -112,7 +113,7 @@
     width: 84px;
     background-color: #ffffff;
     border-radius: 4px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-body;
     font-size: 10px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -144,7 +145,7 @@
   }
 
   .show-title {
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-body;
     font-size: 28px;
     font-weight: bold;
     font-style: normal;
@@ -190,7 +191,7 @@
   }
 
   .message-the-show-title {
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-body;
     font-size: 10px;
     font-weight: bold;
     color: #ffffff;
@@ -204,7 +205,7 @@
   }
 
   .currently-listening-to-label {
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-body;
     font-size: 10px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -278,7 +279,7 @@
   }
 
   .recently-played-label {
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-body;
     font-size: 10px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -322,7 +323,7 @@
     height: 31px;
     border-radius: 15.5px;
     background-color: $denim-blue;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-body;
     font-size: 10px;
     font-weight: bold;
     color: #ffffff;

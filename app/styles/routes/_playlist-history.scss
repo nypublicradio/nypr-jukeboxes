@@ -1,4 +1,5 @@
 @import '../vars/colors';
+@import '../vars/fonts';
 
 .play-schedule-show {
   position: relative;
@@ -35,7 +36,7 @@
   margin-bottom: 48px;
 
   .playlist-history-day {
-	  font-family: 'Playfair Display', serif;
+	  font-family: $font-heading;
   	font-size: 32px;
   	font-weight: 900;
   	line-height: 1.31;
@@ -44,7 +45,7 @@
   }
 
   .playlist-history-date {
-    font-family: 'Playfair Display', serif;
+    font-family: $font-heading;
     font-size: 18px;
     font-weight: 900;
     line-height: 1.22;
@@ -60,7 +61,7 @@
 
   .date-selector {
   	display: flex;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-body;
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 1.3px;
@@ -120,7 +121,7 @@
     color: $denim-blue;
     display: inline-block;
     padding: 2px 8px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-body;
     font-size: 10px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -128,7 +129,7 @@
 
   .playlist-show-info-title {
     color: #ffffff;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-body;
     font-size: 22px;
     font-weight: 800;
   }
@@ -140,7 +141,7 @@
   .playlist-show-info-time-range {
     color: #ffffff;
     opacity: 0.5;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-body;
     font-size: 12px;
     font-weight: bold;
   }
