@@ -81,6 +81,7 @@
       bottom: -22px;
       background-color: #000000;
       right: 12px;
+      z-index: 1001;
     }
 
     .ember-basic-dropdown-content {
@@ -111,6 +112,10 @@
   }
 }
 
+.ember-basic-dropdown-content {
+  background-color: transparent;
+}
+
 .secondary-metadata-content {
   background-color: black;
   color: white;
@@ -120,6 +125,7 @@
   font-size: 12px;
   line-height: 1.5;
   width: 263px;
+  margin-top: 12px;
 
   div:last-child {
     margin-bottom: 0px;
