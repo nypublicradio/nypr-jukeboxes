@@ -40,6 +40,8 @@
         data-action="Clicked Play/Pause Stream: jukebox-display"
         data-label=model.stream.name
         itemPK=model.stream.slug
+        onEnterViewport=(action "updatePlayerState" false)
+        onExitViewport=(action "updatePlayerState" true)
         itemTitle=model.stream.name}}
       {{/listen-button}}
     </div>

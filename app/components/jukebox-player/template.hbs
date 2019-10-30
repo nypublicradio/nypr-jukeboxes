@@ -1,0 +1,33 @@
+<div class="jukebox-player-show" data-test-element="show">
+  <div class="jukebox-player-show-title" data-test-element="show-title">
+    {{@showTitle}}
+  </div>
+
+  {{#if @hostName}}
+    <div class="jukebox-player-show-host" data-test-element="show-host">
+      {{@hostName}}
+    </div>
+  {{/if}}
+</div>
+
+<div class="jukebox-player-listen-button" data-test-element="listen-button">
+  {{nypr-player/listen-button
+    playState    = playState
+    currentTitle = currentTitle
+    click        = (action 'playOrPause')
+    ready        = isReady
+  }}
+</div>
+
+<div class="jukebox-player-track" data-test-element="track">
+  {{#if @composerName}}
+    <div class="jukebox-player-track-composer" data-test-element="track-composer">
+      {{@composerName}}
+    </div>
+  {{/if}}
+  {{#if @trackTitle}}
+    <div class="jukebox-player-track-title" data-test-element="track-title">
+      {{@trackTitle}}
+    </div>
+  {{/if}}
+</div>

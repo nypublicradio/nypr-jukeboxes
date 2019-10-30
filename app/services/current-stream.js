@@ -2,7 +2,8 @@ import Service from '@ember/service';
 import { inject as service} from '@ember/service';
 import { inject } from '@ember/service';
 import config from '../config/environment';
-import { observer, get } from '@ember/object';
+import { computed } from '@ember/object';
+import { reads } from '@ember/object/computed';
 
 var HOSTDICT = {};
 HOSTDICT[config.wqxrURL] = 'wqxr';
@@ -17,11 +18,19 @@ export default Service.extend({
   // need to hook into embers location API, so that when the user switches
   // streams, the url updates as well. IE, If the new standards stream is playing,
   // we are on newstandards.org.
-  slugFromHost: null,
-  slugUpdater: observer('slugFromHost', 'stream', function() {
-    this.set('slug', this.get('stream.slug') ? this.get('stream.slug') : this.get('slugFromHost'))
+
+  name: reads('stream.name'),
+  slug: computed('slugFromHost', 'stream.slug', function() {
+    return this.slugFromHost || this.stream.slug;
   }),
-  slug: null,
+
+  composerName: reads('stream.currentPlaylistItem.catalogEntry.composer.name'),
+  trackTitle: reads('stream.currentPlaylistItem.catalogEntry.title'),
+  ensembleName: reads('stream.currentPlaylistItem.catalogEntry.ensemble.name'),
+  conductorName: reads('stream.currentPlaylistItem.catalogEntry.conductor.name'),
+  showTitle: reads('stream.currentShow.title'),
+  episodeTitle: reads('stream.currentShow.episodeTitle'),
+  showHost: reads('stream.currentShow.currentHost'),
 
   init() {
     this._super(...arguments);
@@ -42,17 +51,12 @@ export default Service.extend({
     this.set('pollId', pollId);
   },
 
-  refreshStream() {
-    let promise = get(this, 'store').findRecord('stream', this.get('slug'));
-    promise.then(stream => {
-      this._refreshShow(stream);
-    });
-    return promise;
-  },
+  async refreshStream() {
+    let stream = await this.store.findRecord('stream', this.slug);
+    let show   = await this.store.findRecord('show', stream.currentShow.group_slug);
+    stream.set('about', show.about);
+    this.set('stream', stream);
 
-  _refreshShow(stream) {
-    return get(this, 'store').findRecord('show', stream.currentShow.group_slug).then(show => {
-      stream.set('about', show.about);
-    })
-  }
+    return stream;
+  },
 });

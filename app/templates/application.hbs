@@ -1,42 +1,6 @@
 <ShowHeader @activeTabIndex={{activeTabIndex}} @links={{links}} />
 {{outlet}}
 
-<NyprPlayerIntegration as |integration|>
-  {{#liquid-if showPlayer class="nypr-player-wrapper"}}
-  {{#liquid-if integration.revealNotificationBar class="player-notification-wrapper"}}
-  <integration.notification>
-    {{player-notification/autoplay-message
-          duration   = integration.currentSound.duration
-          position   = integration.currentSound.position
-          audioType  = integration.currentAudioType
-          isLoggedIn = session.isAuthenticated
-        }}
-  </integration.notification>
-  {{/liquid-if}}
-
-  <NyprPlayer @currentTitle={{integration.currentTitle}} @backdropImageUrl={{integration.backdropImageUrl}}
-    @storyTitle={{integration.storyTitle}} @showTitle={{integration.showTitle}} @isAudiostream={{integration.isStream}}
-    as |content|>
-    {{#content.for "trackInfo"}}
-    {{nypr-player-integration/track-info
-            currentAudio    = integration.currentAudio
-            currentSound    = integration.currentSound
-            showTitle       = integration.showTitle
-            showUrl         = integration.showUrl
-            storyTitle      = integration.storyTitle
-            storyUrl        = integration.storyUrl
-            audioId         = integration.currentAudioId
-            songDetails     = integration.songDetails
-            isStream        = integration.isStream
-          }}
-    {{/content.for}}
-
-  </NyprPlayer>
-
-  {{/liquid-if}}
-
-</NyprPlayerIntegration>
-
 <NyprOFooter as |footer|>
   <footer.slogan>
     <p class="slogan">
@@ -56,5 +20,17 @@
       (hash url="/contact" title="Contact Us")
       (hash url="/newsletter" title="Newsletter")
     }} />
-
 </NyprOFooter>
+
+{{#animated-if showPlayer use=showPlayerAnimation}}
+  <JukeboxPlayer
+    @trackTitle={{this.currentStream.trackTitle}}
+    @showTitle={{this.currentStream.showTitle}}
+    @episodeTitle={{this.currentStream.episodeTitle}}
+    @ensembleName={{this.currentStream.ensembleName}}
+    @conductorName={{this.currentStream.conductorName}}
+    @composerName={{this.currentStream.composerName}}
+    @streamSlug={{this.currentStream.slug}}
+    @streamName={{this.currentStream.name}}
+  />
+{{/animated-if}}
