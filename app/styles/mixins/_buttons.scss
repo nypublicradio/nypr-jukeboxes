@@ -1,6 +1,5 @@
 @import "../vars/colors";
 @import "../vars/fonts";
-@import "../vars/mq";
 @import "text";
 @import "disable-subpixel-antialiasing";
 
@@ -31,7 +30,7 @@
   &:hover {
     opacity: 0.6;
   }
-  @media #{$mq_medium-and-up} {
+  @include media(">=medium") {
     height: 30px;
     min-width: 74px;
     padding: 3px 8px;
@@ -57,7 +56,7 @@
   line-height: 18px;
   font-size: 18px;
   vertical-align: bottom;
-  @media #{$mq_medium-and-up} {
+  @include media(">=medium") {
     height: 40px;
     min-width: 130px;
     padding: 6px 8px;
@@ -100,7 +99,7 @@
     text-decoration: none;
   }
 
-  @media #{$mq_medium-and-up} {
+  @include media(">=medium") {
     height: 30px;
     min-width: 74px;
     padding: 3px 8px;
@@ -156,7 +155,7 @@
   svg {
     height: 11px;
   }
-  @media #{$mq_medium-and-up} {
+  @include media(">=medium") {
     height: 26px;
     svg {
       height: 14px;
@@ -197,7 +196,7 @@
       height: 11px;
       width: 13px;
 
-      @media #{$mq_medium-and-up} {
+      @include media(">=medium") {
         height: 15px;
         width: 17px;
       }

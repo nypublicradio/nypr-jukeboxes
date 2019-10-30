@@ -1,4 +1,4 @@
-@import '_include-media';
+@import 'include-media';
 @import "ember-basic-dropdown";
 
 @import "nypr-ui/vars";
@@ -8,10 +8,8 @@
 @import "nypr-audio-services/text-crawl";
 @import "nypr-player";
 
-@import 'mixins/mq';
 @import 'vars/colors';
 @import 'vars/fonts';
-@import 'vars/layout';
 @import 'vars/tools.sg-updates';
 
 @import "node_modules/nypr-pattern-lab/source/scss/themes/default/default.scss";

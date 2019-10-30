@@ -1,7 +1,7 @@
 @mixin values-for-mobile-desktop($rule, $mobile-value, $desktop-value) {
   #{$rule}: $mobile-value;
 
-  @media #{$mq_medium-and-up} {
+  @include media(">=medium") {
     #{$rule}: $desktop-value;
   }
 }
@@ -11,7 +11,7 @@
     grid-area: $mobile-grid-area;
   }
 
-  @media #{$mq_medium-and-up} {
+  @include media(">=medium") {
     #{$selector} {
       grid-area: $desktop-grid-area;
     }

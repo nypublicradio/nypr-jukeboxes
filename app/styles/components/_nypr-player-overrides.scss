@@ -1,48 +1,40 @@
-@import '../mixins/mq';
-
-$nypr-player-medium-breakpoint               : #{$mq_tablet-portrait};
-$nypr-player-medium-and-up                   : "(min-width: #{$nypr-player-medium-breakpoint})" !default;
-$nypr-player-small-only                      : "(max-width: #{$nypr-player-medium-breakpoint - 1})" !default;
-
 // text-crawl overflow styles
+
 .text-crawl {
-    white-space: nowrap;
-    display: inline-block;
-    vertical-align: bottom;
-    max-width: calc(100% - 5px);
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: bottom;
+  max-width: calc(100% - 5px);
+  overflow: hidden;
+  @include media("landscape", ">medium") {
+    max-width: calc(100% - 69px);
+  }
+
+  a {
+    color: white;
+    font-size: 16px;
+    text-transform: none;
+  }
+
+  .text-crawl-scroll {
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
 
-    @include for-tablet-landscape-up {
-      max-width: calc(100% - 69px);
-    }
-
-    a {
-      color: white;
-      font-size: 16px;
-      text-transform: none;
-    }
-
-    .text-crawl-scroll {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: block;
-    }
-
-    &.is-scrolling .text-crawl-scroll {
-      position: relative;
-      text-overflow: clip;
-      overflow: visible;
-    }
+  &.is-scrolling .text-crawl-scroll {
+    position: relative;
+    text-overflow: clip;
+    overflow: visible;
+  }
 }
-
 // hide empty controls on small widths (larger widths show volume here)
-@include for-phone-only {
+@include media("<=small") {
   .nypr-player .ember-holygrail-right {
     min-width: 17px;
     width: 17px;
   }
 }
-
 // liquid-fire compat
 .nypr-player-wrapper.liquid-container {
   transform: none;

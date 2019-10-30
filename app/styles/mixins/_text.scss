@@ -1,6 +1,5 @@
 @import '../vars/colors';
 @import '../vars/fonts';
-@import '../vars/mq';
 
 @mixin text_inverted {
   color: $white;
@@ -53,7 +52,7 @@
   a {
     @include text_dark-link;
   }
-  @media #{$mq_medium-and-up} {
+  @include media(">=medium") {
     font-size: 45px;
     line-height: 1.18;
   }
@@ -65,7 +64,7 @@
   @include text_main-heading;
   font-size: 34px;
 
-  @media #{$mq_medium-and-up} {
+  @include media(">=medium") {
     font-size: 56px;
     line-height: 1.18;
   }
@@ -82,7 +81,7 @@
   a {
     @include text_dark-link;
   }
-  @media #{$mq_medium-and-up} {
+  @include media(">=medium") {
     font-size: 28px;
     line-height: 1.29;
   }
@@ -101,7 +100,7 @@
   a {
     @include text_bright-link;
   }
-  @media #{$mq_medium-and-up} {
+  @include media(">=medium") {
     font-size: 18px;
     line-height: 1.5;
   }
@@ -122,7 +121,7 @@
   b, strong {
     font-weight: 600;
   }
-  @media #{$mq_medium-and-up} {
+  @include media(">=medium") {
     font-size: 18px;
     line-height: 1.5;
   }
@@ -142,7 +141,7 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 1.38;
-  @media #{$mq_medium-and-up} {
+  @include media(">=medium") {
     font-size: 24px;
     line-height: 1.33;
   }
@@ -159,7 +158,7 @@
   a {
     @include text_dark-link;
   }
-  @media #{$mq_medium-and-up} {
+  @include media(">=medium") {
     font-size: 14px;
     line-height: 1.57;
   }
