@@ -17,9 +17,5 @@ export default Route.extend({
   setupController: function(/*controller, model*/) {
     this.get('woms').initializeWOMS();
     this.get('currentStream').startPolling();
-  },
-
-  redirect: function () {
-    this.transitionTo('listen');
   }
 });

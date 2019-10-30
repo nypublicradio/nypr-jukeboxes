@@ -1,5 +1,6 @@
 @import '../vars/colors';
 @import '../vars/z-index';
+@import '../vars/fonts';
 @import '../mixins/buttons';
 @import '../mixins/text';
 @import '../mixins/utils';
@@ -63,7 +64,7 @@
 }
 
 .live-nyc-txt {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $font-body;
   font-size: 10px;
   font-weight: bold;
   color: $blueblood;
@@ -74,7 +75,7 @@
 }
 
 .donate-button {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $font-body;
   font-size: 10px;
   letter-spacing: 1px;
   text-transform: uppercase;

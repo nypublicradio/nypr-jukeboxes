@@ -107,6 +107,9 @@ export default Service.extend({
       dailySchedule.get('airings').addObject(airing);
     });
     this.set('isLoading', false);
+    dailySchedule.set('airings', dailySchedule.get('airings').reverse().filter( (airing) => {
+     return airing.isCurrent;
+    }));
     return dailySchedule;
   },
 

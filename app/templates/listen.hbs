@@ -48,40 +48,16 @@
   </div>
 
   <div class="playlist-history">
-    {{#if model.stream.currentPlaylistItem.catalogEntry}}
+    {{#if model.stream.currentPlaylistItem.catalogEntry}} 
       <div class="currently-listening-to">
         <div class="currently-listening-to-label">CURRENTLY LISTENING TO</div>
-          <div class="song-metadata currently-playing-song">
-            <div class="dot"></div>
-              <div class="metadata">
-              <div class="composer">{{model.stream.currentPlaylistItem.catalogEntry.composer.name}}</div>
-              <div class="title_expand">
-                {{#if (or model.stream.currentPlaylistItem.catalogEntry.ensemble.name
-                          model.stream.currentPlaylistItem.catalogEntry.conductor.name)}}
-                <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
-                  <toggle.trigger>
-                    <span class="title">{{model.stream.currentPlaylistItem.catalogEntry.title}}</span>
-                  </toggle.trigger>
-                  <toggle.dropdown>
-                    <div class="secondary-metadata-content">
-                      {{#if model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}
-                        <div class="secondary-metadata-content-field"><span class="secondary-metadata-content-label">Performed by the </span><span class="secondary-metadata-content-title">{{model.stream.currentPlaylistItem.catalogEntry.ensemble.name}}</span></div>
-                      {{/if}}
-                      {{#if model.stream.currentPlaylistItem.catalogEntry.conductor.name}}
-                        <div class="secondary-metadata-content-field">
-                          <span class="secondary-metadata-content-label">Conducted by </span>
-                          <span class="secondary-metadata-content-title">{{model.stream.currentPlaylistItem.catalogEntry.conductor.name}}</span></div>
-                      {{/if}}
-                    </div>
-                  </toggle.dropdown>
-                </NyprAToggleBox>
-                {{else}}
-                  <div class="title">{{model.stream.currentPlaylistItem.catalogEntry.title}}</div>
-                {{/if}}
-              </div>
-            </div>
-          <div class="start-time">NOW</div>
-        </div>
+        <TrackInfo
+          @trackTitle={{this.currentStream.trackTitle}}
+          @ensembleName={{this.currentStream.ensembleName}}
+          @conductorName={{this.currentStream.conductorName}}
+          @composerName={{this.currentStream.composerName}}
+          @startTime="now"
+        />
       </div>
     {{/if}}
 
@@ -90,41 +66,13 @@
         <div class="recently-played-label">RECENT MUSIC</div>
         <div class="recently-played-song-list">
           {{#each model.stream.previous as |item|}}
-            <div class="song-metadata recently-played-song">
-            <div class="dot"></div>
-            <div class="metadata">
-              <div class="composer">{{item.catalogEntry.composer.name}}</div>
-                <div class="title_expand">
-                  {{#if (or item.catalogEntry.ensemble.name
-                            item.catalogEntry.conductor.name)}}
-                  <NyprAToggleBox class="secondary-metadata-toggle-box" as |toggle|>
-                    <toggle.trigger>
-                      <span class="title">{{item.catalogEntry.title}}</span>
-                    </toggle.trigger>
-                    <toggle.dropdown>
-                      <div class="secondary-metadata-content">
-                        {{#if item.catalogEntry.ensemble.name}}
-                          <div class="secondary-metadata-content-field">
-                            <span class="secondary-metadata-content-label">Performed by the </span>
-                            <span class="secondary-metadata-content-title">{{item.catalogEntry.ensemble.name}}</span>
-                          </div>
-                        {{/if}}
-                        {{#if item.catalogEntry.conductor.name}}
-                          <div class="secondary-metadata-content-field">
-                            <span class="secondary-metadata-content-label">Conducted by </span>
-                            <span class="secondary-metadata-content-title">{{item.catalogEntry.conductor.name}}</span>
-                          </div>
-                        {{/if}}
-                      </div>
-                    </toggle.dropdown>
-                  </NyprAToggleBox>
-                  {{else}}
-                    <div class="title">{{item.catalogEntry.title}}</div>
-                  {{/if}}
-                </div>
-              </div>
-              <div class="start-time">{{format-start-time item.startTime}}</div>
-            </div>
+            <TrackInfo
+              @trackTitle={{item.catalogEntry.title}}
+              @ensembleName={{item.catalogEntry.ensemble.name}}
+              @conductorName={{item.catalogEntry.conductor.name}}
+              @composerName={{item.catalogEntry.composer.name}}
+              @startTime={{item.startTime}}
+            />
           {{/each}}
         </div>
         <a href="/playlist-history" class="view-full-playlist-history-button">VIEW FULL PLAYLIST HISTORY</a>

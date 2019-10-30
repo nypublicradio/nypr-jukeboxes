@@ -17,7 +17,6 @@
 @import 'normalize';
 //@import 'base';
 
-@import 'routes/index';
 @import 'components/jukebox-player';
 @import 'nypr-player';
 
@@ -25,6 +24,8 @@
 @import "components/sliding-bar";
 @import "components/listen";
 @import 'components/footer';
+@import "components/track-info";
+@import "routes/playlist-history";
 
 body {
   font-family: $font-pixel-body;
