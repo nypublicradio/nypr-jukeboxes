@@ -108,27 +108,27 @@
       padding-top: 4px;
       min-width: 16px;
     }
+  }
+}
 
-    .secondary-metadata-content {
-      background-color: black;
-      color: white;
-      border-radius: 4px;
-      padding: 24px;
-      font-family: $font-body;
-      font-size: 12px;
-      line-height: 1.5;
-      width: 263px;
+.secondary-metadata-content {
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  padding: 24px;
+  font-family: $font-body;
+  font-size: 12px;
+  line-height: 1.5;
+  width: 263px;
 
-      div:last-child {
-        margin-bottom: 0px;
-      }
+  div:last-child {
+    margin-bottom: 0px;
+  }
 
-      .secondary-metadata-content-field {
-        margin-bottom: 12px;
-        font-family: $font-body;
-        font-size: 12px;
-        line-height: 1.5;
-      }
-    }
+  .secondary-metadata-content-field {
+    margin-bottom: 12px;
+    font-family: $font-body;
+    font-size: 12px;
+    line-height: 1.5;
   }
 }
