@@ -1,6 +1,5 @@
 @import '../vars/colors';
 @import '../vars/z-index';
-@import '../vars/mq';
 @import '../mixins/buttons';
 @import '../mixins/text';
 @import '../mixins/utils';
@@ -15,20 +14,21 @@
 .donate-button-link {
   display: block;
   position: absolute;
-  top: 0; 
+  top: 0;
   right: 0;
   padding-top: 20px;
   padding-right: 5%;
 }
 
-.horizontal-nav-container.is-sticky { 
+.horizontal-nav-container.is-sticky {
   background-color: $denim-blue;
   z-index: 100;
+
   .donate-button-link {
     position: relative;
     padding-left: 30px;
     padding-top: 10px;
-    padding-right: 0%;
+    padding-right: 0;
   }
 }
 
@@ -37,8 +37,10 @@
   justify-content: space-between;
   border-bottom: dotted 1px $blueblood;
 }
+
 .static-main-header .col {
   flex: 1;
+
   .wqxr-icon {
     float: right;
     margin-top: 10px;
@@ -78,14 +80,14 @@
   text-transform: uppercase;
   color: white;
   border-color: white;
-  }
-
-@media (max-width: 400px) {
+}
+@include media("<=small") {
   .static-main-header {
     display: block;
+
     .col {
       width: 100%;
-      margin: 0 0 10px 0;
+      margin: 0 0 10px;
     }
   }
 }
@@ -97,14 +99,13 @@
 .col {
   padding: 20px;
 }
-
-@include for-phone-only {
-
-.header:not(.button)  {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+@include media("<=small") {
+  .header:not(.button) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
+
   .header .live-text-box {
     margin: 0;
     flex-direction: row;
@@ -119,24 +120,25 @@
     padding-top: 10%;
   }
 
-  .horizontal-nav-container.is-sticky { 
+  .horizontal-nav-container.is-sticky {
     .donate-button-link {
-      padding-right: 0%;
+      padding-right: 0;
     }
   }
 }
-
 /* masks for fading scrollable edge */
 .horizontal-nav.is-left-scrollable {
   .horizontal-nav__container {
     -webkit-mask-image: -webkit-linear-gradient(left, transparent, black 80px);
   }
 }
+
 .horizontal-nav.is-right-scrollable {
   .horizontal-nav__container {
     -webkit-mask-image: -webkit-linear-gradient(right, transparent, black 80px);
   }
 }
+
 .horizontal-nav.is-left-scrollable.is-right-scrollable {
   .horizontal-nav__container {
     -webkit-mask-image: -webkit-linear-gradient(left, transparent, black 10%, black 90%, transparent);
@@ -144,15 +146,14 @@
   }
 }
 
-
 .horizontal-nav__container {
   padding-left: 25px;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch;
+
   &::-webkit-scrollbar {
     display: none;
   }
-
   box-shadow: none;
   padding-bottom: 12px;
 
@@ -169,7 +170,7 @@
 
   .sliding-bar {
     top: 27px;
-    @media #{$mq_medium-and-up} {
+    @include media(">=medium") {
       top: 34px;
     }
   }
@@ -178,30 +179,35 @@
 .horizontal-nav__button {
   @include button_pristine;
   position: absolute;
-  top: 0px;
+  top: 0;
   width: 36px;
   padding: 15px 0;
   transition: all 200ms ease-out;
+
   svg {
     width: 11px;
     height: 20px;
     stroke: #fff;
     fill: #fff;
   }
+
   &:hover {
     svg {
       opacity: 0.6;
     }
   }
 }
+
 .horizontal-nav__button--left {
   left: 0;
   text-align: left;
 }
+
 .horizontal-nav__button--right {
   right: 0;
   text-align: right;
 }
+
 .horizontal-nav__button--hidden {
   opacity: 0;
   pointer-events: none;
@@ -217,9 +223,8 @@
 .horizontal-nav__list-item {
   display: inline-block;
   margin-right: 15px;
-  padding: .5rem 0 0;
-
-  @include mq($small-and-up) {
+  padding: 0.5rem 0 0;
+  @include media(">=small") {
     margin-right: 25px;
   }
 
@@ -230,8 +235,6 @@
 
 .horizontal-nav__list-item > a {
   @include disable-subpixel-antialiasing;
-  @include values-for-mobile-desktop(font-size, 12px, 18px);
-
   line-height: 0.8;
   font-weight: 600;
   color: #fff;
@@ -240,8 +243,9 @@
   &:hover {
     color: #ccc;
   }
-
-  @media #{$mq_medium-and-up} {
+  font-size: 12px;
+  @include media(">=medium") {
+    font-size: 18px;
     height: 18px;
   }
 }
@@ -263,16 +267,13 @@
   border-radius: 0;
   padding: 0;
   text-decoration: none;
-
-  @include mq($middle-middle-and-up) {
+  @include media(">=small") {
     @include fontsize(16);
   }
-
-  @include mq($medium-and-up) {
+  @include media(">=medium") {
     @include fontsize(14);
   }
-
-  @include mq($large-and-up) {
+  @include media(">=large") {
     @include fontsize(16);
   }
 

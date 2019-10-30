@@ -1,5 +1,4 @@
 @import '../vars/colors';
-@import '../vars/layout';
 
 .listen {
   display: flex;
@@ -9,86 +8,86 @@
   .playlist-history {
     width: 504px;
   }
+  @include media("<medium") {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+    padding-left: 24px;
+    padding-right: 24px;
 
-  @media #{$small-only} {
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 60px;
-      padding-left: 24px;
-      padding-right: 24px;
-
-      .playlist-history {
-        width: 100%;
-      }
+    .playlist-history {
+      width: 100%;
+    }
   }
 }
 
 .listen-play-button {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    .listen-button {
-      width: 60px;
-      height: 60px;
-      border-radius: 30px;
-      border-color: #ffffff;
-      border-width: 2px;
+  .listen-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    border-color: #ffffff;
+    border-width: 2px;
+    @include media("<medium") {
+      width: 65px;
+      height: 65px;
+      border-radius: 32.5px;
+    }
+  }
 
-      @media #{$small-only} {
-        width: 65px;
-        height: 65px;
-        border-radius: 32.5px;
-      }
-    }
+  .icon {
+    max-width: 100px;
+    max-height: 100px;
+    display: inline;
+  }
 
-    .icon {
-      max-width: 100px;
-      max-height: 100px;
-      display: inline;
-    }
-    .is-playing {
-      .icon--play {
-        display: none;
-      }
-      .icon--pause {
-        display: inline;
-      }
-    }
+  .is-playing {
     .icon--play {
-      display: inline;
-    }
-    .icon--pause {
       display: none;
     }
 
-    .listen-button.is-playing .listen-ui {
-      width: auto;
+    .icon--pause {
+      display: inline;
     }
+  }
 
-    svg {
-      fill: #ffffff;
-    }
+  .icon--play {
+    display: inline;
+  }
 
-    .listen-ui {
-      height: 23px;
-    }
+  .icon--pause {
+    display: none;
+  }
+
+  .listen-button.is-playing .listen-ui {
+    width: auto;
+  }
+
+  svg {
+    fill: #ffffff;
+  }
+
+  .listen-ui {
+    height: 23px;
+  }
 }
 
 .on-air-now {
   padding: 24px;
   width: 369px;
-
-  @media #{$small-only} {
+  @include media("<medium") {
     width: 100%;
   }
-
-  @media #{$small-only} {
-    padding-left: 0px;
-    padding-right: 0px;
+  @include media("<medium") {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .on-air-now-upper {
-    @media #{$small-only} {
+    @include media("<medium") {
       display: flex;
       flex-direction: row;
       margin-bottom: 24px;
@@ -98,11 +97,11 @@
       height: 100px;
       width: 100px;
       border-radius: 4px;
-      margin-left: 0px;
+      margin-left: 0;
       margin-right: 16px;
       display: block;
-      margin-bottom: 0px;
-      @media #{$large-only} {
+      margin-bottom: 0;
+      @include media(">=medium") {
         display: none;
       }
     }
@@ -123,9 +122,8 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-
-    @media #{$small-only} {
-      margin-left: 0px;
+    @include media("<medium") {
+      margin-left: 0;
       margin-bottom: 10px;
     }
   }
@@ -139,7 +137,7 @@
       margin-right: auto;
       display: block;
       margin-bottom: 12px;
-      @media #{$small-only} {
+      @include media("<medium") {
         display: none;
       }
     }
@@ -155,11 +153,10 @@
     text-align: center;
     color: #ffffff;
     margin-bottom: 8px;
-
-    @media #{$small-only} {
+    @include media("<medium") {
       font-size: 17px;
       line-height: 1.29;
-      margin-bottom: 0px;
+      margin-bottom: 0;
       text-align: left;
     }
   }
@@ -168,10 +165,9 @@
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
-
-    @media #{$small-only} {
+    @include media("<medium") {
       justify-content: left;
-      margin-bottom: 0px;
+      margin-bottom: 0;
     }
   }
 
@@ -182,7 +178,7 @@
 
     > button {
       border: none;
-      padding-left: 0px;
+      padding-left: 0;
       margin-left: auto;
       margin-right: auto;
     }
@@ -256,10 +252,10 @@
     margin-right: 16px;
     margin-top: 8px;
   }
-  
-  .ember-basic-dropdown-content{
+
+  .ember-basic-dropdown-content {
     background-color: pink;
-    }
+  }
 
   .secondary-metadata-toggle-box {
     .c-toggle-box__dropdown {
@@ -283,9 +279,9 @@
 
     > button {
       border: none;
-      border-radius: 0px;
-      padding-left: 0px;
-      padding-right: 0px;
+      border-radius: 0;
+      padding-left: 0;
+      padding-right: 0;
       line-height: normal;
 
       .o-text-with-icon {
@@ -310,7 +306,7 @@
       width: 263px;
 
       div:last-child {
-        margin-bottom: 0px;
+        margin-bottom: 0;
       }
 
       .secondary-metadata-content-field {
@@ -333,9 +329,8 @@
 }
 
 .currently-listening-to {
-  padding: 24px 24px 0px 24px;
-
-  @media #{$small-only} {
+  padding: 24px 24px 0;
+  @include media("<medium") {
     width: 100%;
   }
 
@@ -359,8 +354,7 @@
       font-size: 38px;
       font-weight: 900px;
       line-height: 0.95;
-
-      @media #{$small-only} {
+      @include media("<medium") {
         font-size: 28px;
         line-height: 1.18;
       }
@@ -379,8 +373,7 @@
       font-size: 18px;
       line-height: normal;
       font-weight: bold;
-
-      @media #{$small-only} {
+      @include media("<medium") {
         font-size: 14px;
         line-height: 1.71;
       }
@@ -410,8 +403,7 @@
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-
-  @media #{$small-only} {
+  @include media("<medium") {
     width: 100%;
   }
 
@@ -435,14 +427,13 @@
   }
 
   .recently-played-song {
-  	background-image: linear-gradient($water-blue, $water-blue);
+    background-image: linear-gradient($water-blue, $water-blue);
     background-size: 2px 100%;
     background-position: 3px center;
 
     .composer {
       color: $denim-blue;
-
-      @media #{$small-only} {
+      @include media("<medium") {
         font-size: 14px;
         line-height: normal;
       }
@@ -455,8 +446,7 @@
 
     .title {
       color: #000000;
-
-      @media #{$small-only} {
+      @include media("<medium") {
         font-size: 12px;
         line-height: normal;
       }
@@ -487,7 +477,6 @@
     text-decoration: none;
     display: flex;
     justify-content: center;
-    margin: auto;
-    margin-top: 16px;
+    margin: 16px auto auto;
   }
 }
