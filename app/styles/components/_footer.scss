@@ -227,11 +227,6 @@
         padding: 8px 0;
         color: $c-quaternary;
 
-        &:hover {
-          opacity: .8;
-          color: $c-white;
-        }
-
         @include media('>large') {
           margin: 0 $space-double 0 0;
         }
@@ -264,18 +259,42 @@
     .feedback  {
       background: white;
       border-radius: 15.5px;
-      width: 208.6px;
+      width: 208px;
       height: 25px;
       font-family: 'OpenSans', sans-serif;
       font-size: 10px;
       font-weight: bold;
+      color: $c-denim-blue;
       letter-spacing: 1px;
       text-align: center;
       padding: 6px 20px 10px 22px;
     }
 
-    .feedback a {
-      color: $c-denim-blue;
+    .tertiary-hover {
+      display: inline-block;
+      vertical-align: middle;
+      transform: perspective(1px) translateZ(0);
+      position: relative;
+    }
+
+    .tertiary-hover:before {
+      content: '';
+      position: absolute;
+      border-radius: 15.5px;
+      border: white solid 2px;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transition-duration: 0.3s;
+      transition-property: top, right, bottom, left;
+    }
+
+    .tertiary-hover:hover:before, .tertiary-hover:focus:before, .tertiary-hover:active:before {
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
     }
 
     .jl-logo {
@@ -319,8 +338,9 @@
 
 .ember-basic-dropdown-content {
     background-color: black;
+    z-index: 1200;
 
-    .u-has-accent--secondary, .o-rte-text .u-has-accent--secondary{
+    .u-has-accent--secondary, .o-rte-text .u-has-accent--secondary {
       color: white;
       text-decoration: underline;
       font-size: 10px;
@@ -329,5 +349,7 @@
       font-family: 'Open Sans', sans-serif;
       font-weight: bold;
       margin: 20px;
+
+     
     }
   }

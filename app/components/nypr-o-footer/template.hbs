@@ -46,7 +46,7 @@
                 </a>
               </div>
             </NyprMShareTools>
-            
+
             <NyprMShareTools class="social-media-links" @label='Connect' as |share|>
               <div class="social-media__container">
                 <share.link @service='spotify' @username='3kRXZieRfyb2lCAFtVB76u' />
@@ -55,7 +55,9 @@
                 <share.link @service='instagram' @=username='wqxr_classical' />
                 <share.link @service='youtube' @username='UCNaGXxDBmCNQGpwm3hxK9sw' />
               </div>
-              <div class="feedback"><a href="mailto:beta@wqxr.org">SEND US YOUR FEEDBACK</a></div>
+              <a href="mailto:beta@wqxr.org">
+                <div class="feedback tertiary-hover">SEND US YOUR FEEDBACK</div>
+              </a>
             </NyprMShareTools>
           </div>
         </div>
@@ -73,7 +75,7 @@
         <NyprASvg @icon='nypr-logo' />
       </div>
 
-      <NyprMBrandsLinkroll @exclude='wqxr' @calculatePosition = {{this.calculatePosition}} as |toggle| />
+      <NyprMBrandsLinkroll @exclude='wqxr' @calculatePosition={{this.calculatePosition}} as |toggle| />
 
       <div class="c-main-footer__copyright">
         <p class="u-font--secondary-style u-font--xs u-color--white term-links">&copy; {{moment-format (now) 'YYYY'}}
