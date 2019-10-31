@@ -248,7 +248,7 @@
   text-transform: uppercase;
 
   &:hover {
-    color: #ccc;
+    color: rgba(255, 255, 255, 0.8);
   }
   font-size: 12px;
   @include media(">=medium") {
