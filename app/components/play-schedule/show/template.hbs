@@ -23,7 +23,7 @@
   </div>
 </div>
 
-{{#if (and tracks this.isPlaylistVisible)}}
+{{#liquid-if (and tracks this.isPlaylistVisible)}}
   <div class="play-schedule-show-playlist">
     {{#each tracks as |track|}}
       <TrackInfo
@@ -35,6 +35,6 @@
       />
     {{/each}}
   </div>
-{{/if}}
+{{/liquid-if}}
 
 {{yield}}
