@@ -61,9 +61,8 @@
 
   .date-selector {
   	display: flex;
-    font-family: $font-body;
+    font-family: $font-body-bold;
     font-size: 12px;
-    font-weight: bold;
     letter-spacing: 1.3px;
     color: #ffffff;
     margin-bottom: 54px;
@@ -121,9 +120,8 @@
     color: $denim-blue;
     display: inline-block;
     padding: 2px 8px;
-    font-family: $font-body;
+    font-family: $font-body-bold;
     font-size: 10px;
-    font-weight: bold;
     letter-spacing: 1px;
   }
 
@@ -141,9 +139,8 @@
   .playlist-show-info-time-range {
     color: #ffffff;
     opacity: 0.5;
-    font-family: $font-body;
+    font-family: $font-body-bold;
     font-size: 12px;
-    font-weight: bold;
   }
 
   .play-schedule-show-playlist {

@@ -113,9 +113,8 @@
     width: 84px;
     background-color: #ffffff;
     border-radius: 4px;
-    font-family: $font-body;
+    font-family: $font-body-bold;
     font-size: 10px;
-    font-weight: bold;
     letter-spacing: 1px;
     text-align: center;
     color: #0064b4;
@@ -145,11 +144,8 @@
   }
 
   .show-title {
-    font-family: $font-body;
+    font-family: $font-body-bold;
     font-size: 28px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
     line-height: 1.36;
     text-align: center;
     color: #ffffff;
@@ -179,7 +175,8 @@
 
     > button {
       border: none;
-      padding-left: 0;
+      padding-left: 6px;
+      padding-right: 0;
       margin-left: auto;
       margin-right: auto;
     }
@@ -191,9 +188,8 @@
   }
 
   .message-the-show-title {
-    font-family: $font-body;
+    font-family: $font-body-bold;
     font-size: 10px;
-    font-weight: bold;
     color: #ffffff;
   }
 }
@@ -205,9 +201,8 @@
   }
 
   .currently-listening-to-label {
-    font-family: $font-body;
+    font-family: $font-body-bold;
     font-size: 10px;
-    font-weight: bold;
     letter-spacing: 1px;
     color: #ffffff;
     margin-bottom: 8px;
@@ -279,9 +274,8 @@
   }
 
   .recently-played-label {
-    font-family: $font-body;
+    font-family: $font-body-bold;
     font-size: 10px;
-    font-weight: bold;
     letter-spacing: 1px;
     color: $water-blue;
     margin-bottom: 8px;
@@ -323,9 +317,8 @@
     height: 31px;
     border-radius: 15.5px;
     background-color: $denim-blue;
-    font-family: $font-body;
+    font-family: $font-body-bold;
     font-size: 10px;
-    font-weight: bold;
     color: #ffffff;
     letter-spacing: 1px;
     text-decoration: none;
