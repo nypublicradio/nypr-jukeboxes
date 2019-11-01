@@ -16,7 +16,7 @@
     </div>
 
     {{#if tracks}}
-      <div class="playlist-show-expand">
+      <div class="playlist-show-expand {{if this.isPlaylistVisible "is-expanded"}}">
         {{nypr-svg icon="left-arrow"}}
       </div>
     {{/if}}
