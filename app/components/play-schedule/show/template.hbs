@@ -1,4 +1,4 @@
-<div class="play-schedule-show-header">
+<div class="play-schedule-show-header" {{action (optional (if tracks (action "togglePlaylistVisible") null))}}>
   <div class="show-dot"></div>
   <div class="playlist-show-info">
 
@@ -16,7 +16,7 @@
     </div>
 
     {{#if tracks}}
-      <div class="playlist-show-expand" {{action "togglePlaylistVisible"}}>
+      <div class="playlist-show-expand">
         {{nypr-svg icon="left-arrow"}}
       </div>
     {{/if}}
