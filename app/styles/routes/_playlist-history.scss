@@ -55,7 +55,14 @@
 }
 
 .playlist-history-display {
-  width: 756px;
+  width: 736px;
+  padding-left: 16px;
+  padding-right: 16px;
+  @include media("<medium") {
+    width: 100%;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
   margin-left: auto;
   margin-right: auto;
 
