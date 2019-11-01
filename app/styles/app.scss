@@ -27,8 +27,10 @@
 @import "components/track-info";
 @import "routes/playlist-history";
 
-body {
-  font-family: $font-pixel-body;
+body.ember-application{
+  font-family: $font-body;
+  font-weight: normal;
+  line-height: 1.0;
   background-color: $water-blue;
 }
 
