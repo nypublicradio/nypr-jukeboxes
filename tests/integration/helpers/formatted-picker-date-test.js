@@ -9,20 +9,44 @@ module('Integration | Helper | formatted-picker-date', function(hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function(assert) {
-    let today = moment();
-    this.set('inputValue', today.format('YYYY-MM-DDTHH:mm:ss'));
+    this.set('inputValue', moment().format('YYYY-MM-DDTHH:mm:ss'));
     this.set('increment', 0);
     await render(hbs`{{formatted-picker-date inputValue increment}}`);
     assert.equal(this.element.textContent.trim(), 'TODAY');
 
-    this.set('inputValue', today.format('YYYY-MM-DDTHH:mm:ss'));
+    this.set('inputValue', moment().format('YYYY-MM-DDTHH:mm:ss'));
     this.set('increment', -1);
     await render(hbs`{{formatted-picker-date inputValue increment}}`);
     assert.equal(this.element.textContent.trim(), 'YESTERDAY');
 
-    this.set('inputValue', today.format('YYYY-MM-DDTHH:mm:ss'));
+    this.set('inputValue', moment().format('YYYY-MM-DDTHH:mm:ss'));
     this.set('increment', -2);
     await render(hbs`{{formatted-picker-date inputValue increment}}`);
-    assert.equal(this.element.textContent.trim(), today.add(-2, 'days').format("dddd, MMMM Do, YYYY"));
+    assert.equal(this.element.textContent.trim(), moment().add(-2, 'days').format("dddd"));
+
+    this.set('inputValue', moment().format('YYYY-MM-DDTHH:mm:ss'));
+    this.set('increment', -6);
+    await render(hbs`{{formatted-picker-date inputValue increment}}`);
+    assert.equal(this.element.textContent.trim(), moment().add(-6, 'days').format("dddd"));
+
+    this.set('inputValue', moment().format('YYYY-MM-DDTHH:mm:ss'));
+    this.set('increment', -7);
+    await render(hbs`{{formatted-picker-date inputValue increment}}`);
+    assert.equal(this.element.textContent.trim(), moment().add(-7, 'days').format("dddd, MMM Do"));
+
+    this.set('inputValue', moment().format('YYYY-MM-DDTHH:mm:ss'));
+    this.set('increment', -364);
+    await render(hbs`{{formatted-picker-date inputValue increment}}`);
+    assert.equal(this.element.textContent.trim(), moment().add(-364, 'days').format("dddd, MMM Do"));
+
+    this.set('inputValue', moment().format('YYYY-MM-DDTHH:mm:ss'));
+    this.set('increment', -365);
+    await render(hbs`{{formatted-picker-date inputValue increment}}`);
+    assert.equal(this.element.textContent.trim(), moment().add(-365, 'days').format("dddd, MMM Do, YYYY"));
+
+    this.set('inputValue', moment().format('YYYY-MM-DDTHH:mm:ss'));
+    this.set('increment', -366);
+    await render(hbs`{{formatted-picker-date inputValue increment}}`);
+    assert.equal(this.element.textContent.trim(), moment().add(-366, 'days').format("dddd, MMM Do, YYYY"));
   });
 });
