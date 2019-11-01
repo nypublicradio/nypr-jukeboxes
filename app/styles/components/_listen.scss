@@ -228,10 +228,6 @@
       }
     }
 
-    .title_expand {
-      margin-top: 16px;
-    }
-
     .start-time {
       color: #ffffff;
       text-transform: uppercase;
@@ -242,6 +238,7 @@
       font-size: 18px;
       line-height: normal;
       font-weight: bold;
+      margin-top: 16px;
       @include media("<medium") {
         font-size: 14px;
         line-height: 1.71;
@@ -259,10 +256,8 @@
     }
   }
 
-  .title_expand {
-    .u-icon--xs svg path {
-      fill: #ffffff;
-    }
+  .u-icon--xs svg path {
+    fill: #ffffff;
   }
 }
 

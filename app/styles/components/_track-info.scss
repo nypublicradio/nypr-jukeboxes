@@ -45,27 +45,15 @@
     color: #000000;
   }
 
-  .title_expand {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-  }
-
   .title {
     color: #000000;
     font-family: $font-body;
     font-size: 14px;
     margin-right: 5px;
+    margin-top: 4px;
     text-align: left;
     line-height: 16px;
     text-transform: none;
-  }
-
-  .title_expand {
-    padding-top: 8px;
-    .u-icon--xs path {
-      fill: #000000;
-    }
   }
 
   .dot {
@@ -78,6 +66,8 @@
   }
 
   .secondary-metadata-toggle-box {
+    flex: 1;
+
     .c-toggle-box__dropdown {
       background-color: transparent;
     }
@@ -107,6 +97,10 @@
       .o-text-with-icon {
         text-align: left;
       }
+    }
+
+    .u-icon--xs path {
+      fill: #000000;
     }
 
     .o-text-with-icon .o-icon--caret {
