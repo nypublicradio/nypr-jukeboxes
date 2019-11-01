@@ -314,5 +314,10 @@
     display: flex;
     justify-content: center;
     margin: 16px auto auto;
+
+    &:hover {
+      background-color: #003863;
+      opacity: 100%;
+    }
   }
 }
