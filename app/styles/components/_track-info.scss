@@ -20,12 +20,9 @@
 
   .composer {
     color: $denim-blue;
-    display: flex;
     font-family: $font-heading;
     font-size: 22px;
     font-weight: 900;
-    justify-content: flex-start;
-    flex: 1;
 
     @include media("<medium") {
       font-size: 18px;
@@ -72,6 +69,10 @@
       background-color: transparent;
     }
 
+    .c-toggle-box__label {
+      text-transform: none;
+    }
+
     .c-toggle-box__label:before {
       bottom: -22px;
       background-color: #000000;
@@ -92,7 +93,8 @@
       border: none;
       border-radius: 0px;
       padding-left: 0px;
-      line-height: normal;
+      line-height: unset;
+      letter-spacing: 0px;
 
       .o-text-with-icon {
         text-align: left;
