@@ -26,6 +26,11 @@
     font-weight: 900;
     justify-content: flex-start;
     flex: 1;
+
+    @include media("<medium") {
+      font-size: 18px;
+      line-height: normal;
+    }
   }
 
   .start-time {
@@ -57,6 +62,7 @@
   }
 
   .title_expand {
+    padding-top: 8px;
     .u-icon--xs path {
       fill: #000000;
     }

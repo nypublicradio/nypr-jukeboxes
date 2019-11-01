@@ -296,20 +296,6 @@
     background-image: linear-gradient($water-blue, $water-blue);
     background-size: 2px 100%;
     background-position: 3px center;
-
-    .composer {
-      @include media("<medium") {
-        font-size: 14px;
-        line-height: normal;
-      }
-    }
-
-    .title {
-      @include media("<medium") {
-        font-size: 12px;
-        line-height: normal;
-      }
-    }
   }
 
   .view-full-playlist-history-button {
