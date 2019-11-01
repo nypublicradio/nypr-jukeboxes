@@ -131,7 +131,6 @@
     }
 
     &__nav {
-
       @include media('<=xlarge') {
         text-align: center;
         padding-bottom: $space-double;
@@ -244,10 +243,6 @@
       align-items: flex-start;
     }
 
-    .c-share-tools__link:hover svg * {
-      fill: purple;
-    }
-
     .c-share-tools__label {
       font-family: 'Playfair Display', serif;
       font-size: 28px;
@@ -256,8 +251,8 @@
 
     .social-media__container {
       fill: white;
-      display: flex;
-      padding-bottom: 30px;
+      
+      padding-bottom: 25px;
     }
 
     .feedback  {
@@ -285,7 +280,7 @@
       content: '';
       position: absolute;
       border-radius: 15.5px;
-      border: white solid 2px;
+      border: rgba(255,255,255, 0) solid 2px;
       top: 0;
       right: 0;
       bottom: 0;
@@ -299,6 +294,7 @@
       right: -4px;
       bottom: -4px;
       left: -4px;
+      border: rgba(255,255,255, 1) solid 2px;
     }
 
     .jl-logo {
@@ -357,5 +353,18 @@
       font-family: 'Open Sans', sans-serif;
       font-weight: bold;
       margin: 20px;
+    }
+  }
+
+  .about-us-links {
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    padding-right: 20px;
+
+    &:hover { 
+      color: rgba($color: white, $alpha: 0.8);
     }
   }
