@@ -1,4 +1,4 @@
-<div class="play-schedule-show-header">
+<div class="play-schedule-show-header" {{action (optional (if tracks (action "togglePlaylistVisible") null))}}>
   <div class="show-dot"></div>
   <div class="playlist-show-info">
 
@@ -16,14 +16,14 @@
     </div>
 
     {{#if tracks}}
-      <div class="playlist-show-expand" {{action "togglePlaylistVisible"}}>
+      <div class="playlist-show-expand {{if this.isPlaylistVisible "is-expanded"}}">
         {{nypr-svg icon="left-arrow"}}
       </div>
     {{/if}}
   </div>
 </div>
 
-{{#if (and tracks this.isPlaylistVisible)}}
+{{#liquid-if (and tracks this.isPlaylistVisible)}}
   <div class="play-schedule-show-playlist">
     {{#each tracks as |track|}}
       <TrackInfo
@@ -35,6 +35,6 @@
       />
     {{/each}}
   </div>
-{{/if}}
+{{/liquid-if}}
 
 {{yield}}

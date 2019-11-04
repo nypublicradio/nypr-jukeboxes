@@ -20,19 +20,20 @@
 
   .composer {
     color: $denim-blue;
-    display: flex;
     font-family: $font-heading;
     font-size: 22px;
     font-weight: 900;
-    justify-content: flex-start;
-    flex: 1;
+
+    @include media("<medium") {
+      font-size: 18px;
+      line-height: normal;
+    }
   }
 
   .start-time {
     display: flex;
-    font-family: $font-body;
+    font-family: $font-body-bold;
     font-size: 12px;
-    font-weight: bold;
     letter-spacing: 1.2px;
     justify-content: flex-end;
     margin-left: 32px;
@@ -41,26 +42,15 @@
     color: #000000;
   }
 
-  .title_expand {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-  }
-
   .title {
     color: #000000;
     font-family: $font-body;
     font-size: 14px;
     margin-right: 5px;
+    margin-top: 4px;
     text-align: left;
     line-height: 16px;
     text-transform: none;
-  }
-
-  .title_expand {
-    .u-icon--xs path {
-      fill: #000000;
-    }
   }
 
   .dot {
@@ -73,8 +63,14 @@
   }
 
   .secondary-metadata-toggle-box {
+    flex: 1;
+
     .c-toggle-box__dropdown {
       background-color: transparent;
+    }
+
+    .c-toggle-box__label {
+      text-transform: none;
     }
 
     .c-toggle-box__label:before {
@@ -97,11 +93,16 @@
       border: none;
       border-radius: 0px;
       padding-left: 0px;
-      line-height: normal;
+      line-height: unset;
+      letter-spacing: 0px;
 
       .o-text-with-icon {
         text-align: left;
       }
+    }
+
+    .u-icon--xs path {
+      fill: #000000;
     }
 
     .o-text-with-icon .o-icon--caret {

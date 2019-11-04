@@ -71,9 +71,8 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
 
 .jukebox-player-show-title {
   font-weight: normal;
-  font-family: $font-body;
+  font-family: $font-body-bold;
   font-size: 10px;
-  font-weight: bold;
   letter-spacing: 1px;
   max-width: 250px;
 }

@@ -33,6 +33,7 @@
 }
 
 .playlist-history-date-display {
+  margin-top: 40px;
   margin-bottom: 48px;
 
   .playlist-history-day {
@@ -55,17 +56,24 @@
 }
 
 .playlist-history-display {
-  width: 756px;
+  width: 736px;
+  padding-left: 16px;
+  padding-right: 16px;
+  @include media("<medium") {
+    width: 100%;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
   margin-left: auto;
   margin-right: auto;
 
   .date-selector {
   	display: flex;
-    font-family: $font-body;
+    font-family: $font-body-bold;
     font-size: 12px;
-    font-weight: bold;
     letter-spacing: 1.3px;
     color: #ffffff;
+    text-transform: uppercase;
     margin-bottom: 54px;
 
     a span {
@@ -111,6 +119,18 @@
 
       svg {
         transform: rotate(270deg);
+        transition-duration: 0.5s;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.is-expanded {
+        svg {
+          transform: rotate(90deg);
+          transition-duration: 0.5s;
+        }
       }
     }
   }
@@ -121,9 +141,8 @@
     color: $denim-blue;
     display: inline-block;
     padding: 2px 8px;
-    font-family: $font-body;
+    font-family: $font-body-bold;
     font-size: 10px;
-    font-weight: bold;
     letter-spacing: 1px;
   }
 
@@ -141,9 +160,8 @@
   .playlist-show-info-time-range {
     color: #ffffff;
     opacity: 0.5;
-    font-family: $font-body;
+    font-family: $font-body-bold;
     font-size: 12px;
-    font-weight: bold;
   }
 
   .play-schedule-show-playlist {

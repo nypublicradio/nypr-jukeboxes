@@ -1,30 +1,29 @@
 <div class="dot"></div>
-<div class="metadata">
-  <div class="composer">{{composerName}}</div>
-  <div class="title_expand">
-    {{#if (or ensembleName conductorName)}}
-      <NyprAToggleBox class="secondary-metadata-toggle-box" @horizontalPosition="right" as |toggle|>
-        <toggle.trigger>
-          <span class="title">{{trackTitle}}</span>
-        </toggle.trigger>
-        <toggle.dropdown class="secondary-metadata-content-dropdown">
-          <div class="secondary-metadata-content">
-            {{#if ensembleName}}
-              <div class="ensemble secondary-metadata-content-field">Performed by the {{ensembleName}}</div>
-            {{/if}}
-            {{#if conductorName}}
-              <div class="conductor secondary-metadata-content-field">Conducted by {{conductorName}}</div>
-            {{/if}}
-          </div>
-        </toggle.dropdown>
-      </NyprAToggleBox>
-      <div class="secondary-metadata-content-dropdown"></div>
-    {{else}}
-      <span class="title">{{trackTitle}}</span>
-    {{/if}}
+{{#if (or ensembleName conductorName)}}
+  <NyprAToggleBox class="secondary-metadata-toggle-box" @horizontalPosition="right" as |toggle|>
+    <toggle.trigger>
+      <div class="metadata">
+        <div class="composer">{{composerName}}</div>
+        <div class="title">{{trackTitle}}</div>
+      </div>
+    </toggle.trigger>
+    <toggle.dropdown class="secondary-metadata-content-dropdown">
+      <div class="secondary-metadata-content">
+        {{#if ensembleName}}
+          <div class="ensemble secondary-metadata-content-field">Performed by the {{ensembleName}}</div>
+        {{/if}}
+        {{#if conductorName}}
+          <div class="conductor secondary-metadata-content-field">Conducted by {{conductorName}}</div>
+        {{/if}}
+      </div>
+    </toggle.dropdown>
+  </NyprAToggleBox>
+{{else}}
+  <div class="metadata">
+    <div class="composer">{{composerName}}</div>
+    <div class="title">{{trackTitle}}</div>
   </div>
-</div>
+{{/if}}
 <div class="start-time">{{format-start-time startTime}}</div>
-
 
 {{yield}}
