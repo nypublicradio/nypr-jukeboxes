@@ -122,7 +122,6 @@
       p {
         color: $c-white;
         font-family: $font-body;
-        font-weight: 600;
         font-size: 14px; // Not in the type scale
         display: flex;
         flex-direction: row;
@@ -374,8 +373,10 @@
     $FOOTER
 \*------------------------------------*/
 
+.c-nypr-nav__list {
+  background: black;
+}
 .ember-basic-dropdown-content {
-    background-color: black;
     z-index: 1200;
 
     .u-has-accent--secondary, .o-rte-text .u-has-accent--secondary {
@@ -393,10 +394,10 @@
   .about-us-links {
     color: white;
     font-family: "Open Sans", sans-serif;
-    font-size: 12px;
+    font-size: $font-size-xs;
     font-weight: 600;
-    padding-bottom: 10px;
-    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-right: 30px;
 
     &:hover { 
       color: rgba($color: white, $alpha: 0.8);
