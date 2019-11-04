@@ -121,7 +121,7 @@
     &__slogan {
       p {
         color: $c-white;
-        font-family: 'Open Sans', sans-serif;
+        font-family: $font-body;
         font-weight: 600;
         font-size: 14px; // Not in the type scale
         display: flex;
@@ -192,7 +192,7 @@
     .c-toggle-box__label {
       text-transform: none;
       border: none;
-      font-family: 'Open Sans', sans-serif;
+      font-family: $font-body;
       font-weight: 600;
       font-size: 12px;
     }
@@ -234,7 +234,7 @@
 
     &__copyright p {
       opacity: .7;
-      font-family: 'Open Sans', sans-serif;
+      font-family: $font-body;
       font-weight: 600;
       text-transform: none;
     }
@@ -244,7 +244,7 @@
     }
 
     .c-share-tools__label {
-      font-family: 'Playfair Display', serif;
+      font-family: $font-heading;
       font-size: 28px;
       text-transform: none;
     }

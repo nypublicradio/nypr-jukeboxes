@@ -1,9 +1,12 @@
 @import '../vars/colors';
+@import '../vars/fonts';
 
 .listen {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-left: 16px;
+  margin-right: 16px;
 
   .playlist-history {
     width: 504px;
@@ -112,9 +115,8 @@
     width: 84px;
     background-color: #ffffff;
     border-radius: 4px;
-    font-family: OpenSans;
+    font-family: $font-body-bold;
     font-size: 10px;
-    font-weight: bold;
     letter-spacing: 1px;
     text-align: center;
     color: #0064b4;
@@ -144,11 +146,8 @@
   }
 
   .show-title {
-    font-family: OpenSans;
+    font-family: $font-body-bold;
     font-size: 28px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
     line-height: 1.36;
     text-align: center;
     color: #ffffff;
@@ -164,7 +163,7 @@
   .message-the-show {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     @include media("<medium") {
       justify-content: left;
       margin-bottom: 0;
@@ -178,9 +177,15 @@
 
     > button {
       border: none;
-      padding-left: 0;
+      padding-left: 6px;
+      padding-right: 0;
       margin-left: auto;
       margin-right: auto;
+      line-height: 14px;
+
+      @include media("<medium") {
+        padding-left: 0px;
+      }
     }
 
     .u-icon--xs {
@@ -190,132 +195,9 @@
   }
 
   .message-the-show-title {
-    font-family: OpenSans;
+    font-family: $font-body-bold;
     font-size: 10px;
-    font-weight: bold;
     color: #ffffff;
-  }
-}
-
-.song-metadata {
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: row;
-  padding-bottom: 16px;
-  padding-top: 16px;
-
-  .metadata {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-  }
-
-  .composer {
-    display: flex;
-    font-family: PlayfairDisplay;
-    font-size: 22px;
-    font-weight: 900;
-    justify-content: flex-start;
-    flex: 1;
-  }
-
-  .start-time {
-    display: flex;
-    font-family: OpenSans;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 1.2px;
-    justify-content: flex-end;
-    margin-left: 32px;
-    margin-top: 4px;
-  }
-
-  .title_expand {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-  }
-
-  .title {
-    font-family: OpenSans;
-    font-size: 14px;
-    margin-right: 5px;
-    text-align: left;
-    line-height: 16px;
-    text-transform: none;
-  }
-
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 4px;
-    margin-right: 16px;
-    margin-top: 8px;
-  }
-
-  .secondary-metadata-toggle-box {
-    .c-toggle-box__dropdown {
-      top: 0;
-      background-color: transparent;
-    }
-
-    .c-toggle-box__label:before {
-      bottom: -22px;
-      background-color: #000000;
-    }
-
-    > button:focus {
-      outline: none;
-    }
-
-    > button {
-      border: none;
-      border-radius: 0;
-      padding-left: 0;
-      padding-right: 0;
-      line-height: normal;
-
-      .o-text-with-icon {
-        text-align: left;
-      }
-    }
-
-    .o-text-with-icon .o-icon--caret {
-      margin-left: 8px;
-      padding-top: 4px;
-      min-width: 16px;
-    }
-
-    .secondary-metadata-content {
-      background-color: black;
-      color: white;
-      border-radius: 4px;
-      padding: 24px;
-      font-family: OpenSans;
-      font-size: 12px;
-      line-height: 1.5;
-      width: 263px;
-
-      div:last-child {
-        margin-bottom: 0;
-      }
-
-      .secondary-metadata-content-field {
-        margin-bottom: 12px;
-
-        .secondary-metadata-content-label {
-          font-family: OpenSans;
-          font-size: 12px;
-          line-height: 1.5;
-        }
-
-        .secondary-metadata-content-title {
-          font-family: OpenSans;
-          font-size: 12px;
-          line-height: 1.5;
-        }
-      }
-    }
   }
 }
 
@@ -326,15 +208,14 @@
   }
 
   .currently-listening-to-label {
-    font-family: OpenSans;
+    font-family: $font-body-bold;
     font-size: 10px;
-    font-weight: bold;
     letter-spacing: 1px;
     color: #ffffff;
     margin-bottom: 8px;
   }
 
-  .currently-playing-song {
+  .song-metadata {
     background-image: linear-gradient(#ffffff, #ffffff);
     background-size: 2px calc(100% - 30px);
     background-position: 3px bottom;
@@ -351,12 +232,9 @@
       }
     }
 
-    .title_expand {
-      margin-top: 16px;
-    }
-
     .start-time {
       color: #ffffff;
+      text-transform: uppercase;
     }
 
     .title {
@@ -364,6 +242,7 @@
       font-size: 18px;
       line-height: normal;
       font-weight: bold;
+      margin-top: 16px;
       @include media("<medium") {
         font-size: 14px;
         line-height: 1.71;
@@ -381,10 +260,8 @@
     }
   }
 
-  .title_expand {
-    .u-icon--xs {
-      fill: #ffffff;
-    }
+  .song-metadata .u-icon--xs svg path {
+    fill: #ffffff;
   }
 }
 
@@ -399,9 +276,8 @@
   }
 
   .recently-played-label {
-    font-family: OpenSans;
+    font-family: $font-body-bold;
     font-size: 10px;
-    font-weight: bold;
     letter-spacing: 1px;
     color: $water-blue;
     margin-bottom: 8px;
@@ -417,57 +293,30 @@
     background-position: 3px top;
   }
 
-  .recently-played-song {
+  .song-metadata {
     background-image: linear-gradient($water-blue, $water-blue);
     background-size: 2px 100%;
     background-position: 3px center;
-
-    .composer {
-      color: $denim-blue;
-      @include media("<medium") {
-        font-size: 14px;
-        line-height: normal;
-      }
-    }
-
-    .start-time {
-      opacity: 0.5;
-      color: #000000;
-    }
-
-    .title {
-      color: #000000;
-      @include media("<medium") {
-        font-size: 12px;
-        line-height: normal;
-      }
-    }
-
-    .dot {
-      background-color: $water-blue;
-    }
-
-    .title_expand {
-      .u-icon--xs path {
-        fill: #000000;
-      }
-    }
   }
 
   .view-full-playlist-history-button {
-    line-height: 31px;
+    line-height: 30px;
     width: 219px;
-    height: 31px;
-    border-radius: 15.5px;
+    height: 30px;
+    border-radius: 15px;
     background-color: $denim-blue;
-    font-family: OpenSans;
+    font-family: $font-body-bold;
     font-size: 10px;
-    font-weight: bold;
     color: #ffffff;
     letter-spacing: 1px;
     text-decoration: none;
     display: flex;
     justify-content: center;
     margin: 16px auto auto;
+
+    &:hover {
+      background-color: #003863;
+      opacity: 100%;
+    }
   }
 }
