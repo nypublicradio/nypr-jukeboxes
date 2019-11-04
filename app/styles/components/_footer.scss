@@ -50,12 +50,12 @@
     }
   }
 
-  /*------------------------------------*\
+/*------------------------------------*\
     $FOOTER
 \*------------------------------------*/
 
 .c-main-footer {
-    padding: 100px 0px 50px 0px;
+    padding: 100px 0px 100px 0px;
     background-image: linear-gradient(to bottom, white 0, $c-denim-blue 0%);
     background-position: 100% 142px;
     background-repeat: repeat-x;
@@ -131,7 +131,6 @@
     }
 
     &__nav {
-
       @include media('<=xlarge') {
         text-align: center;
         padding-bottom: $space-double;
@@ -227,11 +226,6 @@
         padding: 8px 0;
         color: $c-quaternary;
 
-        &:hover {
-          opacity: .8;
-          color: $c-white;
-        }
-
         @include media('>large') {
           margin: 0 $space-double 0 0;
         }
@@ -257,29 +251,92 @@
 
     .social-media__container {
       fill: white;
-      display: flex;
-      padding-bottom: 30px;
+      
+      padding-bottom: 25px;
     }
 
     .feedback  {
       background: white;
       border-radius: 15.5px;
-      width: 208.6px;
+      width: 208px;
       height: 25px;
       font-family: 'OpenSans', sans-serif;
       font-size: 10px;
       font-weight: bold;
+      color: $c-denim-blue;
       letter-spacing: 1px;
       text-align: center;
       padding: 6px 20px 10px 22px;
     }
 
-    .feedback a {
-      color: $c-denim-blue;
+    .tertiary-hover {
+      display: inline-block;
+      vertical-align: middle;
+      transform: perspective(1px) translateZ(0);
+      position: relative;
+    }
+
+    .tertiary-hover:before {
+      content: '';
+      position: absolute;
+      border-radius: 15.5px;
+      border: rgba(255,255,255, 0) solid 2px;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transition-duration: 0.3s;
+      transition-property: top, right, bottom, left;
+    }
+
+    .tertiary-hover:hover:before, .tertiary-hover:focus:before, .tertiary-hover:active:before {
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
+      border: rgba(255,255,255, 1) solid 2px;
+    }
+
+    .c-share-tools__link:hover svg * {
+      fill: white;
+    }
+
+    .spotify, .facebook, .twitter, .instagram, .youtube {
+      display: inline-block;
+      vertical-align: middle;
+      transform: perspective(1px) translateZ(0);
+      position: relative;
+    }
+
+    .spotify:before, .facebook::before, .twitter::before, .instagram::before, .youtube:before {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      border: rgba(255,255,255, 0) solid 2px;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transition-duration: 0.3s;
+      transition-property: top, right, bottom, left;
+    }
+
+    .spotify:hover:before, .facebook:hover:before, .twitter:hover:before, .instagram:hover:before, .youtube:hover:before, 
+    .spotify:focus:before, .facebook:focus:before, .twitter:focus:before, .instagram:focus:before, .youtube:focus:before, 
+    .spotify:active:before, .facebook:active:before, .twitter:active:before, .instagram:active:before, .youtube:active:before {
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
+      border: rgba(255,255,255, 1) solid 2px;
     }
 
     .jl-logo {
       margin-top: 4px;
+      &:hover {
+        opacity: 0.8;
+        transition-duration: 0.3s;
+      }
     }
 
     @include media(">small") {
@@ -312,3 +369,41 @@
       }
     }
    }
+
+/*------------------------------------*\
+    $FOOTER
+\*------------------------------------*/
+
+.ember-basic-dropdown-content {
+    background-color: black;
+    z-index: 1200;
+
+    .u-has-accent--secondary, .o-rte-text .u-has-accent--secondary {
+      color: white;
+      text-decoration: underline;
+      font-size: 10px;
+      text-transform: uppercase;
+      border-bottom-color: transparent;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: bold;
+      margin: 20px;
+    }
+  }
+
+  .about-us-links {
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    padding-right: 20px;
+
+    &:hover { 
+      color: rgba($color: white, $alpha: 0.8);
+    }
+  }
+
+  .u-has-accent:hover {
+    background-color: black;
+    color: rgba($color: white, $alpha: 0.8);
+  }
