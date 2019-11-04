@@ -1,7 +1,7 @@
 import config from '../config/environment';
 
 export function initialize(/* appInstance */) {
-  if (typeof window !== 'undefined' && typeof document !== 'undefined' && config.environment !== 'test') {
+  if (typeof FastBoot === 'undefined' && config.environment !== 'test') {
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=

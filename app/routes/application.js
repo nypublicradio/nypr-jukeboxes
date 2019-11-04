@@ -1,10 +1,20 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import { schedule } from '@ember/runloop';
 import { get } from "@ember/object";
 
 export default Route.extend({
+  router: service(),
   currentStream: service(),
   woms: service(),
+  dataLayer: service('nypr-metrics/data-layer'),
+
+  init() {
+    this._super(...arguments);
+    this.router.on('routeDidChange', (transition) => {
+      schedule('afterRender', () => this.dataLayer.sendPageView());
+    });
+  },
 
   beforeModel() {
     // Don't start poll in Fastboot
