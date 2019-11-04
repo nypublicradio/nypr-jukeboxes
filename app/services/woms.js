@@ -10,7 +10,6 @@ export default Service.extend({
   websockets: service(),
   socketRef: null,
   currentStream: service(),
-  streamMetadata: service(),
 
   async initializeWOMS() {
     let response = await get(this, 'store').findRecord('stream', this.get('currentStream.slug'))
@@ -38,7 +37,7 @@ export default Service.extend({
     let data = JSON.parse(event.data);
     if ("Item" in data) {
       this.processWOMSData(JSON.parse(data["Item"]["metadata"]));
-      this.get('streamMetadata').refreshStream();
+      this.get('currentStream').refreshStream();
     }
   },
 
