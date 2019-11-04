@@ -51,6 +51,8 @@ module.exports = function(environment) {
     platformEventsAPI: process.env.PLATFORM_EVENTS_SERVICE,
     womsAPI: process.env.WOMS_API,
     wqxrURL: process.env.WQXR_URL,
+    googleAnalytics: process.env.GOOGLE_ANALYTICS,
+    googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID,
   };
 
   if (environment === 'development') {
