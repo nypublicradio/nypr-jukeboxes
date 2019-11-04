@@ -11,11 +11,7 @@
       <br>
     </p>
     <p class="slogan"> WQXR is supported by &nbsp;
-      <div class="jl-logo">
-        <a href="https://jlgreene.org/" target="_blank">
-          <JlgreenLogo />
-        </a>
-      </div>
+      <div class="jl-logo"><JlgreenLogo /></div>
     </p>
   </footer.slogan>
 
@@ -27,8 +23,14 @@
 </NyprOFooter>
 
 {{#animated-if showPlayer use=showPlayerAnimation}}
-<JukeboxPlayer @trackTitle={{this.currentStream.trackTitle}} @showTitle={{this.currentStream.showTitle}}
-  @episodeTitle={{this.currentStream.episodeTitle}} @ensembleName={{this.currentStream.ensembleName}}
-  @conductorName={{this.currentStream.conductorName}} @composerName={{this.currentStream.composerName}}
-  @streamSlug={{this.currentStream.slug}} @streamName={{this.currentStream.name}} />
+  <JukeboxPlayer
+    @trackTitle={{this.currentStream.trackTitle}}
+    @showTitle={{this.currentStream.showTitle}}
+    @episodeTitle={{this.currentStream.episodeTitle}}
+    @ensembleName={{this.currentStream.ensembleName}}
+    @conductorName={{this.currentStream.conductorName}}
+    @composerName={{this.currentStream.composerName}}
+    @streamSlug={{this.currentStream.slug}}
+    @streamName={{this.currentStream.name}}
+  />
 {{/animated-if}}
