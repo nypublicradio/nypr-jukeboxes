@@ -1,10 +1,12 @@
 import Ember from 'ember';
 import Route from '@ember/routing/route';
+import { get } from '@ember/object';
 import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
 import moment from 'moment';
 
 export default Route.extend({
+  dataLayer: service('nypr-metrics/data-layer'),
   streamMetadata: service(),
 
   model({ year, month, day }) {
@@ -27,6 +29,7 @@ export default Route.extend({
       let controller = this.controllerFor('application');
       Ember.run.scheduleOnce('afterRender', this, function() {
         controller.send('updateNav');
+        get(this, 'dataLayer').sendPageView();
       });
     }
   }
