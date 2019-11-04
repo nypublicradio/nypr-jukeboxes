@@ -5,6 +5,10 @@
 @import '../mixins/utils';
 @import '../mixins/disable-subpixel-antialiasing';
 
+.site-header .sticky-element {
+  z-index: 200;
+}
+
 .horizontal-nav {
   display: flex;
   position: relative;

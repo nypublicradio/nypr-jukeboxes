@@ -297,6 +297,40 @@
       border: rgba(255,255,255, 1) solid 2px;
     }
 
+    .c-share-tools__link:hover svg * {
+      fill: white;
+    }
+
+    .spotify, .facebook, .twitter, .instagram, .youtube {
+      display: inline-block;
+      vertical-align: middle;
+      transform: perspective(1px) translateZ(0);
+      position: relative;
+    }
+
+    .spotify:before, .facebook::before, .twitter::before, .instagram::before, .youtube:before {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      border: rgba(255,255,255, 0) solid 2px;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transition-duration: 0.3s;
+      transition-property: top, right, bottom, left;
+    }
+
+    .spotify:hover:before, .facebook:hover:before, .twitter:hover:before, .instagram:hover:before, .youtube:hover:before, 
+    .spotify:focus:before, .facebook:focus:before, .twitter:focus:before, .instagram:focus:before, .youtube:focus:before, 
+    .spotify:active:before, .facebook:active:before, .twitter:active:before, .instagram:active:before, .youtube:active:before {
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
+      border: rgba(255,255,255, 1) solid 2px;
+    }
+
     .jl-logo {
       margin-top: 4px;
       &:hover {
@@ -367,4 +401,9 @@
     &:hover { 
       color: rgba($color: white, $alpha: 0.8);
     }
+  }
+
+  .u-has-accent:hover {
+    background-color: black;
+    color: rgba($color: white, $alpha: 0.8);
   }
