@@ -22,9 +22,9 @@
 
 @import 'components/horizontal-nav';
 @import "components/sliding-bar";
-@import "components/listen";
 @import 'components/footer';
 @import "components/track-info";
+@import "routes/listen";
 @import "routes/playlist-history";
 
 body.ember-application{
