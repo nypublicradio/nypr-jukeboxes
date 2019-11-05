@@ -48,7 +48,7 @@
   </div>
 
   {{#if (or (or this.currentStream.composerName this.currentStream.trackTitle)
-            (and (not this.isPlaylistHistoryPreviewStale) model.stream.previous))
+            (and (not this.isPlaylistHistoryPreviewStale) this.playlistHistoryItems))
   }}
     <div class="playlist-history">
       {{#if (or this.currentStream.composerName this.currentStream.trackTitle)}}
@@ -65,11 +65,11 @@
       {{/if}}
 
       {{#if (not this.isPlaylistHistoryPreviewStale)}}
-        {{#if model.stream.previous}}
+        {{#if this.playlistHistoryItems}}
           <div class="recently-played">
             <div class="recently-played-label">RECENT MUSIC</div>
             <div class="recently-played-song-list">
-              {{#each model.stream.previous as |item|}}
+              {{#each this.playlistHistoryItems as |item|}}
                 <TrackInfo
                   @trackTitle={{item.catalogEntry.title}}
                   @ensembleName={{item.catalogEntry.ensemble.name}}
