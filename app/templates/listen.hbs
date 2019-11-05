@@ -48,7 +48,7 @@
   </div>
 
   <div class="playlist-history">
-    {{#if model.stream.currentPlaylistItem.catalogEntry}} 
+    {{#if (or this.currentStream.composerName this.currentStream.trackTitle)}}
       <div class="currently-listening-to">
         <div class="currently-listening-to-label">CURRENTLY LISTENING TO</div>
         <TrackInfo
