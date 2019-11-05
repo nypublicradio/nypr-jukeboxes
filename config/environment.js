@@ -83,6 +83,10 @@ module.exports = function(environment) {
     ENV.membershipAPI = 'http://example.com';
     ENV.platformEventsAPI = 'http://example.com';
     ENV.fastboot.hostWhitelist = ['/.*/'];
+
+    ENV['ember-clock'] = {
+      disabled: true
+    };
   }
 
   if (environment === 'production') {

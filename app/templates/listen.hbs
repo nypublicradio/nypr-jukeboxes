@@ -47,38 +47,44 @@
     </div>
   </div>
 
-  <div class="playlist-history">
-    {{#if (or this.currentStream.composerName this.currentStream.trackTitle)}}
-      <div class="currently-listening-to">
-        <div class="currently-listening-to-label">CURRENTLY LISTENING TO</div>
-        <TrackInfo
-          @trackTitle={{this.currentStream.trackTitle}}
-          @ensembleName={{this.currentStream.ensembleName}}
-          @conductorName={{this.currentStream.conductorName}}
-          @composerName={{this.currentStream.composerName}}
-          @startTime="now"
-        />
-      </div>
-    {{/if}}
-
-    {{#if model.stream.previous}}
-      <div class="recently-played">
-        <div class="recently-played-label">RECENT MUSIC</div>
-        <div class="recently-played-song-list">
-          {{#each model.stream.previous as |item|}}
-            <TrackInfo
-              @trackTitle={{item.catalogEntry.title}}
-              @ensembleName={{item.catalogEntry.ensemble.name}}
-              @conductorName={{item.catalogEntry.conductor.name}}
-              @composerName={{item.catalogEntry.composer.name}}
-              @startTime={{item.startTime}}
-            />
-          {{/each}}
+  {{#if (or (or this.currentStream.composerName this.currentStream.trackTitle)
+            (and (not this.isPlaylistHistoryPreviewStale) model.stream.previous))
+  }}
+    <div class="playlist-history">
+      {{#if (or this.currentStream.composerName this.currentStream.trackTitle)}}
+        <div class="currently-listening-to">
+          <div class="currently-listening-to-label">CURRENTLY LISTENING TO</div>
+          <TrackInfo
+            @trackTitle={{this.currentStream.trackTitle}}
+            @ensembleName={{this.currentStream.ensembleName}}
+            @conductorName={{this.currentStream.conductorName}}
+            @composerName={{this.currentStream.composerName}}
+            @startTime="now"
+          />
         </div>
-        <a href="/playlist-history" class="view-full-playlist-history-button">VIEW FULL PLAYLIST HISTORY</a>
-      </div>
-    {{/if}}
-  </div>
+      {{/if}}
+
+      {{#if (not this.isPlaylistHistoryPreviewStale)}}
+        {{#if model.stream.previous}}
+          <div class="recently-played">
+            <div class="recently-played-label">RECENT MUSIC</div>
+            <div class="recently-played-song-list">
+              {{#each model.stream.previous as |item|}}
+                <TrackInfo
+                  @trackTitle={{item.catalogEntry.title}}
+                  @ensembleName={{item.catalogEntry.ensemble.name}}
+                  @conductorName={{item.catalogEntry.conductor.name}}
+                  @composerName={{item.catalogEntry.composer.name}}
+                  @startTime={{item.startTime}}
+                />
+              {{/each}}
+            </div>
+            <a href="/playlist-history" class="view-full-playlist-history-button">VIEW FULL PLAYLIST HISTORY</a>
+          </div>
+        {{/if}}
+      {{/if}}
+    </div>
+  {{/if}}
 </div>
 
 {{outlet}}
