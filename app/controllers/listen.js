@@ -10,36 +10,35 @@ export default Controller.extend({
   SHOW_STALE_CUTOFF: 15 * 60,
 
   isPlaylistHistoryPreviewStale: Ember.computed('clock.minute', function () {
+    return this._currentShowStartedMoreThanFifteenMinutesAgo() && this._noTrackStartedWithinFirstFifteenMinutesOfCurrentShow();
+  }),
+
+  _currentShowStartedMoreThanFifteenMinutesAgo: function() {
     let nowTs = moment().valueOf() / 1000;
+    let showStartTimeTs = this.model.stream.currentShow.start_ts;
+
+    return nowTs > (showStartTimeTs + this.SHOW_STALE_CUTOFF);
+  },
+
+  _noTrackStartedWithinFirstFifteenMinutesOfCurrentShow: function() {
     let showStartTimeTs = this.model.stream.currentShow.start_ts;
     let trackStartTimeTs = 0;
 
-    if (this.model.stream.previous && this.model.stream.previous.length > 0) {
+    if (this.get('currentStream').hasCurrentTrack) {
+      trackStartTimeTs = this.get('currentStream.trackStartTimeTs');
+    } else if (this.model.stream.previous && this.model.stream.previous.length > 0) {
       trackStartTimeTs =  this.model.stream.previous[0].startTimeTs;
     }
-
-    if (nowTs > (showStartTimeTs + this.SHOW_STALE_CUTOFF) && (trackStartTimeTs < showStartTimeTs)) {
-      return true;
-    }
-    return false;
-  }),
+    return (trackStartTimeTs < showStartTimeTs) || (trackStartTimeTs > showStartTimeTs + this.SHOW_STALE_CUTOFF);
+  },
 
   playlistHistoryItems: Ember.computed('model.stream.previous', function() {
-    let firstTrackFromCurrentShowStartTimeTs = 0;
     let showStartTimeTs = this.model.stream.currentShow.start_ts;
-    let currentShowTracks = [];
 
-    if (this.model.stream.previous) {
-      currentShowTracks = this.model.stream.previous.filter( (track) => {
+    if (this._currentShowStartedMoreThanFifteenMinutesAgo() && this._noTrackStartedWithinFirstFifteenMinutesOfCurrentShow() && this.model.stream.previous) {
+      return this.model.stream.previous.filter( (track) => {
         return track.startTimeTs >= showStartTimeTs;
       });
-      if (currentShowTracks.length > 0) {
-        firstTrackFromCurrentShowStartTimeTs = currentShowTracks[currentShowTracks.length - 1].startTimeTs;
-      }
-    }
-
-    if (firstTrackFromCurrentShowStartTimeTs > (showStartTimeTs + this.SHOW_STALE_CUTOFF)) {
-      return currentShowTracks;
     }
 
     return this.model.stream.previous;

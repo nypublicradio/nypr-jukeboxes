@@ -28,9 +28,14 @@ export default Service.extend({
   trackTitle: reads('stream.currentPlaylistItem.catalogEntry.title'),
   ensembleName: reads('stream.currentPlaylistItem.catalogEntry.ensemble.name'),
   conductorName: reads('stream.currentPlaylistItem.catalogEntry.conductor.name'),
+  trackStartTimeTs: reads('stream.currentPlaylistItem.startTimeTs'),
   showTitle: reads('stream.currentShow.title'),
   episodeTitle: reads('stream.currentShow.episodeTitle'),
   showHost: reads('stream.currentShow.currentHost'),
+
+  hasCurrentTrack: computed('composerName', 'trackTitle', function() {
+    return this.composerName || this.trackTitle;
+  }),
 
   init() {
     this._super(...arguments);
