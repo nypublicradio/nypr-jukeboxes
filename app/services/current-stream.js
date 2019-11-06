@@ -56,6 +56,14 @@ export default Service.extend({
     this.set('pollId', pollId);
   },
 
+  async getStream() {
+    if (this.get('stream')) {
+      return this.get('stream');
+    } else {
+      return this.refreshStream();
+    }
+  },
+
   async refreshStream() {
     let stream = await this.store.findRecord('stream', this.slug);
     let show   = await this.store.findRecord('show', stream.currentShow.group_slug);
