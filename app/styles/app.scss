@@ -38,7 +38,7 @@ button {
   @include btn;
 }
 
-a:hover {
+a .listen:hover {
 	opacity: 80%;
 }
 

@@ -323,12 +323,11 @@ $space-quad:        $space*4;   // 64
 
 .about-us-div .c-share-tools__group {
   display: flex;
-  text-decoration: underline;
 
  .about-us-left {
     display: flex;
     flex-direction: column;
-    margin-right: 10px;
+    margin-right: 50px;
   }
   .about-us-right {
     display: flex;
