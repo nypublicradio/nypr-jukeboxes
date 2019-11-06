@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { inject as controller } from '@ember/controller';
 import { inject as service } from '@ember/service';
-import Ember from 'ember';
+import { computed } from '@ember/object';
 import moment from 'moment';
 
 export default Controller.extend({
@@ -9,7 +9,7 @@ export default Controller.extend({
   currentStream  : service(),
   SHOW_STALE_CUTOFF: 15 * 60,
 
-  isPlaylistHistoryPreviewStale: Ember.computed('clock.minute', function () {
+  isPlaylistHistoryPreviewStale: computed('clock.minute', function () {
     return this._currentShowStartedMoreThanFifteenMinutesAgo() && this._noTrackStartedWithinFirstFifteenMinutesOfCurrentShow();
   }),
 
@@ -32,7 +32,7 @@ export default Controller.extend({
     return (trackStartTimeTs < showStartTimeTs) || (trackStartTimeTs > showStartTimeTs + this.SHOW_STALE_CUTOFF);
   },
 
-  playlistHistoryItems: Ember.computed('model.stream.previous', function() {
+  playlistHistoryItems: computed('model.stream.previous', function() {
     let showStartTimeTs = this.model.stream.currentShow.start_ts;
 
     if (this._currentShowStartedMoreThanFifteenMinutesAgo() && this._noTrackStartedWithinFirstFifteenMinutesOfCurrentShow() && this.model.stream.previous) {
