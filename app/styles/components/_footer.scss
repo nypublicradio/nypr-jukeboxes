@@ -254,7 +254,7 @@
 
     .social-media__container {
       fill: white;
-      
+      padding-top: 5px;
       padding-bottom: 25px;
     }
 
@@ -282,7 +282,7 @@
     .tertiary-hover:before {
       content: '';
       position: absolute;
-      border-radius: 15.5px;
+      border-radius: 20px;
       border: rgba(255,255,255, 0) solid 2px;
       top: 0;
       right: 0;
@@ -400,7 +400,7 @@
     font-size: $font-size-xs;
     font-weight: 600;
     padding-bottom: 4px;
-    padding-top: 20px;
+    margin-top: 10px;
 
     &:hover { 
       color: rgba($color: white, $alpha: 0.8);
