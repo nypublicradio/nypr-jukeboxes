@@ -12,7 +12,7 @@ export default Service.extend({
   currentStream: service(),
 
   async initializeWOMS() {
-    let response = await get(this, 'store').findRecord('stream', this.get('currentStream.slug'))
+    let response = await this.get('currentStream').getStream();
     this.subscribeWOMS(response)
   },
 
@@ -35,8 +35,8 @@ export default Service.extend({
   socketMessageHandler(event) {
     // Handles incoming messages
     let data = JSON.parse(event.data);
-    if ("Item" in data) {
-      this.processWOMSData(JSON.parse(data["Item"]["metadata"]));
+    if (data.Item && data.Item.metadata) {
+      this.processWOMSData(data.Item.metadata);
       this.get('currentStream').refreshStream();
     }
   },
