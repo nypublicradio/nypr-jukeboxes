@@ -95,12 +95,24 @@
   line-height: 1; 
 
   &:hover {
-    opacity: 1.0;
+    opacity: 100%;
     color: $denim-blue;
     background: white;
     border-color: white;
   }
 }
+
+.donate-button-opacity:hover {
+  opacity: 100%;
+  color: $denim-blue;
+  background: white;
+  border-color: white;
+  border-radius: 30px;
+  padding-top: 4px;
+  padding-bottom: 7px;
+  transition: all 200ms ease-out;
+}
+ 
 @include media("<=small") {
   .static-main-header {
     display: block;

@@ -38,6 +38,10 @@ button {
   @include btn;
 }
 
+a:hover {
+	opacity: 80%;
+}
+
 .c-toggle-box__label {
   // @todo 	remove when we replace the toggle box component
   font-family: $font-body;
