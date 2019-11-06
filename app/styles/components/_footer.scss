@@ -262,14 +262,14 @@
       background: white;
       border-radius: 15.5px;
       width: 208px;
-      height: 25px;
+      height: 30px;
       font-family: 'OpenSans', sans-serif;
       font-size: 10px;
       font-weight: bold;
       color: $c-denim-blue;
       letter-spacing: 1px;
       text-align: center;
-      padding: 6px 20px 10px 22px;
+      padding: 10px 20px 10px 20px;
     }
 
     .tertiary-hover {
@@ -400,7 +400,6 @@
     font-size: $font-size-xs;
     font-weight: 600;
     padding-bottom: 4px;
-    padding-right: 30px;
     padding-top: 20px;
 
     &:hover { 
@@ -419,4 +418,8 @@
   .u-has-accent:hover {
     background-color: black;
     color: rgba($color: white, $alpha: 0.8);
+  }
+
+  .u-font--secondary-style {
+    letter-spacing: 0px;
   }
