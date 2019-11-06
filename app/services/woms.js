@@ -1,7 +1,6 @@
 import Service from '@ember/service';
 import config from '../config/environment';
 import { inject as service} from '@ember/service';
-import { get } from '@ember/object';
 
 export default Service.extend({
   womsHost: config.womsAPI,
