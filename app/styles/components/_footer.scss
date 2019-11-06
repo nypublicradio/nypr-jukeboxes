@@ -107,6 +107,7 @@
     }
 
     &__utility {
+      margin-top: 16px;
       @include media('<=small') {
         margin-bottom: -18px;
       }
@@ -169,8 +170,6 @@
     }
 
     &__brand-group {
-      justify-content: space-between;
-
       .logo-and-toggle {
         justify-content: flex-start;
         opacity: .7;
