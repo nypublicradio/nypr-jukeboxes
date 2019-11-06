@@ -160,7 +160,7 @@
       margin: 0 auto $space;
 
       @include media('>xlarge') {
-        margin: 0 $space-double 0 0;
+        margin: 0 $space-and-half 0 0;
       }
 
       path,
@@ -175,9 +175,14 @@
         opacity: .7;
       }
 
-      div:last-child {
-        justify-content: flex-end;
+      @include media('>large'){
+        div:last-child {
+          position: absolute;
+          right: 0;
+        }
+
       }
+   
     }
 
     .c-toggle-box__content {
@@ -191,8 +196,9 @@
       text-transform: none;
       border: none;
       font-family: $font-body;
-      font-weight: 600;
       font-size: 12px;
+      letter-spacing: 0px;
+      font-weight: normal;
     }
 
     &__bottom {
@@ -233,7 +239,6 @@
     &__copyright p {
       opacity: .7;
       font-family: $font-body;
-      font-weight: 600;
       text-transform: none;
     }
 
@@ -380,7 +385,6 @@
 
     .u-has-accent--secondary, .o-rte-text .u-has-accent--secondary {
       color: white;
-      text-decoration: underline;
       font-size: 10px;
       text-transform: uppercase;
       border-bottom-color: transparent;
@@ -395,13 +399,22 @@
     font-family: "Open Sans", sans-serif;
     font-size: $font-size-xs;
     font-weight: 600;
-    padding-bottom: 30px;
+    padding-bottom: 4px;
     padding-right: 30px;
+    padding-top: 20px;
 
     &:hover { 
       color: rgba($color: white, $alpha: 0.8);
     }
   }
+
+  .about-us-div .c-share-tools__group a {
+    border-bottom: 1px solid white;
+    display: inline-block;
+    width: fit-content;
+    clear: both;
+  }
+
 
   .u-has-accent:hover {
     background-color: black;
