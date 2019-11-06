@@ -21,8 +21,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding-top: 20px;
-  padding-right: 5%;
+  padding-top: 2%;
+  padding-right: 2%;
 }
 
 .horizontal-nav-container.is-sticky {
@@ -31,14 +31,6 @@
 
   .horizontal-nav__nav {
     margin-top: 10px;
-  }
-
-  .donate-button-link {
-    position: relative;
-    padding-left: 30px;
-    padding-top: 10px;
-    padding-right: 0;
-    display: none; //temporary measure: redesign in progress
   }
 }
 
@@ -54,6 +46,10 @@
   .wqxr-icon {
     float: right;
     margin-top: 10px;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   button {
@@ -76,12 +72,14 @@
   font-family: $font-body-bold;
   font-size: 10px;
   color: $blueblood;
+  text-transform: uppercase;
   font-weight: bold;
   background: white;
   text-align: center;
   border-radius: 4px;
   letter-spacing: 1px;
   padding: 2px 10px 2px 10px;
+  width: fit-content;
 }
 
 .donate-button {
@@ -97,6 +95,7 @@
   line-height: 1; 
 
   &:hover {
+    opacity: 1.0;
     color: $denim-blue;
     background: white;
     border-color: white;
