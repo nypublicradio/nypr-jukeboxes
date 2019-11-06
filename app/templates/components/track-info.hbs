@@ -3,8 +3,12 @@
   <NyprAToggleBox class="secondary-metadata-toggle-box" @horizontalPosition="right" as |toggle|>
     <toggle.trigger>
       <div class="metadata">
-        <div class="composer">{{composerName}}</div>
-        <div class="title">{{trackTitle}}</div>
+        {{#if composerName}}
+          <div class="composer">{{composerName}}</div>
+        {{/if}}
+        {{#if trackTitle}}
+          <div class="title">{{trackTitle}}</div>
+        {{/if}}
       </div>
     </toggle.trigger>
     <toggle.dropdown class="secondary-metadata-content-dropdown">
@@ -20,8 +24,12 @@
   </NyprAToggleBox>
 {{else}}
   <div class="metadata">
-    <div class="composer">{{composerName}}</div>
-    <div class="title">{{trackTitle}}</div>
+    {{#if composerName}}
+      <div class="composer">{{composerName}}</div>
+    {{/if}}
+    {{#if trackTitle}}
+      <div class="title">{{trackTitle}}</div>
+    {{/if}}
   </div>
 {{/if}}
 <div class="start-time">{{format-start-time startTime}}</div>
