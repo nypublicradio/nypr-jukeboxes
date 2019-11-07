@@ -8,6 +8,7 @@ export default Controller.extend({
   appController: controller('application'),
   currentStream  : service(),
   SHOW_STALE_CUTOFF: 15 * 60,
+  PREVIOUS_SHOW_TRACKS_STALE_CUTOFF: 60 * 60,
 
   isPlaylistHistoryPreviewStale: computed('clock.minute', function () {
     return this._currentShowStartedMoreThanFifteenMinutesAgo() && this._tracksAreStale();
@@ -23,12 +24,15 @@ export default Controller.extend({
   _tracksAreStale: function() {
     let showStartTimeTs = this.model.stream.currentShow.start_ts;
     let trackStartTimeTs = 0;
+    let currentShowTracks = [];
 
-    let currentShowTracks = this.model.stream.previous.filter( (track) => {
-      return track.startTimeTs >= showStartTimeTs;
-    });
+    if (this.model.stream.previous) {
+      currentShowTracks = this.model.stream.previous.filter( (track) => {
+        return track.startTimeTs >= showStartTimeTs;
+      });
+    }
 
-    if (this.model.stream.previous.length > 0 && currentShowTracks.length == this.model.stream.previous.length) {
+    if (this.model.stream.previous && this.model.stream.previous.length > 0 && currentShowTracks.length == this.model.stream.previous.length) {
       return false; // all previous tracks are from the current show
     } else if (currentShowTracks.length > 0) {
       trackStartTimeTs = currentShowTracks[currentShowTracks.length - 1].startTimeTs; // get the earliest-starting track from the current show
@@ -40,6 +44,10 @@ export default Controller.extend({
   },
 
   playlistHistoryItems: computed('model.stream.previous', function() {
+    if (!this.model.stream.previous) {
+      return [];
+    }
+
     let showStartTimeTs = this.model.stream.currentShow.start_ts;
 
     if (this._currentShowStartedMoreThanFifteenMinutesAgo() && this._tracksAreStale() && this.model.stream.previous) {
@@ -48,7 +56,9 @@ export default Controller.extend({
       });
     }
 
-    return this.model.stream.previous;
+    return this.model.stream.previous.filter( (track) => {
+      return track.startTimeTs >= (showStartTimeTs - this.PREVIOUS_SHOW_TRACKS_STALE_CUTOFF);
+    });
   }),
 
   actions: {
