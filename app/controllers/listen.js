@@ -8,6 +8,7 @@ export default Controller.extend({
   appController: controller('application'),
   currentStream  : service(),
   SHOW_STALE_CUTOFF: 15 * 60,
+  PREVIOUS_SHOW_TRACKS_STALE_CUTOFF: 60 * 60,
 
   isPlaylistHistoryPreviewStale: computed('clock.minute', function () {
     return this._currentShowStartedMoreThanFifteenMinutesAgo() && this._tracksAreStale();
@@ -48,7 +49,9 @@ export default Controller.extend({
       });
     }
 
-    return this.model.stream.previous;
+    return this.model.stream.previous.filter( (track) => {
+      return track.startTimeTs >= (showStartTimeTs - this.PREVIOUS_SHOW_TRACKS_STALE_CUTOFF);
+    });
   }),
 
   actions: {

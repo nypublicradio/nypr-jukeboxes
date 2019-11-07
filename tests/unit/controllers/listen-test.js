@@ -23,13 +23,13 @@ module('Unit | Controller | listen', function(hooks) {
     stream.set('currentShow', currentShow);
     let previous = [
       EmberObject.create({
-        startTimeTs: (moment().valueOf() / 1000) - (2 * 60 * 60), // started 2 hours ago
+        startTimeTs: (moment().valueOf() / 1000) - (30 * 60), // started 30 minutes ago
       }),
       EmberObject.create({
-        startTimeTs: (moment().valueOf() / 1000) - (3 * 60 * 60), // 3 hours ago
+        startTimeTs: (moment().valueOf() / 1000) - (40 * 60), // 40 minutes ago
       }),
       EmberObject.create({
-        startTimeTs: (moment().valueOf() / 1000) - (4 * 60 * 60), // 4 hours ago
+        startTimeTs: (moment().valueOf() / 1000) - (45* 60), // 45 minutes ago
       }),
     ]
     stream.set('previous', previous);
@@ -126,10 +126,10 @@ module('Unit | Controller | listen', function(hooks) {
         startTimeTs: (moment().valueOf() / 1000) - (10 * 60), // track started 10 minutes ago
       }),
       EmberObject.create({
-        startTimeTs: (moment().valueOf() / 1000) - (3 * 60 * 60),
+        startTimeTs: (moment().valueOf() / 1000) - (30 * 60),
       }),
       EmberObject.create({
-        startTimeTs: (moment().valueOf() / 1000) - (4 * 60 * 60),
+        startTimeTs: (moment().valueOf() / 1000) - (40 * 60),
       }),
     ]
     stream.set('previous', previous);
@@ -160,13 +160,13 @@ module('Unit | Controller | listen', function(hooks) {
     stream.set('currentPlaylistItem', currentPlaylistItem);
     let previous = [
       EmberObject.create({
-        startTimeTs: (moment().valueOf() / 1000) - (2 * 60 * 60),
+        startTimeTs: (moment().valueOf() / 1000) - (30 * 60),
       }),
       EmberObject.create({
-        startTimeTs: (moment().valueOf() / 1000) - (3 * 60 * 60),
+        startTimeTs: (moment().valueOf() / 1000) - (31 * 60),
       }),
       EmberObject.create({
-        startTimeTs: (moment().valueOf() / 1000) - (4 * 60 * 60),
+        startTimeTs: (moment().valueOf() / 1000) - (32 * 60),
       }),
     ]
     stream.set('previous', previous);
@@ -182,7 +182,7 @@ module('Unit | Controller | listen', function(hooks) {
     assert.equal(controller.get('playlistHistoryItems').length, 3);
   });
 
-    test('tracks from earlier show should NOT display if show started more than 15 minutes ago and current track started after the first 15 minutes of the show', function(assert) {
+  test('tracks from earlier show should NOT display if show started more than 15 minutes ago and current track started after the first 15 minutes of the show', function(assert) {
     let controller = this.owner.lookup('controller:listen');
 
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
@@ -291,5 +291,46 @@ module('Unit | Controller | listen', function(hooks) {
 
     assert.equal(controller.get('isPlaylistHistoryPreviewStale'), false);
     assert.equal(controller.get('playlistHistoryItems').length, 3); // all 3 tracks from current show should display
+  });
+
+  test('hide previous tracks that started more than 1 hour before the start of the current show', function(assert) {
+    let controller = this.owner.lookup('controller:listen');
+
+    let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
+    let currentShow = EmberObject.create({
+      start_ts: (moment().valueOf() / 1000) - (16  * 60), // show started 16 minutes ago
+    });
+    stream.set('currentShow', currentShow);
+    let currentPlaylistItem = EmberObject.create({
+      catalogEntry: EmberObject.create({
+        composer: {
+          name: 'lorem'
+        }
+      }),
+      startTimeTs: (moment().valueOf() / 1000) - (10 * 60)
+    });
+    stream.set('currentPlaylistItem', currentPlaylistItem);
+    let previous = [
+      EmberObject.create({
+        startTimeTs: (moment().valueOf() / 1000) - ((59 + 16) * 60),
+      }),
+      EmberObject.create({
+        startTimeTs: (moment().valueOf() / 1000) - ((60 + 16) * 60),
+      }),
+      EmberObject.create({
+        startTimeTs: (moment().valueOf() / 1000) - ((61 + 16) * 60),
+      }),
+    ]
+    stream.set('previous', previous);
+    let model = {
+      stream: stream
+    }
+    controller.set('model', model);
+    Ember.inject.service();
+    let service = this.owner.lookup('service:current-stream');
+    service.set('stream', stream);
+
+    assert.equal(controller.get('isPlaylistHistoryPreviewStale'), false);
+    assert.equal(controller.get('playlistHistoryItems').length, 2);
   });
 });
