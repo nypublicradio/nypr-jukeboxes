@@ -10,7 +10,7 @@ export default Controller.extend({
   SHOW_STALE_CUTOFF: 15 * 60,
 
   isPlaylistHistoryPreviewStale: computed('clock.minute', function () {
-    return this._currentShowStartedMoreThanFifteenMinutesAgo() && this._noTrackStartedWithinFirstFifteenMinutesOfCurrentShow();
+    return this._currentShowStartedMoreThanFifteenMinutesAgo() && this._tracksAreStale();
   }),
 
   _currentShowStartedMoreThanFifteenMinutesAgo: function() {
@@ -20,7 +20,7 @@ export default Controller.extend({
     return nowTs > (showStartTimeTs + this.SHOW_STALE_CUTOFF);
   },
 
-  _noTrackStartedWithinFirstFifteenMinutesOfCurrentShow: function() { // better name for function
+  _tracksAreStale: function() {
     let showStartTimeTs = this.model.stream.currentShow.start_ts;
     let trackStartTimeTs = 0;
 
@@ -42,7 +42,7 @@ export default Controller.extend({
   playlistHistoryItems: computed('model.stream.previous', function() {
     let showStartTimeTs = this.model.stream.currentShow.start_ts;
 
-    if (this._currentShowStartedMoreThanFifteenMinutesAgo() && this._noTrackStartedWithinFirstFifteenMinutesOfCurrentShow() && this.model.stream.previous) {
+    if (this._currentShowStartedMoreThanFifteenMinutesAgo() && this._tracksAreStale() && this.model.stream.previous) {
       return this.model.stream.previous.filter( (track) => {
         return track.startTimeTs >= showStartTimeTs;
       });
