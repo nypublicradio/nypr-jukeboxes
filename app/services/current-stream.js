@@ -1,5 +1,4 @@
 import Service from '@ember/service';
-import { inject as service} from '@ember/service';
 import { inject } from '@ember/service';
 import config from '../config/environment';
 import { computed } from '@ember/object';
@@ -11,7 +10,6 @@ HOSTDICT[config.wqxrURL] = 'wqxr';
 export default Service.extend({
   fastboot: inject(),
   store: inject(),
-  poll: service(),
 
   // TODO: onload, this variable infers the slug from the host domain.
   // if we continue with the monorepo implementation, this variable will
@@ -48,12 +46,6 @@ export default Service.extend({
     slugFromHost = slugFromHost ? slugFromHost : 'wqxr';
     this.set('slugFromHost', slugFromHost);
     this.set('slug', slugFromHost);
-  },
-
-  startPolling() {
-    let pollFunction = () => this.refreshStream();
-    let pollId = this.get('poll').addPoll({interval: 10 * 1000, callback: pollFunction});
-    this.set('pollId', pollId);
   },
 
   async getStream() {
