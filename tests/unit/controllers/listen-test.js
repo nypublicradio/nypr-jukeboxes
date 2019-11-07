@@ -200,4 +200,16 @@ module('Unit | Controller | listen', function(hooks) {
     assert.equal(controller.get('isPlaylistHistoryPreviewStale'), false);
     assert.equal(controller.get('playlistHistoryItems').length, 2);
   });
+
+  test('previous is undefined', function(assert) {
+    let controller = this.owner.lookup('controller:listen');
+    let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
+    stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(60));
+    let model = {
+      stream: stream
+    }
+    controller.set('model', model);
+
+    assert.equal(controller.get('isPlaylistHistoryPreviewStale'), true);
+  });
 });

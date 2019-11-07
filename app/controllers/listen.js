@@ -24,12 +24,15 @@ export default Controller.extend({
   _tracksAreStale: function() {
     let showStartTimeTs = this.model.stream.currentShow.start_ts;
     let trackStartTimeTs = 0;
+    let currentShowTracks = [];
 
-    let currentShowTracks = this.model.stream.previous.filter( (track) => {
-      return track.startTimeTs >= showStartTimeTs;
-    });
+    if (this.model.stream.previous) {
+      currentShowTracks = this.model.stream.previous.filter( (track) => {
+        return track.startTimeTs >= showStartTimeTs;
+      });
+    }
 
-    if (this.model.stream.previous.length > 0 && currentShowTracks.length == this.model.stream.previous.length) {
+    if (this.model.stream.previous && this.model.stream.previous.length > 0 && currentShowTracks.length == this.model.stream.previous.length) {
       return false; // all previous tracks are from the current show
     } else if (currentShowTracks.length > 0) {
       trackStartTimeTs = currentShowTracks[currentShowTracks.length - 1].startTimeTs; // get the earliest-starting track from the current show
