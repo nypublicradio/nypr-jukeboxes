@@ -44,6 +44,10 @@ export default Controller.extend({
   },
 
   playlistHistoryItems: computed('model.stream.previous', function() {
+    if (!this.model.stream.previous) {
+      return [];
+    }
+
     let showStartTimeTs = this.model.stream.currentShow.start_ts;
 
     if (this._currentShowStartedMoreThanFifteenMinutesAgo() && this._tracksAreStale() && this.model.stream.previous) {
