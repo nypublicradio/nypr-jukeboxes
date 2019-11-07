@@ -41,7 +41,7 @@ module('Unit | Controller | listen', function(hooks) {
     assert.equal(controller.get('playlistHistoryItems').length, 3); // all 3 tracks from earlier show should display
   });
 
-  test('playlist history should be stale if there are no previous playlist items', function(assert) {
+  test('no current track - playlist history should be stale if there are no previous playlist items', function(assert) {
     let controller = this.owner.lookup('controller:listen');
 
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
@@ -221,5 +221,75 @@ module('Unit | Controller | listen', function(hooks) {
 
     assert.equal(controller.get('isPlaylistHistoryPreviewStale'), true);
     assert.equal(controller.get('playlistHistoryItems').length, 0);
+  });
+
+	test('playlist history should not be stale if all previous tracks are from the current show', function(assert) {
+    let controller = this.owner.lookup('controller:listen');
+
+    let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
+    let currentShow = EmberObject.create({
+      start_ts: (moment().valueOf() / 1000) - (2 * 60 * 60), // show started 2 hours ago
+    });
+    stream.set('currentShow', currentShow);
+    let currentPlaylistItem = EmberObject.create({
+      catalogEntry: EmberObject.create({
+        composer: {
+          name: 'lorem'
+        }
+      }),
+      startTimeTs: (moment().valueOf() / 1000)
+    });
+    stream.set('currentPlaylistItem', currentPlaylistItem);
+    let previous = [
+      EmberObject.create({
+        startTimeTs: (moment().valueOf() / 1000) - (1 * 60), // started 1 minute
+      }),
+      EmberObject.create({
+        startTimeTs: (moment().valueOf() / 1000) - (3 * 60), // 3 minutes ago
+      }),
+      EmberObject.create({
+        startTimeTs: (moment().valueOf() / 1000) - (5 * 60), // 5 minutes ago
+      }),
+    ]
+    stream.set('previous', previous);
+    let model = {
+      stream: stream
+    }
+    controller.set('model', model);
+    Ember.inject.service();
+    let service = this.owner.lookup('service:current-stream');
+    service.set('stream', stream);
+
+    assert.equal(controller.get('isPlaylistHistoryPreviewStale'), false);
+    assert.equal(controller.get('playlistHistoryItems').length, 3); // all 3 tracks from current show should display
+  });
+
+  test('no current track - playlist history should not be stale if all previous tracks are from the current show', function(assert) {
+    let controller = this.owner.lookup('controller:listen');
+
+    let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
+    let currentShow = EmberObject.create({
+      start_ts: (moment().valueOf() / 1000) - (2 * 60 * 60), // show started 2 hours ago
+    });
+    stream.set('currentShow', currentShow);
+    let previous = [
+      EmberObject.create({
+        startTimeTs: (moment().valueOf() / 1000) - (1 * 60), // started 1 minute
+      }),
+      EmberObject.create({
+        startTimeTs: (moment().valueOf() / 1000) - (3 * 60), // 3 minutes ago
+      }),
+      EmberObject.create({
+        startTimeTs: (moment().valueOf() / 1000) - (5 * 60), // 5 minutes ago
+      }),
+    ]
+    stream.set('previous', previous);
+    let model = {
+      stream: stream
+    }
+    controller.set('model', model);
+
+    assert.equal(controller.get('isPlaylistHistoryPreviewStale'), false);
+    assert.equal(controller.get('playlistHistoryItems').length, 3); // all 3 tracks from current show should display
   });
 });
