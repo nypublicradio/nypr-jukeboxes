@@ -179,9 +179,7 @@
           position: absolute;
           right: 0;
         }
-
       }
-
     }
 
     .toggle-box__content {
@@ -429,3 +427,25 @@
   .u-font--secondary-style {
     letter-spacing: 0px;
   }
+
+  //TABLET//
+
+  @include media("<=medium") {
+    .c-main-footer__branding {
+      justify-content: flex-start;
+    }
+
+    .c-main-footer__slogan p { 
+      width: 100%;
+    }
+
+    .c-share-tools {
+      flex-direction: column;
+    }
+
+    .about-us-div .social-media-links {
+      flex-direction: row;
+    }
+
+  }
+
