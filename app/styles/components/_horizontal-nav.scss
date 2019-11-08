@@ -112,20 +112,6 @@
   padding-bottom: 7px;
   transition: all 200ms ease-out;
 }
- 
-@include media("<=small") {
-  .static-main-header {
-    display: block;
-
-    .col {
-      width: 100%;
-      margin: 0 0 10px;
-    }
-  }
-  .donate-button {
-    width: 80px;
-  }
-}
 
 * {
   box-sizing: border-box;
@@ -134,7 +120,21 @@
 .col {
   padding: 16px;
 }
-@include media("<=small") {
+ 
+@include media("<=medium") {
+  .static-main-header {
+    display: block;
+
+    .col {
+      width: 100%;
+      margin: 0 0 10px;
+    }
+  }
+
+  .donate-button {
+    width: 80px;
+  }
+
   .header:not(.button) {
     display: flex;
     flex-direction: column;
@@ -152,7 +152,7 @@
 
   .donate-button-link {
     padding-right: 5%;
-    padding-top: 10%;
+    padding-top: 45px;
   }
 
   .horizontal-nav-container.is-sticky {
@@ -162,6 +162,22 @@
     }
   }
 }
+
+@include media("<xsmall") {
+
+  .donate-button {
+    width: 60px; 
+    font-size: 8px;
+    padding-left: 9px;
+    padding-top: 2px;
+  }
+
+  .donate-button-link {
+    padding-right: 3%;
+    padding-top: 30px;
+  }
+}
+
 /* masks for fading scrollable edge */
 .horizontal-nav.is-left-scrollable {
   .horizontal-nav__container {
@@ -259,7 +275,7 @@
   display: inline-block;
   margin-right: 15px;
   padding: 0.5rem 0 0;
-  @include media(">=small") {
+  @include media(">=xsmall") {
     margin-right: 25px;
   }
 
@@ -302,7 +318,7 @@
   border-radius: 0;
   padding: 0;
   text-decoration: none;
-  @include media(">=small") {
+  @include media(">=xsmall") {
     font-size: 16px;
   }
   @include media(">=medium") {
