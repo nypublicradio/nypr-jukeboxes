@@ -38,10 +38,10 @@ function createCurrentPlaylistItemWithStartTimeTsValueMeasuredAsMinutesBeforeNow
   });
 }
 
-function createWomsMetadataWithStartTimeTsValueMeasuredAsMinutesBeforeNow(/*startTime*/) {
+function createWomsMetadataWithStartTimeTsValueMeasuredAsMinutesBeforeNow(startTime) {
   return EmberObject.create({
       mm_composer1: 'lorem',
-      // @todo add start time when WOMS sends timestamp in seconds
+      real_start_time: minutesBeforeNowMeasuredInSecondsSince1970Epoch(startTime)
   });
 }
 

@@ -1,6 +1,7 @@
 import Service from '@ember/service';
 import config from '../config/environment';
 import { inject as service} from '@ember/service';
+import moment from 'moment';
 
 export default Service.extend({
   womsHost: config.womsAPI,
@@ -45,6 +46,11 @@ export default Service.extend({
   },
 
   processWOMSData(metadata) {
+    if (metadata.real_start_time) {
+      // @todo remove this when `real_start_time` becomes a numerical timetamp "YYYY-MM-DD HH:mm:ss.SSS"
+      metadata.real_start_time = moment.tz(metadata.real_start_time, "America/New_York").valueOf() / 1000;
+      metadata.start_time = moment.tz(metadata.start_time, "America/New_York").valueOf() / 1000;
+    }
     this.set('metadata', metadata);
   },
 });

@@ -27,7 +27,7 @@ export default Service.extend({
   trackTitle: reads('woms.metadata.title'),
   ensembleName: reads('woms.metadata.mm_ensemble1'),
   conductorName: reads('woms.metadata.mm_conductor'),
-  trackStartTimeTs: reads('stream.currentPlaylistItem.startTimeTs'),
+  trackStartTimeTs: reads('woms.metadata.real_start_time'),
   showTitle: reads('stream.currentShow.title'),
   episodeTitle: reads('stream.currentShow.episodeTitle'),
   showHost: reads('stream.currentShow.currentHost'),
