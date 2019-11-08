@@ -99,8 +99,8 @@
     }
 
     > .show-image {
-      height: 100px;
-      width: 100px;
+      max-height: 100px;
+      max-width: 100px;
       border-radius: 4px;
       margin-left: 0;
       margin-right: 16px;
@@ -134,8 +134,8 @@
 
   .on-air-now-inner {
     .show-image {
-      height: 176px;
-      width: 176px;
+      max-height: 176px;
+      max-width: 176px;
       border-radius: 4px;
       margin-left: auto;
       margin-right: auto;
