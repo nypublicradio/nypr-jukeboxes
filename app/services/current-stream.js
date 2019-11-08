@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import { inject } from '@ember/service';
+import { inject as service } from '@ember/service';
 import config from '../config/environment';
 import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
@@ -8,8 +8,9 @@ var HOSTDICT = {};
 HOSTDICT[config.wqxrURL] = 'wqxr';
 
 export default Service.extend({
-  fastboot: inject(),
-  store: inject(),
+  fastboot: service(),
+  store: service(),
+  woms: service(),
 
   // TODO: onload, this variable infers the slug from the host domain.
   // if we continue with the monorepo implementation, this variable will
@@ -22,10 +23,10 @@ export default Service.extend({
     return this.slugFromHost || this.stream.slug;
   }),
 
-  composerName: reads('stream.currentPlaylistItem.catalogEntry.composer.name'),
-  trackTitle: reads('stream.currentPlaylistItem.catalogEntry.title'),
-  ensembleName: reads('stream.currentPlaylistItem.catalogEntry.ensemble.name'),
-  conductorName: reads('stream.currentPlaylistItem.catalogEntry.conductor.name'),
+  composerName: reads('woms.metadata.mm_composer1'),
+  trackTitle: reads('woms.metadata.title'),
+  ensembleName: reads('woms.metadata.mm_ensemble1'),
+  conductorName: reads('woms.metadata.mm_conductor'),
   trackStartTimeTs: reads('stream.currentPlaylistItem.startTimeTs'),
   showTitle: reads('stream.currentShow.title'),
   episodeTitle: reads('stream.currentShow.episodeTitle'),
