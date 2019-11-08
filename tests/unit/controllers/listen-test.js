@@ -38,6 +38,13 @@ function createCurrentPlaylistItemWithStartTimeTsValueMeasuredAsMinutesBeforeNow
   });
 }
 
+function createWomsMetadataWithStartTimeTsValueMeasuredAsMinutesBeforeNow(/*startTime*/) {
+  return EmberObject.create({
+      mm_composer1: 'lorem',
+      // @todo add start time when WOMS sends timestamp in seconds
+  });
+}
+
 module('Unit | Controller | listen', function(hooks) {
   setupTest(hooks);
 
@@ -120,6 +127,8 @@ module('Unit | Controller | listen', function(hooks) {
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(16));
     stream.set('currentPlaylistItem', createCurrentPlaylistItemWithStartTimeTsValueMeasuredAsMinutesBeforeNow(10));
+    let womsService = this.owner.lookup('service:woms');
+    womsService.set('metadata', createWomsMetadataWithStartTimeTsValueMeasuredAsMinutesBeforeNow(10));
     stream.set('previous', createPreviousTracksWithStartTimeTsValuesMeasuredAsMinutesBeforeNow([30, 31, 32]));
     let model = {
       stream: stream
@@ -138,6 +147,8 @@ module('Unit | Controller | listen', function(hooks) {
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(16));
     stream.set('currentPlaylistItem', createCurrentPlaylistItemWithStartTimeTsValueMeasuredAsMinutesBeforeNow(0));
+    let womsService = this.owner.lookup('service:woms');
+    womsService.set('metadata', createWomsMetadataWithStartTimeTsValueMeasuredAsMinutesBeforeNow(0));
     stream.set('previous', createPreviousTracksWithStartTimeTsValuesMeasuredAsMinutesBeforeNow([120, 180, 240]));
     let model = {
       stream: stream
@@ -156,6 +167,8 @@ module('Unit | Controller | listen', function(hooks) {
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(120));
     stream.set('currentPlaylistItem', createCurrentPlaylistItemWithStartTimeTsValueMeasuredAsMinutesBeforeNow(0));
+    let womsService = this.owner.lookup('service:woms');
+    womsService.set('metadata', createWomsMetadataWithStartTimeTsValueMeasuredAsMinutesBeforeNow(0));
     stream.set('previous', createPreviousTracksWithStartTimeTsValuesMeasuredAsMinutesBeforeNow([1, 3, 5]));
     let model = {
       stream: stream
@@ -188,6 +201,8 @@ module('Unit | Controller | listen', function(hooks) {
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(16));
     stream.set('currentPlaylistItem', createCurrentPlaylistItemWithStartTimeTsValueMeasuredAsMinutesBeforeNow(10));
+    let womsService = this.owner.lookup('service:woms');
+    womsService.set('metadata', createWomsMetadataWithStartTimeTsValueMeasuredAsMinutesBeforeNow(10));
     stream.set('previous', createPreviousTracksWithStartTimeTsValuesMeasuredAsMinutesBeforeNow([59 + 16, 60 + 16, 61 + 16]));
     let model = {
       stream: stream
