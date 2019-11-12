@@ -16,56 +16,59 @@
               {{yield (hash slogan=(component 'blank-template'))}}
             </div>
 
-            <NyprMShareTools class="about-us-div" @label='About Us' as |share|>
-              <div class="about-us-left">
-                <a href="https://www.wnyc.org/resources/912769/fcc_eeo_public_file_report.pdf" class="about-us-links inline"
-                  target="_blank" rel="noopener">
-                  EEO Report
+            <div class="about-and-connect">
+              <NyprMShareTools class="about-us-div" @label='About Us' as |share|>
+                <div class="about-us-left">
+                  <a href="https://www.wnyc.org/resources/912769/fcc_eeo_public_file_report.pdf"
+                    class="about-us-links inline" target="_blank" rel="noopener">
+                    EEO Report
+                  </a>
+                  <a href="https://publicfiles.fcc.gov/fm-profile/wqxr-fm" class="about-us-links" target="_blank"
+                    rel="noopener">
+                    WQXR FCC Public File
+                  </a>
+                  <a href="https://www.wnyc.org/privacy" class="about-us-links" target="_blank" rel="noopener">
+                    Privacy Policy
+                  </a>
+                </div>
+                <div class="about-us-right">
+                  <a href="https://www.wnyc.org/terms" class="about-us-links" target="_blank" rel="noopener">
+                    Terms of Use
+                  </a>
+                  <a href="https://wqxr.zendesk.com/hc/en-us " class="about-us-links" target="_blank" rel="noopener">
+                    Contact Us
+                  </a>
+                  <a href="https://sponsorship.wnyc.org/" class="about-us-links" target="_blank" rel="noopener">
+                    Sponsorship
+                  </a>
+                </div>
+              </NyprMShareTools>
+
+              <NyprMShareTools class="social-media-links" @label='Connect' as |share|>
+                <div class="social-media__container">
+
+                  <share.link @service='spotify' @username='3kRXZieRfyb2lCAFtVB76u' />
+
+                  <share.link @service='facebook' @username='WQXRClassical' />
+
+
+                  <share.link @service='twitter' @username='WQXR' />
+
+
+                  <share.link @service='instagram' @username='wqxr_classical' />
+
+
+                  <share.link @service='youtube' @username='UCNaGXxDBmCNQGpwm3hxK9sw' />
+                </div>
+
+                <a class="feedback-link" href="mailto:beta@wqxr.org">
+                  <div class="feedback tertiary-hover">SEND US YOUR FEEDBACK</div>
                 </a>
-                <a href="https://publicfiles.fcc.gov/fm-profile/wqxr-fm" class="about-us-links" target="_blank"
-                  rel="noopener">
-                  WQXR FCC Public File
-                </a>
-                <a href="https://www.wnyc.org/privacy" class="about-us-links" target="_blank" rel="noopener">
-                  Privacy Policy
-                </a>
-              </div>
-              <div class="about-us-right">
-                <a href="https://www.wnyc.org/terms" class="about-us-links" target="_blank" rel="noopener">
-                  Terms of Use
-                </a>
-                <a href="https://wqxr.zendesk.com/hc/en-us " class="about-us-links" target="_blank" rel="noopener">
-                  Contact Us
-                </a>
-                <a href="https://sponsorship.wnyc.org/" class="about-us-links" target="_blank" rel="noopener">
-                  Sponsorship
-                </a>
-              </div>
-            </NyprMShareTools>
 
-            <NyprMShareTools class="social-media-links" @label='Connect' as |share|>
-              <div class="social-media__container">
+              </NyprMShareTools>
 
-                <share.link @service='spotify' @username='3kRXZieRfyb2lCAFtVB76u' />
+            </div>
 
-                <share.link @service='facebook' @username='WQXRClassical' />
-
-
-                <share.link @service='twitter' @username='WQXR' />
-
-
-                <share.link @service='instagram' @username='wqxr_classical' />
-
-
-                <share.link @service='youtube' @username='UCNaGXxDBmCNQGpwm3hxK9sw' />
-
-              </div>
-
-              <a class="feedback-link" href="mailto:beta@wqxr.org">
-                <div class="feedback tertiary-hover">SEND US YOUR FEEDBACK</div>
-              </a>
-
-            </NyprMShareTools>
           </div>
         </div>
       </div>
@@ -78,11 +81,13 @@
     </div>
 
     <div class="c-main-footer__brand-group">
-      <div class="c-main-footer__nypr-logo logo-and-toggle">
-        {{svg-jar "nypr-logo"}}
-      </div>
+      {{!-- <div class="logo-and-brands"> --}}
+        <div class="c-main-footer__nypr-logo logo-and-toggle">
+          {{svg-jar "nypr-logo"}}
+        </div>
 
-      <BrandsLinkroll @exclude='wqxr' />
+        <BrandsLinkroll @exclude='wqxr' />
+      {{!-- </div> --}}
 
       <div class="c-main-footer__copyright">
         <p class="u-font--secondary-style u-font--xs u-color--white term-links">&copy; {{moment-format (now) 'YYYY'}}

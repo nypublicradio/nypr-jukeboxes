@@ -8,16 +8,24 @@
 
 <NyprOFooter as |footer|>
   <footer.slogan>
-    <p class="slogan">
-      WQXR is New York City’s only classical music radio station, broadcasting live on 105.9 FM. We share our audience’s
-      passion for music by playing the most outstanding pieces on air, online and through our app. WQXR is made possible
-      thanks to the generous support of our members and sponsors.
-      <br>
-      <br>
-    </p>
-    <p class="slogan"> WQXR is supported by &nbsp;
-      <div class="jl-logo"><JlgreenLogo /></div>
-    </p>
+    <div class="slogan-first">
+      <p class="slogan">
+        WQXR is New York City’s only classical music radio station, broadcasting live on 105.9 FM. We share our
+        audience’s
+        passion for music by playing the most outstanding pieces on air, online and through our app. WQXR is made
+        possible
+        thanks to the generous support of our members and sponsors.
+        <br>
+        <br>
+      </p>
+    </div>
+    <div class="slogan-second">
+      <p class="slogan" id="jl-greene-bit"> WQXR is supported by &nbsp;
+        <div class="jl-logo">
+          <JlgreenLogo />
+        </div>
+      </p>
+    </div>
   </footer.slogan>
 
   <footer.nav @navItems={{array
@@ -28,14 +36,8 @@
 </NyprOFooter>
 
 {{#animated-if showPlayer use=showPlayerAnimation}}
-  <JukeboxPlayer
-    @trackTitle={{this.currentStream.trackTitle}}
-    @showTitle={{this.currentStream.showTitle}}
-    @episodeTitle={{this.currentStream.episodeTitle}}
-    @ensembleName={{this.currentStream.ensembleName}}
-    @conductorName={{this.currentStream.conductorName}}
-    @composerName={{this.currentStream.composerName}}
-    @streamSlug={{this.currentStream.slug}}
-    @streamName={{this.currentStream.name}}
-  />
+<JukeboxPlayer @trackTitle={{this.currentStream.trackTitle}} @showTitle={{this.currentStream.showTitle}}
+  @episodeTitle={{this.currentStream.episodeTitle}} @ensembleName={{this.currentStream.ensembleName}}
+  @conductorName={{this.currentStream.conductorName}} @composerName={{this.currentStream.composerName}}
+  @streamSlug={{this.currentStream.slug}} @streamName={{this.currentStream.name}} />
 {{/animated-if}}
