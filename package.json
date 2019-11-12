@@ -23,7 +23,6 @@
     "broccoli-asset-rev": "^2.7.0",
     "ember-ajax": "^5.0.0",
     "ember-animated": "^0.9.0",
-    "ember-basic-dropdown": "^2.0.6",
     "ember-cli": "~3.9.0",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-autoprefixer": "^0.8.1",
@@ -68,6 +67,7 @@
     "ember-resolver": "^5.0.1",
     "ember-source": "~3.9.0",
     "ember-sticky-element": "^0.2.3",
+    "ember-svg-jar": "^2.2.3",
     "ember-test-selectors": "^2.1.0",
     "ember-truth-helpers": "^2.0.0",
     "ember-websockets": "^7.2.0",
@@ -80,10 +80,9 @@
     "nypr-design-system": "https://github.com/nypublicradio/nypr-design-system.git#88e3366",
     "nypr-metrics": "^0.7.1",
     "nypr-pattern-lab": "https://github.com/nypublicradio/pattern-lab#bkammin/change_package_name_to_pattern_lab",
-    "nypr-player": "^0.4.3",
-    "nypr-ui": "^0.5.0",
     "qunit-dom": "^0.8.0",
-    "sass": "^1.14.1"
+    "sass": "^1.14.1",
+    "nypr-player": "http://github.com/nypublicradio/nypr-player#jkeen/remove-nypr-ui"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
@@ -95,10 +94,8 @@
     "ember-hifi": "^1.15.0",
     "ember-simple-auth": "^1.8.2",
     "nypr-audio-services": "nypublicradio/nypr-audio-services#jkeen/upgrades",
-    "nypr-player": "^0.4.3",
     "ember-holygrail-layout": "0.3.1",
-    "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#bkammin/DSODA-94_add_previous_to_stream_model",
-    "nypr-ui": "^0.5.0"
+    "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#bkammin/DSODA-94_add_previous_to_stream_model"
   },
   "dependencies": {
     "dotenv": "^5.0.1",
@@ -108,7 +105,8 @@
     "include-media": "^1.4.9",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
     "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#bkammin/DSODA-94_add_previous_to_stream_model",
-    "url-parse": "^1.4.3"
+    "url-parse": "^1.4.3",
+    "nypr-icons": "https://github.com/nypublicradio/nypr-icons"
   },
   "fastbootDependencies": [
     "url-parse"
