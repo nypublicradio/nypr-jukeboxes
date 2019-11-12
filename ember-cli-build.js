@@ -12,7 +12,14 @@ module.exports = function(defaults) {
         'node_modules/include-media/dist',
       ],
       sourceMap: true,
+    },
+    svgJar: {
+      sourceDirs: [
+        'public',
+        'node_modules/nypr-icons/public'
+      ],
     }
+
   });
 
   // Use `app.import` to add additional libraries to the generated
