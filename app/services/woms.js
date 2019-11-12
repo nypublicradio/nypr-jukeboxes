@@ -57,7 +57,7 @@ export default Service.extend({
 
   socketClosedHandler(/*event*/) {
     this.isConnected = false;
-    
+
     if (this.socketRef && !this.initialRetryAttempted) {
       this.initalRetryAttempted = true;
       this.socketReconnect();
@@ -90,7 +90,7 @@ export default Service.extend({
       this.socketRef.reconnect();
     } else {
       this.connectWOMS();
-    }    
+    }
   },
 
   checkConnectionInOneMinute: function() {
