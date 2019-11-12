@@ -79,9 +79,7 @@
 
     &__branding {
       display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      flex-wrap: wrap;
+      justify-content: flex-start;
 
       @include media('>xlarge') {
         justify-content: flex-start;
@@ -128,6 +126,7 @@
         flex-direction: row;
         max-width: 378px;
       }
+      margin-right: 50px;
     }
 
     &__nav {
@@ -171,6 +170,7 @@
 
     &__brand-group {
       .logo-and-toggle {
+        flex-direction: row;
         justify-content: flex-start;
         opacity: .7;
       }
@@ -422,23 +422,70 @@
     letter-spacing: 0px;
   }
 
+  .about-and-connect {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  //MOBILE//
+
+  @include media("<=small"){
+    .about-and-connect {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    // .logo-and-brands {
+    //   display: flex;
+    //   flex-direction: column;
+    // }
+    .c-main-footer__copyright p {
+      opacity: .7;
+    }
+  }
+
   //TABLET//
 
   @include media("<=medium") {
+    .c-main-footer__slogan .slogan{
+      display: flex;
+      flex-direction: row;
+    }
+
+    .c-main-footer {
+      padding: 100px 50px 100px 50px;
+    }
+
+    .c-main-footer__social {
+      flex-direction: column;
+    }
+
     .c-main-footer__branding {
       justify-content: flex-start;
     }
 
-    .c-main-footer__slogan p { 
-      width: 100%;
+    .c-main-footer__copyright p {
+      opacity: 1;
     }
 
-    .c-share-tools {
-      flex-direction: column;
-    }
+    // .logo-and-brands {
+    //   display: flex;
+    //   flex-direction: row;
+    //   flex: 1;
+    // }
+    
+    // .c-main-footer__nypr-logo{
+    //   width: 120px;
+    //   margin: 0 0 10px 190px;
+    // }
 
-    .about-us-div .social-media-links {
-      flex-direction: row;
-    }
+    // .c-toggle-box .c-toggle-box__label {
+    //   margin-top: 5px;
+    // }
 
+  
   }
