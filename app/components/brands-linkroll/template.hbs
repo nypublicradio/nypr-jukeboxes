@@ -1,0 +1,24 @@
+<ToggleBox @horizontalPosition="center" class="c-toggle-box--linkroll" as |toggle|>
+  <toggle.trigger>
+    <strong>View All Brands</strong>
+  </toggle.trigger>
+
+  <toggle.dropdown>
+    <nav class="c-nypr-nav" role="navigation" aria-label="NYPR brands navigation">
+      <ul class="c-nypr-nav__list">
+        {{#each this.items as |item|}}
+          <li class="c-nypr-nav__item">
+            <a
+              href={{item.url}}
+              class="c-nypr-nav__link u-has-accent u-has-accent--secondary"
+              target="_blank"
+              rel="noopener"
+            >
+              {{item.title}}
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+    </nav>
+  </toggle.dropdown>
+</ToggleBox>

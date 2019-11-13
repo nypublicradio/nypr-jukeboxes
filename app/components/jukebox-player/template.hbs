@@ -14,7 +14,7 @@
   {{nypr-player/listen-button
     playState    = playState
     currentTitle = currentTitle
-    click        = (action 'playOrPause')
+    click        = (action "playOrPause")
     ready        = isReady
   }}
 </div>
@@ -27,7 +27,7 @@
   {{/if}}
   {{#if @trackTitle}}
     <div class="jukebox-player-track-title" data-test-element="track-title">
-      {{@trackTitle}}
+      <TrackAdditionalInfo @title={{trackTitle}} @ensembleName={{ensembleName}} @conductorName={{conductorName}} />
     </div>
   {{/if}}
 </div>

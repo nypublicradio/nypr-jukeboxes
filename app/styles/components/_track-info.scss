@@ -64,43 +64,8 @@
 
   .secondary-metadata-toggle-box {
     flex: 1;
-
-    .c-toggle-box__dropdown {
-      background-color: transparent;
-    }
-
-    .c-toggle-box__label {
-      text-transform: none;
-    }
-
-    .c-toggle-box__label:before {
-      bottom: -22px;
-      background-color: #000000;
-      right: 12px;
-      z-index: 1001;
-    }
-
-    .ember-basic-dropdown-content {
-      margin-top: 12px;
-      right: -20px;
-    }
-
-    > button:focus {
-      outline: none;
-    }
-
-    > button {
-      border: none;
-      border-radius: 0px;
-      padding-left: 0px;
-      line-height: unset;
-      letter-spacing: 0px;
-
-      .o-text-with-icon {
-        text-align: left;
-      }
-    }
-
+    width: 263px;
+  
     .u-icon--xs path {
       fill: #000000;
     }
@@ -120,13 +85,9 @@
 .secondary-metadata-content {
   background-color: black;
   color: white;
-  border-radius: 4px;
-  padding: 24px;
   font-family: $font-body;
   font-size: 12px;
   line-height: 1.5;
-  width: 263px;
-  margin-top: 12px;
 
   div:last-child {
     margin-bottom: 0px;

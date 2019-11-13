@@ -1,0 +1,13 @@
+{{#basic-dropdown
+  calculatePosition=(or @calculatePosition this.calculatePosition)
+  horizontalPosition=(or @horizontalPosition "left")
+  verticalPostion=(or @verticalPosition "below")
+  renderInPlace=@renderInPlace
+  onOpen=(action (mut this.open) true)
+  onClose=(action (mut this.open) false)
+  as |dd|}}
+  {{yield (hash
+    trigger=(component "toggle-box/trigger" button=dd.trigger icon=icon)
+    dropdown=(component dd.content class=this.contentClasses)
+  )}}
+{{/basic-dropdown}}

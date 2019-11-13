@@ -79,10 +79,10 @@
 
     <div class="c-main-footer__brand-group">
       <div class="c-main-footer__nypr-logo logo-and-toggle">
-        <NyprASvg @icon='nypr-logo' />
+        {{svg-jar "nypr-logo"}}
       </div>
 
-      <NyprMBrandsLinkroll @exclude='wqxr' @calculatePosition={{this.calculatePosition}} as |toggle| />
+      <BrandsLinkroll @exclude='wqxr' />
 
       <div class="c-main-footer__copyright">
         <p class="u-font--secondary-style u-font--xs u-color--white term-links">&copy; {{moment-format (now) 'YYYY'}}
