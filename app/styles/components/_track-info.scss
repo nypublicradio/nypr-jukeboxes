@@ -64,6 +64,7 @@
 
   .secondary-metadata-toggle-box {
     flex: 1;
+    width: 263px;
   
     .u-icon--xs path {
       fill: #000000;
@@ -87,7 +88,6 @@
   font-family: $font-body;
   font-size: 12px;
   line-height: 1.5;
-  width: 263px;
 
   div:last-child {
     margin-bottom: 0px;
