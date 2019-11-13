@@ -154,9 +154,7 @@
     }
 
     &__nypr-logo {
-      width: 120px;
-      margin: 0 auto $space;
-
+  
       @include media('>xlarge') {
         margin: 0 $space-and-half 0 0;
       }
@@ -174,10 +172,9 @@
         opacity: .7;
       }
 
-      @include media('>large'){
-        div:last-child {
-          position: absolute;
-          right: 0;
+      @include media('>large') {
+        .c-main-footer__copyright {
+          margin-left: auto;
         }
       }
     }
@@ -435,6 +432,16 @@
     justify-content: space-between;
   }
 
+  .slogans {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-and-brands {
+    display: flex;
+    flex-direction: row;
+  }
+
   //MOBILE//
 
   @include media("<=small"){
@@ -445,10 +452,16 @@
       justify-content: space-between;
     }
 
-    // .logo-and-brands {
-    //   display: flex;
-    //   flex-direction: column;
-    // }
+    .slogans {
+    display: flex;
+    flex-direction: column;
+  }
+
+    .logo-and-brands {
+      display: flex;
+      flex-direction: column;
+    }
+
     .c-main-footer__copyright p {
       opacity: .7;
     }
@@ -457,14 +470,34 @@
   //TABLET//
 
   @include media("<=medium") {
-    .c-main-footer__slogan .slogan{
+
+    @include media(">small") {
+    .slogans {
       display: flex;
       flex-direction: row;
     }
 
-    .c-main-footer {
-      padding: 100px 50px 100px 50px;
+    .logo-and-brands {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-bottom: 5px;
+
+      .c-toggle-box {
+        margin-top: 8px;
+      }
     }
+
+    .c-main-footer__nypr-logo {
+      margin: 0 5px 0 0;
+    }
+  }
+
+ 
+
+  .c-main-footer {
+    padding: 100px 50px 100px 50px;
+  }
 
     .c-main-footer__social {
       flex-direction: column;
@@ -478,11 +511,11 @@
       opacity: 1;
     }
 
-    // .logo-and-brands {
-    //   display: flex;
-    //   flex-direction: row;
-    //   flex: 1;
-    // }
+    .c-main-footer__brand-group {
+      display: flex;
+      flex-direction: column;
+    }
+
     
     // .c-main-footer__nypr-logo{
     //   width: 120px;
