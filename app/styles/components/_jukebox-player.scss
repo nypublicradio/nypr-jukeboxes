@@ -124,6 +124,10 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
   font-size: 18px;
 }
 
+.jukebox-player-track-title {
+  @include toggleBoxCaret(12px, #FFF);
+}
+
 // text-crawl overflow styles
 .text-crawl {
   white-space: nowrap;

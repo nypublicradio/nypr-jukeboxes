@@ -1,5 +1,4 @@
 @import 'include-media';
-@import "ember-basic-dropdown";
 
 @import 'vars/colors';
 @import 'vars/fonts';
@@ -9,15 +8,15 @@
 @import "node_modules/nypr-pattern-lab/source/scss/themes/default/default.scss";
 
 @import 'normalize';
-//@import 'base';
-
-@import 'components/jukebox-player';
-@import 'nypr-player';
-
 @import 'components/horizontal-nav';
 @import "components/sliding-bar";
 @import 'components/footer';
 @import "components/track-info";
+@import "components/toggle-box";
+@import 'components/jukebox-player';
+
+@import 'nypr-player';
+
 @import "routes/listen";
 @import "routes/playlist-history";
 
@@ -70,8 +69,4 @@ button {
   > * {
     pointer-events: none;
   }
-}
-
-.listen:hover {
-	opacity: 80%;
 }

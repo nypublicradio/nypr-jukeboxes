@@ -27,7 +27,7 @@ module('Integration | Component | track-info', function(hooks) {
     assert.equal(find('.ensemble'), null);
     assert.equal(find('.conductor'), null);
 
-    await click('button');
+    await click('.toggle-box__label');
 
     assert.equal(find('.ensemble').textContent.trim(), 'Performed by the Vienna Radio Symphony Orchestra');
     assert.equal(find('.conductor').textContent.trim(), 'Conducted by Garcia Navarro');

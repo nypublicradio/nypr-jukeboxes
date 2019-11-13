@@ -61,7 +61,6 @@
     background-repeat: repeat-x;
 
     &__inner {
-
       @include media('>xlarge') {
         margin-top: 0;
         display: flex;
@@ -182,23 +181,30 @@
         }
 
       }
-   
+
     }
 
-    .c-toggle-box__content {
+    .toggle-box__content {
       min-width: 320px;
       max-width: 400px;
       width: 100%;
       text-transform: capitalize;
     }
 
-    .c-toggle-box__label {
+    .toggle-box__label {
       text-transform: none;
       border: none;
       font-family: $font-body;
       font-size: 12px;
       letter-spacing: 0px;
       font-weight: normal;
+      color: $white;
+
+      .o-text-with-icon svg {
+        fill: #FFF;
+        height: 16px;
+        width: 16px;
+      }
     }
 
     &__bottom {
@@ -324,8 +330,8 @@
       transition-property: top, right, bottom, left;
     }
 
-    .spotify:hover:before, .facebook:hover:before, .twitter:hover:before, .instagram:hover:before, .youtube:hover:before, 
-    .spotify:focus:before, .facebook:focus:before, .twitter:focus:before, .instagram:focus:before, .youtube:focus:before, 
+    .spotify:hover:before, .facebook:hover:before, .twitter:hover:before, .instagram:hover:before, .youtube:hover:before,
+    .spotify:focus:before, .facebook:focus:before, .twitter:focus:before, .instagram:focus:before, .youtube:focus:before,
     .spotify:active:before, .facebook:active:before, .twitter:active:before, .instagram:active:before, .youtube:active:before {
       top: -4px;
       right: -4px;
@@ -402,7 +408,7 @@
     padding-bottom: 4px;
     margin-top: 10px;
 
-    &:hover { 
+    &:hover {
       color: rgba($color: white, $alpha: 0.8);
     }
   }

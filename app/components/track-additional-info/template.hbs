@@ -1,0 +1,19 @@
+{{#if (or @ensembleName @conductorName)}}
+  <ToggleBox @verticalPosition={{@verticalPosition}} @horizontalPosition={{@horizontalPosition}} class="secondary-metadata-toggle-box" as |toggle|>
+    <toggle.trigger>
+      {{@title}}
+    </toggle.trigger>
+    <toggle.dropdown class="secondary-metadata-content-dropdown">
+      <div class="secondary-metadata-content">
+        {{#if @ensembleName}}
+          <div class="ensemble secondary-metadata-content-field">Performed by the <strong>{{@ensembleName}}</strong></div>
+        {{/if}}
+        {{#if @conductorName}}
+          <div class="conductor secondary-metadata-content-field">Conducted by <strong>{{@conductorName}}</strong></div>
+        {{/if}}
+      </div>
+    </toggle.dropdown>
+  </ToggleBox>
+{{else}}
+  {{@title}}
+{{/if}}

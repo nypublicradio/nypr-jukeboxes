@@ -23,6 +23,7 @@
     "broccoli-asset-rev": "^2.7.0",
     "ember-ajax": "^5.0.0",
     "ember-animated": "^0.9.0",
+    "ember-basic-dropdown": "^1.1.3",
     "ember-cli": "~3.9.0",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-autoprefixer": "^0.8.1",
@@ -82,9 +83,9 @@
     "nypr-design-system": "https://github.com/nypublicradio/nypr-design-system.git#88e3366",
     "nypr-metrics": "^0.7.1",
     "nypr-pattern-lab": "https://github.com/nypublicradio/pattern-lab#bkammin/change_package_name_to_pattern_lab",
+    "nypr-player": "http://github.com/nypublicradio/nypr-player#jkeen/remove-nypr-ui",
     "qunit-dom": "^0.8.0",
-    "sass": "^1.14.1",
-    "nypr-player": "http://github.com/nypublicradio/nypr-player#jkeen/remove-nypr-ui"
+    "sass": "^1.14.1"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
@@ -106,9 +107,9 @@
     "fastboot-app-server": "^1.1.2-beta.1",
     "include-media": "^1.4.9",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
+    "nypr-icons": "https://github.com/nypublicradio/nypr-icons",
     "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#bkammin/DSODA-94_add_previous_to_stream_model",
-    "url-parse": "^1.4.3",
-    "nypr-icons": "https://github.com/nypublicradio/nypr-icons"
+    "url-parse": "^1.4.3"
   },
   "fastbootDependencies": [
     "url-parse"
