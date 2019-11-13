@@ -43,7 +43,6 @@ module.exports = function(environment) {
     siteId: 2,
     clientSlug: 'wqxr_web',
     webRoot: process.env.WQXR_URL,
-    adminRoot: process.env.ADMIN_ROOT,
     authAPI: process.env.AUTH_SERVICE,
     membershipAPI: process.env.MEMBERSHIP_SERVICE,
     etagAPI: process.env.ETAG_API,
@@ -76,7 +75,6 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.publisherAPI = '/api'; //ember-cli-fastboot-testing needs this
-    ENV.adminRoot = 'http://admin.example.com';
     ENV.etagAPI = 'http://example.com/api/v1/browser_id/';
     ENV.webRoot = 'http://example.com';
     ENV.authAPI = 'http://example.com';
