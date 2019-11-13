@@ -5,8 +5,8 @@
  */
  .l-wrap {
     margin: 0 auto;
-    padding-left: $space;
-    padding-right: $space;
+    padding-left: $space-double;
+    padding-right: $space-double;
     width: 100%;
     position: relative;
   }
@@ -88,7 +88,6 @@
     &__logo.main-logo {
       min-width: 150px;
       max-width: 378px;
-      margin-right: $space-and-half;
       flex-basis: 100%;
 
       @include media('>small') {
@@ -445,6 +444,13 @@
   //MOBILE//
 
   @include media("<=small"){
+    .l-wrap {
+      margin: 0 auto;
+      padding-left: $space;
+      padding-right: $space;
+      width: 100%;
+      position: relative;
+    }
     .about-and-connect {
       display: flex;
       flex: 1;
@@ -470,8 +476,23 @@
   //TABLET//
 
   @include media("<=medium") {
-
     @include media(">small") {
+    #jl-greene-bit {
+      padding-left: 50px;
+    }
+
+    .about-and-connect {
+      display: flex;
+      flex-direction: row;
+      justify-content: initial;
+    }
+
+    .c-main-footer .social-media-links {
+      display: flex;
+      flex-direction: column;
+      padding-left: 170px;
+    }
+
     .slogans {
       display: flex;
       flex-direction: row;
@@ -493,39 +514,21 @@
     }
   }
 
- 
-
-  .c-main-footer {
-    padding: 100px 50px 100px 50px;
+  .c-main-footer__social {
+    flex-direction: column;
   }
 
-    .c-main-footer__social {
-      flex-direction: column;
-    }
+  .c-main-footer__branding {
+    justify-content: flex-start;
+  }
 
-    .c-main-footer__branding {
-      justify-content: flex-start;
-    }
+  .c-main-footer__copyright p {
+    opacity: 1;
+  }
 
-    .c-main-footer__copyright p {
-      opacity: 1;
-    }
-
-    .c-main-footer__brand-group {
-      display: flex;
-      flex-direction: column;
-    }
-
-    
-    // .c-main-footer__nypr-logo{
-    //   width: 120px;
-    //   margin: 0 0 10px 190px;
-    // }
-
-    // .c-toggle-box .c-toggle-box__label {
-    //   margin-top: 5px;
-    // }
-
+  .c-main-footer__brand-group {
+    display: flex;
+    flex-direction: column;
+  }
   
   }
-
