@@ -1,4 +1,9 @@
 <ShowHeader @activeTabIndex={{activeTabIndex}} @links={{links}} />
+{{#liquid-if showOnboardMessage}}
+<OnboardMessage
+  @onHideOnboardMessage={{action "hideOnboardMessage"}}
+/>
+{{/liquid-if}}
 {{outlet}}
 
 <NyprOFooter as |footer|>

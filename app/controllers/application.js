@@ -11,6 +11,7 @@ export default Controller.extend({
   links: [ { 'href': null, 'nav-slug': 'listen', 'title': 'Listen'}, { 'href': null, 'nav-slug': 'playlist-history', 'title': 'Playlist History'} ],
 
   showPlayer: true,
+  showOnboardMessage: true,
 
   * showPlayerAnimation(context) { //eslint-disable-line
     let { insertedSprites, removedSprites } = context;
@@ -37,5 +38,8 @@ export default Controller.extend({
       }
       set(this, 'activeTabIndex', activeTabIndex);
     },
+    hideOnboardMessage() {
+      this.set('showOnboardMessage', false);
+    }
   },
 });
