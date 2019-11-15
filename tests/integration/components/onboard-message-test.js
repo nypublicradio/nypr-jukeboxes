@@ -10,17 +10,14 @@ module('Integration | Component | onboard-message', function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{onboard-message}}`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
     await render(hbs`
-      {{#onboard-message}}
-        template block text
-      {{/onboard-message}}
+      <OnboardMessage
+      />
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom('[data-test-element="title"]').hasText('Welcome to a New WQXR')
+    assert.dom('[data-test-element="body"]').hasText('We’ve launched an alternative experience of WQXR.org with the goal of highlighting the classical programming that you love, and try out new features. Help us improve the experience, send your feedback to beta@wqxr.org.')
+    assert.dom('[data-test-element="old-wqxr-site"]').hasText('Go Back to Old wqxr.org')
+    assert.dom('[data-test-element="take-a-look"]').hasText('Thanks, I\'ll Take a Look')
   });
 });

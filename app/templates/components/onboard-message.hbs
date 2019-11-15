@@ -1,9 +1,9 @@
-<a href="#" class="onboard-close" {{action 'hideOnboardMessage'}}>{{svg-jar "close"}}</a>
-<div class="onboard-title">Welcome to a New WQXR</div>
-<div class="onboard-body">We’ve launched an alternative experience of WQXR.org with the goal of highlighting the classical programming that you love, and try out new features. Help us improve the experience, send your feedback to <a class="onboard-feedback-email" href="mailto:beta@wqxr.org">beta@wqxr.org</a>.</div>
+<a href="#" class="onboard-close" {{action 'hideOnboardMessage'}} data-test-element="close">{{svg-jar "close"}}</a>
+<div class="onboard-title" data-test-element="title">Welcome to a New WQXR</div>
+<div class="onboard-body" data-test-element="body">We’ve launched an alternative experience of WQXR.org with the goal of highlighting the classical programming that you love, and try out new features. Help us improve the experience, send your feedback to <a class="onboard-feedback-email" href="mailto:beta@wqxr.org" data-test-element="email">beta@wqxr.org</a>.</div>
 <div class="onboard-buttons">
-	<a href="https://www.wqxr.org" class="onboard-old-wqxr-button" target="_blank">Go Back to Old wqxr.org</a>
-	<a href="#" class="onboard-jukebox-button" {{action 'hideOnboardMessage'}}>Thanks, I'll Take a Look</a>
+	<a href="https://www.wqxr.org" class="onboard-old-wqxr-button" target="_blank" data-test-element="old-wqxr-site">Go Back to Old wqxr.org</a>
+	<a href="#" class="onboard-jukebox-button" {{action 'hideOnboardMessage'}} data-test-element="take-a-look">Thanks, I'll Take a Look</a>
 </div>
 
 {{yield}}
