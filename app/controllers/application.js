@@ -1,17 +1,22 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { set } from "@ember/object";
+import { computed } from '@ember/object';
 import move from 'ember-animated/motions/move';
 import { easeInAndOut } from 'ember-animated/easings/cosine';
 
 export default Controller.extend({
   dj             : service(),
   hifi           : service(),
+  cookies        : service(),
   currentStream  : service(),
   links: [ { 'href': null, 'nav-slug': 'listen', 'title': 'Listen'}, { 'href': null, 'nav-slug': 'playlist-history', 'title': 'Playlist History'} ],
 
   showPlayer: true,
-  showOnboardMessage: true,
+  showOnboardMessage: computed('closed', function() {
+    let cookieService = this.get('cookies');
+    return !cookieService.exists('showOnboardMessage');
+  }),
 
   * showPlayerAnimation(context) { //eslint-disable-line
     let { insertedSprites, removedSprites } = context;
@@ -39,7 +44,9 @@ export default Controller.extend({
       set(this, 'activeTabIndex', activeTabIndex);
     },
     hideOnboardMessage() {
-      this.set('showOnboardMessage', false);
+      let cookieService = this.get('cookies');
+      cookieService.write('showOnboardMessage', false);
+      this.set('closed', true);
     }
   },
 });
