@@ -37,6 +37,10 @@
         fill: #ffffff;
       }
     }
+
+    &:hover {
+      opacity: 80%;
+    }
   }
 
   .onboard-title {
@@ -103,6 +107,13 @@
         margin-right: 0px;
         margin-bottom: 16px;
       }
+
+      &:hover {
+        opacity: 80%;
+        color: $denim-blue;
+        background: white;
+        border-color: white;
+      }
     }
 
     .onboard-jukebox-button {
@@ -113,6 +124,10 @@
 
       @include media('<=medium') {
         margin-left: 0px;
+      }
+
+      &:hover {
+        opacity: 80%;
       }
     }
   }
