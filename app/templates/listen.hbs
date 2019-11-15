@@ -22,6 +22,7 @@
          src={{model.stream.currentShow.fullImage.url}}>
       {{/if}}
       <div class="show-title">{{model.stream.currentShow.title}}</div>
+        {{!-- DSODA-258 Hide "Message the Show" dropdown component }}
         <div class="message-the-show">
           <ToggleBox class="message-the-show-toggle-box" as |toggle|>
             <toggle.trigger>
@@ -32,7 +33,9 @@
             </toggle.dropdown>
           </ToggleBox>
         </div>
+        {{--}}
       </div>
+
     </div>
     <div class="listen-play-button">
       {{#listen-button
