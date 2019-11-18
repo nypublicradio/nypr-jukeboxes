@@ -14,8 +14,7 @@ export default Controller.extend({
 
   showPlayer: true,
   showOnboardMessage: computed('closed', function() {
-    let cookieService = this.get('cookies');
-    return !cookieService.exists('showOnboardMessage');
+    return !this.cookies.exists('showOnboardMessage');
   }),
 
   * showPlayerAnimation(context) { //eslint-disable-line
@@ -44,8 +43,7 @@ export default Controller.extend({
       set(this, 'activeTabIndex', activeTabIndex);
     },
     hideOnboardMessage() {
-      let cookieService = this.get('cookies');
-      cookieService.write('showOnboardMessage', false);
+      this.cookies.write('showOnboardMessage', false);
       this.set('closed', true);
     }
   },
