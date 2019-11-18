@@ -172,6 +172,10 @@
   }
 
   .message-the-show-toggle-box {
+    display: inline-flex;
+    .toggle-box__label {
+      display: inline-flex;
+    }
     > button:focus {
       outline: none;
     }
@@ -262,6 +266,8 @@
       height: 16px;
       border-radius: 8px;
     }
+
+    @include toggleBoxCaret(12px, #FFF);
   }
 
   .song-metadata .u-icon--xs svg path {

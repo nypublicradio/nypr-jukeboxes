@@ -19,15 +19,18 @@
   }}
 </div>
 
-<div class="jukebox-player-track" data-test-element="track">
-  {{#if @composerName}}
-    <div class="jukebox-player-track-composer" data-test-element="track-composer">
-      {{@composerName}}
-    </div>
-  {{/if}}
-  {{#if @trackTitle}}
-    <div class="jukebox-player-track-title" data-test-element="track-title">
-      <TrackAdditionalInfo @title={{trackTitle}} @ensembleName={{ensembleName}} @conductorName={{conductorName}} />
-    </div>
-  {{/if}}
-</div>
+<TrackAdditionalInfo @ensembleName={{ensembleName}} @conductorName={{conductorName}} as |options|>
+  <div class="jukebox-player-track" data-test-element="track">
+    {{#if @composerName}}
+      <div class="jukebox-player-track-composer" data-test-element="track-composer">
+        {{@composerName}}
+      </div>
+    {{/if}}
+    {{#if @trackTitle}}
+      <div class="jukebox-player-track-title" data-test-element="track-title">
+        {{@trackTitle}}
+        {{options.icon}}
+      </div>
+    {{/if}}
+  </div>
+</TrackAdditionalInfo>
