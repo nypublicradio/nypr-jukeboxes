@@ -441,6 +441,11 @@
   flex-direction: row;
 }
 
+.c-toggle-box--linkroll {
+  padding-top: 15px;
+  padding-left: 5px;
+}
+
 //MOBILE//
 
 @include media("<=small") {
@@ -529,16 +534,5 @@
   .c-main-footer__brand-group {
     display: flex;
     flex-direction: column;
-  }
-}
-
-//VIEW ALL BRANDS -- DESKTOP AND TABLET // 
-
-@include media("<xxxlarge") {
-  @include media(">=small") { 
-    .c-toggle-box--linkroll{
-      padding-top: 15px;
-      padding-left: 5px;
-    }
   }
 }
