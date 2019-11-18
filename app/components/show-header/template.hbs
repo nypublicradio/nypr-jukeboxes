@@ -1,8 +1,8 @@
 <div class="static-main-header">
   <div class="col" id="wqxr-logo" data-test-element="header-logo">
-
-      {{svg-jar "wqxr-log-frq" class="site-header-title-logo"}}
-
+    {{#link-to 'listen'}}
+    {{svg-jar "wqxr-log-frq" class="site-header-title-logo"}}
+    {{/link-to}}
   </div>
   <div class="col" id="live-nyc-txt-box">
     <p class="live-nyc-txt" data-test-element="header-tagline"> Live from NYC</p>
@@ -22,7 +22,8 @@
 {{/sticky-element}}
 
 <div class="donate-button-link">
-  <a href="https://pledge3.wqxr.org/donate/main/onestep/?ref=button-donate-header" target="_blank" class="donate-button-opacity">
+  <a href="https://pledge3.wqxr.org/donate/main/onestep/?ref=button-donate-header" target="_blank"
+    class="donate-button-opacity">
     <button class="donate-button">
       Donate
     </button>
