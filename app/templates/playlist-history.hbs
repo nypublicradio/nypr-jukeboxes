@@ -5,15 +5,25 @@
 
 <div class="playlist-history-display">
   <div class="date-selector">
-    <a class="date-selector-back" href={{playlist-history-href model.date -1}}>
+    {{#link-to "playlist-history"
+              (moment-format (moment-add model.date -1 precision='days') 'YYYY')
+              (moment-format (moment-add model.date -1 precision='days') 'MM')
+              (moment-format (moment-add model.date -1 precision='days') 'DD')
+              class="date-selector-back"
+    }}
       {{svg-jar "left-arrow"}}
       <span>{{formatted-picker-date model.date -1}}</span>
-    </a>
+    {{/link-to}}
     {{#if (can-show-schedule-for-date model.date 1)}}
-    <a class="date-selector-forward" href={{playlist-history-href model.date 1}}>
-      <span>{{formatted-picker-date model.date 1}}</span>
-      {{svg-jar "left-arrow"}}
-    </a>
+      {{#link-to "playlist-history"
+                (moment-format (moment-add model.date 1 precision='days') 'YYYY')
+                (moment-format (moment-add model.date 1 precision='days') 'MM')
+                (moment-format (moment-add model.date 1 precision='days') 'DD')
+                class="date-selector-forward"
+      }}
+        <span>{{formatted-picker-date model.date 1}}</span>
+        {{svg-jar "left-arrow"}}
+      {{/link-to}}
     {{/if}}
   </div>
 
