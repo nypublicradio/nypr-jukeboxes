@@ -11,7 +11,11 @@ module('Integration | Component | track-additional-info', function(hooks) {
     this.set('conductor', null);
     this.set('ensemble', null);
 
-    await render(hbs`<TrackAdditionalInfo @title={{title}} @conductorName={{conductor}} @ensembleName={{ensemble}}/>`);
+    await render(hbs`
+      <TrackAdditionalInfo @conductorName={{conductor}} @ensembleName={{ensemble}}>
+        {{title}}
+      </TrackAdditionalInfo>
+      `);
 
     assert.equal(this.element.textContent.trim(), 'Track Title');
   });
@@ -21,7 +25,9 @@ module('Integration | Component | track-additional-info', function(hooks) {
     this.set('conductor', "Garcia Navarro");
     this.set('ensemble', "Vienna Radio Symphony Orchestra");
 
-    await render(hbs`<TrackAdditionalInfo @title={{title}} @conductorName={{conductor}} @ensembleName={{ensemble}}/>`);
+    await render(hbs`<TrackAdditionalInfo @conductorName={{conductor}} @ensembleName={{ensemble}}>
+      {{title}}
+    </TrackAdditionalInfo>`);
 
     assert.dom('.secondary-metadata-toggle-box').exists();
     await click('.secondary-metadata-toggle-box .toggle-box__label');

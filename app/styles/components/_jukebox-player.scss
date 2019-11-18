@@ -98,6 +98,8 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
   flex-direction: column;
   justify-content: space-around;
   align-content: flex-start;
+  align-items: flex-start;
+  
   @include media("<medium"){
     position: relative;
     top: -48px;
