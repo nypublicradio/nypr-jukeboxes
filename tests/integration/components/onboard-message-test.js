@@ -16,8 +16,8 @@ module('Integration | Component | onboard-message', function(hooks) {
     `);
 
     assert.dom('[data-test-element="title"]').hasText('Welcome to a New WQXR')
-    assert.dom('[data-test-element="body"]').hasText('We’ve launched an alternative experience of WQXR.org with the goal of highlighting the classical programming that you love, and try out new features. Help us improve the experience, send your feedback to beta@wqxr.org.')
-    assert.dom('[data-test-element="old-wqxr-site"]').hasText('Go Back to Old wqxr.org')
-    assert.dom('[data-test-element="take-a-look"]').hasText('Thanks, I\'ll Take a Look')
+    assert.dom('[data-test-element="body"]').hasText('We launched an alternative experience of WQXR.org to highlight the classical programming that our listeners love, and to try out new features. Help us improve by sharing your feedback.')
+    assert.dom('[data-test-element="old-wqxr-site"]').hasText('Go Back to Old WQXR.org')
+    assert.dom('[data-test-element="take-a-look"]').hasText('Thanks, I\'ll Take A Look')
   });
 });
