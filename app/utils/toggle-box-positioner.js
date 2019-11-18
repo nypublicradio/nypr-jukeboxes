@@ -1,7 +1,7 @@
 import defaultCalculatePosition from 'ember-basic-dropdown/utils/calculate-position';
 
 export default function calculatePosition(trigger, content, _destination, ref) {
-  let icon = trigger.querySelector('.o-icon--caret')
+  let icon = trigger.querySelector('.o-icon--caret svg')
   if (icon) {
     trigger = icon
   }
@@ -19,7 +19,7 @@ export default function calculatePosition(trigger, content, _destination, ref) {
   } = content.getBoundingClientRect();
 
   let { verticalPosition, horizontalPosition } = obj;
-  let bottomOffset = (verticalPosition == 'above' ? -5 : 5);
+  let bottomOffset = (verticalPosition == 'above' ? -10 : 10);
 
   // Set these attributes on the dropdown object so we can put the tab in the right spot
   content.setAttribute('data-v-pos', verticalPosition);

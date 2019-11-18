@@ -7,7 +7,9 @@
   onClose=(action (mut this.open) false)
   as |dd|}}
   {{yield (hash
-    trigger=(component "toggle-box/trigger" button=dd.trigger icon=icon)
+    toggle=dd.actions.toggle
+    icon=(if @customIconPlacement (component "toggle-box/trigger/icon" icon=icon))
+    trigger=(component "toggle-box/trigger" button=dd.trigger icon=icon customIconPlacement=@customIconPlacement)
     dropdown=(component dd.content class=this.contentClasses)
   )}}
 {{/basic-dropdown}}

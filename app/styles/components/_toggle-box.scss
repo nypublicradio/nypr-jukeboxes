@@ -7,7 +7,7 @@ $ember-basic-dropdown-overlay-pointer-events: none !default;
 
 
 @mixin toggleBoxCaret($size, $color) {
-  .toggle-box__label .o-text-with-icon svg{
+  .toggle-box__icon svg{
     width: $size;
     height: $size;
     fill: $color;
@@ -19,6 +19,7 @@ $arrow_width: 8px;
 .toggle-box__label {
   cursor: pointer;
 }
+
 .toggle-box__label:focus {
   outline: 0;
 }
@@ -77,6 +78,15 @@ $arrow_width: 8px;
   will-change: transform, opacity;
   animation: scale-fade-in .2s  ease-out reverse;
 }
+
+.toggle-box__label {
+    .o-icon {
+      display: inline-flex;
+      justify-content: center;
+    }
+}
+
+
 
 @keyframes scale-fade-in {
    0% {

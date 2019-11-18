@@ -11,7 +11,7 @@ module('Integration | Component | toggle-box', function(hooks) {
   test('it renders', async function(assert) {
     await render(hbs`
       <ToggleBox as |toggle|>
-        <toggle.trigger>
+        <toggle.trigger as |options|>
           <span class="the-label">Toggle Box Label</span>
         </toggle.trigger>
 

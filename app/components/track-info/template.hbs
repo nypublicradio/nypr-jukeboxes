@@ -1,12 +1,14 @@
 <div class="dot"></div>
-
 <div class="metadata">
-  <div class="composer">{{composerName}}</div>
-  <div class="title">
-    <TrackAdditionalInfo @title={{trackTitle}} @ensembleName={{ensembleName}} @conductorName={{conductorName}} />
-  </div>
+  <TrackAdditionalInfo @ensembleName={{ensembleName}} @conductorName={{conductorName}} as |options|>
+    <div class="composer">
+      {{composerName}}
+    </div>
+    <div class="title">
+      {{trackTitle}} {{options.icon}}
+    </div>
+  </TrackAdditionalInfo>
 </div>
-
 <div class="start-time">{{format-start-time startTime}}</div>
 
 {{yield}}

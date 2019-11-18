@@ -18,7 +18,7 @@ export default Component.extend({
     // Positions of elements were being calculated before they had
     // fully finished rendering. This ensures positioning is being
     // calculated correctly by positioning again after render
-    
+
     scheduleOnce('afterRender',() => {
       let obj = toggleBoxPositioner(trigger, content, _destination, ref);
       ref.dropdown.applyReposition(trigger, content, obj)

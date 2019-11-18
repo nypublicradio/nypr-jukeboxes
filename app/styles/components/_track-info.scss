@@ -11,6 +11,8 @@
   flex-direction: row;
   padding-bottom: 16px;
   padding-top: 16px;
+  width: 100%;
+  justify-content: flex-start;
 
   .metadata {
     display: flex;
@@ -63,17 +65,8 @@
   }
 
   .secondary-metadata-toggle-box {
-    flex: 1;
-    width: 263px;
-  
     .u-icon--xs path {
       fill: #000000;
-    }
-
-    .o-text-with-icon .o-icon--caret {
-      margin-left: 8px;
-      padding-top: 4px;
-      min-width: 16px;
     }
   }
 }

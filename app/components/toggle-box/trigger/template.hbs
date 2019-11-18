@@ -1,11 +1,7 @@
-  {{#component @button class="toggle-box__label" aria-role="button"}}
-    <span class="o-text-with-icon" aria-label={{@ariaLabel}}>
-      {{yield}}
+{{#component @button class="toggle-box__label" aria-role="button"}}
+  {{yield}}
 
-      {{#if (eq @icon "caret-down")}}
-        <span class="o-icon o-icon--caret u-icon--xs">
-          {{svg-jar @icon}}
-        </span>
-      {{/if}}
-    </span>
+  {{#unless @customIconPlacement}}
+    {{component "toggle-box/trigger/icon" icon=@icon}}
+  {{/unless}}
 {{/component}}
