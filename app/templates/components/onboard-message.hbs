@@ -1,0 +1,9 @@
+<a href="#" class="onboard-close" {{action 'hideOnboardMessage'}} data-test-element="close">{{svg-jar "close"}}</a>
+<div class="onboard-title" data-test-element="title">Welcome to a New WQXR</div>
+<div class="onboard-body" data-test-element="body">We launched an alternative experience of WQXR.org to highlight the classical programming that our listeners love, and to try out new features. Help us improve by <a class="onboard-feedback" href=" https://www.surveymonkey.com/r/XQQSB68" data-test-element="feedback">sharing your feedback</a>.</div>
+<div class="onboard-buttons">
+	<a href="https://www.wqxr.org" class="onboard-old-wqxr-button" target="_blank" data-test-element="old-wqxr-site">Go Back to Old WQXR.org</a>
+	<a href="#" class="onboard-jukebox-button" {{action 'hideOnboardMessage'}} data-test-element="take-a-look">Thanks, I'll Take A Look</a>
+</div>
+
+{{yield}}
