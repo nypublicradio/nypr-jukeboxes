@@ -28,6 +28,7 @@
 .listen-play-button {
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 
   .listen-button {
     width: 60px;
@@ -164,7 +165,6 @@
   .message-the-show {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
     @include media("<medium") {
       justify-content: left;
       margin-bottom: 0;
