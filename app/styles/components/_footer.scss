@@ -168,7 +168,7 @@
       opacity: 0.7;
     }
 
-    @include media(">large") {
+    @include media(">xlarge") {
       .c-main-footer__copyright {
         margin-left: auto;
       }
@@ -475,7 +475,7 @@
 
 //TABLET//
 
-@include media("<=medium") {
+@include media("<=xlarge") {
   @include media(">small") {
     #jl-greene-bit {
       padding-left: 50px;
@@ -532,3 +532,13 @@
   }
 }
 
+//VIEW ALL BRANDS -- DESKTOP AND TABLET // 
+
+@include media("<xxxlarge") {
+  @include media(">=small") { 
+    .c-toggle-box--linkroll{
+      padding-top: 15px;
+      padding-left: 5px;
+    }
+  }
+}

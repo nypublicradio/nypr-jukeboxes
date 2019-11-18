@@ -164,7 +164,7 @@
   }
 }
 
-@include media("<medium") {
+@include media("<=medium") {
   .donate-button {
     width: 60px; 
     font-size: 8px;
