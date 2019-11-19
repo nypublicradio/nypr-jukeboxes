@@ -21,10 +21,6 @@ export default Component.extend(InViewportMixin, {
     this.set('viewportSpy', true);
   },
 
-  didInsertElement() {
-    this._super(...arguments);
-  },
-
   click() {
     if (this.isPlaying) {
       this.hifi.pause();
