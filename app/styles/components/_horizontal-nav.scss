@@ -62,10 +62,6 @@
   display: inline;
 }
 
-#live-nyc-txt-box {
-  margin-top: 15px;
-}
-
 .horizontal-nav-container {
   display: flex;
   flex-direction: row;
@@ -125,8 +121,28 @@
 .col {
   padding: 16px;
 }
- 
-@include media("<=medium") {
+
+@include media ("<=small") {
+
+  .site-header-title-logo {
+    max-width: 60%;
+  }
+
+  .donate-button-link {
+    padding-right: 4%;
+  }
+  .donate-button {
+    width: 80px;
+
+    &:hover {
+      opacity: 100%;
+      color: $denim-blue;
+      background: white;
+      border-color: white;
+    }
+  }
+}
+
   .static-main-header {
     display: block;
 
@@ -136,44 +152,14 @@
     }
   }
 
-  .donate-button {
-    width: 80px;
-  }
-
   .header:not(.button) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .header .live-text-box {
-    margin: 0;
-    flex-direction: row;
-  }
-
   .static-main-header .col .wqxr-icon {
     float: left;
-  }
-
-  .donate-button-link {
-    padding-right: 5%;
-    padding-top: 45px;
-  }
-
-  .horizontal-nav-container.is-sticky {
-    .donate-button-link {
-      display: none;
-      padding-right: 0;
-    }
-  }
-}
-
-@include media("<=medium") {
-  .donate-button {
-    width: 60px; 
-    font-size: 8px;
-    padding-left: 9px;
-    padding-top: 2px;
   }
 
   .col { 
@@ -191,14 +177,12 @@
   }
 
   .static-main-header {
-    padding-left: 5px;
+    padding-left: 2%;
   }
 
   .donate-button-link {
-    padding-right: 3%;
     padding-top: 30px;
   }
-}
 
 /* masks for fading scrollable edge */
 .horizontal-nav.is-left-scrollable {
