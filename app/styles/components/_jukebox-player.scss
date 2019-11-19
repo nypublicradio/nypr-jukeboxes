@@ -89,6 +89,19 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
   }
 }
 
+
+.jukebox-player-track .toggle-box__label {
+  line-height: 1.22;
+  text-align: left;
+  min-width: 30%;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
 .jukebox-player-track {
   line-height: 1.22;
   text-align: left;
@@ -99,7 +112,7 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
   justify-content: space-around;
   align-content: flex-start;
   align-items: flex-start;
-  
+
   @include media("<medium"){
     position: relative;
     top: -48px;
@@ -107,7 +120,6 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     white-space: nowrap;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: flex-start;
     flex-shrink: 0;
     flex-basis: 56%;
