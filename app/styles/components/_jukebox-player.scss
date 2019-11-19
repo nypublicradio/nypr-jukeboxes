@@ -37,7 +37,7 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
 
   @include media('<medium') {
     display: grid;
-    grid-template-columns: auto 90px;
+    grid-template-columns: 1fr 64px;
     grid-template-rows: 33% 33% 33%;
   }
 }
@@ -64,7 +64,6 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
 
     position: relative;
     white-space: nowrap;
-    // flex-basis: 33%;
   }
 }
 
@@ -130,6 +129,8 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
 
     position: relative;
     white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }
 
@@ -151,12 +152,24 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     font-size: 12px;
     font-weight: normal;
     @include toggleBoxCaret(8px, #FFF);
+
+    @include media("<medium") {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 100%;
+    }
   }
 
   .jukebox-player-track-composer {
     font-family: $font-heading;
     font-weight: bold;
     font-size: 18px;
+
+    @include media("<medium") {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 100%;
+    }
   }
 
 
