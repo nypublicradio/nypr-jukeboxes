@@ -11,9 +11,10 @@ export default Component.extend({
   theme: 'dark',
   icon: 'caret-down',
   closeDelay: 5000,
+  contentClass: '',
 
   contentClasses: computed('theme', function() {
-    return `toggle-box__dropdown ${this.theme}`;
+    return `toggle-box__dropdown ${this.theme} ${this.contentClass}`;
   }),
 
   calculatePosition(trigger, content, _destination, ref) {
@@ -47,14 +48,18 @@ export default Component.extend({
   autoClose: task(function*(dropdown) {
     // restartable concurrency task will close dropdown after 5 seconds
     // task is renewed when its called again
-    yield timeout(this.closeDelay);
 
-    // These differ based on how they were called, unfortunately
-    if (dropdown && dropdown.actions && dropdown.actions.close) {
-      dropdown.actions.close()
+    if (this.closeDelay) {
+      yield timeout(this.closeDelay);
+
+      // These differ based on how they were called, unfortunately
+      if (dropdown && dropdown.actions && dropdown.actions.close) {
+        dropdown.actions.close()
+      }
+      else if (dropdown && dropdown.close) {
+        dropdown.close();
+      }
     }
-    else if (dropdown && dropdown.close) {
-      dropdown.close();
-    }
+
   }).restartable(),
 });

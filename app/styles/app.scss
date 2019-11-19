@@ -1,22 +1,23 @@
-@import 'include-media';
+@import "include-media";
 
-@import 'vars/colors';
-@import 'vars/fonts';
-@import 'vars/animations';
-@import 'vars/tools.sg-updates';
+@import "vars/colors";
+@import "vars/fonts";
+@import "vars/animations";
+@import "vars/tools.sg-updates";
 
 @import "node_modules/nypr-pattern-lab/source/scss/themes/default/default.scss";
 
-@import 'normalize';
-@import 'components/horizontal-nav';
-@import 'components/onboard-message';
+@import "normalize";
+@import "components/horizontal-nav";
+@import "components/onboard-message";
 @import "components/sliding-bar";
-@import 'components/footer';
+@import "components/footer";
 @import "components/track-info";
 @import "components/toggle-box";
-@import 'components/jukebox-player';
+@import "components/jukebox-player";
+@import "components/brands-linkroll";
 
-@import 'nypr-player';
+@import "nypr-player";
 
 @import "routes/listen";
 @import "routes/playlist-history";

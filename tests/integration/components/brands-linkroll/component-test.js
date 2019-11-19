@@ -9,21 +9,21 @@ module('Integration | Component | brands-linkroll', function(hooks) {
   test('it renders', async function(assert) {
     await render(hbs`{{brands-linkroll}}`);
 
-    assert.dom('.c-toggle-box--linkroll').exists();
+    assert.dom('.brands-linkroll').exists();
   });
 
   test('can choose a site to exclude', async function(assert) {
     await render(hbs`<BrandsLinkroll @exclude='gothamist'/>`);
 
-    await click('.c-toggle-box--linkroll .toggle-box__label'); // open the linkroll
-    assert.dom('.c-nypr-nav__list').doesNotIncludeText('Gothamist');
+    await click('.brands-linkroll .toggle-box__label'); // open the linkroll
+    assert.dom('.brands-linkroll-nav-list').doesNotIncludeText('Gothamist');
   });
 
   test('can exclude multiple sites', async function(assert) {
     await render(hbs`<BrandsLinkroll @exclude={{array 'gothamist' 'wqxr'}}/>`);
 
-    await click('.c-toggle-box--linkroll .toggle-box__label'); // open the linkroll
-    assert.dom('.c-nypr-nav__list').doesNotIncludeText('Gothamist');
-    assert.dom('.c-nypr-nav__list').doesNotIncludeText('WQXR');
+    await click('.brands-linkroll .toggle-box__label'); // open the linkroll
+    assert.dom('.brands-linkroll-nav-list').doesNotIncludeText('Gothamist');
+    assert.dom('.brands-linkroll-nav-list').doesNotIncludeText('WQXR');
   })
 });
