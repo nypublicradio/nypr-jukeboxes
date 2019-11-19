@@ -83,6 +83,10 @@
   width: -moz-max-content;
 }
 
+.live-nyc-txt {
+  width: -ms-max-content; //IE11 
+}
+
 .donate-button {
   font-family: $font-body;
   font-size: 10px;
