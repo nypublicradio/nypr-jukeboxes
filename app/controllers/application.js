@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { set } from "@ember/object";
 import { computed } from '@ember/object';
+import { reads } from '@ember/object/computed';
 import move from 'ember-animated/motions/move';
 import { easeInAndOut } from 'ember-animated/easings/cosine';
 
@@ -10,10 +11,15 @@ export default Controller.extend({
   hifi           : service(),
   cookies        : service(),
   currentStream  : service(),
+  fastboot       : service(),
+  isFastBoot     : reads('fastboot.isFastBoot'),
   links: [ { 'href': null, 'nav-slug': 'listen', 'title': 'Listen'}, { 'href': null, 'nav-slug': 'playlist-history', 'title': 'Playlist History'} ],
 
   showPlayer: true,
   showOnboardMessage: computed('closed', function() {
+    if (this.isFastBoot) {
+      return this.get('fastboot.request.cookies.showOnboardMessage') === undefined;
+    }
     return !this.cookies.exists('showOnboardMessage');
   }),
 

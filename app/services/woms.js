@@ -1,6 +1,7 @@
 import Service from '@ember/service';
 import config from '../config/environment';
 import { inject as service} from '@ember/service';
+import { reads } from '@ember/object/computed';
 import ENV from '../config/environment';
 import { run } from '@ember/runloop';
 import moment from "moment";
@@ -15,8 +16,13 @@ export default Service.extend({
   currentStream: service(),
   isConnected: false,
   initialRetryAttempted: false,
+  fastboot: service(),
+  isFastBoot: reads('fastboot.isFastBoot'),
 
   async initializeWOMS() {
+    if (this.isFastBoot) {
+      return;
+    }
     this.checkConnectionInOneMinute();
     this.connectWOMS();
   },
