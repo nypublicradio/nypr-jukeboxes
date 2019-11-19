@@ -18,7 +18,7 @@ export default Controller.extend({
   showPlayer: true,
   showOnboardMessage: computed('closed', function() {
     if (this.isFastBoot) {
-      return this.get('fastboot.request.cookies.showOnboardMessage') === undefined;
+      return false;
     }
     return !this.cookies.exists('showOnboardMessage');
   }),
