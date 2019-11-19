@@ -1,0 +1,122 @@
+@mixin pauseShowing() {
+  .play-icon-shapes > .play {
+    opacity: 0;
+  }
+  .play-icon-shapes > .pause {
+    opacity: 1;
+  }
+}
+
+@mixin playShowing() {
+  .play-icon-shapes > .play {
+    opacity: 1;
+  }
+  .play-icon-shapes > .pause {
+    opacity: 0;
+  }
+}
+
+@keyframes bigSpin {
+  0% {
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin spinner(
+  $primary: rgba(239,239,239,1),
+  $accent: rgba(176,176,175,1),
+  $innerWidth: 14px,
+  $innerHeight: 14px,
+  $outerWidth: 30px,
+  $outerHeight: 30px,
+  $borderWidth: 6px,
+  $top: 0px,
+  $left: 0px,
+  $right: 0px,
+  $bottom: 0px
+  ) {
+    &:before { //inner spinner
+      content: '';
+      display: block;
+      position: absolute;
+      top: #{$top}; left: #{$left}; right: #{$right}; bottom: #{$bottom};
+      margin: auto;
+      width: #{$innerWidth};
+      height: #{$innerWidth};
+      border: #{$borderWidth} solid $primary;
+      border-radius: 50%;
+      border-left-color: $accent;
+      border-top-color: $accent;
+
+      animation: bigSpin .8s linear infinite;
+      transform-origin: 50% 50%;
+    }
+    &:after { //outer spinner
+      content: '';
+      display: block;
+      position: absolute;
+      top: #{$top}; left: #{$left}; right: #{$right}; bottom: #{$bottom};
+      margin: auto;
+      width: #{$outerWidth};
+      height: #{$outerHeight};
+      border: #{$borderWidth} solid $primary;
+      border-radius: 50%;
+      border-left-color: $accent;
+      border-top-color: $accent;
+
+      text-align: center;
+      animation: bigSpin 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+      transform-origin: 50% 50%;
+    }
+  }
+
+.play-button {
+  cursor: pointer;
+  position: relative;
+  appearance: none;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    transition: all 0.1s ease-in-out;
+    transform: scale(1.1);
+  }
+
+  &.is-paused {
+    @include playShowing()
+  }
+
+  &.is-playing {
+    @include pauseShowing()
+  }
+
+  &.is-loading {
+    .play-icon-shapes {
+      .play, .pause {
+        opacity: 0;
+      }
+    }
+
+    @include spinner(
+      $primary: rgba(white, 0),
+      $accent: white
+    );
+  }
+
+  .play-icon-shapes .outer-circle {
+    stroke: #FFF;
+    stroke-width: 3px;
+  }
+
+  .play-icon-shapes .inner-circle {
+    display: none;
+  }
+
+  .play-icon-shapes > * {
+    transition: opacity 0.1s ease-in-out;
+  }
+}
