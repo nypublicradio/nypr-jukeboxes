@@ -181,7 +181,7 @@
     width: 100%;
     text-transform: capitalize;
   }
-  
+
   .toggle-box__label {
     text-transform: none;
     border: none;
@@ -197,7 +197,7 @@
       width: 16px;
     }
   }
-  
+
   &__bottom {
     border-top: 1px rgba($c-white, 0.5);
     padding: $space-and-half $space;
@@ -376,24 +376,6 @@
 /*------------------------------------*\
     $FOOTER
 \*------------------------------------*/
-
-.c-nypr-nav__list {
-  background: black;
-}
-.ember-basic-dropdown-content {
-  z-index: 1200;
-
-  .u-has-accent--secondary,
-  .o-rte-text .u-has-accent--secondary {
-    color: white;
-    font-size: 10px;
-    text-transform: uppercase;
-    border-bottom-color: transparent;
-    font-family: "Open Sans", sans-serif;
-    font-weight: bold;
-    margin: 20px;
-  }
-}
 
 .about-us-links {
   color: white;
