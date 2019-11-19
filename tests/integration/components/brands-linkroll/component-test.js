@@ -15,14 +15,14 @@ module('Integration | Component | brands-linkroll', function(hooks) {
   test('can choose a site to exclude', async function(assert) {
     await render(hbs`<BrandsLinkroll @exclude='gothamist'/>`);
 
-    await click('.c-toggle-box--linkroll > .toggle-box__label'); // open the linkroll
+    await click('.c-toggle-box--linkroll .toggle-box__label'); // open the linkroll
     assert.dom('.c-nypr-nav__list').doesNotIncludeText('Gothamist');
   });
 
   test('can exclude multiple sites', async function(assert) {
     await render(hbs`<BrandsLinkroll @exclude={{array 'gothamist' 'wqxr'}}/>`);
 
-    await click('.c-toggle-box--linkroll > .toggle-box__label'); // open the linkroll
+    await click('.c-toggle-box--linkroll .toggle-box__label'); // open the linkroll
     assert.dom('.c-nypr-nav__list').doesNotIncludeText('Gothamist');
     assert.dom('.c-nypr-nav__list').doesNotIncludeText('WQXR');
   })

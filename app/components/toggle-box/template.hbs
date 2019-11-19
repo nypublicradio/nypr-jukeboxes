@@ -9,7 +9,13 @@
   {{yield (hash
     toggle=dd.actions.toggle
     icon=(if @customIconPlacement (component "toggle-box/trigger/icon" icon=icon))
-    trigger=(component "toggle-box/trigger" button=dd.trigger icon=icon customIconPlacement=@customIconPlacement)
-    dropdown=(component dd.content class=this.contentClasses)
+    trigger=(component "toggle-box/trigger"
+              button=dd.trigger
+              icon=icon
+              customIconPlacement=@customIconPlacement
+            )
+    dropdown=(component dd.content
+                class=this.contentClasses
+              )
   )}}
 {{/basic-dropdown}}
