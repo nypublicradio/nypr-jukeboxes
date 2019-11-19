@@ -38,15 +38,15 @@
 
     </div>
     <div class="listen-play-button">
-      {{#listen-button
-        class="play-button"
+      <PlayButton
+        class="play-button mod-main-page"
         data-action="Clicked Play/Pause Stream: jukebox-display"
-        data-label=model.stream.name
-        itemPK=model.stream.slug
-        onEnterViewport=(action "updatePlayerState" false)
-        onExitViewport=(action "updatePlayerState" true)
-        itemTitle=model.stream.name}}
-      {{/listen-button}}
+        data-label={{model.stream.name}}
+        title={{model.stream.name}}
+        @playItemId={{model.stream.slug}}
+        @onEnterViewport={{action "updatePlayerState" false}}
+        @onExitViewport={{action "updatePlayerState" true}}
+      />
     </div>
   </div>
 

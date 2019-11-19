@@ -4,20 +4,13 @@
   </div>
 
   {{#if @hostName}}
-    <div class="jukebox-player-show-host" data-test-element="show-host">
-      {{@hostName}}
-    </div>
+  <div class="jukebox-player-show-host" data-test-element="show-host">
+    {{@hostName}}
+  </div>
   {{/if}}
 </div>
 
-<div class="jukebox-player-listen-button" data-test-element="listen-button">
-  {{nypr-player/listen-button
-    playState    = playState
-    currentTitle = currentTitle
-    click        = (action "playOrPause")
-    ready        = isReady
-  }}
-</div>
+<PlayButton @playItemId={{this.streamSlug}} class="jukebox-player-listen-button" data-test-element="listen-button"/>
 
 <TrackAdditionalInfo class="jukebox-player-track" data-test-element="track" @ensembleName={{ensembleName}} @conductorName={{conductorName}} as |options|>
   {{#if @composerName}}

@@ -27,35 +27,6 @@
       margin: 0;
     }
   }
-
-  &-controls {
-    .listen-button {
-      border: none;
-    }
-    .icon {
-      max-width: 100px;
-      max-height: 100px;
-      display: inline;
-    }
-    .is-playing {
-      .icon--play {
-        display: none;
-      }
-      .icon--pause {
-        display: inline;
-      }
-    }
-    .icon--play {
-      display: inline;
-    }
-    .icon--pause {
-      display: none;
-    }
-
-    .listen-button.is-playing .listen-ui {
-      width: auto;
-    }
-  }
 }
 
 .stream-switcher {

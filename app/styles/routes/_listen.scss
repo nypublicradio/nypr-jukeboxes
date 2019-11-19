@@ -29,54 +29,14 @@
   display: flex;
   justify-content: center;
   margin-top: 50px;
-
-  .listen-button {
+  .play-button {
     width: 60px;
     height: 60px;
-    border-radius: 30px;
-    border-color: #ffffff;
-    border-width: 2px;
+
     @include media("<medium") {
       width: 65px;
       height: 65px;
-      border-radius: 32.5px;
     }
-  }
-
-  .icon {
-    max-width: 100px;
-    max-height: 100px;
-    display: inline;
-  }
-
-  .is-playing {
-    .icon--play {
-      display: none;
-    }
-
-    .icon--pause {
-      display: inline;
-    }
-  }
-
-  .icon--play {
-    display: inline;
-  }
-  .icon--pause {
-    display: none;
-  }
-
-  .listen-button.is-playing .listen-ui {
-    width: auto;
-  }
-
-  svg {
-    fill: #ffffff;
-  }
-
-  .listen-ui {
-    height: 23px;
-    width: 35px;
   }
 }
 
