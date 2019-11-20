@@ -3,7 +3,7 @@
     <ul class="horizontal-nav__list">
       {{#each parsedLinks as |link index|}}
         <li class={{if (eq index activeTabIndex) "is-active horizontal-nav__list-item" "horizontal-nav__list-item"}}>
-          {{link-to link.title link.nav-slug classNames="horizontal-nav__link"}}
+          {{link-to link.title link.route classNames="horizontal-nav__link"}}
         </li>
       {{/each}}
     </ul>

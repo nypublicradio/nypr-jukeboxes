@@ -13,7 +13,7 @@ export default Controller.extend({
   currentStream  : service(),
   fastboot       : service(),
   isFastBoot     : reads('fastboot.isFastBoot'),
-  links: [ { 'href': null, 'nav-slug': 'listen', 'title': 'Listen'}, { 'href': null, 'nav-slug': 'playlist-history', 'title': 'Playlist History'} ],
+  links: [ { 'href': null, 'nav-slug': 'listen', 'route': 'listen', 'title': 'Listen'}, { 'href': null, 'nav-slug': 'playlist-history', 'route': 'playlist-history-today', 'title': 'Playlist History'} ],
 
   showPlayer: true,
   showOnboardMessage: computed('closed', function() {
