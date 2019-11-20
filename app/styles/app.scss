@@ -41,15 +41,15 @@ body.ember-application{
   }
 
   @include media("<medium") {
-    background: $water-blue url(/images/backgrounds/background-mobile.png) no-repeat scroll left top;
+    background: $water-blue url(/images/backgrounds/background-mobile.png) no-repeat scroll left -60px;
     background-size: 100% auto;
 
     @include media("retina2x") {
-      background: $water-blue url(/images/backgrounds/background-mobile@2x.png) no-repeat scroll left top;
+      background: $water-blue url(/images/backgrounds/background-mobile@2x.png) no-repeat scroll left -60px;
       background-size: 100% auto;
     }
     @include media("retina3x") {
-      background: $water-blue url(/images/backgrounds/background-mobile@3x.png) no-repeat scroll left top;
+      background: $water-blue url(/images/backgrounds/background-mobile@3x.png) no-repeat scroll left -60px;
       background-size: 100% auto;
     }
   }
