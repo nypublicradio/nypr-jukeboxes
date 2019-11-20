@@ -6,6 +6,7 @@ import moment from 'moment';
 
 export default Route.extend({
   streamMetadata: service(),
+  metadata: service(),
 
   model({ year, month, day }) {
     let controller = this.controllerFor('application');
@@ -22,6 +23,12 @@ export default Route.extend({
     };
     return RSVP.hash(hash);
   },
+
+  afterModel() {
+    this.get('metadata').setHeadData({
+    });
+  },
+
   actions: {
     didTransition: function() {
       let controller = this.controllerFor('application');

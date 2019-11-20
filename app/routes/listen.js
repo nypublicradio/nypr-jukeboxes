@@ -5,6 +5,7 @@ import rsvp from "rsvp";
 
 export default Route.extend({
   currentStream: service(),
+  metadata: service(),
 
   async model() {
     let controller = this.controllerFor('application');
@@ -17,6 +18,11 @@ export default Route.extend({
         show: this.store.findRecord('show', showSlug),
       });
     })
+  },
+
+  afterModel() {
+    this.get('metadata').setHeadData({
+    });
   },
 
   activate() {
