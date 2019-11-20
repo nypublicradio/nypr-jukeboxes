@@ -337,6 +337,8 @@
 
   .jl-logo {
     margin-top: 4px;
+    max-height: 100%;
+    max-width: 100%;
     &:hover {
       opacity: 0.8;
       transition-duration: 0.3s;
@@ -418,6 +420,15 @@
   flex-direction: column;
 }
 
+.second-slogan {
+  white-space: nowrap;
+  overflow: hidden;
+}  
+
+.jl-logo {
+  padding-left: 5px;
+}
+
 .logo-and-brands {
   display: flex;
   flex-direction: row;
@@ -486,8 +497,8 @@
     }
 
     .second-slogan {
-      margin-left: 50px;
-    }    
+      margin-left: 30px;
+    }  
 
     .logo-and-brands {
       display: flex;
