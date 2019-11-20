@@ -1,8 +1,8 @@
-import EmberRouter from '@ember/routing/router';
+import Ember from 'ember';
 import { inject as service } from '@ember/service';
 import config from './config/environment';
 
-const Router = EmberRouter.extend({
+const Router = Ember.Router.extend({
   location: config.locationType,
   rootURL: config.rootURL,
   headData: service(),
