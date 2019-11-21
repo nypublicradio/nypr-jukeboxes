@@ -5,17 +5,19 @@
 <title>{{{model.title}}}</title>
 
 <meta name="description" content={{{model.description}}}>
+
 <meta property="og:site_name" content="WQXR Beta">
 <meta property="og:url" content={{model.url}}>
 <meta property="og:type" content={{model.type}}>
 <meta property="og:locale" content="en_US">
-
 <meta property="og:title" content={{{or model.ogTitle model.title}}}>
 <meta property="og:description" content={{model.ogDescription}}>
 <meta property="og:image" content={{model.image.url}}>
 <meta property="og:image:width" content={{model.image.w}}>
 <meta property="og:image:height" content={{model.image.h}}>
 <meta property="og:image:alt" content={{model.image.altText}}>
+
+<meta property="fb:app_id" content={{model.facebookAppId}}>
 
 <meta name="twitter:title" content={{{model.title}}}>
 <meta name="twitter:description" content={{model.twitterDescription}}>

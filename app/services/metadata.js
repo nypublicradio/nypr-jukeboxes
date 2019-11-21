@@ -16,6 +16,7 @@ export default Service.extend({
       ogTitle: 'A new way to listen to WQXR, NYC’s classical music radio station',
       twitterDescription: 'A new way to listen to WQXR, NYC’s classical music radio station',
       twitterSite: '@WQXR',
+      facebookAppId: '110716008996381',
       image: {
         url: `https://media.wnyc.org/i/raw/2019/11/wqxr_jb_1200x600.png`,
         w: '1200',
@@ -39,13 +40,14 @@ export default Service.extend({
     mergedData.twitterDescription = mergedData.twitterDescription.replace(/(<([^>]+)>)/g, "");
     set(this, 'headData.type', mergedData.type);
     set(this, 'headData.twitterCard', mergedData.twitterCard);
-    set(this, 'headData.url', `https:${config.webRoot}${mergedData.path}`);
+    set(this, 'headData.url', `${config.webRoot}${mergedData.path}`);
     set(this, 'headData.keywords', mergedData.keywords);
     set(this, 'headData.description', mergedData.description);
     set(this, 'headData.ogTitle', mergedData.ogTitle);
     set(this, 'headData.ogDescription', mergedData.ogDescription);
     set(this, 'headData.twitterDescription', mergedData.twitterDescription);
     set(this, 'headData.twitterSite', mergedData.twitterSite);
+    set(this, 'headData.facebookAppId', mergedData.facebookAppId);
     set(this, 'headData.image', mergedData.image);
     set(this, 'headData.feeds', mergedData.feeds);
     set(this, 'headData.mediaRoot', config.mediaRoot);
