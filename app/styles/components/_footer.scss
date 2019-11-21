@@ -455,6 +455,18 @@
     flex-direction: column;
     justify-content: space-between;
   }
+  
+  _:-ms-lang(x), .c-share-tools { 
+    flex-wrap: nowrap;
+  }
+
+  _:-ms-lang(x), .c-share-tools__group { 
+    margin-top: 30px;
+  }
+
+  _:-ms-lang(x), .about-and-connect { 
+    margin-bottom: 250px;
+  }
 
   .slogans {
     display: flex;
