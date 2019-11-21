@@ -83,8 +83,8 @@
   width: -moz-max-content;
 }
 
-.live-nyc-txt {
-  width: -ms-max-content; //IE11 
+_:-ms-lang(x), .live-nyc-txt { 
+  display: table;
 }
 
 .donate-button {
