@@ -58,7 +58,7 @@ export default Controller.extend({
       let currentTrackStartTime = moment(this.currentStream.trackStartTimeTs * 1000).format("hh:mm A");
       return this.model.stream.previous.filter( (track) => {
         return track.startTimeTs >= showStartTimeTs &&
-               track.time != currentTrackStartTime;;
+               track.time != currentTrackStartTime;
       }).slice(0,3);
     }
 
