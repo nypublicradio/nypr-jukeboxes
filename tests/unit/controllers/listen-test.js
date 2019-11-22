@@ -48,12 +48,17 @@ function createWomsMetadataWithStartTimeTsValueMeasuredAsMinutesBeforeNow(startT
 module('Unit | Controller | listen', function(hooks) {
   setupTest(hooks);
 
+  //let womsService = this.owner.lookup('service:woms').set('firstUpdateReceived', true);
+
+  //womsService.set('firstUpdateReceived', true);
+
   test('it exists', function(assert) {
     let controller = this.owner.lookup('controller:listen');
     assert.ok(controller);
   });
 
   test('playlist history should not be stale if show started less than 15 minutes ago', function(assert) {
+    this.owner.lookup('service:woms').set('firstUpdateReceived', true);
     let controller = this.owner.lookup('controller:listen');
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(14));
@@ -68,6 +73,7 @@ module('Unit | Controller | listen', function(hooks) {
   });
 
   test('no current track - playlist history should be stale if there are no previous playlist items', function(assert) {
+    this.owner.lookup('service:woms').set('firstUpdateReceived', true);
     let controller = this.owner.lookup('controller:listen');
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(60));
@@ -81,6 +87,7 @@ module('Unit | Controller | listen', function(hooks) {
   });
 
   test('no tracks from earlier show should display if show started more than 15 minutes ago and there are no tracks from current show', function(assert) {
+    this.owner.lookup('service:woms').set('firstUpdateReceived', true);
     let controller = this.owner.lookup('controller:listen');
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(16));
@@ -95,6 +102,7 @@ module('Unit | Controller | listen', function(hooks) {
   });
 
   test('playlist history should  only display tracks for current show if first track for show started more than 15 minutes after start of show', function(assert) {
+    this.owner.lookup('service:woms').set('firstUpdateReceived', true);
     let controller = this.owner.lookup('controller:listen');
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(16));
@@ -109,6 +117,7 @@ module('Unit | Controller | listen', function(hooks) {
   });
 
   test('playlist history should  only display previous tracks from earlier show if first track for show started less than 15 minutes after start of show', function(assert) {
+    this.owner.lookup('service:woms').set('firstUpdateReceived', true);
     let controller = this.owner.lookup('controller:listen');
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(16));
@@ -123,6 +132,7 @@ module('Unit | Controller | listen', function(hooks) {
   });
 
   test('tracks from earlier show should display if show started more than 15 minutes ago and current track started within first 15 minutes show', function(assert) {
+    this.owner.lookup('service:woms').set('firstUpdateReceived', true);
     let controller = this.owner.lookup('controller:listen');
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(16));
@@ -143,6 +153,7 @@ module('Unit | Controller | listen', function(hooks) {
   });
 
   test('tracks from earlier show should NOT display if show started more than 15 minutes ago and current track started after the first 15 minutes of the show', function(assert) {
+    this.owner.lookup('service:woms').set('firstUpdateReceived', true);
     let controller = this.owner.lookup('controller:listen');
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(16));
@@ -163,6 +174,7 @@ module('Unit | Controller | listen', function(hooks) {
   });
 
 	test('playlist history should not be stale if all previous tracks are from the current show', function(assert) {
+    this.owner.lookup('service:woms').set('firstUpdateReceived', true);
     let controller = this.owner.lookup('controller:listen');
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(120));
@@ -183,6 +195,7 @@ module('Unit | Controller | listen', function(hooks) {
   });
 
   test('no current track - playlist history should not be stale if all previous tracks are from the current show', function(assert) {
+    this.owner.lookup('service:woms').set('firstUpdateReceived', true);
     let controller = this.owner.lookup('controller:listen');
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(120));
@@ -197,6 +210,7 @@ module('Unit | Controller | listen', function(hooks) {
   });
 
   test('hide previous tracks that started more than 1 hour before the start of the current show', function(assert) {
+    this.owner.lookup('service:woms').set('firstUpdateReceived', true);
     let controller = this.owner.lookup('controller:listen');
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(16));
@@ -217,6 +231,7 @@ module('Unit | Controller | listen', function(hooks) {
   });
 
   test('previous is undefined', function(assert) {
+    this.owner.lookup('service:woms').set('firstUpdateReceived', true);
     let controller = this.owner.lookup('controller:listen');
     let stream = run(() => this.owner.lookup('service:store').createRecord('stream'));
     stream.set('currentShow', createCurrentSHowWithStartTimeTsValueMeasuredAsMinutesBeforeNow(60));

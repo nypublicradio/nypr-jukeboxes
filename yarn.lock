@@ -9538,7 +9538,6 @@ nypr-ads@^0.2.0:
 
 nypr-audio-services@^0.5.0, nypr-audio-services@nypublicradio/nypr-audio-services#jkeen/upgrades:
   version "0.5.9"
-  uid "27ee78c34df574c6c2f0406096c84f80d7c5cf48"
   resolved "https://codeload.github.com/nypublicradio/nypr-audio-services/tar.gz/27ee78c34df574c6c2f0406096c84f80d7c5cf48"
   dependencies:
     ember-cli-babel "^6.6.0"
@@ -9551,8 +9550,9 @@ nypr-audio-services@^0.5.0, nypr-audio-services@nypublicradio/nypr-audio-service
     ember-hifi "^1.11.1"
     ember-responsive "^3.0.0-beta.3"
     ember-simple-auth "^1.3.0"
-    liquid-fire "^0.29.1"
-    nypr-metrics "^0.5.0"
+    eslint-plugin-ember "^5.0.0"
+    liquid-fire "^0.31.0"
+    nypr-metrics "0.7.1"
     nypr-ui "^0.5.0"
 
 "nypr-design-system@https://github.com/nypublicradio/nypr-design-system.git#88e3366":

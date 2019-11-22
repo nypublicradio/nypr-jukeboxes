@@ -50,7 +50,7 @@
     </div>
   </div>
 
-  {{#if (or (or this.currentStream.composerName this.currentStream.trackTitle)
+  {{#liquid-if (or (or this.currentStream.composerName this.currentStream.trackTitle)
             (and (not this.isPlaylistHistoryPreviewStale) this.playlistHistoryItems))
   }}
     <div class="playlist-history">
@@ -87,7 +87,7 @@
         {{/if}}
       {{/if}}
     </div>
-  {{/if}}
+  {{/liquid-if}}
 </div>
 
 {{outlet}}
