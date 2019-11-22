@@ -15,6 +15,7 @@ export default Service.extend({
   socketRef: null,
   currentStream: service(),
   isConnected: false,
+  firstUpdateReceived: false,
   initialRetryAttempted: false,
   fastboot: service(),
   isFastBoot: reads('fastboot.isFastBoot'),
@@ -56,6 +57,7 @@ export default Service.extend({
   socketMessageHandler(event) {
     let data = JSON.parse(event.data);
     if (data.Item && data.Item.metadata) {
+      this.firstUpdateReceived = true;
       this.processWOMSData(data.Item.metadata);
       this.get('currentStream').refreshStream();
     }

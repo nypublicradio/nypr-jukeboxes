@@ -39,6 +39,6 @@ export default StreamSerializer.extend({
       return a.startTimeTs < b.startTimeTs ? 1 : -1;
     })
 
-    return newPlaylist.slice(0,3);
+    return newPlaylist.slice(0,4);
   },
 });
