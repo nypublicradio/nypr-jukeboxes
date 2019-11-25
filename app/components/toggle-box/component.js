@@ -3,6 +3,7 @@ import { computed } from '@ember/object';
 import { scheduleOnce } from '@ember/runloop';
 import toggleBoxPositioner from '../../utils/toggle-box-positioner';
 import { task, timeout } from 'ember-concurrency';
+import Ember from 'ember';
 
 export default Component.extend({
   classNames: ['toggle-box'],
@@ -51,7 +52,7 @@ export default Component.extend({
     // restartable concurrency task will close dropdown after 5 seconds
     // task is renewed when its called again
 
-    if (this.closeDelay) {
+    if (this.closeDelay && !Ember.testing) {
       yield timeout(this.closeDelay);
 
       // These differ based on how they were called, unfortunately
