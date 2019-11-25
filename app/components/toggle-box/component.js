@@ -3,6 +3,7 @@ import { computed } from '@ember/object';
 import { scheduleOnce } from '@ember/runloop';
 import toggleBoxPositioner from '../../utils/toggle-box-positioner';
 import { task, timeout } from 'ember-concurrency';
+import Ember from 'ember';
 
 export default Component.extend({
   classNames: ['toggle-box'],
@@ -37,19 +38,21 @@ export default Component.extend({
   hookUpContentListeners(contentElement, ref) {
     let _this = ref.dropdown.parentView;
 
-    let func = () => {
+    let autoclose = () => {
       _this.autoClose.perform(ref.dropdown)
     }
 
-    contentElement.addEventListener('mouseenter', func, true);
-    contentElement.addEventListener('mousemove', func, true);
+    contentElement.addEventListener('mouseenter', autoclose, true);
+    contentElement.addEventListener('mousemove', autoclose, true);
+
+    autoclose(); // trigger the first autoclose, which will be cancelled/deferred with element interaction
   },
 
   autoClose: task(function*(dropdown) {
     // restartable concurrency task will close dropdown after 5 seconds
     // task is renewed when its called again
 
-    if (this.closeDelay) {
+    if (this.closeDelay && !Ember.testing) {
       yield timeout(this.closeDelay);
 
       // These differ based on how they were called, unfortunately
