@@ -42,7 +42,7 @@ module.exports = function(environment) {
     siteName: 'WQXR',
     siteId: 2,
     clientSlug: 'wqxr_web',
-    webRoot: process.env.WQXR_URL,
+    webRoot: process.env.JUKEBOX_URL,
     authAPI: process.env.AUTH_SERVICE,
     membershipAPI: process.env.MEMBERSHIP_SERVICE,
     etagAPI: process.env.ETAG_API,

@@ -18,9 +18,9 @@ export default Service.extend({
       twitterSite: '@WQXR',
       facebookAppId: '110716008996381',
       image: {
-        url: `https://media.wnyc.org/i/raw/2019/11/wqxr_jb_1200x600.png`,
+        url: `https://media.wnyc.org/i/raw/2019/11/wqxr_jb_1200x1200.png`,
         w: '1200',
-        h: '600',
+        h: '1200',
         altText: 'WQXR Beta'
       },
       feeds: [],
