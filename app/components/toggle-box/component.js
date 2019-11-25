@@ -37,12 +37,14 @@ export default Component.extend({
   hookUpContentListeners(contentElement, ref) {
     let _this = ref.dropdown.parentView;
 
-    let func = () => {
+    let autoclose = () => {
       _this.autoClose.perform(ref.dropdown)
     }
 
-    contentElement.addEventListener('mouseenter', func, true);
-    contentElement.addEventListener('mousemove', func, true);
+    contentElement.addEventListener('mouseenter', autoclose, true);
+    contentElement.addEventListener('mousemove', autoclose, true);
+
+    autoclose(); // trigger the first autoclose, which will be cancelled/deferred with element interaction
   },
 
   autoClose: task(function*(dropdown) {
