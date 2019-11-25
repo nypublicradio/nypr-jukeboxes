@@ -362,10 +362,13 @@
       padding: 0 3px;
       position: relative;
       top: 5px;
-      display: inline;
-      height: 20px;
+      display: inline-block;
+      height: 16px;
       width: 100px;
-      margin-top: 4px;
+      margin-top: -4px;
+      position: relative;
+      top: 3px;
+      display: inline;
       &:hover {
         opacity: 0.8;
       }
@@ -414,6 +417,7 @@
   font-weight: 600;
   padding-bottom: 4px;
   margin-top: 10px;
+  border-bottom: 1px solid $white;
 
   &:hover {
     color: rgba($color: white, $alpha: 0.8);
@@ -450,6 +454,7 @@
 .second-slogan {
   white-space: nowrap;
   overflow: hidden;
+  margin-top: 5px;
 }
 
 .jl-logo {
@@ -525,6 +530,7 @@
 
     .second-slogan {
       margin-left: 30px;
+      margin-top: 0;
     }
 
     .logo-and-brands {
