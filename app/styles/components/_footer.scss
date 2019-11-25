@@ -114,6 +114,19 @@
   }
 
   &__slogan {
+    // This should really be a site default/
+    // The default is still coming from the design system, and it's wrong.
+
+    a {
+      color: $white;
+      display: inline;
+      border-bottom: 1px solid $white;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
     p {
       color: $c-white;
       font-family: $font-body;
@@ -175,6 +188,9 @@
     }
   }
 
+  .c-main-footer__slogan p {
+    display: inline-block;
+  }
   .c-toggle-box__content {
     min-width: 320px;
     max-width: 400px;
@@ -335,13 +351,27 @@
     }
   }
 
-  .jl-logo {
-    margin-top: 4px;
-    max-height: 100%;
-    max-width: 100%;
-    &:hover {
-      opacity: 0.8;
-      transition-duration: 0.3s;
+  .jlgreene {
+    text-decoration: none;
+    border-bottom: 0;
+    .jlgreene-logo {
+      path {
+        fill: $white;
+      }
+
+      padding: 0 3px;
+      position: relative;
+      top: 5px;
+      display: inline-block;
+      height: 16px;
+      width: 100px;
+      margin-top: -4px;
+      position: relative;
+      top: 3px;
+      display: inline;
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 
@@ -364,6 +394,7 @@
       flex-direction: column;
     }
     .c-main-footer__slogan p {
+      max-width: 450px;
       margin-bottom: 50px;
     }
     .about-us-div {
@@ -386,6 +417,7 @@
   font-weight: 600;
   padding-bottom: 4px;
   margin-top: 10px;
+  border-bottom: 1px solid $white;
 
   &:hover {
     color: rgba($color: white, $alpha: 0.8);
@@ -393,7 +425,6 @@
 }
 
 .about-us-div .c-share-tools__group a {
-  border-bottom: 1px solid white;
   display: inline-block;
   width: fit-content;
   clear: both;
@@ -423,7 +454,8 @@
 .second-slogan {
   white-space: nowrap;
   overflow: hidden;
-}  
+  margin-top: 5px;
+}
 
 .jl-logo {
   padding-left: 5px;
@@ -498,7 +530,8 @@
 
     .second-slogan {
       margin-left: 30px;
-    }  
+      margin-top: 0;
+    }
 
     .logo-and-brands {
       display: flex;

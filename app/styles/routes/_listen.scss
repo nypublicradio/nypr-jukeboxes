@@ -178,6 +178,7 @@
     letter-spacing: 1px;
     color: #ffffff;
     margin-bottom: 8px;
+    text-transform: uppercase;
   }
 
   .song-metadata {
@@ -251,6 +252,7 @@
     letter-spacing: 1px;
     color: $water-blue;
     margin-bottom: 8px;
+    text-transform: uppercase;
   }
 
   div:first-child {
@@ -280,6 +282,7 @@
     color: #ffffff;
     letter-spacing: 1px;
     text-decoration: none;
+    text-transform: uppercase;
     display: flex;
     justify-content: center;
     margin: 16px auto auto;
