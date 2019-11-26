@@ -53,6 +53,8 @@ module.exports = function(environment) {
     wqxrURL: process.env.WQXR_URL,
     googleAnalytics: process.env.GOOGLE_ANALYTICS,
     googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID,
+    optInService: process.env.OPT_IN_SERVICE,
+    jukeboxNewsletter: '80253d0b08', //come back to this
   };
 
   if (environment === 'development') {
@@ -74,6 +76,8 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
 
     ENV.APP.LOG_VIEW_LOOKUPS = false;
+
+    ENV.optInService = ENV.optInService || 'https://api.demo.nypr.digital/opt-in';
 
     ENV.publisherAPI = '/api'; //ember-cli-fastboot-testing needs this
     ENV.webRoot = 'http://example.com';
