@@ -488,6 +488,18 @@
     justify-content: space-between;
   }
 
+  _:-ms-lang(x), .c-share-tools { 
+    flex-wrap: nowrap;
+  }
+
+  _:-ms-lang(x), .c-share-tools__group { 
+    margin-top: 10px;
+  }
+
+  _:-ms-lang(x), .about-and-connect { 
+    margin-bottom: 20px;
+  }
+
   .slogans {
     display: flex;
     flex-direction: column;
