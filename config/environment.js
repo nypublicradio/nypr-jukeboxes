@@ -54,7 +54,7 @@ module.exports = function(environment) {
     googleAnalytics: process.env.GOOGLE_ANALYTICS,
     googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID,
     optInService: process.env.OPT_IN_SERVICE,
-    jukeboxNewsletter: '80253d0b08', //come back to this
+    jukeboxNewsletter: '8a64eee3a1', //Jukebox Test
   };
 
   if (environment === 'development') {
@@ -63,6 +63,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.optInService = ENV.optInService || 'https://api.demo.nypr.digital/opt-in';
   }
 
   if (environment === 'test') {
@@ -76,8 +77,6 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
 
     ENV.APP.LOG_VIEW_LOOKUPS = false;
-
-    ENV.optInService = ENV.optInService || 'https://api.demo.nypr.digital/opt-in';
 
     ENV.publisherAPI = '/api'; //ember-cli-fastboot-testing needs this
     ENV.webRoot = 'http://example.com';

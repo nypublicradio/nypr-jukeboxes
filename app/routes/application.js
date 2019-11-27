@@ -53,6 +53,12 @@ export default Route.extend({
     }
   },
 
+  // afterModel(){
+  //   if (this.fastboot.isFastboot) {
+
+  //   }
+  // }
+
   setupController: function(/*controller, model*/) {
     this.get('woms').initializeWOMS();
   }
