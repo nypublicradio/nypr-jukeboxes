@@ -43,10 +43,15 @@ export default Route.extend({
   async model() {
     let shoebox = this.fastboot.shoebox;
     let womsMetadata = shoebox.retrieve('womsMetadata');
+    let isFastBoot = this.fastboot.isFastBoot;
 
-    if (this.fastboot.isFastBoot) {
+    // Only request this if we don't have something in the shoebox, or if we're in fastboot
+    if (isFastBoot || !womsMetadata) {
       let body = await fetch(`${config.womsRestAPI}/v1/whats-on?stream=wqxr`).then(r => r.json());
       womsMetadata = get(body, 'data.attributes.Item.metadata');
+    }
+
+    if (isFastBoot) {
       shoebox.put('womsMetadata', womsMetadata);
     }
 
