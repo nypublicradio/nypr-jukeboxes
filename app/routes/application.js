@@ -7,6 +7,7 @@ export default Route.extend({
   router: service(),
   currentStream: service(),
   woms: service(),
+  hifi: service(),
   dataLayer: service('nypr-metrics/data-layer'),
 
   title(tokens = []) {
@@ -33,6 +34,7 @@ export default Route.extend({
     this.router.on('routeDidChange', () => {
       schedule('afterRender', () => this.dataLayer.sendPageView());
     });
+    this.hifi.set('volume', 100);
   },
 
   beforeModel() {
