@@ -1,5 +1,7 @@
 import defaultCalculatePosition from 'ember-basic-dropdown/utils/calculate-position';
 
+const ARROW_WIDTH = 16;
+
 export default function calculatePosition(trigger, content, _destination, ref) {
   let icon = trigger.querySelector('.o-icon--caret svg')
   if (icon) {
@@ -12,6 +14,7 @@ export default function calculatePosition(trigger, content, _destination, ref) {
 
   let {
     left: triggerLeft,
+    width: triggerWidth,
   } = trigger.getBoundingClientRect();
 
   let {
@@ -28,10 +31,10 @@ export default function calculatePosition(trigger, content, _destination, ref) {
   obj['style']['top'] = obj['style']['top'] + bottomOffset;
 
   if (horizontalPosition == 'left') {
-    obj['style']['left'] = Math.abs(triggerLeft - (contentWidth / 3) + 8);
+    obj['style']['left'] = Math.abs(triggerLeft - (contentWidth / 3) - (ARROW_WIDTH / 2) + (triggerWidth / 2) + 1);
   }
   else if (horizontalPosition == 'center') {
-     obj['style']['left'] = Math.abs(triggerLeft - contentWidth / 2 + 9);
+     obj['style']['left'] = Math.abs(triggerLeft - contentWidth / 2 - (ARROW_WIDTH / 2) + (triggerWidth / 2) + 1);
   }
 
   // Apply ember-basic-dropdown's repositioning
