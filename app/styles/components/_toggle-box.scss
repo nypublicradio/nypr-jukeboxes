@@ -27,6 +27,7 @@ $arrow_width: 8px;
 .toggle-box__dropdown {
   border-radius: 4px;
   padding: 19px 24px;
+  max-width: 300px;
 }
 
 // Default dark theme
@@ -50,11 +51,11 @@ $arrow_width: 8px;
   }
 
   &[data-h-pos="right"]::before {
-    right: 30%;
+    right: 33%;
   }
 
   &[data-h-pos="left"]::before {
-    left: 30%;
+    left: 33%;
   }
 
   &[data-h-pos="center"]::before {
