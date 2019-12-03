@@ -49,6 +49,7 @@ module.exports = function(environment) {
     publisherAPI: process.env.PUBLISHER_API,
     platformEventsAPI: process.env.PLATFORM_EVENTS_SERVICE,
     womsAPI: process.env.WOMS_API,
+    womsRestAPI: process.env.WOMS_REST_API,
     wqxrURL: process.env.WQXR_URL,
     googleAnalytics: process.env.GOOGLE_ANALYTICS,
     googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID,

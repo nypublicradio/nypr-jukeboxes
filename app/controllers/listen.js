@@ -48,7 +48,7 @@ export default Controller.extend({
   },
 
   playlistHistoryItems: computed('model.stream.previous', function() {
-    if (!this.model.stream.previous || this.isFastBoot || !this.woms.firstUpdateReceived) {
+    if (!this.model.stream.previous) {
       return [];
     }
 
