@@ -1,9 +1,11 @@
-<NyprMNewsletterForm @endpoint={{NEWSLETTER_ENDPOINT}} @params={{NEWSLETTER_PARAMS}} as |form|>
+<NyprMNewsletterForm @endpoint={{NEWSLETTER_ENDPOINT}} @params={{NEWSLETTER_PARAMS}} @subscribedMessage="thanks girl" as
+  |form|>
   <form.label />
   <form.input />
+  <p class="success-message">Thanks girl</p>
 
   <form.submit>
-    <NyprASvg @icon='arrow-dashed' style="fill: #fff" width="25" />
+    <NyprASvg @icon='arrow-dashed' style="color: #fff" width="25" />
   </form.submit>
   <form.legal />
 </NyprMNewsletterForm>
