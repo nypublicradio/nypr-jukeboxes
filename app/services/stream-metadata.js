@@ -65,7 +65,10 @@ export default Service.extend({
     //return
     results.events.map(event => {
       var attrs;
-      var playlists = event.playlists.map(p => p.played.map(t => this.processTrack(t)))
+      var playlists = [];
+      if (event.playlists) {
+        playlists = event.playlists.map(p => p.played.map(t => this.processTrack(t)))
+      }
       if (get(event, 'isObject')) {
         var matches = event.show_url.match('shows/(.+)');
         let showSlug = matches ? matches[1] : DEFAULTSHOWDICT[this.get('currentStream.slug')]
@@ -98,10 +101,6 @@ export default Service.extend({
       // TODO: change this model from airing to something less confusing. This is
       // basically a event - and it can either be a show event or airing, as defined in publisher.
       var airing = get(this, 'store').createRecord('airing', attrs)
-
-      //get(this, 'store').findRecord('show', attrs.showSlug).then(show => {
-      //  airing.set('show', show);
-      //})
 
       set(this, 'dailySchedule', dailySchedule);
       dailySchedule.get('airings').addObject(airing);
