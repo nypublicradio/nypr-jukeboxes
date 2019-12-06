@@ -7,9 +7,6 @@ import move from 'ember-animated/motions/move';
 import { easeInAndOut } from 'ember-animated/easings/cosine';
 import config from '../config/environment'
 
-const NEWSLETTER_ENDPOINT = `${config.optInService}/opt-in/v1/subscribe/mailchimp`;
-const NEWSLETTER_PARAMS = {list: config.jukeboxNewsletter};
-
 export default Controller.extend({
   dj             : service(),
   hifi           : service(),
@@ -18,9 +15,6 @@ export default Controller.extend({
   fastboot       : service(),
   isFastBoot     : reads('fastboot.isFastBoot'),
   links: [ { 'href': null, 'nav-slug': 'listen', 'route': 'listen', 'title': 'Listen'}, { 'href': null, 'nav-slug': 'playlist-history', 'route': 'playlist-history-today', 'title': 'Playlist'} ],
-
-  NEWSLETTER_ENDPOINT,
-  NEWSLETTER_PARAMS,
 
   showPlayer: true,
   showOnboardMessage: computed('closed', function() {

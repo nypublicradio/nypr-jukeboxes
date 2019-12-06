@@ -7,9 +7,4 @@ export default Component.extend({
   tagName: '',
   NEWSLETTER_ENDPOINT: `${config.optInService}/v1/subscribe/mailchimp`,
   NEWSLETTER_PARAMS: {list: config.jukeboxNewsletter}
-
-
-  // calculatePosition(trigger, content) {
-  //   return positionBottomCenter(trigger, content, 5);
-  // }
 });

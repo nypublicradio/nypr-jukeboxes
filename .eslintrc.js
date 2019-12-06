@@ -32,8 +32,5 @@ module.exports = {
         node: true
       }
     }
-  ],
-  globals: {
-    "Promise": true
-  }
+  ]
 };
