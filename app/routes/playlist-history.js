@@ -5,7 +5,6 @@ import RSVP from 'rsvp';
 import moment from 'moment';
 
 export default Route.extend({
-  streamMetadata: service(),
   metadata: service(),
 
   model({ year, month, day }) {
