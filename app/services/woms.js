@@ -1,5 +1,6 @@
 import Service from '@ember/service';
 import config from '../config/environment';
+import { getOwner } from '@ember/application';
 import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
 import { get } from '@ember/object';
@@ -61,7 +62,7 @@ export default Service.extend({
       this.firstUpdateReceived = true;
       this.processWOMSData(data.Item.metadata);
 
-      let owner = Ember.getOwner(this);
+      let owner = getOwner(this);
       let applicationController = owner.lookup('controller:application');
       let currentRoute = get(applicationController, 'currentRouteName');
       let route = owner.lookup(`route:${currentRoute}`);
