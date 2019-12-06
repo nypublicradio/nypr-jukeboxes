@@ -1,7 +1,8 @@
 import Service from '@ember/service';
 import config from '../config/environment';
-import { inject as service} from '@ember/service';
+import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
+import { get } from '@ember/object';
 import ENV from '../config/environment';
 import { run } from '@ember/runloop';
 import moment from "moment";
@@ -59,7 +60,12 @@ export default Service.extend({
     if (data.Item && data.Item.metadata) {
       this.firstUpdateReceived = true;
       this.processWOMSData(data.Item.metadata);
-      this.get('currentStream').refreshStream();
+
+      let owner = Ember.getOwner(this);
+      let applicationController = owner.lookup('controller:application');
+      let currentRoute = get(applicationController, 'currentRouteName');
+      let route = owner.lookup(`route:${currentRoute}`);
+      route.refresh();
     }
   },
 
