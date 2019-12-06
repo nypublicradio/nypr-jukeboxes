@@ -18,7 +18,7 @@ export default Route.extend({
     }
 
     let hash = {
-      playlistDaily: this.store.findRecord('playlist-daily', `wqxr/${date.format('YYYY/MMM/DD').toLowerCase()}`),
+      playlistDaily: this.store.findRecord('playlist-daily', `wqxr/${date.format('YYYY/MMM/DD').toLowerCase()}`, { reload: true }),
       date: date.format()
     };
     return RSVP.hash(hash);

@@ -1,7 +1,8 @@
 import Service from '@ember/service';
 import config from '../config/environment';
-import { inject as service} from '@ember/service';
+import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
+import { get } from '@ember/object';
 import ENV from '../config/environment';
 import { run } from '@ember/runloop';
 
