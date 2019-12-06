@@ -12,14 +12,14 @@ export default Route.extend({
     let controller = this.controllerFor('application');
     controller.send('setNavSlug', 'playlist-history');
 
-    let date = moment().format();
+    let date = moment();
     if (moment(year + '/' + month + '/' + day).isValid()) {
-      date = moment(year + '/' + month + '/' + day).format();
+      date = moment(year + '/' + month + '/' + day);
     }
 
     let hash = {
-      playlist: this.get('streamMetadata').load(date),
-      date: date
+      playlistDaily: this.store.findRecord('playlist-daily', `wqxr/${date.format('YYYY/MMM/DD').toLowerCase()}`),
+      date: date.format()
     };
     return RSVP.hash(hash);
   },
