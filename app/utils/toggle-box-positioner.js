@@ -34,7 +34,7 @@ export default function calculatePosition(trigger, content, _destination, ref) {
     obj['style']['left'] = Math.abs(triggerLeft - (contentWidth / 3) - (ARROW_WIDTH / 2) + (triggerWidth / 2) + 1);
   }
   else if (horizontalPosition == 'center') {
-     obj['style']['left'] = Math.abs(triggerLeft - contentWidth / 2 - (ARROW_WIDTH / 2) + (triggerWidth / 2) + 1);
+    obj['style']['left'] = Math.abs(triggerLeft - contentWidth / 2  + (triggerWidth / 2));
   }
 
   // Apply ember-basic-dropdown's repositioning

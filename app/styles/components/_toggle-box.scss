@@ -59,8 +59,7 @@ $arrow_width: 8px;
   }
 
   &[data-h-pos="center"]::before {
-    left: calc(50% - #{$arrow_width / 2});
-    margin-left: -$arrow_width;
+    left: calc(50% - #{$arrow_width});
   }
 }
 
