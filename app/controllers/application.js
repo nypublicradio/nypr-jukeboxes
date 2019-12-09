@@ -5,7 +5,6 @@ import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
 import move from 'ember-animated/motions/move';
 import { easeInAndOut } from 'ember-animated/easings/cosine';
-import config from '../config/environment'
 
 export default Controller.extend({
   dj             : service(),
