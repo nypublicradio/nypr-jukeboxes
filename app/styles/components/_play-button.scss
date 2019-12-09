@@ -19,13 +19,13 @@
 @mixin showRadiatingWaves() {
   .play-icon-shapes .outer-circle-fx {
     display: block;
-    animation: pulse-rings-outer 2s 1s infinite;
+    animation: pulse-rings-outer 5s 1s infinite;
     fill: #1FABF1;
   }
 
   .play-icon-shapes .inner-circle-fx {
     display: block;
-    animation: pulse-rings-inner 2s 1s infinite;
+    animation: pulse-rings-inner 5s 1s infinite;
     fill: #1FABF1;
   }
 }
@@ -38,18 +38,18 @@
 
 @keyframes pulse-rings-outer {
   0% {
-    transform: scale(1);
+    transform: scale(0.5);
     opacity: 0;
   }
-  20% {
+  8% {
     transform: scale(2);
     opacity: 0.3;
   }
-  40% {
+  16% {
     transform: scale(2);
     opacity: 0.3;
   }
-  100% {
+  40%, 100% { // delay before starting the next round
     transform: scale(2.5);
     opacity: 0;
   }
@@ -57,18 +57,18 @@
 
 @keyframes pulse-rings-inner {
   0% {
-    transform: scale(1);
+    transform: scale(0.5);
     opacity: 0;
   }
-  20% {
+  8% {
     transform: scale(1.7);
     opacity: 0.2;
   }
-  40% {
+  16% {
     transform: scale(1.7);
     opacity: 0.2;
   }
-  100% {
+  40%, 100% { // delay before starting the next round
     transform: scale(2.125);
     opacity: 0;
   }
