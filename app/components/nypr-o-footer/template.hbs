@@ -1,13 +1,17 @@
-<NyprMNewsletterForm @endpoint={{NEWSLETTER_ENDPOINT}} @params={{NEWSLETTER_PARAMS}} @subscribedMessage="thanks girl" as
-  |form|>
+<NyprMNewsletterForm class="newsletter-form" @endpoint={{NEWSLETTER_ENDPOINT}} @params={{NEWSLETTER_PARAMS}} @subscribedMessage=" " as |form|>
   <form.label />
   <form.input />
-  <p class="success-message">Thanks girl</p>
+  <div class="newsletter-form-success">
+    <p class="success-message"> Thank you! </p>
+    <p class="success-subtitle"> Be on the lookout for your first weekly newsletter from WQXR Radio. In the meantime,
+      tell us what you think! </p>
+    <button class="success-feedback-button">Send Us Feedback</button>
+  </div>
 
   <form.submit>
     <NyprASvg @icon='arrow-dashed' style="color: #fff" width="25" />
   </form.submit>
-  <form.legal />
+  <form.legal/>
 </NyprMNewsletterForm>
 
 <footer class="c-main-footer">

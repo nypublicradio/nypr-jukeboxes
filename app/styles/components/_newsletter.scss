@@ -1,14 +1,21 @@
 @import "../vars/fonts";
 
-.success-message { 
-  display: none; 
+
+.newsletter-form {
+  .newsletter-form-success { 
+    display: none; 
+  }
 }
 
-.c-newsletter-form__concrete.is-success {
-  .c-newsletter-form__field-group, .c-newsletter-form__terms {
+.newsletter-form.is-success {
+  .newsletter-form-success { 
+    display: block; 
+  }
+
+  .c-newsletter-form__terms {
     display: none;
-    .success-message {
-      display: block;
-    }
+  }
+  .c-newsletter-form__field-group > {
+    label, input, button { display:none; }
   }
 }
