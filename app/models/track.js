@@ -8,8 +8,6 @@ import { get, getWithDefault } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default DS.Model.extend({
-  playlistHistory : service(),
-
   trackTitle     : attr(),
   composerName   : attr(),
   ensembleName   : attr(),
@@ -32,19 +30,6 @@ export default DS.Model.extend({
   isLive         : computed('playlistHistory.nowPlayingId', 'playlistEntryId', function() {
     return get(this, 'playlistHistory.nowPlayingId') == get(this, 'playlistEntryId');
   }),
-
-  init() {
-    if (this.catalogEntry) {
-      this.set('ensembleName', get(this.catalogEntry, 'ensemble.name'));
-      this.set('composerName', get(this.catalogEntry, 'composer.name'));
-      this.set('conductorName', get(this.catalogEntry, 'conductor.name'));
-      this.set('trackTitle', get(this.catalogEntry, 'title'));
-      this.set('soloists', this.readSoloists(this.catalogEntry));
-      this.set('trackLength', get(this.catalogEntry, 'length'));
-    }
-
-    this._super(...arguments);
-  },
 
   readSoloists: function(catalogEntry) {
     let soloists = "";

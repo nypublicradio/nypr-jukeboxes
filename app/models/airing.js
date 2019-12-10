@@ -11,7 +11,7 @@ export default DS.Model.extend({
   showSlug: attr(),
   showId: attr(),
   show: belongsTo({ async: false }),
-  episode: belongsTo('story', { async: true }),
+  episode: belongsTo('story', { async: false }),
   tracks: hasMany(),
   isCurrent: computed('startTime', function() {
     return moment(get(this, 'startTime')).format("X") <= moment().format("X")

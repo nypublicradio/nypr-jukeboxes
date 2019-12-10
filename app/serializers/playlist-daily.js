@@ -1,14 +1,50 @@
 import DS from 'ember-data';
 import { get } from '@ember/object';
-import { camelizeObject } from 'nypr-publisher-lib/helpers/camelize-object';
-import moment from "moment";
+import { underscore } from '@ember/string';
+
+// Attributes on the left are how they appear on in the model,
+// On the right is a getter string to retreive from the incoming payload,
+// Or a function to run the payload through. Ember Data technically has a
+// way to do this with defining serializers for each model, but this is
+// so non-standard already and much clearer.
+
+const trackAttributeTransform = {
+  startTime      : 'iso_start_time',
+  trackTitle     : 'info.title',
+  composerName   : 'info.composer.name',
+  conductorName  : 'info.conductor.name',
+  trackLength    : 'length',
+  catalogEntry   : 'info'
+}
+
+const airingAttributeTransform = {
+  startTime    : 'iso_start_timestamp',
+  endTime      : 'iso_end_timestamp',
+  showSlug     : (e) => e.event_url.split('/').pop(),
+  showId       : 'show_id',
+  showTitle    : 'show_title'
+}
+
+const transformAttributes = function(data, transform) {
+  let transformed = {}
+
+  Object.keys(transform).forEach(key => {
+    if (typeof transform[key] === 'function') {
+      transformed[underscore(key)] = transform[key](data)
+    }
+    else {
+      transformed[underscore(key)] = get(data, transform[key]);
+    }
+  })
+
+  return transformed;
+}
 
 export default DS.JSONAPISerializer.extend({
-  normalizeFindRecordResponse(store, modelClass, payload, id/*, requestType*/) {
-    payload.playlistDaily.events = payload.playlistDaily.events.filter(function(event) {
-      return moment(get(event, 'start_timestamp')).format("X") <= moment().format("X");
-    });
+  keyForAttribute:    key => underscore(key),
+  keyForRelationship: key => underscore(key),
 
+  normalizeFindRecordResponse(store, modelClass, payload, id, requestType) {
     payload.playlistDaily.events.forEach(function(event) {
       if (event.playlists) {
         var playlist = [];
@@ -17,33 +53,62 @@ export default DS.JSONAPISerializer.extend({
           playlist = playlist.concat(event.playlists[i].played);
         }
 
-        playlist.forEach(function(track) {
-          track.catalogEntry = track.info;
-          track.startTime = track.time;
-          delete track.info;
-        });
-
-        playlist.sort(function(a, b) {
-          return (moment(get(a, 'start_time'), 'hh:mm a') > moment(get(b, 'start_time'), 'hh:mm a') ? -1 : 1);
-        });
-
         event.playlist = playlist;
         delete event.playlists;
       }
     });
 
-    payload.playlistDaily.events.sort(function(a, b) {
-      return (moment(get(a, 'start_timestamp'), 'YYYY-MM-DDTHH:mm:ss') > moment(get(b, 'start_timestamp'), 'YYYY-MM-DDTHH:mm:ss') ? -1 : 1);
-    });
+    let included = [];
 
-    return {
-      data: {
-        type: 'playlist-daily',
-        id,
-        attributes: {
-          airings: camelizeObject(payload.playlistDaily.events),
+    let airings = payload.playlistDaily.events.map(event => {
+      let airing = {
+        id: event.id,
+        type: 'airing',
+        attributes: transformAttributes(event, airingAttributeTransform)
+      };
+
+      if (event.playlist && event.playlist.length > 0) {
+        let tracks = event.playlist.map(track => {
+          return {
+            id: track.id,
+            type: 'track',
+            attributes: transformAttributes(track, trackAttributeTransform),
+            relationships: {
+              airing: {
+                data: {
+                  id: airing.id,
+                  type: airing.type
+                }
+              }
+            }
+          }
+        })
+        airing.relationships = {
+          tracks: {
+            data: tracks.map(t => ({ id: t.id, type: t.type }))
+          }
         }
+        tracks.forEach(t => included.push(t));
       }
+
+      return airing
+    })
+
+    airings.forEach(a => included.push(a));
+
+    let normalizedPayload = {
+      data: {
+        type: 'playlist_daily',
+        id,
+        relationships: {
+          airings: {
+            data: airings.map(a => ({ id: a.id, type: a.type }))
+          }
+        }
+      },
+      included: included
     }
+
+    return this._super(store, modelClass, normalizedPayload, id, requestType);
   },
 });

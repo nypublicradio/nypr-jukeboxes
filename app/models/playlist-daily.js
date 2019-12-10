@@ -1,6 +1,6 @@
-import DS from 'ember-data';
-const { Model } = DS;
+import Model from 'ember-data/model';
+import { hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
-  airings: DS.attr()
+  airings: hasMany()
 });
