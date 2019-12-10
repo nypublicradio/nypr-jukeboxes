@@ -145,7 +145,7 @@ module('Unit | Controller | listen', function(hooks) {
     }
     controller.set('model', model);
     Ember.inject.service();
-    let service = this.owner.lookup('service:current-stream');
+    let service = this.owner.lookup('service:now-playing');
     service.set('stream', stream);
 
     assert.equal(controller.get('isPlaylistHistoryPreviewStale'), false);
@@ -166,7 +166,7 @@ module('Unit | Controller | listen', function(hooks) {
     }
     controller.set('model', model);
     Ember.inject.service();
-    let service = this.owner.lookup('service:current-stream');
+    let service = this.owner.lookup('service:now-playing');
     service.set('stream', stream);
 
     assert.equal(controller.get('isPlaylistHistoryPreviewStale'), true);
@@ -187,7 +187,7 @@ module('Unit | Controller | listen', function(hooks) {
     }
     controller.set('model', model);
     Ember.inject.service();
-    let service = this.owner.lookup('service:current-stream');
+    let service = this.owner.lookup('service:now-playing');
     service.set('stream', stream);
 
     assert.equal(controller.get('isPlaylistHistoryPreviewStale'), false);
@@ -223,7 +223,7 @@ module('Unit | Controller | listen', function(hooks) {
     }
     controller.set('model', model);
     Ember.inject.service();
-    let service = this.owner.lookup('service:current-stream');
+    let service = this.owner.lookup('service:now-playing');
     service.set('stream', stream);
 
     assert.equal(controller.get('isPlaylistHistoryPreviewStale'), false);

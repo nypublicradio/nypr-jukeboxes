@@ -11,9 +11,9 @@ export default Service.extend({
   womsHost: config.womsAPI,
   store: service(),
   hifi: service(),
+  nowPlaying: service(),
   websockets: service(),
   socketRef: null,
-  currentStream: service(),
   isConnected: false,
   firstUpdateReceived: false,
   initialRetryAttempted: false,
@@ -29,7 +29,7 @@ export default Service.extend({
   },
 
   async connectWOMS() {
-    let response = await this.get('currentStream').getStream();
+    let response = await this.get('nowPlaying').getStream();
     this.subscribeWOMS(response);
   },
 

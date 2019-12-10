@@ -7,7 +7,7 @@ import moment from 'moment';
 
 export default Controller.extend({
   appController: controller('application'),
-  currentStream  : service(),
+  nowPlaying   : service(),
   fastboot: service(),
   woms: service(),
   isFastBoot: reads('fastboot.isFastBoot'),
