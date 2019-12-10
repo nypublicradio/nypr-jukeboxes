@@ -4,7 +4,6 @@ import { inject as service} from '@ember/service';
 import { reads } from '@ember/object/computed';
 import ENV from '../config/environment';
 import { run } from '@ember/runloop';
-import moment from "moment";
 
 const isReconnectTimerDisabled = ENV['ember-clock'] && ENV['ember-clock'].disabled;
 export default Service.extend({
@@ -17,6 +16,7 @@ export default Service.extend({
   isConnected: false,
   firstUpdateReceived: false,
   initialRetryAttempted: false,
+  lastMessage: null,
   fastboot: service(),
   isFastBoot: reads('fastboot.isFastBoot'),
 
@@ -56,10 +56,10 @@ export default Service.extend({
 
   socketMessageHandler(event) {
     let data = JSON.parse(event.data);
+
     if (data.Item && data.Item.metadata) {
       this.firstUpdateReceived = true;
-      this.processWOMSData(data.Item.metadata);
-      this.get('currentStream').refreshStream();
+      this.set('lastMessage', data);
     }
   },
 
@@ -72,25 +72,6 @@ export default Service.extend({
     } else {
       this.checkConnectionInOneMinute();
     }
-  },
-
-  processWOMSData(metadata) {
-    if (metadata.real_start_time) {
-      // @todo remove this when `real_start_time` becomes a numerical timetamp "YYYY-MM-DD HH:mm:ss.SSS"
-      let realStartTime = moment.tz(metadata.real_start_time, "America/New_York");
-      if (realStartTime.isValid()) {
-        metadata.real_start_time = realStartTime.valueOf() / 1000;
-      }
-    }
-
-    if (metadata.start_time) {
-      let startTime = moment.tz(metadata.start_time, "America/New_York");
-      if (startTime.isValid()) {
-        metadata.start_time = startTime.valueOf() / 1000;
-      }
-    }
-
-    this.set('metadata', metadata);
   },
 
   socketReconnect: function() {

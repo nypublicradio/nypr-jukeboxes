@@ -58,35 +58,35 @@
     </div>
   </div>
 
-  {{#liquid-if (or (or this.currentStream.composerName this.currentStream.trackTitle)
+  {{#liquid-if (or (or this.nowPlaying.composerName this.nowPlaying.trackTitle)
             (and (not this.isPlaylistHistoryPreviewStale) this.playlistHistoryItems))
   }}
     <div class="playlist-history">
-      {{#if (or this.currentStream.composerName this.currentStream.trackTitle)}}
+      {{#if (or this.nowPlaying.composerName this.nowPlaying.trackTitle)}}
         <div class="currently-listening-to">
           <div class="currently-listening-to-label">Currently Playing</div>
           <TrackInfo
-            @trackTitle={{this.currentStream.trackTitle}}
-            @ensembleName={{this.currentStream.ensembleName}}
-            @conductorName={{this.currentStream.conductorName}}
-            @composerName={{this.currentStream.composerName}}
-            @startTime="now"
+            @trackTitle={{this.nowPlaying.trackTitle}}
+            @ensembleName={{this.nowPlaying.ensembleName}}
+            @conductorName={{this.nowPlaying.conductorName}}
+            @composerName={{this.nowPlaying.composerName}}
+            @startTime={{this.nowPlaying.startTime}}
           />
         </div>
       {{/if}}
 
       {{#if (not this.isPlaylistHistoryPreviewStale)}}
-        {{#if this.playlistHistoryItems}}
+        {{#if this.model.recentTracks}}
           <div class="recently-played">
             <div class="recently-played-label">Recent Music</div>
             <div class="recently-played-song-list">
-              {{#each this.playlistHistoryItems as |item|}}
+              {{#each this.model.recentTracks as |track|}}
                 <TrackInfo
-                  @trackTitle={{item.catalogEntry.title}}
-                  @ensembleName={{item.catalogEntry.ensemble.name}}
-                  @conductorName={{item.catalogEntry.conductor.name}}
-                  @composerName={{item.catalogEntry.composer.name}}
-                  @startTime={{item.startTime}}
+                  @trackTitle={{track.title}}
+                  @ensembleName={{track.ensembleName}}
+                  @conductorName={{track.conductorName}}
+                  @composerName={{track.composerName}}
+                  @startTime={{track.startTime}}
                 />
               {{/each}}
             </div>

@@ -126,7 +126,7 @@ module('Unit | Controller | listen', function(hooks) {
       stream: stream
     }
     controller.set('model', model);
-    
+
     assert.equal(controller.get('isPlaylistHistoryPreviewStale'), false);
     assert.equal(controller.get('playlistHistoryItems').length, 3);
   });

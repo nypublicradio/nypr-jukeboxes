@@ -9,6 +9,7 @@
     </div>
   </TrackAdditionalInfo>
 </div>
-<div class="start-time">{{format-start-time startTime}}</div>
+
+<div class="start-time" data-time={{startTime}}>{{moment-format startTime "h:mm A"}}</div>
 
 {{yield}}

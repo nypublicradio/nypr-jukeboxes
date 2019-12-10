@@ -3,14 +3,15 @@ import { inject as service } from '@ember/service';
 import config from '../config/environment';
 import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
+import changeGate from 'ember-computed-change-gate/change-gate';
 
 var HOSTDICT = {};
 HOSTDICT[config.wqxrURL] = 'wqxr';
 
 export default Service.extend({
   fastboot: service(),
-  store: service(),
-  woms: service(),
+  store:    service(),
+  woms:     service(),
 
   // TODO: onload, this variable infers the slug from the host domain.
   // if we continue with the monorepo implementation, this variable will
@@ -23,11 +24,11 @@ export default Service.extend({
     return this.slugFromHost || this.stream.slug;
   }),
 
-  composerName: reads('woms.metadata.mm_composer1'),
-  trackTitle: reads('woms.metadata.title'),
-  ensembleName: reads('woms.metadata.mm_ensemble1'),
-  conductorName: reads('woms.metadata.mm_conductor'),
-  trackStartTimeTs: reads('woms.metadata.real_start_time'),
+  composerName: reads('track.composerName'),
+  trackTitle: reads('track.trackTitle'),
+  ensembleName: reads('track.ensembleName'),
+  conductorName: reads('track.conductorName'),
+  trackStartTime: reads('track.startTime'),
   showTitle: reads('stream.currentShow.title'),
   episodeTitle: reads('stream.currentShow.episodeTitle'),
   showHost: reads('stream.currentShow.currentHost'),
@@ -35,6 +36,9 @@ export default Service.extend({
   hasCurrentTrack: computed('composerName', 'trackTitle', function() {
     return this.composerName || this.trackTitle;
   }),
+
+  track: null,
+  stream: null,
 
   init() {
     this._super(...arguments);
@@ -47,6 +51,31 @@ export default Service.extend({
     slugFromHost = slugFromHost ? slugFromHost : 'wqxr';
     this.set('slugFromHost', slugFromHost);
     this.set('slug', slugFromHost);
+  },
+
+  async load() {
+    let nowPlaying = await this.store.queryRecord('track', {stream: this.slug});
+    this.set('track', nowPlaying);
+  },
+
+  handleWomsUpdate: changeGate('woms.lastMessage', function(data) {
+    this.processWOMSData(data);
+  }),
+
+  processWomsData(data) {
+    var modelClass = this.store.modelFor('track');
+    var serializer = this.store.serializerFor('track');
+    var normalized = serializer.normalizeSingleResponse(this.store, modelClass, {
+      data: {
+        attributes: data,
+        id: 'now-playing',
+        type: 'track'
+      }
+    }, data.id);
+
+    // This will update the existing model if it exists, adds it if it doesn't
+    let model = this.store.push(normalized);
+    this.nowPlaying.set('track', model);
   },
 
   async getStream() {

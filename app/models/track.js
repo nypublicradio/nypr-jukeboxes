@@ -8,34 +8,55 @@ import { get, getWithDefault } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default DS.Model.extend({
-  streamMetadata : service(),
+  playlistHistory : service(),
+
+  trackTitle     : attr(),
+  composerName   : attr(),
+  ensembleName   : attr(),
+  conductorName  : attr(),
+  trackLength    : attr(),
+
+  startTime      : attr('date'),
+
+  artist         : alias('composerName'),
+  title          : alias('trackTitle'),
+
   show           : belongsTo({async: false}),
   airing         : belongsTo({async: false}),
 
   buyLink        : attr(),
-  startTime      : attr('string'),
-  startTimeTs    : attr('number'),
   groupingKey    : attr('string'),
   catalogEntry   : attr(),
   playlistEntryId: attr('number'),
 
-  artist         : alias('catalogEntry.composer.name'),
-  trackLength    : alias('catalogEntry.length'),
-  title          : alias('catalogEntry.title'),
-  soloists: computed('catalogEntry', function() {
+  isLive         : computed('playlistHistory.nowPlayingId', 'playlistEntryId', function() {
+    return get(this, 'playlistHistory.nowPlayingId') == get(this, 'playlistEntryId');
+  }),
+
+  init() {
+    if (this.catalogEntry) {
+      this.set('ensembleName', get(this.catalogEntry, 'ensemble.name'));
+      this.set('composerName', get(this.catalogEntry, 'composer.name'));
+      this.set('conductorName', get(this.catalogEntry, 'conductor.name'));
+      this.set('trackTitle', get(this.catalogEntry, 'title'));
+      this.set('soloists', this.readSoloists(this.catalogEntry));
+      this.set('trackLength', get(this.catalogEntry, 'length'));
+    }
+
+    this._super(...arguments);
+  },
+
+  readSoloists: function(catalogEntry) {
     let soloists = "";
-    getWithDefault(this, 'catalogEntry.soloists', []).forEach(function(soloist) {
+    getWithDefault(catalogEntry, 'soloists', []).forEach(function(soloist) {
       soloists += `, ${soloist.musician.name}`;
       if (soloist.instruments.length > 0) {
          soloists += ` (${soloist.instruments[0]})`;
       }
-    });
+    })
 
     return soloists;
-  }),
-  isLive         : computed('streamMetadata.nowPlayingId', 'playlistEntryId', function() {
-    return get(this, 'streamMetadata.nowPlayingId') == get(this, 'playlistEntryId');
-  }),
+  },
 
   humanTrackLength: computed('trackLength', function() {
     let length = get(this, 'trackLength');

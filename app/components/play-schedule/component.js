@@ -4,5 +4,5 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
   classNames: ['play-schedule'],
-  streamMetadata: service()
+  playlistHistory: service()
 });
