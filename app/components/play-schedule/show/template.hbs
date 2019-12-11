@@ -4,7 +4,7 @@
 
     <div class="playlist-show-metadata">
       <div class="playlist-show-info-time">
-        {{#if (show-is-on-air-now startTime endTime)}}
+        {{#if isLive}}
           <span class="playlist-show-info-on-air-now">ON AIR NOW</span>
         {{/if}}
         <span class="playlist-show-info-time-range" data-time={{startTime}}>
@@ -23,7 +23,7 @@
   </div>
 </div>
 
-{{#liquid-if (and tracks this.isPlaylistVisible)}}
+{{#liquid-if (and (not (is-empty tracks)) this.isPlaylistVisible)}}
   <div class="play-schedule-show-playlist">
     {{#each tracks as |track|}}
       <TrackInfo

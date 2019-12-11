@@ -118,20 +118,18 @@ module('Unit | Service | woms', function(hooks) {
   test('it stores current track metadata received from woms backend', function(assert) {
     let woms = this.owner.lookup('service:woms');
 
-    let route = {
+    let routeStub = {
       refresh: function() {}
     };
 
     let womsOwner = getOwner(woms);
-    let originalLookup = womsOwner.get('lookup');
-    womsOwner.set('lookup', function() {
-        return route;
-    });
 
-    sinon.spy(womsOwner, "lookup");
+    let stub = sinon.stub(womsOwner, 'lookup')
+    stub.withArgs('route:').returns(routeStub);
+    stub.callThrough()
 
     woms.socketMessageHandler({
-      data: '{"Item": {"metadata": {"mm_ensemble1": "Anima Eterna", "start_time": "2019-11-12 13:38:53.868", "david_guid": "{D29A31C7-CCD1-4065-B630-076E4E12254E}", "album": "Beethoven | Complete Symphonies", "mm_reclabel": "Alpha", "catno": "380", "mm_composer1": "Ludwig van Beethoven", "mm_conductor": "Jos van Immerseel, conductor", "length": "654486", "mm_uid": "152565", "real_start_time": "2019-11-12 13:39:32.551", "title": "The Consecration of the House, Op. 124"}}, "ResponseMetadata": {"RequestId": "F8AK56KLQLSKKKIUSE5ODFA1MVVV4KQNSO5AEMVJF66Q9ASUAAJG", "HTTPStatusCode": 200, "HTTPHeaders": {"server": "Server", "date": "Tue, 12 Nov 2019 18:44:06 GMT", "content-type": "application/x-amz-json-1.0", "content-length": "515", "connection": "keep-alive", "x-amzn-requestid": "F8AK56KLQLSKKKIUSE5ODFA1MVVV4KQNSO5AEMVJF66Q9ASUAAJG", "x-amz-crc32": "4043524355"}, "RetryAttempts": 0}}'
+      data: '{"Item": {"metadata": {"mm_ensemble1": "Anima Eterna", "iso_start_time": "2019-12-11T17:45:36+00:00", "david_guid": "{D29A31C7-CCD1-4065-B630-076E4E12254E}", "album": "Beethoven | Complete Symphonies", "mm_reclabel": "Alpha", "catno": "380", "mm_composer1": "Ludwig van Beethoven", "mm_conductor": "Jos van Immerseel, conductor", "length": "654486", "mm_uid": "152565", "iso_real_start_time": "2019-12-11T17:45:36+00:00", "real_start_time": "2019-12-11 12:45:36.728", "title": "The Consecration of the House, Op. 124"}}, "ResponseMetadata": {"RequestId": "F8AK56KLQLSKKKIUSE5ODFA1MVVV4KQNSO5AEMVJF66Q9ASUAAJG", "HTTPStatusCode": 200, "HTTPHeaders": {"server": "Server", "date": "Tue, 12 Nov 2019 18:44:06 GMT", "content-type": "application/x-amz-json-1.0", "content-length": "515", "connection": "keep-alive", "x-amzn-requestid": "F8AK56KLQLSKKKIUSE5ODFA1MVVV4KQNSO5AEMVJF66Q9ASUAAJG", "x-amz-crc32": "4043524355"}, "RetryAttempts": 0}}'
     });
 
     assert.equal(woms.get('metadata').mm_composer1, 'Ludwig van Beethoven');
@@ -144,6 +142,5 @@ module('Unit | Service | woms', function(hooks) {
     assert.equal(womsOwner.lookup.calledTwice, true);
 
     womsOwner.lookup.restore();
-    womsOwner.set('lookup', originalLookup);
   });
 });

@@ -3,7 +3,6 @@ import { inject as service } from '@ember/service';
 import config from '../config/environment';
 import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
-import changeGate from 'ember-computed-change-gate/change-gate';
 
 var HOSTDICT = {};
 HOSTDICT[config.wqxrURL] = 'wqxr';
@@ -24,21 +23,24 @@ export default Service.extend({
     return this.slugFromHost || this.stream.slug;
   }),
 
+  track: null,
+  trackId: reads('track.id'),
   composerName: reads('track.composerName'),
   trackTitle: reads('track.trackTitle'),
   ensembleName: reads('track.ensembleName'),
   conductorName: reads('track.conductorName'),
   trackStartTime: reads('track.startTime'),
-  showTitle: reads('stream.currentShow.title'),
-  episodeTitle: reads('stream.currentShow.episodeTitle'),
-  showHost: reads('stream.currentShow.currentHost'),
-
   hasCurrentTrack: computed('composerName', 'trackTitle', function() {
     return this.composerName || this.trackTitle;
   }),
 
-  track: null,
   stream: null,
+  showTitle: reads('stream.currentShow.title'),
+  episodeTitle: reads('stream.currentShow.episodeTitle'),
+  showHost: reads('stream.currentShow.currentHost'),
+
+  show: null,
+  showSlug: reads('show.slug'),
 
   init() {
     this._super(...arguments);
@@ -54,28 +56,8 @@ export default Service.extend({
   },
 
   async load() {
-    let nowPlaying = await this.store.queryRecord('track', {stream: this.slug});
-    this.set('track', nowPlaying);
-  },
-
-  handleWomsUpdate: changeGate('woms.lastMessage', function(data) {
-    this.processWOMSData(data);
-  }),
-
-  processWomsData(data) {
-    var modelClass = this.store.modelFor('track');
-    var serializer = this.store.serializerFor('track');
-    var normalized = serializer.normalizeSingleResponse(this.store, modelClass, {
-      data: {
-        attributes: data,
-        id: 'now-playing',
-        type: 'track'
-      }
-    }, data.id);
-
-    // This will update the existing model if it exists, adds it if it doesn't
-    let model = this.store.push(normalized);
-    this.nowPlaying.set('track', model);
+    let nowPlaying = await this.store.queryRecord('whats-on', {stream: this.slug});
+    this.set('track', nowPlaying.tracks.firstObject);
   },
 
   async getStream() {
@@ -91,6 +73,7 @@ export default Service.extend({
     let show   = await this.store.findRecord('show', stream.currentShow.group_slug);
     this.set('stream', stream);
     this.set('show', show);
+
     return stream;
   },
 });

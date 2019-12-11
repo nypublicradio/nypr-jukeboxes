@@ -1,6 +1,8 @@
-import DS from 'ember-data';
+import ApplicationSerializer from './application';
+import transformAttributes from '../utils/transform-attributes';
+import generateTrackUniqueId from '../utils/generate-track-unique-id';
+import moment from 'moment';
 import { get } from '@ember/object';
-import { underscore } from '@ember/string';
 
 // Attributes on the left are how they appear on in the model,
 // On the right is a getter string to retreive from the incoming payload,
@@ -13,6 +15,8 @@ const trackAttributeTransform = {
   trackTitle     : 'info.title',
   composerName   : 'info.composer.name',
   conductorName  : 'info.conductor.name',
+  ensembleName   : 'info.ensemble.name',
+  catno          : 'info.catno',
   trackLength    : 'length',
   catalogEntry   : 'info'
 }
@@ -25,26 +29,12 @@ const airingAttributeTransform = {
   showTitle    : 'show_title'
 }
 
-const transformAttributes = function(data, transform) {
-  let transformed = {}
-
-  Object.keys(transform).forEach(key => {
-    if (typeof transform[key] === 'function') {
-      transformed[underscore(key)] = transform[key](data)
-    }
-    else {
-      transformed[underscore(key)] = get(data, transform[key]);
-    }
-  })
-
-  return transformed;
-}
-
-export default DS.JSONAPISerializer.extend({
-  keyForAttribute:    key => underscore(key),
-  keyForRelationship: key => underscore(key),
-
+export default ApplicationSerializer.extend({
   normalizeFindRecordResponse(store, modelClass, payload, id, requestType) {
+    payload.playlistDaily.events.sort(function(a, b) {
+      return (moment(get(a, 'iso_start_timestamp'), 'YYYY-MM-DDTHH:mm:ss') > moment(get(b, 'iso_start_timestamp'), 'YYYY-MM-DDTHH:mm:ss') ? -1 : 1);
+    });
+
     payload.playlistDaily.events.forEach(function(event) {
       if (event.playlists) {
         var playlist = [];
@@ -69,10 +59,11 @@ export default DS.JSONAPISerializer.extend({
 
       if (event.playlist && event.playlist.length > 0) {
         let tracks = event.playlist.map(track => {
+          let trackAttrs = transformAttributes(track, trackAttributeTransform);
           return {
-            id: track.id,
+            id: generateTrackUniqueId(trackAttrs),
             type: 'track',
-            attributes: transformAttributes(track, trackAttributeTransform),
+            attributes: trackAttrs,
             relationships: {
               airing: {
                 data: {
@@ -83,18 +74,22 @@ export default DS.JSONAPISerializer.extend({
             }
           }
         })
-        airing.relationships = {
-          tracks: {
-            data: tracks.map(t => ({ id: t.id, type: t.type }))
+
+        if (tracks.length > 0) {
+          airing.relationships = {
+            tracks: {
+              data: tracks.map(t => ({ id: t.id, type: t.type }))
+            }
           }
+          tracks.forEach(t => included.push(t));
         }
-        tracks.forEach(t => included.push(t));
       }
 
       return airing
     })
 
     airings.forEach(a => included.push(a));
+
 
     let normalizedPayload = {
       data: {

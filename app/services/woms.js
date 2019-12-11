@@ -58,11 +58,33 @@ export default Service.extend({
 
   socketMessageHandler(event) {
     let data = JSON.parse(event.data);
-
     if (data.Item && data.Item.metadata) {
       this.firstUpdateReceived = true;
       this.set('lastMessage', data);
+      this.processWomsData(data);
+      let owner = getOwner(this);
+      let applicationController = owner.lookup('controller:application');
+      let currentRoute = get(applicationController, 'currentRouteName');
+      let route = owner.lookup(`route:${currentRoute}`);
+      route.refresh();
     }
+  },
+
+  processWomsData(data) {
+    var modelClass = this.store.modelFor('whats-on');
+    var serializer = this.store.serializerFor('whats-on');
+
+    var normalized = serializer.normalizeSingleResponse(this.store, modelClass, {
+      data: {
+        attributes: data,
+        id: 'whats-on',
+        type: 'whats-on'
+      }
+    }, data.id);
+
+    // This will update the existing model if it exists, adds it if it doesn't
+    let model = this.store.push(normalized);
+    this.nowPlaying.set('track', model.tracks.firstObject);
   },
 
   socketClosedHandler(/*event*/) {

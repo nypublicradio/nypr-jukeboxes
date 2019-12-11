@@ -2,10 +2,11 @@ import config from 'ember-get-config';
 import DS from 'ember-data';
 import rsvp from 'rsvp';
 import fetch from 'fetch';
+import CachedShoe   from 'ember-cached-shoe'
 
 const json = r => r.json();
 
-export default DS.JSONAPIAdapter.extend({
+export default DS.JSONAPIAdapter.extend(CachedShoe, {
 	host: config.publisherAPI,
   namespace: 'v1',
 	// BEGIN-SNIPPET playlist-daily-find-record

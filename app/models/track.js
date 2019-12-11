@@ -6,8 +6,8 @@ import { belongsTo } from 'ember-data/relationships';
 import attr from 'ember-data/attr';
 import { get, getWithDefault } from '@ember/object';
 import { inject as service } from '@ember/service';
-
 export default DS.Model.extend({
+  nowPlaying     : service(),
   trackTitle     : attr(),
   composerName   : attr(),
   ensembleName   : attr(),
@@ -20,16 +20,10 @@ export default DS.Model.extend({
   title          : alias('trackTitle'),
 
   show           : belongsTo({async: false}),
-  airing         : belongsTo({async: false}),
+  airing         : belongsTo('airing', {async: false, inverse: 'tracks'}),
 
-  buyLink        : attr(),
-  groupingKey    : attr('string'),
   catalogEntry   : attr(),
-  playlistEntryId: attr('number'),
-
-  isLive         : computed('playlistHistory.nowPlayingId', 'playlistEntryId', function() {
-    return get(this, 'playlistHistory.nowPlayingId') == get(this, 'playlistEntryId');
-  }),
+  catno          : attr(),
 
   readSoloists: function(catalogEntry) {
     let soloists = "";
@@ -57,5 +51,9 @@ export default DS.Model.extend({
     if (secs > 0) parts.push(`${secs}s`);
 
     return parts.join(" ");
+  }),
+
+  isLive: computed('nowPlaying.trackId', function() {
+    return this.nowPlaying.trackId === this.id
   })
 });

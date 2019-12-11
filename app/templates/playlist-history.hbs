@@ -1,27 +1,27 @@
 <div class="playlist-history-date-display">
-  <div class="playlist-history-day">{{formatted-day model.date}}</div>
-  <div class="playlist-history-date">{{formatted-date model.date}}</div>
+  <div class="playlist-history-day">{{formatted-day model.localDate}}</div>
+  <div class="playlist-history-date">{{formatted-date model.localDate}}</div>
 </div>
 
 <div class="playlist-history-display">
   <div class="date-selector">
     {{#link-to "playlist-history"
-              (moment-format (moment-add model.date -1 precision='days') 'YYYY')
-              (moment-format (moment-add model.date -1 precision='days') 'MM')
-              (moment-format (moment-add model.date -1 precision='days') 'DD')
+              (moment-format (moment-add model.serverDate -1 precision='days') 'YYYY')
+              (moment-format (moment-add model.serverDate -1 precision='days') 'MM')
+              (moment-format (moment-add model.serverDate -1 precision='days') 'DD')
               class="date-selector-back"
     }}
       {{svg-jar "left-arrow"}}
-      <span>{{formatted-picker-date model.date -1}}</span>
+      <span>{{formatted-picker-date model.serverDate -1}}</span>
     {{/link-to}}
-    {{#if (can-show-schedule-for-date model.date 1)}}
+    {{#if (can-show-schedule-for-date model.serverDate 1)}}
       {{#link-to "playlist-history"
-                (moment-format (moment-add model.date 1 precision='days') 'YYYY')
-                (moment-format (moment-add model.date 1 precision='days') 'MM')
-                (moment-format (moment-add model.date 1 precision='days') 'DD')
+                (moment-format (moment-add model.serverDate 1 precision='days') 'YYYY')
+                (moment-format (moment-add model.serverDate 1 precision='days') 'MM')
+                (moment-format (moment-add model.serverDate 1 precision='days') 'DD')
                 class="date-selector-forward"
       }}
-        <span>{{formatted-picker-date model.date 1}}</span>
+        <span>{{formatted-picker-date model.serverDate 1}}</span>
         {{svg-jar "left-arrow"}}
       {{/link-to}}
     {{/if}}

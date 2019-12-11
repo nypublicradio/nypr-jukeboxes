@@ -6,23 +6,24 @@ import moment from "moment";
 
 export default Route.extend({
   nowPlaying: service(),
-  playlistHistory: service(),
   metadata: service(),
 
-  async model() {
+  beforeModel() {
+    this._super(...arguments);
     let controller = this.controllerFor('application');
     controller.send('setNavSlug', 'listen');
+  },
 
-    let playlistHistory = await this.playlistHistory.load(moment());
+  async model() {
+    let serverDate = moment.tz(moment(), "America/New_York")
+    let playlistHistory = await this.store.findRecord('playlist-daily', `wqxr/${serverDate.format('YYYY/MMM/DD').toLowerCase()}`, { reload: true });
 
-    let currentAiring   = playlistHistory.airings.findBy('isCurrent', true);
-    let stream          = await this.get('nowPlaying').refreshStream()
+    await this.get('nowPlaying').refreshStream()
 
-    let showSlug = stream.currentShow.group_slug;
     return rsvp.hash({
-      recentTracks: currentAiring.tracks,
-      stream: stream,
-      show: this.store.findRecord('show', showSlug),
+      currentAiring: playlistHistory.airings.findBy('isLive', true),
+      stream: this.nowPlaying.stream,
+      show: this.nowPlaying.show,
     });
   },
 

@@ -58,41 +58,38 @@
     </div>
   </div>
 
-  {{#liquid-if (or (or this.nowPlaying.composerName this.nowPlaying.trackTitle)
-            (and (not this.isPlaylistHistoryPreviewStale) this.playlistHistoryItems))
-  }}
+  {{#liquid-if (or this.nowPlaying.hasCurrentTrack (not (is-empty this.recentlyPlayed)))}}
     <div class="playlist-history">
-      {{#if (or this.nowPlaying.composerName this.nowPlaying.trackTitle)}}
+      {{#if this.nowPlaying.track}}
         <div class="currently-listening-to">
           <div class="currently-listening-to-label">Currently Playing</div>
           <TrackInfo
-            @trackTitle={{this.nowPlaying.trackTitle}}
-            @ensembleName={{this.nowPlaying.ensembleName}}
-            @conductorName={{this.nowPlaying.conductorName}}
-            @composerName={{this.nowPlaying.composerName}}
-            @startTime={{this.nowPlaying.startTime}}
+            @trackTitle={{this.nowPlaying.track.title}}
+            @ensembleName={{this.nowPlaying.track.ensembleName}}
+            @conductorName={{this.nowPlaying.track.conductorName}}
+            @composerName={{this.nowPlaying.track.composerName}}
+            @startTime={{this.nowPlaying.track.startTime}}
+            @isLive={{true}}
           />
         </div>
       {{/if}}
 
-      {{#if (not this.isPlaylistHistoryPreviewStale)}}
-        {{#if this.model.recentTracks}}
-          <div class="recently-played">
-            <div class="recently-played-label">Recent Music</div>
-            <div class="recently-played-song-list">
-              {{#each this.model.recentTracks as |track|}}
-                <TrackInfo
-                  @trackTitle={{track.title}}
-                  @ensembleName={{track.ensembleName}}
-                  @conductorName={{track.conductorName}}
-                  @composerName={{track.composerName}}
-                  @startTime={{track.startTime}}
-                />
-              {{/each}}
-            </div>
-            {{#link-to "playlist-history-today" class="view-full-playlist-history-button"}}View Full Playlist{{/link-to}}
+      {{#if (not (is-empty this.recentlyPlayed))}}
+        <div class="recently-played">
+          <div class="recently-played-label">Recent Music</div>
+          <div class="recently-played-song-list">
+            {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track|}}
+              <TrackInfo
+                @trackTitle={{track.title}}
+                @ensembleName={{track.ensembleName}}
+                @conductorName={{track.conductorName}}
+                @composerName={{track.composerName}}
+                @startTime={{track.startTime}}
+              />
+            {{/each}}
           </div>
-        {{/if}}
+          {{#link-to "playlist-history-today" class="view-full-playlist-history-button"}}View Full Playlist{{/link-to}}
+        </div>
       {{/if}}
     </div>
   {{/liquid-if}}

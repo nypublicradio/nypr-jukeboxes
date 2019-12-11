@@ -7,18 +7,23 @@ import moment from 'moment';
 export default Route.extend({
   metadata: service(),
 
-  model({ year, month, day }) {
+  beforeModel() {
+    this._super(...arguments);
     let controller = this.controllerFor('application');
     controller.send('setNavSlug', 'playlist-history');
+  },
 
+  model({ year, month, day }) {
     let date = moment();
     if (moment(year + '/' + month + '/' + day).isValid()) {
       date = moment(year + '/' + month + '/' + day);
     }
 
+    let serverDate = moment.tz(date, "America/New_York")
     let hash = {
-      playlistDaily: this.store.findRecord('playlist-daily', `wqxr/${date.format('YYYY/MMM/DD').toLowerCase()}`, { reload: true }),
-      date: date.format()
+      playlistDaily: this.store.findRecord('playlist-daily', `wqxr/${serverDate.format('YYYY/MMM/DD').toLowerCase()}`, { reload: true }),
+      serverDate: serverDate.format(),
+      localDate: date.format()
     };
     return RSVP.hash(hash);
   },

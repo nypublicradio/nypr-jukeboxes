@@ -1,15 +1,13 @@
-{{#each schedule.airings as |airing index|}}
-  {{#if (airing-is-not-in-future airing.startTime)}}
-    <div class="playlist">
-      {{play-schedule/show
-        image     = (image-template airing.show.image.template 500 500 "l" 80)
-        title     = airing.showTitle
-        startTime = airing.startTime
-        endTime   = airing.endTime
-        episode   = airing.episode
-        tracks    = airing.tracks
-        isPlaylistVisible = (if (eq index 0) true false)
-      }}
-    </div>
-  {{/if}}
+{{#each (filter-by "isCurrent" true schedule.airings) as |airing index|}}
+  <div class="playlist">
+    {{play-schedule/show
+      image     = (image-template airing.show.image.template 500 500 "l" 80)
+      title     = airing.showTitle
+      startTime = airing.startTime
+      endTime   = airing.endTime
+      episode   = airing.episode
+      tracks    = airing.tracks
+      isPlaylistVisible = airing.isLive
+    }}
+  </div>
 {{/each}}

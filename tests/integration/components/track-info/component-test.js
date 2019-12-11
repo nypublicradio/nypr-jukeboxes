@@ -11,7 +11,8 @@ module('Integration | Component | track-info', function(hooks) {
     this.set('trackTitle', 'La boda de Luis Alonso: Intermezzo');
     this.set('ensembleName', 'Vienna Radio Symphony Orchestra');
     this.set('conductorName', 'Garcia Navarro');
-    this.set('startTime', '02:23 AM');
+
+    this.set('startTime', new Date("2019-12-01T00:10:00+00:00"));
 
     await render(hbs`{{track-info
       trackTitle=trackTitle
@@ -23,7 +24,7 @@ module('Integration | Component | track-info', function(hooks) {
 
     assert.equal(find('.composer').textContent.trim(), 'Jeronimo Gimenez');
     assert.equal(find('.title').textContent.trim(), 'La boda de Luis Alonso: Intermezzo');
-    assert.equal(find('.start-time').textContent.trim(), '2:23 AM');
+    assert.equal(find('.start-time').textContent.trim(), '6:10 PM');
     assert.equal(find('.ensemble'), null);
     assert.equal(find('.conductor'), null);
 

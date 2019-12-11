@@ -3,8 +3,6 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { schedule } from '@ember/runloop';
 import { get } from "@ember/object";
-import config from '../config/environment';
-import fetch from 'fetch';
 
 export default Route.extend({
   router: service(),
@@ -48,8 +46,6 @@ export default Route.extend({
   },
 
   beforeModel() {
-    // this.get('moment').setTimeZone('America/New_York');
-
     // Don't start poll in Fastboot
     if (get(this, 'isFastBoot')) {
       this.set('session.noRefresh', true);
