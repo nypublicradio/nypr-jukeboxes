@@ -70,6 +70,18 @@ export default Controller.extend({
     }).slice(0,3);
   }),
 
+  twitterHandle: computed('model.stream.about.social', function() {
+    if (this.model.stream.about.social) {
+      let twitter = this.model.stream.about.social.filter(function(s) {
+        return s.service == 'twitter';
+      });
+      if (twitter.length > 0) {
+        return twitter[0]['contact-string'];
+      }
+    }
+    return undefined;
+  }),
+
   actions: {
     updatePlayerState(state) {
       this.appController.set('showPlayer', state);

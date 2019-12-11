@@ -22,18 +22,22 @@
          src={{model.stream.currentShow.fullImage.url}}>
       {{/if}}
       <div class="show-title">{{model.stream.currentShow.title}}</div>
-        {{!-- DSODA-258 Hide "Message the Show" dropdown component }}
+        {{#if twitterHandle}}
         <div class="message-the-show">
           <ToggleBox class="message-the-show-toggle-box" as |toggle|>
             <toggle.trigger>
               <div class="message-the-show-title">MESSAGE THE SHOW</div>
             </toggle.trigger>
             <toggle.dropdown>
-              <div class="message-the-show-content">Message the show...  (Design TBD)</div>
+              <NyprMShareTools class="listen-message-the-show-popup social-media-links" as |share|>
+                <div class="social-media__container">
+                  <share.link @service='twitter' @username='{{twitterHandle}}' @title='Twitter' />
+                </div>
+              </NyprMShareTools>
             </toggle.dropdown>
           </ToggleBox>
         </div>
-        {{--}}
+        {{/if}}
       </div>
 
     </div>
