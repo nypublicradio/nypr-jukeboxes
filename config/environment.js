@@ -54,7 +54,7 @@ module.exports = function(environment) {
     googleAnalytics: process.env.GOOGLE_ANALYTICS,
     googleTagManager: process.env.GOOGLE_TAG_MANAGER_ID,
     optInService: process.env.OPT_IN_SERVICE,
-    jukeboxNewsletter: '8a64eee3a1', //Jukebox Test
+    jukeboxNewsletter: '8a64eee3a1', //Jukebox Test //0b200d6752
   };
 
   if (environment === 'development') {

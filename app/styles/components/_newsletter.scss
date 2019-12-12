@@ -1,13 +1,88 @@
 @import "../vars/fonts";
+@import "../vars/tools.sg-updates";
 
+body {
+  color: white;
+}
+
+input[type=email] {
+  border-radius: 35px;
+  font-size: 14px;
+  text-align: center;
+}
+
+input[name="newsletter"] {
+  height: 30px;
+  width: 100%;
+}
+
+.newsletter-container {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 100px 200px 5px 200px;
+}
+
+.c-newsletter-form__field-group {
+  border: none;
+  padding-top: 18px;
+}
+
+.mailing-list-text-container {
+  width: 80%;
+}
+
+.mailing-list-title, .success-message {
+  font-family: $font-heading;
+  font-size: $font-size-l;
+}
+
+.mailing-list-subtitle, .success-subtitle {
+  font-size: $font-size-s;
+}
+
+.c-newsletter-form__terms { 
+   
+  padding-top: 10px;
+  .o-checkbox {
+    top: 12px;
+  }
+}
+
+.submit-button {
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
+  border-color: white;
+  height: 30px;
+  width: 140px;
+  line-height: 1; 
+  background: none;
+}
+
+.c-newsletter-form__button {
+  background: none;
+  height: 0px;
+  width: 100%;
+
+  &:hover {
+    opacity: 100%;
+    color: $denim-blue;
+    background: white;
+    border-color: white;
+  }
+}
 
 .newsletter-form {
+  padding-left: 50px;
   .newsletter-form-success { 
     display: none; 
   }
 }
 
-.newsletter-form.is-success {
+.newsletter-form.is-success ~ .mailing-list-text-container {
   .newsletter-form-success { 
     display: block; 
   }
@@ -15,7 +90,27 @@
   .c-newsletter-form__terms {
     display: none;
   }
-  .c-newsletter-form__field-group > {
-    label, input, button { display:none; }
+
+  .c-newsletter-form__field-group  > {
+    label, input, button, .mailing-list-text-container { 
+      display: none; 
+    }
+  }
+}
+
+
+///MOBILE///
+@include media("<=small") {
+  .newsletter-container {
+    padding: 10px;
+    flex-direction: column-reverse;
+  }
+
+  .mailing-list-text-container {
+    width: 100%;
+  }
+
+  .c-newsletter-form__field-group {
+    flex-direction: column;
   }
 }
