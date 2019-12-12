@@ -5,10 +5,10 @@ import moment from 'moment';
 import { get } from '@ember/object';
 
 // Attributes on the left are how they appear on in the model,
-// On the right is a getter string to retreive from the incoming payload,
-// Or a function to run the payload through. Ember Data technically has a
-// way to do this with defining serializers for each model, but this is
-// so non-standard already and much clearer.
+// On the right is a getter string to retreive from the incoming payload or
+// a function to run the payload through. Ember Data technically has a
+// way to do this with defining serializers for each model but this is
+// so non-standard already and much clearer imo.
 
 const trackAttributeTransform = {
   startTime      : 'iso_start_time',

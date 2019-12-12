@@ -62,7 +62,6 @@
     "ember-composable-helpers": "^3.0.2",
     "ember-data": "~3.9.0",
     "ember-data-factory-guy": "^3.9.5",
-    "ember-data-storefront": "^0.17.1",
     "ember-export-application-global": "^2.0.0",
     "ember-fetch": "^6.5.1",
     "ember-hifi": "http://github.com/nypublicradio/ember-hifi#feature/diagnostics-and-docs",
@@ -89,7 +88,7 @@
     "nypr-metrics": "^0.7.1",
     "nypr-pattern-lab": "https://github.com/nypublicradio/pattern-lab#bkammin/change_package_name_to_pattern_lab",
     "nypr-player": "http://github.com/nypublicradio/nypr-player#jkeen/remove-nypr-ui",
-    "qunit-dom": "^0.8.0",
+    "qunit-dom": "^0.9.2",
     "sass": "^1.14.1"
   },
   "engines": {
