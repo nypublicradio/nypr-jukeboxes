@@ -242,4 +242,22 @@ module('Unit | Controller | listen', function(hooks) {
 
     assert.equal(controller.get('isPlaylistHistoryPreviewStale'), true);
   });
+
+  test('twitter handle is retrieved from show object', function(assert) {
+    let controller = this.owner.lookup('controller:listen');
+    let model = {
+      show: EmberObject.create({
+        about: {
+          "social": [
+            { "contact-string": "@AnnieWQXR", "service":"twitter"},
+            { "contact-string": "", "service":"facebook"},
+            { "contact-string": "","service":"instagram"}
+          ]
+        }
+      })
+    }
+    controller.set('model', model);
+
+    assert.equal(controller.get('twitterHandle'), "@AnnieWQXR");
+  });
 });
