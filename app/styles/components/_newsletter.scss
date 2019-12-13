@@ -48,7 +48,7 @@ input[name="newsletter"] {
   }
 }
 
-.submit-button {
+.submit-button, .success-feedback-button {
   font-family: $font-body;
   font-size: 10px;
   font-weight: bold;
@@ -82,17 +82,21 @@ input[name="newsletter"] {
   }
 }
 
-.newsletter-form.is-success ~ .mailing-list-text-container {
+.newsletter-form.is-success {
   .newsletter-form-success { 
     display: block; 
+  }
+
+   + .mailing-list-text-container {
+    display: none;
   }
 
   .c-newsletter-form__terms {
     display: none;
   }
 
-  .c-newsletter-form__field-group  > {
-    label, input, button, .mailing-list-text-container { 
+  .c-newsletter-form__field-group 0> {
+    label, input, button { 
       display: none; 
     }
   }

@@ -6,5 +6,6 @@ export default Component.extend({
   layout,
   tagName: '',
   NEWSLETTER_ENDPOINT: `${config.optInService}/v1/subscribe/mailchimp`,
-  NEWSLETTER_PARAMS: {list: config.jukeboxNewsletter}
+  NEWSLETTER_PARAMS: {list: config.jukeboxNewsletter},
+
 });
