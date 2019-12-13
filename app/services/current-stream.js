@@ -61,6 +61,7 @@ export default Service.extend({
     let stream = await this.store.findRecord('stream', this.slug, {reload: true});
     let show   = await this.store.findRecord('show', stream.currentShow.group_slug);
     stream.set('about', show.about);
+    stream.set('contactEmail', show.contactEmail);
     this.set('stream', stream);
 
     return stream;

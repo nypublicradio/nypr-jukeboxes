@@ -297,6 +297,10 @@
 }
 
 .listen-message-the-show-popup {
+  // using negative to correct the padding of parent element, which does not 
+  // have a class name specific to the 'Message the Show' popup
+  margin: -1px -6px;
+
   .c-share-tools__group {
     margin-top: 0px;
   }
@@ -304,11 +308,12 @@
   .c-share-tools__link {
     padding: 0;
     margin: 0;
-  }
-
-  .c-share-tools__link {
     display: flex;
     flex-direction: row;
+    margin-top: 10px;
+    &:first-child {
+      margin-top: 0px;
+    }
 
     width: 100%;
     height: 100%;

@@ -22,7 +22,7 @@
          src={{model.stream.currentShow.fullImage.url}}>
       {{/if}}
       <div class="show-title">{{model.stream.currentShow.title}}</div>
-        {{#if twitterHandle}}
+        {{#if (or twitterHandle emailAddress)}}
         <div class="message-the-show">
           <ToggleBox class="message-the-show-toggle-box" as |toggle|>
             <toggle.trigger>
@@ -31,7 +31,12 @@
             <toggle.dropdown>
               <NyprMShareTools class="listen-message-the-show-popup social-media-links" as |share|>
                 <div class="social-media__container">
-                  <share.link @service='twitter' @username='{{twitterHandle}}' @title='Twitter' />
+                  {{#if twitterHandle}}
+                    <share.link @service='twitter' @username='{{twitterHandle}}' @title='Twitter' />
+                  {{/if}}
+                  {{#if emailAddress}}
+                    <share.link @service='email' @username='{{emailAddress}}' @title='Email' />
+                  {{/if}}
                 </div>
               </NyprMShareTools>
             </toggle.dropdown>

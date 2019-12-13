@@ -82,6 +82,8 @@ export default Controller.extend({
     return undefined;
   }),
 
+  emailAddress: reads('model.stream.contactEmail'),
+
   actions: {
     updatePlayerState(state) {
       this.appController.set('showPlayer', state);
