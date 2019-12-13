@@ -5486,7 +5486,7 @@ ember-responsive@^3.0.0-beta.3:
   dependencies:
     ember-cli-babel "^6.6.0"
 
-ember-rfc176-data@^0.3.12, ember-rfc176-data@^0.3.5:
+ember-rfc176-data@^0.3.12:
   version "0.3.12"
   resolved "https://registry.yarnpkg.com/ember-rfc176-data/-/ember-rfc176-data-0.3.12.tgz#90d82878e69e2ac9a5438e8ce14d12c6031c5bd2"
   integrity sha512-g9HeZj/gU5bfIIrGXkP7MhS2b3Vu5DfNUrYr14hy99TgIvtZETO+96QF4WOEUXGjIJdfTRjerVnQlqngPQSv1g==
@@ -5823,14 +5823,6 @@ escodegen@1.x.x, escodegen@^1.11.0:
     optionator "^0.8.1"
   optionalDependencies:
     source-map "~0.6.1"
-
-eslint-plugin-ember@^5.0.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-5.4.0.tgz#2980a4389119b37d0450fff8e82d59c9aab126d0"
-  integrity sha512-tYMuxUrTad4f7Dq9gY9GUs9lXwKY+fZklzCJ0JoYbzK2PwSfdrPInr2Y4tHornc9dzPvNbRxsn5b26PrWp2iZg==
-  dependencies:
-    ember-rfc176-data "^0.3.5"
-    snake-case "^2.1.0"
 
 eslint-plugin-ember@^7.1.0:
   version "7.5.0"
@@ -8233,21 +8225,7 @@ linkify-it@^2.0.0:
   dependencies:
     uc.micro "^1.0.1"
 
-liquid-fire@^0.31.0:
-  version "0.31.0"
-  resolved "https://registry.yarnpkg.com/liquid-fire/-/liquid-fire-0.31.0.tgz#6dc9f4785b5a06dcbe1a7ca4e8b130ac595ee2f5"
-  integrity sha512-KVI2vBB+6I1kvkOSD/S/Vjq5hYqlFw3zBLiRoCSIDj9LMWmm2GEKvQcmpxiqgsdjMS2VAFaqUd+9BJFRvCmIjA==
-  dependencies:
-    broccoli-funnel "^2.0.2"
-    broccoli-merge-trees "^3.0.2"
-    broccoli-stew "^2.1.0"
-    ember-cli-babel "^7.7.3"
-    ember-cli-htmlbars "^3.0.1"
-    ember-cli-version-checker "^3.1.3"
-    match-media "^0.2.0"
-    velocity-animate "^1.5.2"
-
-liquid-fire@~0.29.1:
+liquid-fire@^0.29.1, liquid-fire@~0.29.1:
   version "0.29.5"
   resolved "https://registry.yarnpkg.com/liquid-fire/-/liquid-fire-0.29.5.tgz#da8e3158e3f96c34a8cf371b90b8ae941ea8960d"
   integrity sha512-h+KxMaCvavkAfL5duNc5tQikrZxzbGVvUdmBU9mjkInUQQKvTjpD1DwphRKk6qWRRuDY9HT2ecY0Hf6/gMXkJA==
@@ -8263,6 +8241,20 @@ liquid-fire@~0.29.1:
     ember-hash-helper-polyfill "^0.2.0"
     match-media "^0.2.0"
     velocity-animate "^1.5.1"
+
+liquid-fire@^0.31.0:
+  version "0.31.0"
+  resolved "https://registry.yarnpkg.com/liquid-fire/-/liquid-fire-0.31.0.tgz#6dc9f4785b5a06dcbe1a7ca4e8b130ac595ee2f5"
+  integrity sha512-KVI2vBB+6I1kvkOSD/S/Vjq5hYqlFw3zBLiRoCSIDj9LMWmm2GEKvQcmpxiqgsdjMS2VAFaqUd+9BJFRvCmIjA==
+  dependencies:
+    broccoli-funnel "^2.0.2"
+    broccoli-merge-trees "^3.0.2"
+    broccoli-stew "^2.1.0"
+    ember-cli-babel "^7.7.3"
+    ember-cli-htmlbars "^3.0.1"
+    ember-cli-version-checker "^3.1.3"
+    match-media "^0.2.0"
+    velocity-animate "^1.5.2"
 
 livereload-js@^2.3.0:
   version "2.4.0"
@@ -9558,9 +9550,8 @@ nypr-audio-services@^0.5.0, nypr-audio-services@nypublicradio/nypr-audio-service
     ember-hifi "^1.11.1"
     ember-responsive "^3.0.0-beta.3"
     ember-simple-auth "^1.3.0"
-    eslint-plugin-ember "^5.0.0"
-    liquid-fire "^0.31.0"
-    nypr-metrics "0.7.1"
+    liquid-fire "^0.29.1"
+    nypr-metrics "^0.5.0"
     nypr-ui "^0.5.0"
 
 nypr-design-system@^2.0.9:
@@ -9631,7 +9622,15 @@ nypr-fastboot@nypublicradio/nypr-fastboot#nc/fork:
     ember-cli-babel "^7.11.1"
     ember-cli-htmlbars "^4.0.0"
 
-nypr-metrics@0.7.1, nypr-metrics@^0.7.1:
+nypr-metrics@^0.5.0:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/nypr-metrics/-/nypr-metrics-0.5.4.tgz#8fcd3abec5412e8826951f034c2307334b8c3965"
+  integrity sha512-Yi94/hlzjEIA2BPFlNd5Q76nznGcI/+n9TBD79Wd9T3pEZXLPLLkjDCG+/JUkjzyP0qz8DRGMTuHtaDWR6VJcA==
+  dependencies:
+    ember-cli-babel "^6.6.0"
+    ember-get-config "^0.2.2"
+
+nypr-metrics@^0.7.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/nypr-metrics/-/nypr-metrics-0.7.1.tgz#abff6c17475a3dd74d68de39b47dba5219eeabe6"
   integrity sha512-tjCQcXoNjEcKpHQ5kiLdUl9tzHyoui3qashJDBtupgKB/61zY1HaQGLYZvnAw4yEOX/Fv1CUriWZLuV1wZgjHg==
@@ -9657,9 +9656,30 @@ nypr-metrics@0.7.1, nypr-metrics@^0.7.1:
     ember-svg-jar "^2.2.3"
     nypr-icons "http://github.com/nypublicradio/nypr-icons.git"
 
-nypr-publisher-lib@nypublicradio/nypr-publisher-lib#bkammin/DSODA-94_add_previous_to_stream_model:
+"nypr-publisher-lib@https://github.com/nypublicradio/nypr-publisher-lib.git#a02bb1fe44b57b057c5f2e80490d0c2e17ebef44":
   version "0.5.7"
-  resolved "https://codeload.github.com/nypublicradio/nypr-publisher-lib/tar.gz/f914808e9f12a25fd07e598c57fc3553448a0bd7"
+  resolved "https://github.com/nypublicradio/nypr-publisher-lib.git#a02bb1fe44b57b057c5f2e80490d0c2e17ebef44"
+  dependencies:
+    "@fortawesome/ember-fontawesome" "^0.1.14"
+    "@fortawesome/free-brands-svg-icons" "^5.10.1"
+    "@fortawesome/free-regular-svg-icons" "^5.10.1"
+    "@fortawesome/free-solid-svg-icons" "^5.10.1"
+    broccoli-funnel "^2.0.1"
+    broccoli-merge-trees "^2.0.0"
+    ember-cli-babel "^6.6.0"
+    ember-cli-htmlbars "^2.0.1"
+    ember-cli-htmlbars-inline-precompile "^1.0.0"
+    ember-cli-sass "^7.0.0"
+    ember-click-outside "^0.1.12"
+    ember-get-config "^0.2.2"
+    liquid-fire "~0.29.1"
+    nypr-audio-services "^0.5.0"
+    nypr-django-for-ember "^0.4.0"
+    nypr-ui "^0.5.0"
+
+nypr-publisher-lib@nypublicradio/nypr-publisher-lib#a02bb1fe44b57b057c5f2e80490d0c2e17ebef44:
+  version "0.5.7"
+  resolved "https://codeload.github.com/nypublicradio/nypr-publisher-lib/tar.gz/a02bb1fe44b57b057c5f2e80490d0c2e17ebef44"
   dependencies:
     "@fortawesome/ember-fontawesome" "^0.1.14"
     "@fortawesome/free-brands-svg-icons" "^5.10.1"

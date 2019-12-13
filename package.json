@@ -99,7 +99,7 @@
     "ember-simple-auth": "^1.8.2",
     "nypr-audio-services": "nypublicradio/nypr-audio-services#jkeen/upgrades",
     "ember-holygrail-layout": "0.3.1",
-    "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#bkammin/DSODA-94_add_previous_to_stream_model"
+    "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#a02bb1fe44b57b057c5f2e80490d0c2e17ebef44"
   },
   "dependencies": {
     "dotenv": "^5.0.1",
@@ -109,7 +109,7 @@
     "include-media": "^1.4.9",
     "nypr-fastboot": "nypublicradio/nypr-fastboot#nc/fork",
     "nypr-icons": "https://github.com/nypublicradio/nypr-icons",
-    "nypr-publisher-lib": "nypublicradio/nypr-publisher-lib#bkammin/DSODA-94_add_previous_to_stream_model",
+    "nypr-publisher-lib": "https://github.com/nypublicradio/nypr-publisher-lib.git#a02bb1fe44b57b057c5f2e80490d0c2e17ebef44",
     "url-parse": "^1.4.3"
   },
   "fastbootDependencies": [
