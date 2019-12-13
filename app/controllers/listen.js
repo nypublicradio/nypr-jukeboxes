@@ -70,9 +70,9 @@ export default Controller.extend({
     }).slice(0,3);
   }),
 
-  twitterHandle: computed('model.stream.about.social', function() {
-    if (this.model.stream.about.social) {
-      let twitter = this.model.stream.about.social.filter(function(s) {
+  twitterHandle: computed('model.show.about.social', function() {
+    if (this.model.show.about.social) {
+      let twitter = this.model.show.about.social.filter(function(s) {
         return s.service == 'twitter';
       });
       if (twitter.length > 0) {
@@ -82,7 +82,7 @@ export default Controller.extend({
     return undefined;
   }),
 
-  emailAddress: reads('model.stream.contactEmail'),
+  emailAddress: reads('model.show.contactEmail'),
 
   actions: {
     updatePlayerState(state) {
