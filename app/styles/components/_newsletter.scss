@@ -84,7 +84,15 @@ input[name="newsletter"] {
 
 .newsletter-form.is-success {
   .newsletter-form-success { 
-    display: block; 
+    display: flex; 
+  }
+
+  .success-message, .success-feedback-button {
+    width: 50%;
+  }
+
+  .success-subtitle {
+    padding: 0px 20px 0px 20px;
   }
 
    + .mailing-list-text-container {
@@ -95,7 +103,7 @@ input[name="newsletter"] {
     display: none;
   }
 
-  .c-newsletter-form__field-group 0> {
+  .c-newsletter-form__field-group > {
     label, input, button { 
       display: none; 
     }
