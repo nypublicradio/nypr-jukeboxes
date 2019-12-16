@@ -156,6 +156,8 @@
     .u-icon--xs {
       height: 12px;
       fill: #ffffff;
+      margin-left: 4px;
+      margin-top: 3px;
     }
   }
 
@@ -290,6 +292,45 @@
     &:hover {
       background-color: #003863;
       opacity: 100%;
+    }
+  }
+}
+
+.listen-message-the-show-popup {
+  // using negative to correct the padding of parent element, which does not 
+  // have a class name specific to the 'Message the Show' popup
+  margin: -1px -6px;
+
+  .c-share-tools__group {
+    margin-top: 0px;
+  }
+
+  .c-share-tools__link {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    &:first-child {
+      margin-top: 0px;
+    }
+
+    width: 100%;
+    height: 100%;
+
+    svg {
+      height: 12px;
+      path {
+        fill: white;
+      }
+    }
+
+   .c-share-tools__link-title {
+      font-family: $font-body-bold;
+      font-size: 10px;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-left: 8px;
     }
   }
 }

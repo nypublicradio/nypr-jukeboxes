@@ -70,6 +70,20 @@ export default Controller.extend({
     }).slice(0,3);
   }),
 
+  twitterHandle: computed('model.show.about.social', function() {
+    if (this.model.show.about.social) {
+      let twitter = this.model.show.about.social.filter(function(s) {
+        return s.service == 'twitter';
+      });
+      if (twitter.length > 0) {
+        return twitter[0]['contact-string'];
+      }
+    }
+    return undefined;
+  }),
+
+  emailAddress: reads('model.show.contactEmail'),
+
   actions: {
     updatePlayerState(state) {
       this.appController.set('showPlayer', state);
