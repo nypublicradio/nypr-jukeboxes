@@ -13,7 +13,39 @@ input[type=email] {
 
 input[name="newsletter"] {
   height: 30px;
-  width: 100%;
+  width: 255px;
+}
+
+form .o-button, .success-feedback-button {
+  font-family: $font-body;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
+  border-color: white;
+  border-radius: 35px;
+  border: 2px solid;
+  height: 30px;
+  width: 140px;
+  line-height: 1; 
+  background: none;
+  text-align: center;
+
+}
+
+.success-feedback-button {
+  padding-top: 7px;
+}
+
+a.feedback-link {
+  height: 30px;
+}
+
+form .o-button:hover, .success-feedback-button:hover {
+  background-color: white;
+  border-color: white;
+  color: $denim-blue;
 }
 
 .newsletter-container {
@@ -25,10 +57,11 @@ input[name="newsletter"] {
 .c-newsletter-form__field-group {
   border: none;
   padding-top: 18px;
+  justify-content: space-between;
 }
 
 .mailing-list-text-container {
-  width: 80%;
+  min-width: 255px;
 }
 
 .mailing-list-title, .success-message {
@@ -41,14 +74,13 @@ input[name="newsletter"] {
 }
 
 .c-newsletter-form__terms { 
-   
   padding-top: 10px;
   .o-checkbox {
     top: 12px;
   }
 }
 
-.submit-button, .success-feedback-button {
+.success-feedback-button {
   font-family: $font-body;
   font-size: 10px;
   font-weight: bold;
@@ -66,13 +98,6 @@ input[name="newsletter"] {
   background: none;
   height: 0px;
   width: 100%;
-
-  &:hover {
-    opacity: 100%;
-    color: $denim-blue;
-    background: white;
-    border-color: white;
-  }
 }
 
 .newsletter-form {
@@ -87,8 +112,12 @@ input[name="newsletter"] {
     display: flex; 
   }
 
-  .success-message, .success-feedback-button {
-    width: 50%;
+  .success-message {
+    width: 100%;
+  }
+
+  .success-feedback-button {
+    width: 220px;
   }
 
   .success-subtitle {
@@ -110,19 +139,47 @@ input[name="newsletter"] {
   }
 }
 
-
-///MOBILE///
-@include media("<=small") {
+///TABLET & MOBILE///
+@include media("<=xlarge") {
   .newsletter-container {
-    padding: 10px;
+    padding: 0px;
+  }
+
+  .c-newsletter-form__button, .mailing-list-text-container, input[name="newsletter"] {
+    width: 100%;
+  } 
+
+  .newsletter-form {
+    padding-left: 50px;
+  }
+
+  .c-newsletter-form__button {
+    background: none;
+    height: 50px;
+  }
+
+  .newsletter-container {
     flex-direction: column-reverse;
   }
 
   .mailing-list-text-container {
-    width: 100%;
+    position: relative;
+    text-align: center;
   }
 
   .c-newsletter-form__field-group {
     flex-direction: column;
+  }
+
+  form .o-button {
+    width: 100%;
+  }
+
+  .newsletter-form.is-success .newsletter-form-success {
+    flex-direction: column;
+  }
+
+  .newsletter-form.is-success .success-subtitle {
+    padding: 0px 50px 15px 0px;
   }
 }
