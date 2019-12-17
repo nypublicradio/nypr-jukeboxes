@@ -9554,10 +9554,10 @@ nypr-audio-services@^0.5.0, nypr-audio-services@nypublicradio/nypr-audio-service
     nypr-metrics "^0.5.0"
     nypr-ui "^0.5.0"
 
-nypr-design-system@^2.0.9:
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/nypr-design-system/-/nypr-design-system-2.0.9.tgz#2b0bf94075857aec0907f81ba1de1c9daa2ff4e7"
-  integrity sha512-M7USFyy8v1TkEZ/eut0clBwTTALiPYUOr8LovgPVB8FBtWbT5qbBBtocAv8P2fJZXfRn0IxP5juKkFLIES2lrw==
+nypr-design-system@^2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/nypr-design-system/-/nypr-design-system-2.10.0.tgz#3bd8e33ed5d8cac6b8824118194388d39cc8267b"
+  integrity sha512-8aqVDH+YD8Tb7b5HV34iG11OvR1Y8odmjwuOXTo3Dgtql1jGLJmGlIDCsNrjdfSmwdE73YI7OQaknWPZ/RLYwQ==
   dependencies:
     "@babel/core" "^7.0.0"
     broccoli-merge-files "^0.8.0"

@@ -32,7 +32,7 @@
               <NyprMShareTools class="listen-message-the-show-popup social-media-links" as |share|>
                 <div class="social-media__container">
                   {{#if twitterHandle}}
-                    <share.link @service='twitter' @username='{{twitterHandle}}' @title='Twitter' />
+                    <share.link @href='#' @service='twitter' @username='{{twitterHandle}}' @title='Twitter' @clickAction={{action 'openTwitterMention'}} @target='_self' />
                   {{/if}}
                   {{#if emailAddress}}
                     <share.link @service='email' @username='{{emailAddress}}' @title='Email' />
@@ -44,7 +44,6 @@
         </div>
         {{/if}}
       </div>
-
     </div>
     <div class="listen-play-button">
       <PlayButton
