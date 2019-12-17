@@ -258,6 +258,6 @@ module('Unit | Controller | listen', function(hooks) {
     }
     controller.set('model', model);
 
-    assert.equal(controller.get('twitterHandle'), "@AnnieWQXR");
+    assert.equal(controller.get('twitterHandle'), "AnnieWQXR");
   });
 });
