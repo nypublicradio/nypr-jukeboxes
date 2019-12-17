@@ -76,7 +76,7 @@ export default Controller.extend({
         return s.service == 'twitter';
       });
       if (twitter.length > 0) {
-        return twitter[0]['contact-string'];
+        return twitter[0]['contact-string'].replace('@', '');
       }
     }
     return undefined;
@@ -87,6 +87,16 @@ export default Controller.extend({
   actions: {
     updatePlayerState(state) {
       this.appController.set('showPlayer', state);
+    },
+
+    openTwitterMention() {
+      let height = 450;
+      let width = 560;
+      let left = (screen.width / 2) - (width / 2);
+      let top = (screen.height / 2) - (height / 2);
+      window.open('https://twitter.com/intent/tweet?screen_name=' + this.twitterHandle,
+                  'popup',
+                  'width=' + width + ', height=' + height + ', toolbar=no, location=no, directories=no, status=no, menubar=no, copyhistory=no, top=' + top + ', left=' + left);
     }
   }
 });
