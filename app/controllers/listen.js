@@ -11,20 +11,15 @@ export default Controller.extend({
   fastboot: service(),
   woms: service(),
   isFastBoot: reads('fastboot.isFastBoot'),
-  MINUTES_UNTIL_STALE: 15,
+  MINUTES_UNTIL_STALE: 61,
 
   recentlyPlayed: computed('clock.minute', 'model.currentAiring', 'model.recentTracks', function() {
     let now = moment();
-    let currentAiringTracks = this.model.currentAiring.tracks
 
-    if (currentAiringTracks.length > 0) {
-      return currentAiringTracks;
-    }
-    else {
-      return this.store.peekAll('track')
-        .filter(t => now.diff(t.startTime, 'minutes') < this.MINUTES_UNTIL_STALE)
-        .sortBy('startTime').reverse()
-    }
+    return this.store.peekAll('track')
+      .filter(t => now.diff(t.startTime, 'minutes') < this.MINUTES_UNTIL_STALE)
+      .sortBy('startTime')
+      .reverse();
   }),
 
   twitterHandle: computed('model.show.about.social', function() {
