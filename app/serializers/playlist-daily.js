@@ -24,9 +24,13 @@ const trackAttributeTransform = {
 const airingAttributeTransform = {
   startTime    : 'iso_start_timestamp',
   endTime      : 'iso_end_timestamp',
-  showSlug     : (e) => e.event_url.split('/').pop(),
+  showSlug     : function(e) {
+    return e.event_url ? e.event_url.split('/').pop() : undefined;
+  },
   showId       : 'show_id',
-  showTitle    : 'show_title'
+  showTitle    : function(e) {
+    return e.show_title ? e.show_title : '';
+  }
 }
 
 export default ApplicationSerializer.extend({
