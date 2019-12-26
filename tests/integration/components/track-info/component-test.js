@@ -24,7 +24,7 @@ module('Integration | Component | track-info', function(hooks) {
 
     assert.equal(find('.composer').textContent.trim(), 'Jeronimo Gimenez');
     assert.equal(find('.title').textContent.trim(), 'La boda de Luis Alonso: Intermezzo');
-    assert.equal(find('.start-time').textContent.trim(), '6:10 PM');
+    assert.equal(find('.start-time').textContent.trim(), '7:10 PM');
     assert.equal(find('.ensemble'), null);
     assert.equal(find('.conductor'), null);
 

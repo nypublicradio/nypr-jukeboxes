@@ -52,8 +52,10 @@ export default Service.extend({
     this.socketRef.send({'data': {'stream': 'wqxr'}}, true);
     this.isConnected = true;
     this.initialRetryAttempted = false;
-    run.cancel(this.get('nextCheck'));
-    this.set('nextCheck', null);
+    if (!isReconnectTimerDisabled) {
+      run.cancel(this.get('nextCheck'));
+      this.set('nextCheck', null);
+    }
   },
 
   socketMessageHandler(event) {
@@ -117,5 +119,16 @@ export default Service.extend({
       this.socketReconnect();
     }
     this.checkConnectionInOneMinute();
+  },
+
+  willDestroy: function() {
+    this._super(...arguments);
+
+    this.set('lastMessage', undefined);
+    if (this.socketRef) {
+      this.socketRef.off('open', this.socketOpenHandler);
+      this.socketRef.off('message', this.socketMessageHandler);
+      this.socketRef.off('close', this.socketClosedHandler);
+    }
   },
 });

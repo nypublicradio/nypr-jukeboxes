@@ -80,7 +80,8 @@ module.exports = function(environment) {
     ENV.etagAPI = 'http://api.example.com/api/v1/browser_id/';
     ENV.authAPI = 'http://api.example.com/auth';
     ENV.membershipAPI = 'http://api.example.com/membership';
-    ENV.womsRestAPI = 'http://api.example.com/whats-on',
+    //ENV.womsRestAPI = 'http://api.example.com/whats-on',
+    ENV.womsRestAPI = '/whats-on',
 
     ENV.platformEventsAPI = 'http://example.com';
     ENV.fastboot.hostWhitelist = ['/.*/'];
