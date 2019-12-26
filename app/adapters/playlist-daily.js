@@ -9,12 +9,10 @@ const json = r => r.json();
 export default DS.JSONAPIAdapter.extend(CachedShoe, {
 	host: config.publisherAPI,
   namespace: 'v1',
-	// BEGIN-SNIPPET playlist-daily-find-record
   findRecord(store, type, id/*, snapshot*/) {
     let base = `${this.host}/${this.namespace}`;
     return rsvp.hash({
       playlistDaily: fetch(`${base}/playlist-daily/${id}/`).then(json),
     });
   }
-  // END-SNIPPET
 });
