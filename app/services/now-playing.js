@@ -70,9 +70,14 @@ export default Service.extend({
 
   async refreshStream() {
     let stream = await this.store.findRecord('stream', this.slug, {reload: true});
-    let show   = await this.store.findRecord('show', stream.currentShow.group_slug);
     this.set('stream', stream);
-    this.set('show', show);
+
+    if (stream.currentShow) {
+      let show   = await this.store.findRecord('show', stream.currentShow.group_slug);
+      this.set('show', show);
+    } else {
+      this.set('show', undefined);
+    }
 
     return stream;
   },
