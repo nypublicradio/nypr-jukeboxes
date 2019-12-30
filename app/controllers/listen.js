@@ -23,7 +23,7 @@ export default Controller.extend({
   }),
 
   twitterHandle: computed('model.show.about.social', function() {
-    if (this.model.show.about.social) {
+    if (this.model.show && this.model.show.about.social) {
       let twitter = this.model.show.about.social.filter(function(s) {
         return s.service == 'twitter';
       });
