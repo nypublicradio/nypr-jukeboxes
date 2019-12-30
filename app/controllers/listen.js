@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 import { reads } from '@ember/object/computed';
 import { inject as controller } from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
+import { get, computed } from '@ember/object';
 import moment from 'moment';
 
 export default Controller.extend({
@@ -35,6 +35,15 @@ export default Controller.extend({
   }),
 
   emailAddress: reads('model.show.contactEmail'),
+
+  onAirTitle: computed('model.stream.currentShow.title', 'model.stream.name', function() {
+    if (get(this, 'model.stream.currentShow.title')) {
+      return get(this, 'model.stream.currentShow.title');
+    } else if (get(this, 'model.stream.name')) {
+      return get(this, 'model.stream.name');
+    }
+    return undefined;
+  }),
 
   actions: {
     updatePlayerState(state) {
