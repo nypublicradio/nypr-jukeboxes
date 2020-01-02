@@ -54,22 +54,24 @@
   .on-air-now-upper {
     @include media("<medium") {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       margin-bottom: 24px;
       justify-content: center;
     }
-
     > .show-image {
       max-height: 100px;
       max-width: 100px;
       border-radius: 50%;
       filter: grayscale(100%);
-      margin-left: 0;
-      margin-right: 16px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10px;
       display: block;
-      margin-bottom: 0;
       @include media(">=medium") {
         display: none;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
       }
     }
   }
@@ -89,7 +91,7 @@
     margin-right: auto;
     margin-bottom: 20px;
     @include media("<medium") {
-      margin-left: 0;
+      //margin-left: 0;
       margin-bottom: 10px;
     }
   }
@@ -106,12 +108,15 @@
       margin-bottom: 12px;
       @include media("<medium") {
         display: none;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
       }
     }
   }
 
   .show-title {
-    font-family: $font-body-bold;
+    font-family: $font-heading;
     font-size: 28px;
     line-height: 1.36;
     text-align: center;
@@ -120,7 +125,7 @@
     @include media("<medium") {
       font-size: 17px;
       line-height: 1.29;
-      text-align: left;
+      text-align: center;
     }
   }
 
@@ -128,7 +133,7 @@
     display: flex;
     justify-content: center;
     @include media("<medium") {
-      justify-content: left;
+      justify-content: center;
       margin-bottom: 0;
     }
   }
