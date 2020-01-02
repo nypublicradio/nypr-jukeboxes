@@ -42,7 +42,7 @@
 
 .on-air-now {
   padding: 24px;
-  width: 369px;
+  //width: 369px;
   @include media("<medium") {
     width: 100%;
   }
@@ -84,19 +84,24 @@
     text-align: center;
     color: #0064b4;
     line-height: 16px;
-    margin-left: auto;
+    //margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
+    //margin-bottom: 20px;
     @include media("<medium") {
-      //margin-left: 0;
+      margin-left: auto;
       margin-bottom: 10px;
     }
   }
 
   .on-air-now-inner {
+    @include media(">medium") {
+      display: flex;
+      flex-direction: row-reverse;
+    }
     .show-image {
-      max-height: 176px;
-      max-width: 176px;
+      height: 176px;
+      width: 176px;
+      object-fit: cover;
       border-radius: 50%;
       filter: grayscale(100%);
       margin-left: auto;
@@ -110,13 +115,16 @@
         margin-bottom: 10px;
       }
     }
+    .test {
+      width: 100%;
+    }
   }
 
   .show-title {
     font-family: $font-heading;
     font-size: 28px;
     line-height: 1.36;
-    text-align: center;
+    //text-align: center;
     color: #ffffff;
     margin-bottom: 8px;
     @include media("<medium") {
@@ -128,7 +136,7 @@
 
   .message-the-show {
     display: flex;
-    justify-content: center;
+    //justify-content: center;
     @include media("<medium") {
       justify-content: center;
       margin-bottom: 0;
