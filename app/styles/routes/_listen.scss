@@ -69,9 +69,6 @@
       display: block;
       @include media(">=medium") {
         display: none;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 10px;
       }
     }
   }
