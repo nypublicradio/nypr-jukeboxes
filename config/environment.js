@@ -80,8 +80,8 @@ module.exports = function(environment) {
     ENV.etagAPI = 'http://api.example.com/api/v1/browser_id/';
     ENV.authAPI = 'http://api.example.com/auth';
     ENV.membershipAPI = 'http://api.example.com/membership';
-    ENV.womsAPI = 'wss://example.com', // todo: use socket mocking
-    ENV.womsRestAPI = '/whats-on',
+    ENV.womsAPI = 'wss://example.com';
+    ENV.womsRestAPI = '/whats-on';
 
     ENV.platformEventsAPI = 'http://example.com';
     ENV.fastboot.hostWhitelist = ['/.*/'];

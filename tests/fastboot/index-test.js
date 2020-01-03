@@ -21,7 +21,7 @@ module('FastBoot | index test', function(hooks) {
 
     let { statusCode } = await visit('/listen', {
       metadata: {
-        test: {
+        testOptions: {
           freezeDateAt: "2020-01-13T18:29:00+00:00"
         }
       }
@@ -44,8 +44,8 @@ module('FastBoot | index test', function(hooks) {
     let { statusCode } = await visit('/listen',
       {
         metadata: {
-          test: {
-            freezeDate: "2020-01-13T18:29:00+00:00"
+          testOptions: {
+            freezeDateAt: "2020-01-13T18:29:00+00:00"
           }
         }
       }

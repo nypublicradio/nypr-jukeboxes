@@ -3,6 +3,8 @@ import { inject as service } from '@ember/service';
 import { schedule } from '@ember/runloop';
 import { get } from "@ember/object";
 import tk from 'timekeeper';
+import moment from 'moment';
+import Ember from 'ember';
 
 export default Route.extend({
   router: service(),
@@ -38,17 +40,6 @@ export default Route.extend({
       schedule('afterRender', () => this.dataLayer.sendPageView());
     });
     this.hifi.set('volume', 100);
-
-    if (get(this, 'isFastBoot')) {
-      // For fastboot tests we need to freeze the date to match our test responses,
-      // and there's no good hookto do that in ember-cli-fastboot-testing right now, so we're
-      // passing some custom params into the request
-      
-      let { test } = this.fastboot.get('metadata');
-      if (test && test.freezeDateAt) {
-        tk.freeze(test.freezeDateAt)
-      }
-    }
   },
 
   async model() {
@@ -57,10 +48,16 @@ export default Route.extend({
   },
 
   beforeModel() {
-    // Don't start poll in Fastboot
-    if (get(this, 'isFastBoot')) {
-      this.set('session.noRefresh', true);
-      return;
+    if (this.fastboot.isFastBoot) {
+      // For fastboot tests we need to freeze the date to match our test responses
+      // and there's no good hook to do that in ember-cli-fastboot-testing
+      // so we're passing some custom params into the request
+
+      let { testOptions } = this.fastboot.get('metadata');
+      if (Ember.testing && testOptions && testOptions.freezeDateAt) {
+        tk.freeze(new Date(testOptions.freezeDateAt))
+        moment.now = function () { return new Date(); }
+      }
     }
   },
 

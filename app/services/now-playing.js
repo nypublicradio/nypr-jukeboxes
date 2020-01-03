@@ -85,11 +85,11 @@ export default Service.extend({
 
     if (stream.currentShow) {
       try {
-        let show   = await this.store.findRecord('show', stream.currentShow.group_slug);
+        let show  = await this.store.findRecord('show', stream.currentShow.group_slug);
         this.set('show', show);
       }
       catch(e) {
-        // 404'd
+        this.set('show', undefined); // 404'd, no show
       }
     } else {
       this.set('show', undefined);
