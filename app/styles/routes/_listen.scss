@@ -9,6 +9,7 @@
   margin-right: 16px;
 
   .playlist-history {
+    background: white;
     width: 504px;
     padding-top: 24px;
   }
@@ -27,16 +28,18 @@
 
 .listen-play-button {
   display: flex;
-  justify-content: center;
-  margin-top: 50px;
+  justify-content: left;
   .play-button {
     width: 60px;
     height: 60px;
-
     @include media("<medium") {
       width: 65px;
       height: 65px;
+      justify-content: center;
     }
+  }
+  @include media("<medium") {
+    justify-content: center;
   }
 }
 
@@ -182,6 +185,7 @@
 }
 
 .currently-listening-to {
+  background-color: white;
   padding: 0 24px;
   @include media("<medium") {
     width: 100%;
@@ -191,19 +195,19 @@
     font-family: $font-body-bold;
     font-size: 10px;
     letter-spacing: 1px;
-    color: #ffffff;
+    color: $denim-blue;
     margin-bottom: 8px;
     text-transform: uppercase;
   }
 
   .song-metadata {
-    background-image: linear-gradient(#ffffff, #ffffff);
+    background-image: linear-gradient($water-blue, $water-blue);
     background-size: 2px calc(100% - 30px);
     background-position: 3px bottom;
     padding-bottom: 32px;
 
     .composer {
-      color: #ffffff;
+      color: $denim-blue;
       font-size: 38px;
       font-weight: 900px;
       line-height: 0.95;
@@ -215,14 +219,14 @@
     }
 
     .start-time {
-      color: #ffffff;
+      color: black;
       text-transform: uppercase;
-      opacity: 1.0;
+      opacity: 0.5;
       margin-top: 6px;
     }
 
     .title {
-      color: #ffffff;
+      color: black;
       font-size: 18px;
       line-height: normal;
       font-weight: bold;
@@ -234,7 +238,7 @@
     }
 
     .dot {
-      background-color: #ffffff;
+      background-color: $water-blue;
       margin-left: -4px;
       margin-right: 20px;
       margin-top: 14px;
@@ -254,7 +258,6 @@
 .recently-played {
   background-color: white;
   padding: 24px;
-  border-radius: 4px;
   display: flex;
   flex-direction: column;
   @include media("<medium") {
