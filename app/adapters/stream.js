@@ -3,10 +3,9 @@ import DS from 'ember-data';
 import rsvp from 'rsvp';
 import fetch from 'fetch';
 import moment from 'moment';
-
+import CachedShoe   from 'ember-cached-shoe'
 const json = r => r.json();
-
-export default DS.JSONAPIAdapter.extend({
+export default  DS.JSONAPIAdapter.extend(CachedShoe, {
   host: config.publisherAPI,
   namespace: 'v1',
   findAll() {

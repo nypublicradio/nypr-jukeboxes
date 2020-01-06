@@ -1,22 +1,24 @@
 import Service from '@ember/service';
 import config from '../config/environment';
-import { inject as service} from '@ember/service';
+import { getOwner } from '@ember/application';
+import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
+import { get } from '@ember/object';
 import ENV from '../config/environment';
 import { run } from '@ember/runloop';
-import moment from "moment";
 
 const isReconnectTimerDisabled = ENV['ember-clock'] && ENV['ember-clock'].disabled;
 export default Service.extend({
   womsHost: config.womsAPI,
   store: service(),
   hifi: service(),
+  nowPlaying: service(),
   websockets: service(),
   socketRef: null,
-  currentStream: service(),
   isConnected: false,
   firstUpdateReceived: false,
   initialRetryAttempted: false,
+  lastMessage: null,
   fastboot: service(),
   isFastBoot: reads('fastboot.isFastBoot'),
 
@@ -29,7 +31,7 @@ export default Service.extend({
   },
 
   async connectWOMS() {
-    let response = await this.get('currentStream').getStream();
+    let response = await this.get('nowPlaying').getStream();
     this.subscribeWOMS(response);
   },
 
@@ -50,17 +52,41 @@ export default Service.extend({
     this.socketRef.send({'data': {'stream': 'wqxr'}}, true);
     this.isConnected = true;
     this.initialRetryAttempted = false;
-    run.cancel(this.get('nextCheck'));
-    this.set('nextCheck', null);
+    if (!isReconnectTimerDisabled) {
+      run.cancel(this.get('nextCheck'));
+      this.set('nextCheck', null);
+    }
   },
 
   socketMessageHandler(event) {
     let data = JSON.parse(event.data);
     if (data.Item && data.Item.metadata) {
       this.firstUpdateReceived = true;
-      this.processWOMSData(data.Item.metadata);
-      this.get('currentStream').refreshStream();
+      this.set('lastMessage', data);
+      this.processWomsData(data);
+      let owner = getOwner(this);
+      let applicationController = owner.lookup('controller:application');
+      let currentRoute = get(applicationController, 'currentRouteName');
+      let route = owner.lookup(`route:${currentRoute}`);
+      route.refresh();
     }
+  },
+
+  processWomsData(data) {
+    var modelClass = this.store.modelFor('whats-on');
+    var serializer = this.store.serializerFor('whats-on');
+
+    var normalized = serializer.normalizeSingleResponse(this.store, modelClass, {
+      data: {
+        attributes: data,
+        id: 'whats-on',
+        type: 'whats-on'
+      }
+    }, data.id);
+
+    // This will update the existing model if it exists, adds it if it doesn't
+    let model = this.store.push(normalized);
+    this.nowPlaying.set('track', model.tracks.firstObject);
   },
 
   socketClosedHandler(/*event*/) {
@@ -72,25 +98,6 @@ export default Service.extend({
     } else {
       this.checkConnectionInOneMinute();
     }
-  },
-
-  processWOMSData(metadata) {
-    if (metadata.real_start_time) {
-      // @todo remove this when `real_start_time` becomes a numerical timetamp "YYYY-MM-DD HH:mm:ss.SSS"
-      let realStartTime = moment.tz(metadata.real_start_time, "America/New_York");
-      if (realStartTime.isValid()) {
-        metadata.real_start_time = realStartTime.valueOf() / 1000;
-      }
-    }
-
-    if (metadata.start_time) {
-      let startTime = moment.tz(metadata.start_time, "America/New_York");
-      if (startTime.isValid()) {
-        metadata.start_time = startTime.valueOf() / 1000;
-      }
-    }
-
-    this.set('metadata', metadata);
   },
 
   socketReconnect: function() {
@@ -112,5 +119,16 @@ export default Service.extend({
       this.socketReconnect();
     }
     this.checkConnectionInOneMinute();
+  },
+
+  willDestroy: function() {
+    this._super(...arguments);
+
+    this.set('lastMessage', undefined);
+    if (this.socketRef) {
+      this.socketRef.off('open', this.socketOpenHandler);
+      this.socketRef.off('message', this.socketMessageHandler);
+      this.socketRef.off('close', this.socketClosedHandler);
+    }
   },
 });

@@ -9,6 +9,13 @@
     </div>
   </TrackAdditionalInfo>
 </div>
-<div class="start-time">{{format-start-time startTime}}</div>
+
+<div class="start-time" data-time={{startTime}}>
+  {{#if isLive}}
+    Now
+  {{else}}
+    {{moment-format startTime "h:mm A"}}
+  {{/if}}
+</div>
 
 {{yield}}

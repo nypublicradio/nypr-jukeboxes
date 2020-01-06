@@ -2,22 +2,29 @@ import Ember from 'ember';
 import Route from '@ember/routing/route';
 import { inject as service} from '@ember/service';
 import rsvp from "rsvp";
+import moment from "moment";
 
 export default Route.extend({
-  currentStream: service(),
+  nowPlaying: service(),
   metadata: service(),
 
-  async model() {
+  beforeModel() {
+    this._super(...arguments);
     let controller = this.controllerFor('application');
     controller.send('setNavSlug', 'listen');
+  },
 
-    return await this.get('currentStream').refreshStream().then(stream => {
-      let showSlug = stream.currentShow.group_slug;
-      return rsvp.hash({
-        stream: stream,
-        show: this.store.findRecord('show', showSlug),
-      });
-    })
+  async model() {
+    let serverDate = moment.tz(moment(), "America/New_York")
+    let playlistHistory = await this.store.findRecord('playlist-daily', `wqxr/${serverDate.format('YYYY/MMM/DD').toLowerCase()}`, { reload: true });
+
+    await this.get('nowPlaying').refreshStream()
+
+    return rsvp.hash({
+      currentAiring: playlistHistory.airings.findBy('isLive', true),
+      stream: this.nowPlaying.stream,
+      show: this.nowPlaying.show,
+    });
   },
 
   afterModel() {
@@ -42,4 +49,3 @@ export default Route.extend({
     }
   }
 });
-

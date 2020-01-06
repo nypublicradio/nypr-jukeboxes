@@ -5,21 +5,25 @@ import RSVP from 'rsvp';
 import moment from 'moment';
 
 export default Route.extend({
-  streamMetadata: service(),
   metadata: service(),
 
-  model({ year, month, day }) {
+  beforeModel() {
+    this._super(...arguments);
     let controller = this.controllerFor('application');
     controller.send('setNavSlug', 'playlist-history');
+  },
 
-    let date = moment().format();
+  model({ year, month, day }) {
+    let date = moment();
     if (moment(year + '/' + month + '/' + day).isValid()) {
-      date = moment(year + '/' + month + '/' + day).format();
+      date = moment(year + '/' + month + '/' + day);
     }
 
+    let serverDate = moment.tz(date, "America/New_York")
     let hash = {
-      playlist: this.get('streamMetadata').load(date),
-      date: date
+      playlistDaily: this.store.findRecord('playlist-daily', `wqxr/${serverDate.format('YYYY/MMM/DD').toLowerCase()}`, { reload: true }),
+      serverDate: serverDate.format(),
+      localDate: date.format()
     };
     return RSVP.hash(hash);
   },

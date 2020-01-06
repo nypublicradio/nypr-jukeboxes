@@ -9,8 +9,8 @@ HOSTDICT[config.wqxrURL] = 'wqxr';
 
 export default Service.extend({
   fastboot: service(),
-  store: service(),
-  woms: service(),
+  store:    service(),
+  woms:     service(),
 
   // TODO: onload, this variable infers the slug from the host domain.
   // if we continue with the monorepo implementation, this variable will
@@ -23,18 +23,24 @@ export default Service.extend({
     return this.slugFromHost || this.stream.slug;
   }),
 
-  composerName: reads('woms.metadata.mm_composer1'),
-  trackTitle: reads('woms.metadata.title'),
-  ensembleName: reads('woms.metadata.mm_ensemble1'),
-  conductorName: reads('woms.metadata.mm_conductor'),
-  trackStartTimeTs: reads('woms.metadata.real_start_time'),
-  showTitle: reads('stream.currentShow.title'),
-  episodeTitle: reads('stream.currentShow.episodeTitle'),
-  showHost: reads('stream.currentShow.currentHost'),
-
+  track: null,
+  trackId: reads('track.id'),
+  composerName: reads('track.composerName'),
+  trackTitle: reads('track.trackTitle'),
+  ensembleName: reads('track.ensembleName'),
+  conductorName: reads('track.conductorName'),
+  trackStartTime: reads('track.startTime'),
   hasCurrentTrack: computed('composerName', 'trackTitle', function() {
     return this.composerName || this.trackTitle;
   }),
+
+  stream: null,
+  showTitle: reads('show.title'),
+  episodeTitle: reads('show.episodeTitle'),
+  showHost: reads('show.currentHost'),
+
+  show: null,
+  showSlug: reads('show.slug'),
 
   init() {
     this._super(...arguments);
@@ -49,6 +55,11 @@ export default Service.extend({
     this.set('slug', slugFromHost);
   },
 
+  async load() {
+    let nowPlaying = await this.store.queryRecord('whats-on', {stream: this.slug});
+    this.set('track', nowPlaying.tracks.firstObject);
+  },
+
   async getStream() {
     if (this.get('stream')) {
       return this.get('stream');
@@ -59,9 +70,15 @@ export default Service.extend({
 
   async refreshStream() {
     let stream = await this.store.findRecord('stream', this.slug, {reload: true});
-    let show   = await this.store.findRecord('show', stream.currentShow.group_slug);
     this.set('stream', stream);
-    this.set('show', show);
+
+    if (stream.currentShow) {
+      let show   = await this.store.findRecord('show', stream.currentShow.group_slug);
+      this.set('show', show);
+    } else {
+      this.set('show', undefined);
+    }
+
     return stream;
   },
 });

@@ -28,13 +28,13 @@
 
 {{#animated-if showPlayer use=showPlayerAnimation}}
   <JukeboxPlayer
-    @trackTitle={{this.currentStream.trackTitle}}
-    @showTitle={{this.currentStream.showTitle}}
-    @episodeTitle={{this.currentStream.episodeTitle}}
-    @ensembleName={{this.currentStream.ensembleName}}
-    @conductorName={{this.currentStream.conductorName}}
-    @composerName={{this.currentStream.composerName}}
-    @streamSlug={{this.currentStream.slug}}
-    @streamName={{this.currentStream.name}}
+    @trackTitle={{this.nowPlaying.trackTitle}}
+    @showTitle={{this.nowPlaying.showTitle}}
+    @episodeTitle={{this.nowPlaying.episodeTitle}}
+    @ensembleName={{this.nowPlaying.ensembleName}}
+    @conductorName={{this.nowPlaying.conductorName}}
+    @composerName={{this.nowPlaying.composerName}}
+    @streamSlug={{this.nowPlaying.slug}}
+    @streamName={{this.nowPlaying.name}}
   />
 {{/animated-if}}

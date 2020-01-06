@@ -1,24 +1,24 @@
-import { module, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | play-schedule/track', function(hooks) {
+module('Integration | Component | current-show', function(hooks) {
   setupRenderingTest(hooks);
 
-  skip('it renders', async function(assert) {
+  test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{play-schedule/track}}`);
+    await render(hbs`{{on-air-image}}`);
 
     assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      {{#play-schedule/track}}
+      {{#on-air-image}}
         template block text
-      {{/play-schedule/track}}
+      {{/on-air-image}}
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');

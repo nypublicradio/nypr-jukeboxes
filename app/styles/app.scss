@@ -23,7 +23,7 @@
 @import "routes/listen";
 @import "routes/playlist-history";
 
-body.ember-application{
+.ember-application {
   font-family: $font-body;
   font-weight: normal;
   line-height: 1.0;

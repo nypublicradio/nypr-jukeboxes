@@ -76,12 +76,16 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.publisherAPI = '/api'; //ember-cli-fastboot-testing needs this
-    ENV.etagAPI = 'http://example.com/api/v1/browser_id/';
     ENV.webRoot = 'http://example.com';
-    ENV.authAPI = 'http://example.com';
-    ENV.membershipAPI = 'http://example.com';
+    ENV.etagAPI = 'http://api.example.com/api/v1/browser_id/';
+    ENV.authAPI = 'http://api.example.com/auth';
+    ENV.membershipAPI = 'http://api.example.com/membership';
+    ENV.womsAPI = 'wss://t5xpql2hqf.execute-api.us-east-1.amazonaws.com/sandbox',
+    ENV.womsRestAPI = '/whats-on',
+
     ENV.platformEventsAPI = 'http://example.com';
     ENV.fastboot.hostWhitelist = ['/.*/'];
+    ENV.APP.autoboot = false;
 
     ENV['ember-clock'] = {
       disabled: true

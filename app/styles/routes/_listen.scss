@@ -60,15 +60,17 @@
     }
 
     > .show-image {
-      max-height: 100px;
-      max-width: 100px;
-      border-radius: 4px;
-      margin-left: 0;
-      margin-right: 16px;
-      display: block;
-      margin-bottom: 0;
-      @include media(">=medium") {
-        display: none;
+      img {
+        max-height: 100px;
+        max-width: 100px;
+        border-radius: 4px;
+        margin-left: 0;
+        margin-right: 16px;
+        display: block;
+        margin-bottom: 0;
+        @include media(">=medium") {
+          display: none;
+        }
       }
     }
   }
@@ -95,15 +97,17 @@
 
   .on-air-now-inner {
     .show-image {
-      max-height: 176px;
-      max-width: 176px;
-      border-radius: 4px;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      margin-bottom: 12px;
-      @include media("<medium") {
-        display: none;
+      img {
+        max-height: 176px;
+        max-width: 176px;
+        border-radius: 4px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-bottom: 12px;
+        @include media("<medium") {
+          display: none;
+        }
       }
     }
   }
