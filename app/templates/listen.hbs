@@ -40,12 +40,13 @@
           </div>
           {{/if}}
 
-                  <div class="listen-play-button">
-          <PlayButton class="play-button mod-main-page" data-action="Clicked Play/Pause Stream: jukebox-display"
-            data-label={{model.stream.name}} title={{model.stream.name}} @playItemId={{model.stream.slug}}
-            @onEnterViewport={{action "updatePlayerState" false}} @onExitViewport={{action "updatePlayerState" true}} />
-        </div>
-        
+          <div class="listen-play-button">
+            <PlayButton class="play-button mod-main-page" data-action="Clicked Play/Pause Stream: jukebox-display"
+              data-label={{model.stream.name}} title={{model.stream.name}} @playItemId={{model.stream.slug}}
+              @onEnterViewport={{action "updatePlayerState" false}}
+              @onExitViewport={{action "updatePlayerState" true}} />
+          </div>
+
         </div>
       </div>
     </div>
@@ -102,6 +103,7 @@
     {{/if}}
   </div>
   {{/liquid-if}}
+  </div>
 </div>
 
 {{outlet}}
