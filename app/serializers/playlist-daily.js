@@ -57,6 +57,23 @@ export default ApplicationSerializer.extend({
     return events;
   },
 
+  _generateTrackPayload(track, airing) {
+    let trackAttrs = transformAttributes(track, trackAttributeTransform);
+    return {
+      id: generateTrackUniqueId(trackAttrs),
+      type: 'track',
+      attributes: trackAttrs,
+      relationships: {
+        airing: {
+          data: {
+            id: airing.id,
+            type: airing.type
+          }
+        }
+      }
+    }
+  },
+
   normalizeFindRecordResponse(store, modelClass, payload, id, requestType) {
     let events = this._sortEvents(payload.playlistDaily.events);
         events = this._consolidatePlaylists(events);
@@ -71,22 +88,7 @@ export default ApplicationSerializer.extend({
       };
 
       if (event.playlist && event.playlist.length > 0) {
-        let tracks = event.playlist.map(track => {
-          let trackAttrs = transformAttributes(track, trackAttributeTransform);
-          return {
-            id: generateTrackUniqueId(trackAttrs),
-            type: 'track',
-            attributes: trackAttrs,
-            relationships: {
-              airing: {
-                data: {
-                  id: airing.id,
-                  type: airing.type
-                }
-              }
-            }
-          }
-        })
+        let tracks = event.playlists.map(track => this._generateTrackPayload(track, airing))
 
         if (tracks.length > 0) {
           airing.relationships = {
