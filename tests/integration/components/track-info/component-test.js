@@ -2,9 +2,14 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, find, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import moment from 'moment';
 
 module('Integration | Component | track-info', function(hooks) {
   setupRenderingTest(hooks);
+
+  hooks.beforeEach(() => {
+    moment.tz.setDefault("America/New_York");
+  })
 
   test('it renders', async function(assert) {
     this.set('composerName', 'Jeronimo Gimenez');
@@ -12,7 +17,7 @@ module('Integration | Component | track-info', function(hooks) {
     this.set('ensembleName', 'Vienna Radio Symphony Orchestra');
     this.set('conductorName', 'Garcia Navarro');
 
-    this.set('startTime', new Date("2019-12-01T00:10:00+00:00"));
+    this.set('startTime', new Date("2020-01-05T00:10:00+00:00"));
 
     await render(hbs`{{track-info
       trackTitle=trackTitle
