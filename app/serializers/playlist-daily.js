@@ -34,12 +34,14 @@ const airingAttributeTransform = {
 }
 
 export default ApplicationSerializer.extend({
-  normalizeFindRecordResponse(store, modelClass, payload, id, requestType) {
-    payload.playlistDaily.events.sort(function(a, b) {
+  _sortEvents(events) {
+    return events.sort(function(a, b) {
       return (moment(get(a, 'iso_start_timestamp'), 'YYYY-MM-DDTHH:mm:ss') > moment(get(b, 'iso_start_timestamp'), 'YYYY-MM-DDTHH:mm:ss') ? -1 : 1);
     });
+  },
 
-    payload.playlistDaily.events.forEach(function(event) {
+  _consolidatePlaylists(events) {
+    events.forEach(function(event) {
       if (event.playlists) {
         var playlist = [];
 
@@ -52,9 +54,16 @@ export default ApplicationSerializer.extend({
       }
     });
 
+    return events;
+  },
+
+  normalizeFindRecordResponse(store, modelClass, payload, id, requestType) {
+    let events = this._sortEvents(payload.playlistDaily.events);
+        events = this._consolidatePlaylists(events);
+
     let included = [];
 
-    let airings = payload.playlistDaily.events.map(event => {
+    let airings = events.map(event => {
       let airing = {
         id: event.id,
         type: 'airing',
@@ -93,7 +102,6 @@ export default ApplicationSerializer.extend({
     })
 
     airings.forEach(a => included.push(a));
-
 
     let normalizedPayload = {
       data: {
