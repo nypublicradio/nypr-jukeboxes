@@ -41,7 +41,7 @@ export default ApplicationSerializer.extend({
   },
 
   _consolidatePlaylists(events) {
-    events.forEach(function(event) {
+    events.forEach(event => {
       if (event.playlists) {
         var playlist = [];
 
@@ -88,7 +88,7 @@ export default ApplicationSerializer.extend({
       };
 
       if (event.playlist && event.playlist.length > 0) {
-        let tracks = event.playlists.map(track => this._generateTrackPayload(track, airing))
+        let tracks = event.playlist.map(track => this._generateTrackPayload(track, airing))
 
         if (tracks.length > 0) {
           airing.relationships = {
