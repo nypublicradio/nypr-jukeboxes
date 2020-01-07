@@ -32,25 +32,16 @@
                   {{/if}}
                   {{#if emailAddress}}
                     <share.link @service='email' @username='{{emailAddress}}' @title='Email' />
-                    {{/if}}
-                  </div>
-                </NyprMShareTools>
-              </toggle.dropdown>
-            </ToggleBox>
-          </div>
-          {{/if}}
-
-          <div class="listen-play-button">
-            <PlayButton class="play-button mod-main-page" data-action="Clicked Play/Pause Stream: jukebox-display"
-              data-label={{model.stream.name}} title={{model.stream.name}} @playItemId={{model.stream.slug}}
-              @onEnterViewport={{action "updatePlayerState" false}}
-              @onExitViewport={{action "updatePlayerState" true}} />
-          </div>
-
+                  {{/if}}
+                </div>
+              </NyprMShareTools>
+            </toggle.dropdown>
+          </ToggleBox>
         </div>
+        {{/if}}
       </div>
     </div>
-    {{!-- <div class="listen-play-button">
+    <div class="listen-play-button">
       <PlayButton
         class="play-button mod-main-page"
         data-action="Clicked Play/Pause Stream: jukebox-display"
@@ -60,7 +51,7 @@
         @onEnterViewport={{action "updatePlayerState" false}}
         @onExitViewport={{action "updatePlayerState" true}}
       />
-    </div> --}}
+    </div>
   </div>
 
   {{#liquid-if (or this.nowPlaying.hasCurrentTrack (not (is-empty this.recentlyPlayed)))}}
@@ -99,11 +90,7 @@
         </div>
       {{/if}}
     </div>
-    {{/if}}
-    {{/if}}
-  </div>
   {{/liquid-if}}
-  </div>
 </div>
 
 {{outlet}}
