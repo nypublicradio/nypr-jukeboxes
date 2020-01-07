@@ -1,14 +1,6 @@
 <div class="listen">
   <div class="on-air-now">
     <div class="on-air-now-upper">
-    <OnAirImage
-      @stream={{model.stream}}
-      @show={{model.show}}
-      @height=200
-      @width=200
-      @altText={{onAirTitle}}
-    />
-    <div class="on-air-now-inner">
       <div class="on-air-now-label">ON AIR NOW</div>
       <OnAirImage
         @stream={{model.stream}}
@@ -28,10 +20,11 @@
               <NyprMShareTools class="listen-message-the-show-popup social-media-links" as |share|>
                 <div class="social-media__container">
                   {{#if twitterHandle}}
-                    <share.link @href='#' @service='twitter' @username='{{twitterHandle}}' @title='Twitter' @clickAction={{action 'openTwitterMention'}} @target='_self' />
+                  <share.link @href='#' @service='twitter' @username='{{twitterHandle}}' @title='Twitter'
+                    @clickAction={{action 'openTwitterMention'}} @target='_self' />
                   {{/if}}
                   {{#if emailAddress}}
-                    <share.link @service='email' @username='{{emailAddress}}' @title='Email' />
+                  <share.link @service='email' @username='{{emailAddress}}' @title='Email' />
                   {{/if}}
                 </div>
               </NyprMShareTools>
@@ -41,22 +34,13 @@
         {{/if}}
       </div>
     </div>
-    <div class="listen-play-button">
-      <PlayButton
-        class="play-button mod-main-page"
-        data-action="Clicked Play/Pause Stream: jukebox-display"
-        data-label={{model.stream.name}}
-        title={{model.stream.name}}
-        @playItemId={{model.stream.slug}}
-        @onEnterViewport={{action "updatePlayerState" false}}
-        @onExitViewport={{action "updatePlayerState" true}}
-      />
-    </div>
   </div>
 
-  {{#liquid-if (or this.nowPlaying.hasCurrentTrack (not (is-empty this.recentlyPlayed)))}}
+  <div class="playlist-history-div">
+    {{#liquid-if (or this.nowPlaying.hasCurrentTrack (not (is-empty this.recentlyPlayed)))}}
     <div class="playlist-history">
       {{#if this.nowPlaying.track}}
+<<<<<<< HEAD
         <div class="currently-listening-to">
           <div class="currently-listening-to-label">Currently Playing</div>
           <TrackInfo
@@ -87,10 +71,32 @@
             {{/each}}
           </div>
           {{#link-to "playlist-history-today" class="view-full-playlist-history-button"}}View Full Playlist{{/link-to}}
+=======
+      <div class="currently-listening-to">
+        <div class="currently-listening-to-label">Currently Playing</div>
+        <TrackInfo @trackTitle={{this.nowPlaying.track.title}} @ensembleName={{this.nowPlaying.track.ensembleName}}
+          @conductorName={{this.nowPlaying.track.conductorName}} @composerName={{this.nowPlaying.track.composerName}}
+          @startTime={{this.nowPlaying.track.startTime}} @isLive={{true}} />
+      </div>
+      {{/if}}
+
+      {{#if (not (is-empty this.recentlyPlayed))}}
+      <div class="recently-played">
+        <div class="recently-played-label">Recent Music</div>
+        <div class="recently-played-song-list">
+          {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track|}}
+          <TrackInfo @trackTitle={{track.title}} @ensembleName={{track.ensembleName}}
+            @conductorName={{track.conductorName}} @composerName={{track.composerName}}
+            @startTime={{track.startTime}} />
+          {{/each}}
+>>>>>>> Start of styling. Will code review for now, due to lack of host image and show info
         </div>
+        {{#link-to "playlist-history-today" class="view-full-playlist-history-button"}}View Full Playlist{{/link-to}}
+      </div>
       {{/if}}
     </div>
-  {{/liquid-if}}
+    {{/liquid-if}}
+  </div>
 </div>
 
 {{outlet}}

@@ -1,9 +1,12 @@
 @import '../vars/colors';
 @import '../vars/fonts';
-
 .playlist-history-div {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-top: -80px;
+  @include media("<medium") {
+    margin-top: 0;
+  }
 }
 .listen {
   display: flex;
@@ -48,8 +51,10 @@
 }
 
 .on-air-now {
+  display: flex;
+  justify-content: center;
   padding: 24px;
-  //width: 369px;
+  z-index: 1;
   @include media("<medium") {
     width: 100%;
   }
@@ -68,12 +73,14 @@
     > .show-image {
       max-height: 100px;
       max-width: 100px;
-      border-radius: 50%;
       filter: grayscale(100%);
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 10px;
       display: block;
+      img {
+        border-radius: 50%;
+      }
       @include media(">=medium") {
         display: none;
       }
@@ -104,13 +111,12 @@
   .on-air-now-inner {
     @include media(">medium") {
       display: flex;
-      flex-direction: row-reverse;
+      //flex-direction: row-reverse;
     }
     .show-image {
       height: 176px;
       width: 176px;
       object-fit: cover;
-      border-radius: 50%;
       filter: grayscale(100%);
       //margin-left: auto;
       //margin-right: auto;
@@ -122,11 +128,18 @@
         margin-right: auto;
         margin-bottom: 10px;
       }
-    }
-    .test {
-      //width: 100%;
+      img {
+        border-radius: 50%;
+      }
     }
   }
+
+ .label-title {
+  @include media("<medium") {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
 
   .show-title {
     font-family: $font-heading;
