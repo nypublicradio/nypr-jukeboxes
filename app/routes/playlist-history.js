@@ -23,7 +23,8 @@ export default Route.extend({
     let hash = {
       playlistDaily: this.store.findRecord('playlist-daily', `wqxr/${serverDate.format('YYYY/MMM/DD').toLowerCase()}`, { reload: true }),
       serverDate: serverDate.format(),
-      localDate: date.format()
+      localDate: date.format(),
+      scheduleSortDirection: date.format('L') === moment().format('L') ? 'desc' : 'asc'
     };
     return RSVP.hash(hash);
   },

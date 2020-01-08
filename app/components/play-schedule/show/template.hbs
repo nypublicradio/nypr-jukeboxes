@@ -25,7 +25,7 @@
 
 {{#liquid-if (and (not (is-empty tracks)) this.isPlaylistVisible)}}
   <div class="play-schedule-show-playlist">
-    {{#each tracks as |track|}}
+    {{#each (sort-by (concat "startTime:" this.sortDirection) tracks) as |track|}}
       <TrackInfo
         @trackTitle={{track.title}}
         @ensembleName={{track.ensembleName}}
