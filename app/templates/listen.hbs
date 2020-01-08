@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <div class="playlist-history-div">
+  <div class="playlist-history-container">
     {{#liquid-if (or this.nowPlaying.hasCurrentTrack (not (is-empty this.recentlyPlayed)))}}
     <div class="playlist-history">
       {{#if this.nowPlaying.track}}

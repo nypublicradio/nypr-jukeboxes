@@ -1,6 +1,7 @@
 @import '../vars/colors';
 @import '../vars/fonts';
-.playlist-history-div {
+
+.playlist-history-container {
   display: flex;
   justify-content: center;
   margin-top: -80px;
@@ -98,9 +99,7 @@
     text-align: center;
     color: #0064b4;
     line-height: 16px;
-    //margin-left: auto;
     margin-right: 0;
-    //margin-bottom: 20px;
     @include media("<medium") {
       margin-left: auto;
       margin-bottom: 10px;
@@ -111,15 +110,12 @@
   .on-air-now-inner {
     @include media(">medium") {
       display: flex;
-      //flex-direction: row-reverse;
     }
     .show-image {
       height: 176px;
       width: 176px;
       object-fit: cover;
       filter: grayscale(100%);
-      //margin-left: auto;
-      //margin-right: auto;
       display: block;
       margin-bottom: 12px;
       @include media("<medium") {
@@ -145,7 +141,6 @@
     font-family: $font-heading;
     font-size: 28px;
     line-height: 1.36;
-    //text-align: center;
     color: #ffffff;
     margin-bottom: 8px;
     @include media("<medium") {
@@ -157,7 +152,6 @@
 
   .message-the-show {
     display: flex;
-    //justify-content: center;
     @include media("<medium") {
       justify-content: center;
       margin-bottom: 0;
@@ -185,7 +179,6 @@
         padding-left: 0px;
       }
     }
-
     .u-icon--xs {
       height: 12px;
       fill: #ffffff;
