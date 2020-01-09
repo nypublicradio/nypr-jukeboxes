@@ -132,6 +132,9 @@ module('Unit | Service | woms', function(hooks) {
     let socketRef = {
       off: function() {},
     }
+    woms.set('router', {
+      currentRouteName: 'listen'
+    })
     woms.set('socketRef', socketRef);
 
     let routeStub = {
@@ -141,9 +144,6 @@ module('Unit | Service | woms', function(hooks) {
     let womsOwner = getOwner(woms);
 
     let stub = sinon.stub(womsOwner, 'lookup')
-    stub.withArgs('controller:application').returns({
-      currentRouteName: 'listen'
-    });
     stub.withArgs('route:listen').returns(routeStub);
     stub.callThrough()
 

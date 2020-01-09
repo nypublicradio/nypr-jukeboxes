@@ -14,6 +14,7 @@ export default Service.extend({
   hifi: service(),
   nowPlaying: service(),
   websockets: service(),
+  router: service(),
   socketRef: null,
   isConnected: false,
   firstUpdateReceived: false,
@@ -65,8 +66,7 @@ export default Service.extend({
       this.set('lastMessage', data);
       this.processWomsData(data);
       let owner = getOwner(this);
-      let applicationController = owner.lookup('controller:application');
-      let currentRoute = get(applicationController, 'currentRouteName');
+      let currentRoute = this.router.currentRouteName;
       let route = owner.lookup(`route:${currentRoute}`);
       route.refresh();
     }
