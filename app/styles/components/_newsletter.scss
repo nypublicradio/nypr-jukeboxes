@@ -9,11 +9,13 @@ input[type=email] {
   border-radius: 35px;
   font-size: 14px;
   text-align: center;
+  font-family: $font-body;
 }
 
 input[name="newsletter"] {
   height: 30px;
   width: 255px;
+  font-family: $font-body;
 }
 
 form .o-button, .success-feedback-button {
@@ -77,6 +79,14 @@ form .o-button:hover, .success-feedback-button:hover {
   padding-top: 10px;
   .o-checkbox {
     top: 12px;
+  }
+}
+
+.terms-of-use {
+  display: inline;
+  text-decoration: underline;
+  a {
+    color:white;
   }
 }
 

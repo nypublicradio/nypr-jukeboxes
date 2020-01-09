@@ -15,15 +15,16 @@
       </a>
     </div>
 
-    <form.submit class="submit-button">
+    <form.submit class="submit-button" {{action 'handleSubmit' on='submit'}}>
       Sign Up
     </form.submit>
 
-    <form.legal class="legal-check" />
+    <form.legal class="legal-check"> By submitting your information, you're agreeing to receive communications from New York Public Radio in accordance with our <div class="terms-of-use"><a href="https://pledge3.wqxr.org/donate/main/onestep/?ref=button-donate-footer-description">Terms of Use</a></div> </form.legal>
+
   </NyprMNewsletterForm>
 
   <div class="mailing-list-text-container">
-    <p class="mailing-list-title">Sign up for the WQXR newsletter</p>
+    <p class="mailing-list-title">Sign up for the WQXR Newsletter</p>
     <p class="mailing-list-subtitle">It's smart. It's fresh. Get inspired and ignite your love of classical music today!
     </p>
   </div>

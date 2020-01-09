@@ -8,4 +8,10 @@ export default Component.extend({
   NEWSLETTER_ENDPOINT: `${config.optInService}/v1/subscribe/mailchimp`,
   NEWSLETTER_PARAMS: {list: config.jukeboxNewsletter},
 
+  actions: {
+    handleSubmit(event) {
+      return false;
+    }
+  }
+
 });
