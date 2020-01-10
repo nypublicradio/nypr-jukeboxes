@@ -58,6 +58,17 @@ export default Service.extend({
   async load() {
     let nowPlaying = await this.store.queryRecord('whats-on', {stream: this.slug});
     this.set('track', nowPlaying.tracks.firstObject);
+    this.connectTrackAndShow();
+  },
+
+  connectTrackAndShow() {
+    // This will be obsolted when tracks from woms include show information
+    // and we can update the serializer to do this processing
+    if (this.track && this.show) {
+      if (!this.track.show) {
+        this.track.set('show', this.show);
+      }
+    }
   },
 
   async getStream() {
@@ -78,6 +89,7 @@ export default Service.extend({
     } else {
       this.set('show', undefined);
     }
+    this.connectTrackAndShow();
 
     return stream;
   },
