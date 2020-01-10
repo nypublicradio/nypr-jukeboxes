@@ -5,8 +5,10 @@
   display: flex;
   justify-content: center;
   margin-top: -80px;
+  margin-left: 300px;
   @include media("<medium") {
     margin-top: 0;
+    margin-left: 0px;
   }
 }
 .listen {
@@ -18,7 +20,7 @@
 
   .playlist-history {
     background: white;
-    width: 504px;
+    width: 569px;
     padding-top: 24px;
   }
   @include media("<medium") {
@@ -95,6 +97,7 @@
     border-radius: 4px;
     font-family: $font-body-bold;
     font-size: 10px;
+    font-weight: bold;
     letter-spacing: 1px;
     text-align: center;
     color: #0064b4;
@@ -112,12 +115,12 @@
       display: flex;
     }
     .show-image {
-      height: 176px;
-      width: 176px;
+      height: 244px;
+      width: 244px;
       object-fit: cover;
       filter: grayscale(100%);
       display: block;
-      margin-bottom: 12px;
+      margin-right: 35px;
       @include media("<medium") {
         display: none;
         margin-left: auto;
@@ -130,6 +133,10 @@
     }
   }
 
+  .label-title-message-play {
+    margin-right: 20px;
+  }
+
  .label-title {
   @include media("<medium") {
     display: flex;
@@ -139,7 +146,7 @@
 
   .show-title {
     font-family: $font-heading;
-    font-size: 28px;
+    font-size: 50px;
     line-height: 1.36;
     color: #ffffff;
     margin-bottom: 8px;
@@ -190,6 +197,7 @@
   .message-the-show-title {
     font-family: $font-body-bold;
     font-size: 12px;
+    font-weight: bold;
     color: #ffffff;
     letter-spacing: 1.2px;
   }
