@@ -10,7 +10,7 @@
   </TrackAdditionalInfo>
 </div>
 
-<div class="start-time" data-time={{startTime}}>
+<div class="start-time {{unless isLive "hide-in-fastboot"}} {{if this.isFastBoot "is-fastboot"}}" data-time={{startTime}}>
   {{#if isLive}}
     Now
   {{else}}
