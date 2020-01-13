@@ -1,5 +1,10 @@
-export default function() {
+import annieBergenResponse from './responses/shows-annie-bergen';
+import playlistDailyResponse from './responses/playlist-daily';
+import womsResponse from './responses/woms';
+import whatsOnResponse from './responses/whats-on';
+import wqxrStreamResponse from './responses/wqxr-stream';
 
+export default function() {
   // These comments are here to help you get started. Feel free to delete them.
 
   /*
@@ -15,14 +20,1543 @@ export default function() {
   /*------------------------------------------------------------
     legacy (v1) endpoints
   --------------------------------------------------------------*/
-  this.get('/api/v1/list/streams', {"count": 13, "expires": "2019-12-23T13:04:25", "results": [{"premium": false, "source_tags": "", "aac_streams": "", "image_logo": "https://media.demo.nypr.digital/i/1400/1400/l/80/1/Indivisible_3.png", "site_id": 14, "mobile_stream": "", "whats_on": false, "twitter_handle": "", "stream_type": [3, "web video"], "id": 45, "always_broadcasting": false, "site_priority": 4, "blackberry_stream": "https://indivisible.wnyc.org/wnycsp", "name": "Indivisible", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/WNYC_FM_2_Dy0Ob0m.svg", "audio_bumper": null, "slug": "indivisible", "schedule_url": "http://account.demo2.wnyc.net/schedule/?scheduleStation=indivisible", "has_playlists": false, "urls": {"ipod": "", "rtsp": "https://indivisible.wnyc.org/wnycsp", "aac_pls": ["/stream/indivisible/aac.pls"], "windows_asx": ["/stream/indivisible/windows.asx"], "rtmp": ["(rtmp://wnyc-wowza.streamguys.com/takeaway,mp4:takeaway.stream)"], "mobile_aac": "", "web_aac": "", "aac": [], "windows": ["https://indivisible.wnyc.org/wnycsp"], "mobile": "", "mp3": ["https://indivisible.wnyc.org/wnycsp"], "mp3_pls": ["/stream/indivisible/mp3.pls"]}, "short_description": "", "windows_streams": "https://indivisible.wnyc.org/wnycsp", "mp3_streams": "https://indivisible.wnyc.org/wnycsp"}, {"premium": true, "source_tags": "wqxr_app", "image_logo": "https://media.demo.nypr.digital/i/300/300/c/80/1/wqxr_2.png", "site_id": 3, "whats_on": false, "twitter_handle": "", "stream_type": [3, "web video"], "id": 10, "always_broadcasting": false, "site_priority": 4, "name": "Fundraiser Free WQXR", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/WQXR_4_Ke7lP4W.svg", "audio_bumper": null, "slug": "wqxr-special2-same-as-holiday", "playlist_url": "http://culture.demo2.wnyc.net/playlist-daily/?scheduleStation=wqxr-special2-same-as-holiday", "schedule_url": "http://culture.demo2.wnyc.net/schedule/?scheduleStation=wqxr-special2-same-as-holiday", "has_playlists": true, "short_description": ""}, {"premium": false, "source_tags": "wnyc_site", "aac_streams": "", "image_logo": "https://media.demo.nypr.digital/i/500/500/l/80/1/wnyc_2_1_ucwLL8o.png", "site_id": 1, "mobile_stream": "", "whats_on": false, "twitter_handle": "", "stream_type": [2, "web audio"], "id": 6, "always_broadcasting": true, "site_priority": 1, "blackberry_stream": "https://specialstream.wnyc.org/wnycsp", "name": "Special Programming 2", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/SpecialStreams.svg", "audio_bumper": null, "slug": "takeaway", "schedule_url": "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=takeaway", "has_playlists": false, "urls": {"ipod": "https://takeaway.wnyc.org/wnycsp", "rtsp": "https://specialstream.wnyc.org/wnycsp", "aac_pls": ["/stream/takeaway/aac.pls"], "windows_asx": ["/stream/takeaway/windows.asx"], "rtmp": ["(rtmp://wnyc-wowza.streamguys.com/takeaway,mp4:takeaway.stream)"], "mobile_aac": "", "web_aac": "", "aac": [], "windows": [], "mobile": "", "mp3": ["https://takeaway.wnyc.org/wnycsp"], "mp3_pls": ["/stream/takeaway/mp3.pls"]}, "short_description": "", "windows_streams": "", "mp3_streams": "https://takeaway.wnyc.org/wnycsp"}, {"premium": false, "source_tags": "wnyc_site", "aac_streams": "http://fm939.wnyc.org/wnycfm.aac", "image_logo": "https://media.demo.nypr.digital/i/500/500/c/80/1/wnyc_2_1.png", "site_id": 1, "mobile_stream": "https://fm939.wnyc.org/wnycfm-mobile", "whats_on": 882225, "twitter_handle": "", "stream_type": [2, "web audio"], "id": 1, "always_broadcasting": true, "site_priority": 1, "blackberry_stream": "https://fm939.wnyc.org/wnycfm-web", "name": "WNYC 93.9 FM", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/WNYC_FM_2.svg", "audio_bumper": "https://audio.wnyc.org/streambumper/streambumper000001_wnycfm.mp3", "slug": "wnyc-fm939", "schedule_url": "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=wnyc-fm939", "has_playlists": false, "urls": {"ipod": "https://hls-live.wnyc.org/wnycfm/playlist.m3u8", "rtsp": "https://fm939.wnyc.org/wnycfm-web", "aac_pls": ["/stream/wnyc-fm939/aac.pls"], "windows_asx": ["/stream/wnyc-fm939/windows.asx"], "rtmp": ["(rtmp://wnyc-wowza.streamguys.com:80/wnycfm,mp4:wnycfm.sdp)"], "mobile_aac": "https://fm939.wnyc.org/wnycfm-mobile.aac", "web_aac": "", "aac": ["http://fm939.wnyc.org/wnycfm.aac"], "windows": ["http://fm939.wnyc.org/wnycfm"], "mobile": "https://fm939.wnyc.org/wnycfm-mobile", "mp3": ["http://fm939.wnyc.org/wnycfm"], "mp3_pls": ["/stream/wnyc-fm939/mp3.pls"]}, "short_description": "News, Culture & Talk", "windows_streams": "http://fm939.wnyc.org/wnycfm", "mp3_streams": "http://fm939.wnyc.org/wnycfm"}, {"premium": false, "source_tags": "wnyc_site", "aac_streams": "http://am820.wnyc.org/wnycam.aac", "image_logo": "https://media.demo.nypr.digital/i/500/500/c/80/1/wnyc_2_1.png", "site_id": 1, "mobile_stream": "https://am820.wnyc.org/wnycam-mobile", "whats_on": 882225, "twitter_handle": "", "stream_type": [2, "web audio"], "id": 2, "always_broadcasting": true, "site_priority": 2, "blackberry_stream": "https://am820.wnyc.org/wnycam-web", "name": "WNYC AM 820", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/WNYC_AM_2.svg", "audio_bumper": "https://audio.wnyc.org/streambumper/streambumper000002_wnycam.mp3", "slug": "wnyc-am820", "schedule_url": "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=wnyc-am820", "has_playlists": false, "urls": {"ipod": "https://hls-live.wnyc.org/wnycam/playlist.m3u8", "rtsp": "https://am820.wnyc.org/wnycam-web", "aac_pls": ["/stream/wnyc-am820/aac.pls"], "windows_asx": ["/stream/wnyc-am820/windows.asx"], "rtmp": ["(rtmp://wnyc-wowza.streamguys.com:80/wnycam,mp4:wnycam.sdp)"], "mobile_aac": "https://am820.wnyc.org/wnycam-mobile.aac", "web_aac": "", "aac": ["http://am820.wnyc.org/wnycam.aac"], "windows": ["http://am820.wnyc.org/wnycam"], "mobile": "https://am820.wnyc.org/wnycam-mobile", "mp3": ["http://am820.wnyc.org/wnycam"], "mp3_pls": ["/stream/wnyc-am820/mp3.pls"]}, "short_description": "News, Culture & Talk", "windows_streams": "http://am820.wnyc.org/wnycam", "mp3_streams": "http://am820.wnyc.org/wnycam"}, {"premium": false, "source_tags": "wnyc_site,wqxr_app,wnyc_app", "aac_streams": "http://specialstream.wnyc.org/wnyc-special.aac", "image_logo": "https://media.demo.nypr.digital/i/1400/1400/l/80/1/holiday_standards.png", "site_id": 1, "mobile_stream": "https://specialstream.wnyc.org/wnyc-special-mobile", "whats_on": 818984, "twitter_handle": "", "stream_type": [3, "web video"], "id": 5, "always_broadcasting": true, "site_priority": 5, "blackberry_stream": "https://specialstream.wnyc.org/wnyc-special-web", "name": "Special Programming 1", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/holiday_standards_R4mFhQw.svg", "audio_bumper": null, "slug": "special-events-stream", "schedule_url": "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=special-events-stream", "has_playlists": false, "urls": {"ipod": "https://hls-live.wnyc.org/wnycsp/playlist.m3u8", "rtsp": "https://specialstream.wnyc.org/wnyc-special-web", "aac_pls": ["/stream/special-events-stream/aac.pls"], "windows_asx": ["/stream/special-events-stream/windows.asx"], "rtmp": ["(rtmp://wnyc-wowza.streamguys.com/wnyc-special,wnyc-special.stream)"], "mobile_aac": "https://specialstream.wnyc.org/wnyc-special-mobile.aac", "web_aac": "", "aac": ["http://specialstream.wnyc.org/wnyc-special.aac"], "windows": ["http://specialstream.wnyc.org/wnyc-special"], "mobile": "https://specialstream.wnyc.org/wnyc-special-mobile", "mp3": ["http://specialstream.wnyc.org/wnyc-special"], "mp3_pls": ["/stream/special-events-stream/mp3.pls"]}, "short_description": "Swinging holiday soundtrack", "windows_streams": "http://specialstream.wnyc.org/wnyc-special", "mp3_streams": "http://specialstream.wnyc.org/wnyc-special"}, {"premium": false, "source_tags": "wnyc_app", "aac_streams": "https://stream.wqxr.org/qxr-special.aac", "image_logo": "https://media.demo.nypr.digital/i/1400/1400/l/80/1/WQXR_HolidayChannel.png", "site_id": 1, "mobile_stream": "https://stream.wqxr.org/qxr-special-mobile", "whats_on": false, "twitter_handle": "", "stream_type": [3, "web video"], "id": 46, "always_broadcasting": true, "site_priority": 5, "blackberry_stream": "https://stream.wqxr.org/qxr-special-web", "name": "WQXR Holiday Channel", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/holiday_channel_wqxr.svg", "audio_bumper": null, "slug": "wqxr-holiday-channel-on-wnyc", "schedule_url": "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=wqxr-holiday-channel-on-wnyc", "has_playlists": false, "urls": {"ipod": "", "rtsp": "https://stream.wqxr.org/qxr-special-web", "aac_pls": ["/stream/wqxr-holiday-channel-on-wnyc/aac.pls"], "windows_asx": ["/stream/wqxr-holiday-channel-on-wnyc/windows.asx"], "rtmp": ["(rtmp://wnyc-wowza.streamguys.com:80/qxr-special,mp4:qxr-special)"], "mobile_aac": "https://stream.wqxr.org/qxr-special-mobile.aac", "web_aac": "", "aac": ["https://stream.wqxr.org/qxr-special.aac"], "windows": ["https://stream.wqxr.org/qxr-special"], "mobile": "https://stream.wqxr.org/qxr-special-mobile", "mp3": ["https://stream.wqxr.org/qxr-special"], "mp3_pls": ["/stream/wqxr-holiday-channel-on-wnyc/mp3.pls"]}, "short_description": "Classical holiday music stream", "windows_streams": "https://stream.wqxr.org/qxr-special", "mp3_streams": "https://stream.wqxr.org/qxr-special"}, {"premium": false, "source_tags": "wnyc_site", "aac_streams": "", "image_logo": "https://media.demo.nypr.digital/i/500/500/c/80/1/njpr_3.png", "site_id": 1, "mobile_stream": "https://njpr.wnyc.org/njprweb-mobile", "whats_on": 882225, "twitter_handle": "", "stream_type": [2, "web audio"], "id": 8, "always_broadcasting": true, "site_priority": 6, "blackberry_stream": "https://njpr.wnyc.org/njprweb-web", "name": "NJPR", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/NJPR_1.svg", "audio_bumper": "https://audio.wnyc.org/streambumper/streambumper000007_njpr.mp3", "slug": "njpr", "schedule_url": "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=njpr", "has_playlists": false, "urls": {"ipod": "https://hls-live.wnyc.org/njpr-hls/playlist.m3u8", "rtsp": "https://njpr.wnyc.org/njprweb-web", "aac_pls": ["/stream/njpr/aac.pls"], "windows_asx": ["/stream/njpr/windows.asx"], "rtmp": ["(rtmp://wnyc-wowza.streamguys.com/wnjy,mp4:wnjy.stream)"], "mobile_aac": "", "web_aac": "", "aac": [], "windows": ["http://njpr.wnyc.org/njprweb"], "mobile": "https://njpr.wnyc.org/njprweb-mobile", "mp3": ["http://njpr.wnyc.org/njprweb"], "mp3_pls": ["/stream/njpr/mp3.pls"]}, "short_description": "New Jersey News, Culture, Talk", "windows_streams": "http://njpr.wnyc.org/njprweb", "mp3_streams": "http://njpr.wnyc.org/njprweb"}, {"premium": false, "source_tags": "wqxr_app, wqxr_site, wnyc_site", "aac_streams": "http://tjc.wnyc.org/js-stream.aac", "image_logo": "https://media.demo.nypr.digital/i/1400/1400/l/80/2018/11/american_standards_red_square.png", "site_id": 1, "mobile_stream": "https://tjc.wnyc.org/js-stream-mobile", "whats_on": 436, "twitter_handle": "jonathanwnyc", "stream_type": [3, "web video"], "id": 11, "always_broadcasting": true, "site_priority": 10, "blackberry_stream": "https://tjc.wnyc.org/js-stream-web", "name": "American Standards", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/american_standards_red.svg", "audio_bumper": "https://audio.wnyc.org/streambumper/streambumper000004_tjc.mp3", "slug": "jonathan-channel", "playlist_url": "http://wnyc.demo2.wnyc.net/playlist-daily/?scheduleStation=jonathan-channel", "schedule_url": "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=jonathan-channel", "has_playlists": true, "urls": {"ipod": "https://hls-live.wnyc.org/tjc/playlist.m3u8", "rtsp": "https://tjc.wnyc.org/js-stream-web", "aac_pls": ["/stream/jonathan-channel/aac.pls"], "windows_asx": ["/stream/jonathan-channel/windows.asx"], "rtmp": ["(rtmp://wnyc-wowza.streamguys.com:80/js-stream,js-stream.stream)"], "mobile_aac": "https://tjc.wnyc.org/js-stream-mobile.aac", "web_aac": "", "aac": ["http://tjc.wnyc.org/js-stream.aac"], "windows": ["http://tjc.wnyc.org/js-stream"], "mobile": "https://tjc.wnyc.org/js-stream-mobile", "mp3": ["http://tjc.wnyc.org/js-stream"], "mp3_pls": ["/stream/jonathan-channel/mp3.pls"]}, "short_description": "Great American Songs from WNYC", "windows_streams": "http://tjc.wnyc.org/js-stream", "mp3_streams": "http://tjc.wnyc.org/js-stream"}, {"premium": false, "source_tags": "wqxr_app, wqxr_site", "aac_streams": "http://stream.wqxr.org/wqxr.aac", "image_logo": "https://media.demo.nypr.digital/i/500/500/c/80/1/wqxr_1_1.png", "site_id": 2, "mobile_stream": "https://stream.wqxr.org/wqxr-mobile", "whats_on": 103285, "twitter_handle": "wqxr", "stream_type": [2, "web audio"], "id": 3, "always_broadcasting": true, "site_priority": 1, "blackberry_stream": "https://stream.wqxr.org/wqxr-web", "name": "WQXR 105.9 FM", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/WQXR_4.svg", "audio_bumper": "https://audio.wnyc.org/streambumper/streambumper000003_wqxr.mp3", "slug": "wqxr", "playlist_url": "http://wqxr.demo2.wnyc.net/playlist-daily/?scheduleStation=wqxr", "schedule_url": "http://wqxr.demo2.wnyc.net/schedule/?scheduleStation=wqxr", "has_playlists": true, "urls": {"ipod": "https://hls-live.wnyc.org/wqxr/playlist.m3u8", "rtsp": "https://stream.wqxr.org/wqxr-web", "aac_pls": ["/stream/wqxr/aac.pls"], "windows_asx": ["/stream/wqxr/windows.asx"], "rtmp": ["(rtmp://wnyc-wowza.streamguys.com:80/wqxr,classical)"], "mobile_aac": "https://stream.wqxr.org/wqxr-mobile.aac", "web_aac": "", "aac": ["http://stream.wqxr.org/wqxr.aac"], "windows": ["http://stream.wqxr.org/wqxr"], "mobile": "https://stream.wqxr.org/wqxr-mobile", "mp3": ["http://stream.wqxr.org/wqxr"], "mp3_pls": ["/stream/wqxr/mp3.pls"]}, "short_description": "The Best in Classical Music", "windows_streams": "http://stream.wqxr.org/wqxr", "mp3_streams": "http://stream.wqxr.org/wqxr"}, {"premium": false, "source_tags": "wqxr_app, wqxr_site", "aac_streams": "https://q2stream.wqxr.org/q2.aac", "image_logo": "https://media.demo.nypr.digital/i/600/600/l/80/1/ns_showcard-newsounds-radio-1.jpg", "site_id": 2, "mobile_stream": "https://q2stream.wqxr.org/q2-mobile", "whats_on": 842041, "twitter_handle": "q2music", "stream_type": [3, "web video"], "id": 4, "always_broadcasting": true, "site_priority": 2, "blackberry_stream": "https://q2stream.wqxr.org/q2-web", "name": "New Sounds", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/Q2Music.svg", "audio_bumper": "https://audio.wnyc.org/streambumper/streambumper000006_ns.mp3", "slug": "q2", "playlist_url": "http://wqxr.demo2.wnyc.net/playlist-daily/?scheduleStation=q2", "schedule_url": "http://wqxr.demo2.wnyc.net/schedule/?scheduleStation=q2", "has_playlists": true, "urls": {"ipod": "https://hls-live.wnyc.org/q2/playlist.m3u8", "rtsp": "https://q2stream.wqxr.org/q2-web", "aac_pls": ["/stream/q2/aac.pls"], "windows_asx": ["/stream/q2/windows.asx"], "rtmp": ["(rtmp://wnyc-wowza.streamguys.com:80/q2,q2.sdp)"], "mobile_aac": "https://q2stream.wqxr.org/q2-mobile.aac", "web_aac": "", "aac": ["https://q2stream.wqxr.org/q2.aac"], "windows": ["https://q2stream.wqxr.org/q2"], "mobile": "https://q2stream.wqxr.org/q2-mobile", "mp3": ["https://q2stream.wqxr.org/q2"], "mp3_pls": ["/stream/q2/mp3.pls"]}, "short_description": "Hand-picked music, genre free.", "windows_streams": "https://q2stream.wqxr.org/q2", "mp3_streams": "https://q2stream.wqxr.org/q2"}, {"premium": false, "source_tags": "wqxr_app,wqxr_site,wnyc_site", "aac_streams": "https://stream.wqxr.org/qxr-special.aac", "image_logo": "https://media.demo.nypr.digital/i/1400/1400/l/80/1/WQXR_HolidayChannel.png", "site_id": 2, "mobile_stream": "https://stream.wqxr.org/qxr-special-mobile", "whats_on": 899627, "twitter_handle": "", "stream_type": [3, "web video"], "id": 12, "always_broadcasting": true, "site_priority": 4, "blackberry_stream": "https://stream.wqxr.org/qxr-special-web", "name": "Holiday Channel", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/holiday_channel_wqxr_blue_lhD2oYZ.svg", "audio_bumper": null, "slug": "wqxr-special2", "playlist_url": "http://wqxr.demo2.wnyc.net/playlist-daily/?scheduleStation=wqxr-special2", "schedule_url": "http://wqxr.demo2.wnyc.net/schedule/?scheduleStation=wqxr-special2", "has_playlists": true, "urls": {"ipod": "", "rtsp": "https://stream.wqxr.org/qxr-special-web", "aac_pls": ["/stream/wqxr-special2/aac.pls"], "windows_asx": ["/stream/wqxr-special2/windows.asx"], "rtmp": ["(rtmp://wnyc-wowza.streamguys.com:80/qxr-special,mp4:qxr-special)"], "mobile_aac": "https://stream.wqxr.org/qxr-special-mobile.aac", "web_aac": "", "aac": ["https://stream.wqxr.org/qxr-special.aac"], "windows": ["https://stream.wqxr.org/qxr-special"], "mobile": "https://stream.wqxr.org/qxr-special-mobile", "mp3": ["https://stream.wqxr.org/qxr-special"], "mp3_pls": ["/stream/wqxr-special2/mp3.pls"]}, "short_description": "Classical holiday music stream", "windows_streams": "https://stream.wqxr.org/qxr-special", "mp3_streams": "https://stream.wqxr.org/qxr-special"}, {"premium": false, "source_tags": "wqxr_app, wqxr_site", "aac_streams": "http://opera-stream.wqxr.org/operavore.aac", "image_logo": "https://media.demo.nypr.digital/i/500/500/c/80/1/operavore_2.png", "site_id": 2, "mobile_stream": "https://opera-stream.wqxr.org/operavore-mobile", "whats_on": 177251, "twitter_handle": "operavore", "stream_type": [3, "web video"], "id": 7, "always_broadcasting": false, "site_priority": 6, "blackberry_stream": "https://opera-stream.wqxr.org/operavore-web", "name": "Operavore", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/Operavore_4.svg", "audio_bumper": "https://audio.wnyc.org/streambumper/streambumper000005_opera.mp3", "slug": "wqxr-special", "playlist_url": "http://wqxr.demo2.wnyc.net/playlist-daily/?scheduleStation=wqxr-special", "schedule_url": "http://wqxr.demo2.wnyc.net/schedule/?scheduleStation=wqxr-special", "has_playlists": true, "urls": {"ipod": "https://hls-live.wnyc.org/operavore/playlist.m3u8", "rtsp": "https://opera-stream.wqxr.org/operavore-web", "aac_pls": ["/stream/wqxr-special/aac.pls"], "windows_asx": ["/stream/wqxr-special/windows.asx"], "rtmp": ["(rtmp://wnyc-wowza.streamguys.com:80/operavore,operavore.stream)"], "mobile_aac": "https://opera-stream.wqxr.org/operavore-mobile.aac", "web_aac": "", "aac": ["http://opera-stream.wqxr.org/operavore.aac"], "windows": ["http://opera-stream.wqxr.org/operavore"], "mobile": "https://opera-stream.wqxr.org/operavore-mobile", "mp3": ["http://opera-stream.wqxr.org/operavore"], "mp3_pls": ["/stream/wqxr-special/mp3.pls"]}, "short_description": "All Opera - All The Time", "windows_streams": "http://opera-stream.wqxr.org/operavore", "mp3_streams": "http://opera-stream.wqxr.org/operavore"}]});
-  this.get('/api/v1/list/streams/:slug', {"premium": false, "source_tags": "wqxr_app, wqxr_site", "image_logo": "https://media.demo.nypr.digital/i/500/500/c/80/1/wqxr_1_1.png", "site_id": 2, "whats_on": 317, "twitter_handle": "wqxr", "stream_type": [2, "web audio"], "id": 3, "always_broadcasting": true, "site_priority": 1, "name": "WQXR 105.9 FM", "svg_logo": "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/WQXR_4.svg", "audio_bumper": "https://audio.wnyc.org/streambumper/streambumper000003_wqxr.mp3", "slug": "wqxr", "playlist_url": "http://wqxr.demo2.wnyc.net/playlist-daily/?scheduleStation=wqxr", "schedule_url": "http://wqxr.demo2.wnyc.net/schedule/?scheduleStation=wqxr", "has_playlists": true, "urls": {"ipod": "https://hls-live.wnyc.org/wqxr/playlist.m3u8", "rtsp": "https://stream.wqxr.org/wqxr-web", "aac_pls": ["/stream/wqxr/aac.pls"], "windows_asx": ["/stream/wqxr/windows.asx"], "rtmp": ["(rtmp://wnyc-wowza.streamguys.com:80/wqxr,classical)"], "mobile_aac": "https://stream.wqxr.org/wqxr-mobile.aac", "web_aac": "", "aac": ["http://stream.wqxr.org/wqxr.aac"], "windows": ["http://stream.wqxr.org/wqxr"], "mobile": "https://stream.wqxr.org/wqxr-mobile", "mp3": ["http://stream.wqxr.org/wqxr"], "mp3_pls": ["/stream/wqxr/mp3.pls"]}, "short_description": "The Best in Classical Music"});
-  this.get('/api/v1/whats_on', {"wnyc-fm939": {"name": "WNYC 93.9 FM", "current_playlist_item": null, "expires": "2019-12-23T13:04:33", "current_show": {"iso_start": "2019-12-23T17:00:00+00:00", "description": "<p><span>ALL OF IT with Alison Stewart is a live daily conversation about culture and the culture in and around New York City.</span></p>", "fullImage": {"url": "https://media.demo.nypr.digital/i/300/300/l/80/2018/09/All_Of_It_NoWNYC_NoName.png", "width": 300, "caption": "", "type": "image/png", "height": 300}, "site_id": 1, "start_ts": 1577120400.0, "iso_end": "2019-12-23T19:00:00+00:00", "listImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "pk": 882225, "show_url": "https://wnyc.demo2.wnyc.net/shows/all-of-it", "end": "2019-12-23T14:00:00-0500", "title": "All of It", "url": "https://wnyc.demo2.wnyc.net/shows/all-of-it", "end_ts": 1577127600.0, "schedule_ref": "ShowSchedule:1398", "group_slug": "all-of-it", "detailImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "start": "2019-12-23T12:00:00-0500"}, "future": [], "has_playlists": false, "expires_ts": 1577124273.0, "slug": "wnyc-fm939"}, "q2": {"name": "New Sounds", "current_playlist_item": {"start_time_ts": 1577123991.0, "stream": "q2", "playlist_entry_id": 2374221, "start_time": "2019-12-23T12:59:51", "playlist_page_url": "http://newsounds.demo2.wnyc.net/playlists/show/new-sounds-radio/2019/dec/23/", "comments_url": "/api/list/comments/177/80910/", "iso_start_time": "2019-12-23T17:59:51+00:00", "catalog_entry": {"reclabel": {"url": "", "name": ""}, "conductor": null, "catno": "", "composer": {"url": "/music/musicians/laura-gibson/", "pk": 11842, "slug": "laura-gibson", "name": "Laura Gibson"}, "attribution": "", "soloists": [{"instruments": [], "musician": {"url": "/music/musicians/laura-gibson/", "pk": 11842, "slug": "laura-gibson", "name": "Laura Gibson"}, "role": "vocals"}, {"instruments": [], "musician": {"url": "/music/musicians/ethan-rose/", "pk": 11843, "slug": "ethan-rose", "name": "Ethan Rose"}, "role": ""}], "title": "Tall Grass Darkstar", "url": "http://wqxr.demo2.wnyc.net/music/recordings/23281/", "additional_composers": [{"url": "/music/musicians/ethan-rose/", "pk": 11843, "slug": "ethan-rose", "name": "Ethan Rose"}], "audio_may_download": true, "length": 343, "pk": 23281, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=&id=127235&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}}, "expires": "2019-12-23T13:05:44", "current_show": {"iso_start": "2019-12-23T15:00:00+00:00", "description": "<p><span>Home for the musically curious. Serving hand-picked, genre-free music 24/7.</span></p>", "fullImage": {"url": "https://media.demo.nypr.digital/i/300/300/l/80/1/ns_social-avatar.jpg", "width": 300, "caption": "New Sounds", "type": "image/jpeg", "height": 300}, "site_id": 15, "start_ts": 1577113200.0, "iso_end": "2019-12-23T21:00:00+00:00", "listImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/1/ns_social-avatar.jpg", "width": 60, "caption": "New Sounds", "type": "image/jpeg", "height": 60}, "pk": 842041, "show_url": "https://newsounds.demo2.wnyc.net/shows/new-sounds-radio", "end": "2019-12-23T16:00:00-0500", "title": "New Sounds Radio", "url": "https://newsounds.demo2.wnyc.net/shows/new-sounds-radio", "end_ts": 1577134800.0, "schedule_ref": "ShowSchedule:1394", "group_slug": "new-sounds-radio", "detailImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/1/ns_social-avatar.jpg", "width": 60, "caption": "New Sounds", "type": "image/jpeg", "height": 60}, "start": "2019-12-23T10:00:00-0500"}, "future": [{"start_time_ts": 1577124008.0, "stream": "q2", "playlist_entry_id": 2374225, "start_time": "2019-12-23T13:00:08", "playlist_page_url": "http://newsounds.demo2.wnyc.net/playlists/show/new-sounds-radio/2019/dec/23/", "comments_url": "/api/list/comments/177/80910/", "iso_start_time": "2019-12-23T18:00:08+00:00", "catalog_entry": {"reclabel": {"url": "", "name": "Ghostly International"}, "conductor": null, "catno": "323", "composer": {"url": "/music/musicians/matthew-dear/", "pk": 24756, "slug": "matthew-dear", "name": "Matthew Dear"}, "attribution": "", "soloists": [], "title": "Bunny\u0092s Dream", "url": "http://wqxr.demo2.wnyc.net/music/recordings/64820/", "additional_composers": [], "audio_may_download": true, "length": 430, "pk": 64820, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=323&id=153509&label=Ghostly+International", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}}], "has_playlists": true, "expires_ts": 1577124344.0, "slug": "q2"}, "jonathan-channel": {"name": "American Standards", "current_playlist_item": null, "expires": "2019-12-23T13:04:33", "current_show": {"iso_start": "2019-12-23T17:00:00+00:00", "description": "<p>American Standards is an unparalleled showcase for this timeless music spanning the entire history of the songbook, from early Tin Pan Alley recordings to interpretations by contemporary artists. This is your home for enduring music by legendary composers and songwriters, bought to life by Ella Fitzgerald, Dianne Reeves, Frank Sinatra, C\u00e9cile McLorin Salvant, and many more. It\u2019s the sound of a diverse and dynamic America, with the songs and voices that have filled theaters and scored films for nearly a century.</p>", "fullImage": {"url": "https://media.demo.nypr.digital/i/300/300/l/80/2018/11/american_standards_red_square.png", "width": 300, "caption": "American Standards", "type": "image/png", "height": 300}, "site_id": 1, "start_ts": 1577120400.0, "iso_end": "2019-12-23T21:00:00+00:00", "listImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/11/american_standards_red_square.png", "width": 60, "caption": "American Standards", "type": "image/png", "height": 60}, "pk": 436, "show_url": "https://wnyc.demo2.wnyc.net/shows/new-standards", "end": "2019-12-23T16:00:00-0500", "title": "New Standards", "url": "https://wnyc.demo2.wnyc.net/shows/new-standards", "end_ts": 1577134800.0, "schedule_ref": "ShowSchedule:904", "group_slug": "new-standards", "detailImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/11/american_standards_red_square.png", "width": 60, "caption": "American Standards", "type": "image/png", "height": 60}, "start": "2019-12-23T12:00:00-0500"}, "future": [{"start_time_ts": 1577134929.0, "stream": "jonathan-channel", "playlist_entry_id": 2374179, "start_time": "2019-12-23T16:02:09", "playlist_page_url": "http://wnyc.demo2.wnyc.net/playlists/show/new-standards/2019/dec/23/", "comments_url": "/api/list/comments/177/80913/", "iso_start_time": "2019-12-23T21:02:09+00:00", "catalog_entry": {"reclabel": {"url": "", "name": "Reprise"}, "conductor": null, "catno": "10142", "composer": {"url": "/music/musicians/richard-rodgers/", "pk": 3789, "slug": "richard-rodgers", "name": "Richard Rodgers"}, "attribution": "", "soloists": [{"instruments": [], "musician": {"url": "/music/musicians/frank-sinatra/", "pk": 10385, "slug": "frank-sinatra", "name": "Frank Sinatra"}, "role": ""}], "title": "Hello Young Lovers", "url": "http://wqxr.demo2.wnyc.net/music/recordings/35219/", "additional_composers": [{"url": "/music/musicians/oscar-hammerstein/", "pk": 17015, "slug": "oscar-hammerstein", "name": "Oscar Hammerstein"}, {"url": "/music/musicians/oscar-hammerstein-ii/", "pk": 4568, "slug": "oscar-hammerstein-ii", "name": "Oscar Hammerstein II"}, {"url": "/music/musicians/sr/", "pk": 23585, "slug": "sr", "name": "SR"}], "audio_may_download": true, "length": 223, "pk": 35219, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=10142&id=968754&label=Reprise", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/gordon-jenkins/", "pk": 5109, "slug": "gordon-jenkins", "name": "Gordon Jenkins"}, "additional_ensembles": []}}], "has_playlists": true, "expires_ts": 1577124273.0, "slug": "jonathan-channel"}, "njpr": {"name": "NJPR", "current_playlist_item": null, "expires": "2019-12-23T13:04:33", "current_show": {"iso_start": "2019-12-23T17:00:00+00:00", "description": "<p><span>ALL OF IT with Alison Stewart is a live daily conversation about culture and the culture in and around New York City.</span></p>", "fullImage": {"url": "https://media.demo.nypr.digital/i/300/300/l/80/2018/09/All_Of_It_NoWNYC_NoName.png", "width": 300, "caption": "", "type": "image/png", "height": 300}, "site_id": 1, "start_ts": 1577120400.0, "iso_end": "2019-12-23T19:00:00+00:00", "listImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "pk": 882225, "show_url": "https://wnyc.demo2.wnyc.net/shows/all-of-it", "end": "2019-12-23T14:00:00-0500", "title": "All of It", "url": "https://wnyc.demo2.wnyc.net/shows/all-of-it", "end_ts": 1577127600.0, "schedule_ref": "ShowSchedule:1398", "group_slug": "all-of-it", "detailImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "start": "2019-12-23T12:00:00-0500"}, "future": [], "has_playlists": false, "expires_ts": 1577124273.0, "slug": "njpr"}, "wnyc-am820": {"name": "WNYC AM 820", "current_playlist_item": null, "expires": "2019-12-23T13:04:33", "current_show": {"iso_start": "2019-12-23T17:00:00+00:00", "description": "<p><span>ALL OF IT with Alison Stewart is a live daily conversation about culture and the culture in and around New York City.</span></p>", "fullImage": {"url": "https://media.demo.nypr.digital/i/300/300/l/80/2018/09/All_Of_It_NoWNYC_NoName.png", "width": 300, "caption": "", "type": "image/png", "height": 300}, "site_id": 1, "start_ts": 1577120400.0, "iso_end": "2019-12-23T19:00:00+00:00", "listImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "pk": 882225, "show_url": "https://wnyc.demo2.wnyc.net/shows/all-of-it", "end": "2019-12-23T14:00:00-0500", "title": "All of It", "url": "https://wnyc.demo2.wnyc.net/shows/all-of-it", "end_ts": 1577127600.0, "schedule_ref": "ShowSchedule:1398", "group_slug": "all-of-it", "detailImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "start": "2019-12-23T12:00:00-0500"}, "future": [], "has_playlists": false, "expires_ts": 1577124273.0, "slug": "wnyc-am820"}, "special-events-stream": {"name": "Special Programming 1", "current_playlist_item": null, "expires": "2019-12-23T13:04:33", "current_show": {"iso_start": "2019-12-23T17:00:00+00:00", "description": "<p>Enjoy holiday favorites from the Songbook and beyond all season long.</p>", "fullImage": {"url": "https://media.demo.nypr.digital/i/300/300/l/80/1/holiday_standards.png", "width": 300, "caption": "", "type": "image/png", "height": 300}, "site_id": 1, "start_ts": 1577120400.0, "iso_end": "2019-12-23T23:00:00+00:00", "listImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/1/holiday_standards.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "pk": 818984, "show_url": "https://wnyc.demo2.wnyc.net/shows/holiday-standards", "end": "2019-12-23T18:00:00-0500", "title": "Holiday Standards", "url": "https://wnyc.demo2.wnyc.net/shows/holiday-standards", "end_ts": 1577142000.0, "schedule_ref": "ShowSchedule:1254", "group_slug": "holiday-standards", "detailImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/1/holiday_standards.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "start": "2019-12-23T12:00:00-0500"}, "future": [], "has_playlists": false, "expires_ts": 1577124273.0, "slug": "special-events-stream"}, "wqxr": {"name": "WQXR 105.9 FM", "current_playlist_item": {"start_time_ts": 1577124116.0, "stream": "wqxr", "playlist_entry_id": 2374227, "start_time": "2019-12-23T13:01:56", "playlist_page_url": "http://wqxr.demo2.wnyc.net/playlists/show/annie-bergen/2019/dec/23/", "comments_url": "/api/list/comments/177/80911/", "iso_start_time": "2019-12-23T18:01:56.866000+00:00", "catalog_entry": {"reclabel": {"url": "", "name": "RCA"}, "conductor": null, "catno": "787510", "composer": {"url": "/music/musicians/ludwig-van-beethoven/", "pk": 201, "slug": "ludwig-van-beethoven", "name": "Ludwig van Beethoven"}, "attribution": "", "soloists": [{"instruments": ["piano"], "musician": {"url": "/music/musicians/rudolf-buchbinder/", "pk": 3041, "slug": "rudolf-buchbinder", "name": "Rudolf Buchbinder"}, "role": ""}], "title": "Piano Sonata No. 13 in E-Flat Major, Op. 27, No. 1 \"Sonata quasi una fantasia\"", "url": "http://wqxr.demo2.wnyc.net/music/recordings/24654/", "additional_composers": [], "audio_may_download": true, "length": 858, "pk": 24654, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=787510&id=129239&label=RCA", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}}, "expires": "2019-12-23T13:11:23", "current_show": {"iso_start": "2019-12-23T15:00:00+00:00", "description": "<p>Annie Bergen is the midday host on WQXR.</p>", "fullImage": {"url": "https://media.demo.nypr.digital/i/300/300/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png", "width": 300, "caption": "", "type": "image/png", "height": 300}, "site_id": 2, "start_ts": 1577113200.0, "iso_end": "2019-12-23T20:00:00+00:00", "listImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "pk": 103285, "show_url": "https://wqxr.demo2.wnyc.net/shows/annie-bergen", "end": "2019-12-23T15:00:00-0500", "title": "Middays with Annie Bergen", "url": "https://wqxr.demo2.wnyc.net/shows/annie-bergen", "end_ts": 1577131200.0, "schedule_ref": "ShowSchedule:1132", "group_slug": "annie-bergen", "detailImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "start": "2019-12-23T10:00:00-0500"}, "future": [], "has_playlists": true, "expires_ts": 1577124683.0, "slug": "wqxr"}, "wqxr-special2": {"name": "Holiday Channel", "current_playlist_item": {"start_time_ts": 1577124215.0, "stream": "wqxr-special2", "playlist_entry_id": 2374226, "start_time": "2019-12-23T13:03:35", "playlist_page_url": "http://wqxr.demo2.wnyc.net/playlists/show/wqxr-holiday-channel/2019/dec/23/", "comments_url": "/api/list/comments/177/80915/", "iso_start_time": "2019-12-23T18:03:35+00:00", "catalog_entry": {"reclabel": {"url": "", "name": "RCA"}, "conductor": null, "catno": "5625", "composer": {"url": "/music/musicians/jerry-herman/", "pk": 6634, "slug": "jerry-herman", "name": "Jerry Herman"}, "attribution": "", "soloists": [], "title": "We Need A Little Christmas", "url": "http://wqxr.demo2.wnyc.net/music/recordings/11760/", "additional_composers": [{"url": "/music/musicians/mitch-farber/", "pk": 6632, "slug": "mitch-farber", "name": "Mitch Farber"}], "audio_may_download": true, "length": 276, "pk": 11760, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=5625&id=112159&label=RCA", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/the-hampton-string-quartet/", "pk": 1279, "slug": "the-hampton-string-quartet", "name": "The Hampton String Quartet"}, "additional_ensembles": []}}, "expires": "2019-12-23T13:08:21", "current_show": {"iso_start": "2019-12-23T17:00:00+00:00", "description": "<p>WQXR welcomes the 2019 holiday season with a 24-hour stream dedicated to classical\u00a0Christmas and wintertime favorites.\u00a0</p>", "fullImage": {"url": "https://media.demo.nypr.digital/i/300/300/l/80/1/WQXR_HolidayChannel.png", "width": 300, "caption": "", "type": "image/png", "height": 300}, "site_id": 2, "start_ts": 1577120400.0, "iso_end": "2019-12-23T23:00:00+00:00", "listImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/1/WQXR_HolidayChannel.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "pk": 899627, "show_url": "https://wqxr.demo2.wnyc.net/shows/wqxr-holiday-channel", "end": "2019-12-23T18:00:00-0500", "title": "WQXR Holiday Channel", "url": "https://wqxr.demo2.wnyc.net/shows/wqxr-holiday-channel", "end_ts": 1577142000.0, "schedule_ref": "ShowSchedule:1410", "group_slug": "wqxr-holiday-channel", "detailImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/1/WQXR_HolidayChannel.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "start": "2019-12-23T12:00:00-0500"}, "future": [{"start_time_ts": 1577124501.0, "stream": "wqxr-special2", "playlist_entry_id": 2374229, "start_time": "2019-12-23T13:08:21", "playlist_page_url": "http://wqxr.demo2.wnyc.net/playlists/show/wqxr-holiday-channel/2019/dec/23/", "comments_url": "/api/list/comments/177/80915/", "iso_start_time": "2019-12-23T18:08:21+00:00", "catalog_entry": {"reclabel": {"url": "", "name": "Decca"}, "conductor": {"url": "/music/musicians/stephen-cleobury/", "pk": 713, "slug": "stephen-cleobury", "name": "Stephen Cleobury"}, "catno": "4779095", "composer": {"url": "/music/musicians/felix-mendelssohn/", "pk": 1699, "slug": "felix-mendelssohn", "name": "Felix Mendelssohn"}, "attribution": "", "soloists": [{"instruments": ["organ"], "musician": {"url": "/music/musicians/david-briggs/", "pk": 22083, "slug": "david-briggs", "name": "David Briggs"}, "role": ""}], "title": "Hark the Herald Angels Sing", "url": "http://wqxr.demo2.wnyc.net/music/recordings/55561/", "additional_composers": [{"url": "/music/musicians/p-ledger/", "pk": 22171, "slug": "p-ledger", "name": "P. Ledger"}], "audio_may_download": true, "length": 182, "pk": 55561, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=4779095&id=146876&label=Decca", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/choir-kings-college-cambridge/", "pk": 1800, "slug": "choir-kings-college-cambridge", "name": "Choir of King's College, Cambridge"}, "additional_ensembles": []}}], "has_playlists": true, "expires_ts": 1577124501.0, "slug": "wqxr-special2"}, "wqxr-special": {"name": "Operavore", "current_playlist_item": {"start_time_ts": 1577124135.0, "stream": "wqxr-special", "playlist_entry_id": 2374223, "start_time": "2019-12-23T13:02:15", "playlist_page_url": "http://wqxr.demo2.wnyc.net/playlists/show/operavorestream/2019/dec/23/", "comments_url": "/api/list/comments/177/80914/", "iso_start_time": "2019-12-23T18:02:15+00:00", "catalog_entry": {"reclabel": {"url": "", "name": "EMI"}, "conductor": {"url": "/music/musicians/tullio-serafin/", "pk": 3826, "slug": "tullio-serafin", "name": "Tullio Serafin"}, "catno": "56287", "composer": {"url": "/music/musicians/ruggiero-leoncavallo/", "pk": 6176, "slug": "ruggiero-leoncavallo", "name": "Ruggiero Leoncavallo"}, "attribution": "", "soloists": [{"instruments": ["baritone"], "musician": {"url": "/music/musicians/tito-gobbi/", "pk": 9425, "slug": "tito-gobbi", "name": "Tito Gobbi"}, "role": ""}], "title": "Pagliacci: Prologue", "url": "http://wqxr.demo2.wnyc.net/music/recordings/22169/", "additional_composers": [], "audio_may_download": true, "length": 464, "pk": 22169, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=56287&id=126185&label=EMI", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/orchestra-del-teatro-alla-scala-di-milano/", "pk": 2397, "slug": "orchestra-del-teatro-alla-scala-di-milano", "name": "Orchestra del Teatro alla Scala di Milano"}, "additional_ensembles": []}}, "expires": "2019-12-23T13:10:09", "current_show": {"iso_start": "2019-12-23T17:00:00+00:00", "description": "<p>WQXR's 24-hour stream dedicated to opera. Enjoy this continuous, carefully programmed mix of opera arias, duets, scenes choruses and instrumental numbers. The Operavore stream is updated with a different program each day.</p>", "fullImage": {"url": "https://media.demo.nypr.digital/i/300/300/c/80/1/operavore_2.png", "width": 300, "caption": "", "type": "image/png", "height": 300}, "site_id": 2, "start_ts": 1577120400.0, "iso_end": "2019-12-23T23:00:00+00:00", "listImage": {"url": "https://media.demo.nypr.digital/i/60/60/c/80/1/operavore_2.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "pk": 177251, "show_url": "https://wqxr.demo2.wnyc.net/shows/operavorestream", "end": "2019-12-23T18:00:00-0500", "title": "Operavore", "url": "https://wqxr.demo2.wnyc.net/shows/operavorestream", "end_ts": 1577142000.0, "schedule_ref": "ShowSchedule:980", "group_slug": "operavorestream", "detailImage": {"url": "https://media.demo.nypr.digital/i/60/60/c/80/1/operavore_2.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "start": "2019-12-23T12:00:00-0500"}, "future": [{"start_time_ts": 1577124645.0, "stream": "wqxr-special", "playlist_entry_id": 2374228, "start_time": "2019-12-23T13:10:45", "playlist_page_url": "http://wqxr.demo2.wnyc.net/playlists/show/operavorestream/2019/dec/23/", "comments_url": "/api/list/comments/177/80914/", "iso_start_time": "2019-12-23T18:10:45+00:00", "catalog_entry": {"reclabel": {"url": "", "name": "Teldec"}, "conductor": {"url": "/music/musicians/joseph-jennings/", "pk": 4215, "slug": "joseph-jennings", "name": "Joseph Jennings"}, "catno": "85555", "composer": {"url": "/music/musicians/traditional/", "pk": 21, "slug": "traditional", "name": "Traditional"}, "attribution": "", "soloists": [{"instruments": ["soprano"], "musician": {"url": "/music/musicians/dawn-upshaw/", "pk": 46, "slug": "dawn-upshaw", "name": "Dawn Upshaw"}, "role": ""}], "title": "The Truth From Above (Herefordshire Carol)", "url": "http://wqxr.demo2.wnyc.net/music/recordings/11669/", "additional_composers": [{"url": "/music/musicians/ralph-vaughn-williams/", "pk": 6670, "slug": "ralph-vaughn-williams", "name": "Ralph Vaughn Williams"}], "audio_may_download": true, "length": 274, "pk": 11669, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=85555&id=112037&label=Teldec", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/chanticleer/", "pk": 366, "slug": "chanticleer", "name": "Chanticleer"}, "additional_ensembles": []}}], "has_playlists": true, "expires_ts": 1577124609.0, "slug": "wqxr-special"}});
-  this.get('/api/v1/whats_on/:slug', {"has_playlists": true, "future": [], "current_show": {"iso_start": "2019-12-23T15:00:00+00:00", "description": "<p>Annie Bergen is the midday host on WQXR.</p>", "fullImage": {"url": "https://media.demo.nypr.digital/i/300/300/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png", "width": 300, "caption": "", "type": "image/png", "height": 300}, "site_id": 2, "start_ts": 1577113200.0, "iso_end": "2019-12-23T20:00:00+00:00", "listImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "pk": 103285, "show_url": "https://wqxr.demo2.wnyc.net/shows/annie-bergen", "end": "2019-12-23T15:00:00-0500", "title": "Middays with Annie Bergen", "url": "https://wqxr.demo2.wnyc.net/shows/annie-bergen", "end_ts": 1577131200.0, "schedule_ref": "ShowSchedule:1132", "group_slug": "annie-bergen", "detailImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "start": "2019-12-23T10:00:00-0500"}, "expires": "2019-12-23T13:16:25", "current_playlist_item": {"start_time_ts": 1577124116.0, "stream": "wqxr", "playlist_entry_id": 2374227, "start_time": "2019-12-23T13:01:56", "playlist_page_url": "http://wqxr.demo2.wnyc.net/playlists/show/annie-bergen/2019/dec/23/", "comments_url": "/api/list/comments/177/80911/", "iso_start_time": "2019-12-23T18:01:56.866000+00:00", "catalog_entry": {"reclabel": {"url": "", "name": "RCA"}, "conductor": null, "catno": "787510", "composer": {"url": "/music/musicians/ludwig-van-beethoven/", "pk": 201, "slug": "ludwig-van-beethoven", "name": "Ludwig van Beethoven"}, "attribution": "", "soloists": [{"instruments": ["piano"], "musician": {"url": "/music/musicians/rudolf-buchbinder/", "pk": 3041, "slug": "rudolf-buchbinder", "name": "Rudolf Buchbinder"}, "role": ""}], "title": "Piano Sonata No. 13 in E-Flat Major, Op. 27, No. 1 \"Sonata quasi una fantasia\"", "url": "http://wqxr.demo2.wnyc.net/music/recordings/24654/", "additional_composers": [], "audio_may_download": true, "length": 858, "pk": 24654, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=787510&id=129239&label=RCA", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}}});
-  this.get('/api/v1/whats_on/:slug/:count/', {"has_playlists": true, "future": [], "current_show": {"iso_start": "2019-12-23T15:00:00+00:00", "description": "<p>Annie Bergen is the midday host on WQXR.</p>", "fullImage": {"url": "https://media.demo.nypr.digital/i/300/300/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png", "width": 300, "caption": "", "type": "image/png", "height": 300}, "site_id": 2, "start_ts": 1577113200.0, "iso_end": "2019-12-23T20:00:00+00:00", "listImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "pk": 103285, "show_url": "https://wqxr.demo2.wnyc.net/shows/annie-bergen", "end": "2019-12-23T15:00:00-0500", "title": "Middays with Annie Bergen", "url": "https://wqxr.demo2.wnyc.net/shows/annie-bergen", "end_ts": 1577131200.0, "schedule_ref": "ShowSchedule:1132", "group_slug": "annie-bergen", "detailImage": {"url": "https://media.demo.nypr.digital/i/60/60/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png", "width": 60, "caption": "", "type": "image/png", "height": 60}, "start": "2019-12-23T10:00:00-0500"}, "expires": "2019-12-23T13:16:25", "current_playlist_item": {"start_time_ts": 1577124116.0, "stream": "wqxr", "playlist_entry_id": 2374227, "start_time": "2019-12-23T13:01:56", "playlist_page_url": "http://wqxr.demo2.wnyc.net/playlists/show/annie-bergen/2019/dec/23/", "comments_url": "/api/list/comments/177/80911/", "iso_start_time": "2019-12-23T18:01:56.866000+00:00", "catalog_entry": {"reclabel": {"url": "", "name": "RCA"}, "conductor": null, "catno": "787510", "composer": {"url": "/music/musicians/ludwig-van-beethoven/", "pk": 201, "slug": "ludwig-van-beethoven", "name": "Ludwig van Beethoven"}, "attribution": "", "soloists": [{"instruments": ["piano"], "musician": {"url": "/music/musicians/rudolf-buchbinder/", "pk": 3041, "slug": "rudolf-buchbinder", "name": "Rudolf Buchbinder"}, "role": ""}], "title": "Piano Sonata No. 13 in E-Flat Major, Op. 27, No. 1 \"Sonata quasi una fantasia\"", "url": "http://wqxr.demo2.wnyc.net/music/recordings/24654/", "additional_composers": [], "audio_may_download": true, "length": 858, "pk": 24654, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=787510&id=129239&label=RCA", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}}});
-  this.get('/api/v1/playlist-daily/:slug/:year/:month/:day', {"events": [{"event_url": "https://wqxr.demo2.wnyc.net/shows/overnight-music", "evenOdd": "odd", "iso_end_timestamp": "2019-12-23T10:30:00+00:00", "top_playlisturl": "https://wnyc.demo2.wnyc.net/music/playlists/show/overnight-music/2019/dec/23/", "event_title": "New York At Night", "show_id": 316, "isEpisode": false, "show_title": "New York At Night", "iso_start_timestamp": "2019-12-23T05:00:00+00:00", "playlists": [{"url": "https://wnyc.demo2.wnyc.net/music/playlists/show/overnight-music/2019/dec/23/", "has_comments": false, "comment_count": 0, "id": "playlist_80902", "played": [{"iso_start_time": "2019-12-23T10:28:28+00:00", "info": {"reclabel": {"url": "", "name": "Hyperion"}, "conductor": null, "catno": "67440", "composer": {"url": "/music/musicians/francois-couperin/", "pk": 4287, "slug": "francois-couperin", "name": "Francois Couperin"}, "attribution": "", "soloists": [{"instruments": ["piano"], "musician": {"url": "/music/musicians/angela-hewitt/", "pk": 1545, "slug": "angela-hewitt", "name": "Angela Hewitt"}, "role": ""}], "title": "Les Moissoneurs", "url": "http://wqxr.demo2.wnyc.net/music/recordings/29413/", "additional_composers": [], "audio_may_download": true, "length": 123, "pk": 29413, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=67440&id=134427&label=Hyperion", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2373761", "time": "05:28 AM"}, {"iso_start_time": "2019-12-23T10:13:43+00:00", "info": {"reclabel": {"url": "", "name": "Avie"}, "conductor": {"url": "/music/musicians/adrian-chandler/", "pk": 8211, "slug": "adrian-chandler", "name": "Adrian Chandler"}, "catno": "AV2371", "composer": {"url": "/music/musicians/antonio-caldara/", "pk": 1184, "slug": "antonio-caldara", "name": "Antonio Caldara"}, "attribution": "", "soloists": [], "title": "Sinfonia in C Major", "url": "http://wqxr.demo2.wnyc.net/music/recordings/57218/", "additional_composers": [], "audio_may_download": true, "length": 888, "pk": 57218, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=AV2371&id=147971&label=Avie", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/la-serenissima/", "pk": 1697, "slug": "la-serenissima", "name": "La Serenissima"}, "additional_ensembles": []}, "id": "entry_1529482", "time": "05:13 AM"}, {"iso_start_time": "2019-12-23T09:48:26+00:00", "info": {"reclabel": {"url": "", "name": "Deutsche Grammophon"}, "conductor": {"url": "/music/musicians/gustavo-dudamel/", "pk": 5188, "slug": "gustavo-dudamel", "name": "Gustavo Dudamel"}, "catno": "B0015296-02", "composer": {"url": "/music/musicians/peter-ilyich-tchaikovsky/", "pk": 37, "slug": "peter-ilyich-tchaikovsky", "name": "Peter Ilyich Tchaikovsky"}, "attribution": "", "soloists": [], "title": "The Tempest, Op. 18", "url": "http://wqxr.demo2.wnyc.net/music/recordings/18711/", "additional_composers": [], "audio_may_download": true, "length": 1478, "pk": 18711, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=B0015296-02&id=121748&label=Deutsche+Grammophon", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/simon-bolivar-symphony-of-venezuela/", "pk": 739, "slug": "simon-bolivar-symphony-of-venezuela", "name": "Simon Bolivar Symphony of Venezuela"}, "additional_ensembles": []}, "id": "entry_2106045", "time": "04:48 AM"}, {"iso_start_time": "2019-12-23T09:21:21+00:00", "info": {"reclabel": {"url": "", "name": "Sound"}, "conductor": {"url": "/music/musicians/claudio-scimone/", "pk": 5983, "slug": "claudio-scimone", "name": "Claudio Scimone"}, "catno": "3415", "composer": {"url": "/music/musicians/antonio-salieri/", "pk": 10285, "slug": "antonio-salieri", "name": "Antonio Salieri"}, "attribution": "", "soloists": [{"instruments": ["piano"], "musician": {"url": "/music/musicians/aldo-ciccolini/", "pk": 1652, "slug": "aldo-ciccolini", "name": "Aldo Ciccolini"}, "role": ""}], "title": "Piano Concerto in B-flat Major", "url": "http://wqxr.demo2.wnyc.net/music/recordings/19693/", "additional_composers": [], "audio_may_download": true, "length": 1600, "pk": 19693, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=3415&id=123036&label=Sound", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/i-solisti-veneti/", "pk": 1117, "slug": "i-solisti-veneti", "name": "I Solisti Veneti"}, "additional_ensembles": []}, "id": "entry_1503185", "time": "04:21 AM"}, {"iso_start_time": "2019-12-23T09:11:39+00:00", "info": {"reclabel": {"url": "", "name": "Angel/EMI"}, "conductor": {"url": "/music/musicians/andrew-parrott/", "pk": 1116, "slug": "andrew-parrott", "name": "Andrew Parrott"}, "catno": "747633", "composer": {"url": "/music/musicians/traditional/", "pk": 21, "slug": "traditional", "name": "Traditional"}, "attribution": "", "soloists": [], "title": "In dulci jubilo", "url": "http://wqxr.demo2.wnyc.net/music/recordings/687/", "additional_composers": [{"url": "/music/musicians/michael-praetorius/", "pk": 557, "slug": "michael-praetorius", "name": "Michael Praetorius"}], "audio_may_download": true, "length": 450, "pk": 687, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=747633&id=100690&label=Angel%2FEMI", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/taverner-consort-choir-and-players/", "pk": 231, "slug": "taverner-consort-choir-and-players", "name": "Taverner Consort, Choir and Players"}, "additional_ensembles": []}, "id": "entry_1679174", "time": "04:11 AM"}, {"iso_start_time": "2019-12-23T08:47:08+00:00", "info": {"reclabel": {"url": "", "name": "Chandos"}, "conductor": {"url": "/music/musicians/neeme-jarvi/", "pk": 1177, "slug": "neeme-jarvi", "name": "Neeme Jarvi"}, "catno": "9154", "composer": {"url": "/music/musicians/william-grant-still/", "pk": 2152, "slug": "william-grant-still", "name": "William Grant Still"}, "attribution": "", "soloists": [], "title": "Symphony No. 1 \"Afro-American\"", "url": "http://wqxr.demo2.wnyc.net/music/recordings/1729/", "additional_composers": [], "audio_may_download": true, "length": 1450, "pk": 1729, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=9154&id=101745&label=Chandos", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/detroit-symphony-orchestra/", "pk": 356, "slug": "detroit-symphony-orchestra", "name": "Detroit Symphony Orchestra"}, "additional_ensembles": []}, "id": "entry_1571986", "time": "03:47 AM"}, {"iso_start_time": "2019-12-23T08:31:07+00:00", "info": {"reclabel": {"url": "", "name": "Cedille"}, "conductor": null, "catno": "90000 073", "composer": {"url": "/music/musicians/robert-schumann/", "pk": 368, "slug": "robert-schumann", "name": "Robert Schumann"}, "attribution": "", "soloists": [{"instruments": ["violin"], "musician": {"url": "/music/musicians/jennifer-koh/", "pk": 972, "slug": "jennifer-koh", "name": "Jennifer Koh"}, "role": ""}, {"instruments": ["piano"], "musician": {"url": "/music/musicians/reiko-uchida/", "pk": 973, "slug": "reiko-uchida", "name": "Reiko Uchida"}, "role": ""}], "title": "Fantasie in C Major for Violin and Piano, Op. 131", "url": "http://wqxr.demo2.wnyc.net/music/recordings/13328/", "additional_composers": [], "audio_may_download": true, "length": 934, "pk": 13328, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=90000+073&id=114632&label=Cedille", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_1858254", "time": "03:31 AM"}, {"iso_start_time": "2019-12-23T08:14:43+00:00", "info": {"reclabel": {"url": "", "name": "CBS/Sony"}, "conductor": {"url": "/music/musicians/jeanne-lamon/", "pk": 552, "slug": "jeanne-lamon", "name": "Jeanne Lamon"}, "catno": "62720", "composer": {"url": "/music/musicians/wilhelm-friedemann-bach/", "pk": 8080, "slug": "wilhelm-friedemann-bach", "name": "Wilhelm Friedemann Bach"}, "attribution": "", "soloists": [], "title": "Sinfonia in F Major, F. 67", "url": "http://wqxr.demo2.wnyc.net/music/recordings/58901/", "additional_composers": [], "audio_may_download": true, "length": 893, "pk": 58901, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=62720&id=149917&label=CBS%2FSony", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/tafelmusik/", "pk": 115, "slug": "tafelmusik", "name": "Tafelmusik"}, "additional_ensembles": []}, "id": "entry_1549596", "time": "03:14 AM"}, {"iso_start_time": "2019-12-23T07:47:31+00:00", "info": {"reclabel": {"url": "", "name": "Naxos"}, "conductor": {"url": "/music/musicians/tony-rowe/", "pk": 25124, "slug": "tony-rowe", "name": "Tony Rowe"}, "catno": "855907", "composer": {"url": "/music/musicians/william-henry-fry/", "pk": 25125, "slug": "william-henry-fry", "name": "William Henry Fry"}, "attribution": "", "soloists": [], "title": "Santa Claus, Christmas Symphony", "url": "http://wqxr.demo2.wnyc.net/music/recordings/65800/", "additional_composers": [], "audio_may_download": true, "length": 1573, "pk": 65800, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=855907&id=154249&label=Naxos", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/royal-scottish-national-orchestra/", "pk": 464, "slug": "royal-scottish-national-orchestra", "name": "Royal Scottish National Orchestra"}, "additional_ensembles": []}, "id": "entry_2017124", "time": "02:47 AM"}, {"iso_start_time": "2019-12-23T07:13:25+00:00", "info": {"reclabel": {"url": "", "name": ""}, "conductor": null, "catno": "", "composer": null, "attribution": "", "soloists": [], "title": "String Quartet in C Major, Op. 58", "url": "http://wqxr.demo2.wnyc.net/music/recordings/67223/", "additional_composers": [], "audio_may_download": true, "length": 1958, "pk": 67223, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=&id=155448&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2237500", "time": "02:13 AM"}, {"iso_start_time": "2019-12-23T06:28:39+00:00", "info": {"reclabel": {"url": "", "name": "Sony"}, "conductor": {"url": "/music/musicians/charles-munch/", "pk": 4346, "slug": "charles-munch", "name": "Charles Munch"}, "catno": "88725462392", "composer": {"url": "/music/musicians/johannes-brahms/", "pk": 471, "slug": "johannes-brahms", "name": "Johannes Brahms"}, "attribution": "", "soloists": [{"instruments": ["piano"], "musician": {"url": "/music/musicians/gary-graffman/", "pk": 6126, "slug": "gary-graffman", "name": "Gary Graffman"}, "role": ""}], "title": "Piano Concerto No. 1 in D Minor, Op. 15", "url": "http://wqxr.demo2.wnyc.net/music/recordings/30836/", "additional_composers": [], "audio_may_download": true, "length": 2646, "pk": 30836, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=88725462392&id=135542&label=Sony", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/boston-symphony-orchestra/", "pk": 119, "slug": "boston-symphony-orchestra", "name": "Boston Symphony Orchestra"}, "additional_ensembles": []}, "id": "entry_1585177", "time": "01:28 AM"}, {"iso_start_time": "2019-12-23T06:11:17+00:00", "info": {"reclabel": {"url": "", "name": "Azica Records"}, "conductor": null, "catno": "71210", "composer": {"url": "/music/musicians/johann-sebastian-bach/", "pk": 115, "slug": "johann-sebastian-bach", "name": "Johann Sebastian Bach"}, "attribution": "", "soloists": [{"instruments": ["guitar"], "musician": {"url": "/music/musicians/david-leisner/", "pk": 2814, "slug": "david-leisner", "name": "David Leisner"}, "role": ""}], "title": "Suite in E Minor for Lute, BWV 996", "url": "http://wqxr.demo2.wnyc.net/music/recordings/27623/", "additional_composers": [], "audio_may_download": true, "length": 1020, "pk": 27623, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=71210&id=131811&label=Azica+Records", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_1544876", "time": "01:11 AM"}, {"iso_start_time": "2019-12-23T05:59:32+00:00", "info": {"reclabel": {"url": "", "name": "CBS/Sony"}, "conductor": {"url": "/music/musicians/andre-previn/", "pk": 1055, "slug": "andre-previn", "name": "Andre Previn"}, "catno": "48235", "composer": {"url": "/music/musicians/traditional/", "pk": 21, "slug": "traditional", "name": "Traditional"}, "attribution": "", "soloists": [{"instruments": ["soprano"], "musician": {"url": "/music/musicians/kathleen-battle/", "pk": 3995, "slug": "kathleen-battle", "name": "Kathleen Battle"}, "role": ""}, {"instruments": ["mezzo-soprano"], "musician": {"url": "/music/musicians/frederica-von-stade/", "pk": 923, "slug": "frederica-von-stade", "name": "Frederica von Stade"}, "role": ""}], "title": "Christmas Songs", "url": "http://wqxr.demo2.wnyc.net/music/recordings/11769/", "additional_composers": [{"url": "/music/musicians/alexander-courage/", "pk": 2572, "slug": "alexander-courage", "name": "Alexander Courage"}], "audio_may_download": true, "length": 651, "pk": 11769, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=48235&id=112168&label=CBS%2FSony", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/orchestra-of-st-lukes/", "pk": 102, "slug": "orchestra-of-st-lukes", "name": "Orchestra of St. Luke's"}, "additional_ensembles": [{"url": "/music/ensembles/the-american-boychoir/", "pk": 1281, "slug": "the-american-boychoir", "name": "The American Boychoir"}, {"url": "/music/ensembles/the-christmas-concert-chorus/", "pk": 1280, "slug": "the-christmas-concert-chorus", "name": "The Christmas Concert Chorus"}]}, "id": "entry_2031712", "time": "12:59 AM"}, {"iso_start_time": "2019-12-23T05:18:15+00:00", "info": {"reclabel": {"url": "", "name": "Hanssler"}, "conductor": {"url": "/music/musicians/grzegorz-nowak/", "pk": 21878, "slug": "grzegorz-nowak", "name": "Grzegorz Nowak"}, "catno": "93169", "composer": {"url": "/music/musicians/carl-czerny/", "pk": 13493, "slug": "carl-czerny", "name": "Carl Czerny"}, "attribution": "", "soloists": [], "title": "Grande Symphony No. 2, Op. 781", "url": "http://wqxr.demo2.wnyc.net/music/recordings/54668/", "additional_composers": [], "audio_may_download": true, "length": 2437, "pk": 54668, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=93169&id=146909&label=Hanssler", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/swr-radio-orchestra-kaiserslautern/", "pk": 5487, "slug": "swr-radio-orchestra-kaiserslautern", "name": "SWR Radio Orchestra Kaiserslautern"}, "additional_ensembles": []}, "id": "entry_1494827", "time": "12:18 AM"}, {"iso_start_time": "2019-12-23T05:08:19+00:00", "info": {"reclabel": {"url": "", "name": "Arcana"}, "conductor": null, "catno": "365", "composer": {"url": "/music/musicians/antonio-vivaldi/", "pk": 544, "slug": "antonio-vivaldi", "name": "Antonio Vivaldi"}, "attribution": "", "soloists": [{"instruments": ["bassoon"], "musician": {"url": "/music/musicians/alberto-grazzi/", "pk": 24900, "slug": "alberto-grazzi", "name": "Alberto Grazzi"}, "role": ""}], "title": "Bassoon Concerto in C Major, RV 474", "url": "http://wqxr.demo2.wnyc.net/music/recordings/65163/", "additional_composers": [], "audio_may_download": true, "length": 544, "pk": 65163, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=365&id=153762&label=Arcana", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/ensemble-zefiro/", "pk": 5621, "slug": "ensemble-zefiro", "name": "Ensemble Zefiro"}, "additional_ensembles": []}, "id": "entry_2062823", "time": "12:08 AM"}]}], "endtime": "05:30 AM", "id": "event_1200AM", "end_timestamp": "2019-12-23T05:30:00", "top_commentcount": 0, "show_url": "https://wqxr.demo2.wnyc.net/shows/overnight-music", "start_timestamp": "2019-12-23T00:00:00", "object_id": 316, "isObject": true, "current": "", "starttime": "12:00", "time": "12:00 AM", "scheduleteasehead": "<div class=\"program\"><a href=\"https://wqxr.demo2.wnyc.net/shows/overnight-music\">New York At Night</a></div>\n<div class=\"expand\"><div class=\"arrow\"></div></div>\n<div class=\"options\"><div></div></div>\n", "scheduletease": "\n<div class=\"program clearfix\">\n  \n    \n      <div          class=\"image\"      >\n    \n\n      <a        href=\"https://wqxr.demo2.wnyc.net/shows/overnight-music\">    <img src=\"https://media.demo.nypr.digital/i/60/60/l/80/1/NewYorkAtNight_WQXR_ShowPageSquares.png\"         alt=\"\"     />\n      </a>      </div>\n\n  <div class=\"text\">\n    <div class=\"tease\"><div class=\"no-object\">\n<p>Tune in for a nightly mix that spans the centuries.</p>\n</div></div>\n      <ul class=\"hosts\">\n      <li>Host: </li>\n      \n<li><a href=\"/people/nimet-habachy/\">Nimet Habachy</a></li>\n\n      </ul>\n    \n\n<div class=\"scheduled-item-link\">\n  Go to program: <a href=\"https://wqxr.demo2.wnyc.net/shows/overnight-music\">New York At Night</a>\n</div>\n\n    <div class=\"expand\"></div>\n  </div>\n</div>\n"}, {"event_url": "https://wqxr.demo2.wnyc.net/shows/morning", "evenOdd": "even", "iso_end_timestamp": "2019-12-23T15:00:00+00:00", "top_playlisturl": "https://wnyc.demo2.wnyc.net/music/playlists/show/morning/2019/dec/23/", "event_title": "Mornings with Jeff Spurgeon", "show_id": 317, "isEpisode": false, "show_title": "Mornings with Jeff Spurgeon", "iso_start_timestamp": "2019-12-23T10:30:00+00:00", "playlists": [{"url": "https://wnyc.demo2.wnyc.net/music/playlists/show/morning/2019/dec/23/", "has_comments": false, "comment_count": 0, "id": "playlist_80904", "played": [{"iso_start_time": "2019-12-23T14:55:23.086000+00:00", "info": {"reclabel": {"url": "", "name": "K&K"}, "conductor": {"url": "/music/musicians/jurgen-budday/", "pk": 23416, "slug": "jurgen-budday", "name": "Jurgen Budday"}, "catno": "675754009243", "composer": {"url": "/music/musicians/george-frideric-handel/", "pk": 6953, "slug": "george-frideric-handel", "name": "George Frideric Handel"}, "attribution": "", "soloists": [], "title": "Judas Maccabeus, Act III: See the conqu'ring hero comes; Sing unto God", "url": "http://wqxr.demo2.wnyc.net/music/recordings/61323/", "additional_composers": [], "audio_may_download": true, "length": 333, "pk": 61323, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=675754009243&id=150639&label=K%26K", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/musica-florea/", "pk": 6102, "slug": "musica-florea", "name": "Musica Florea"}, "additional_ensembles": [{"url": "/music/ensembles/maulbronn-chamber-choir/", "pk": 6103, "slug": "maulbronn-chamber-choir", "name": "Maulbronn Chamber Choir"}]}, "id": "entry_2374053", "time": "09:55 AM"}, {"iso_start_time": "2019-12-23T14:36:58.090000+00:00", "info": {"reclabel": {"url": "", "name": "Philips"}, "conductor": {"url": "/music/musicians/semyon-bychkov/", "pk": 2680, "slug": "semyon-bychkov", "name": "Semyon Bychkov"}, "catno": "422357", "composer": {"url": "/music/musicians/richard-strauss/", "pk": 162, "slug": "richard-strauss", "name": "Richard Strauss"}, "attribution": "", "soloists": [], "title": "Don Juan, Op. 20", "url": "http://wqxr.demo2.wnyc.net/music/recordings/28825/", "additional_composers": [], "audio_may_download": true, "length": 1075, "pk": 28825, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=422357&id=133630&label=Philips", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/royal-concertgebouw-orchestra/", "pk": 532, "slug": "royal-concertgebouw-orchestra", "name": "Royal Concertgebouw Orchestra"}, "additional_ensembles": []}, "id": "entry_2374041", "time": "09:36 AM"}, {"iso_start_time": "2019-12-23T14:22:06.502000+00:00", "info": {"reclabel": {"url": "", "name": "Nimbus"}, "conductor": {"url": "/music/musicians/adam-fischer/", "pk": 3793, "slug": "adam-fischer", "name": "Adam Fischer"}, "catno": "5199", "composer": {"url": "/music/musicians/franz-joseph-haydn/", "pk": 1334, "slug": "franz-joseph-haydn", "name": "Franz Joseph Haydn"}, "attribution": "", "soloists": [], "title": "Symphony No. 27 in G", "url": "http://wqxr.demo2.wnyc.net/music/recordings/29418/", "additional_composers": [], "audio_may_download": true, "length": 815, "pk": 29418, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=5199&id=134422&label=Nimbus", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/austro-hungarian-haydn-orchestra/", "pk": 772, "slug": "austro-hungarian-haydn-orchestra", "name": "Austro-Hungarian Haydn Orchestra"}, "additional_ensembles": []}, "id": "entry_2374029", "time": "09:22 AM"}, {"iso_start_time": "2019-12-23T14:18:16.314000+00:00", "info": {"reclabel": null, "conductor": null, "catno": "2413", "composer": null, "attribution": "", "soloists": [], "title": "The Ballad of the Brown King: Now When Jesus Was Born", "url": "http://wqxr.demo2.wnyc.net/music/recordings/68204/", "additional_composers": [], "audio_may_download": true, "length": 127, "pk": 68204, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=2413&id=156552&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2374025", "time": "09:18 AM"}, {"iso_start_time": "2019-12-23T14:16:48.987000+00:00", "info": {"reclabel": null, "conductor": null, "catno": "", "composer": null, "attribution": "", "soloists": [], "title": "Bright Star", "url": "http://wqxr.demo2.wnyc.net/music/recordings/68611/", "additional_composers": [], "audio_may_download": true, "length": 89, "pk": 68611, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=&id=156887&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2374023", "time": "09:16 AM"}, {"iso_start_time": "2019-12-23T14:03:05.580000+00:00", "info": {"reclabel": {"url": "", "name": "Pentatone"}, "conductor": {"url": "/music/musicians/michele-mariotti/", "pk": 9248, "slug": "michele-mariotti", "name": "Michele Mariotti"}, "catno": "98269", "composer": {"url": "/music/musicians/gioacchino-rossini/", "pk": 3582, "slug": "gioacchino-rossini", "name": "Gioacchino Rossini"}, "attribution": "", "soloists": [], "title": "Semiramide: Overture", "url": "http://wqxr.demo2.wnyc.net/music/recordings/65550/", "additional_composers": [], "audio_may_download": true, "length": 757, "pk": 65550, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=98269&id=154096&label=Pentatone", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/bologna-community-theater-orchestra/", "pk": 1946, "slug": "bologna-community-theater-orchestra", "name": "Bologna Community Theater Orchestra"}, "additional_ensembles": []}, "id": "entry_2374011", "time": "09:03 AM"}, {"iso_start_time": "2019-12-23T13:50:32.341000+00:00", "info": {"reclabel": {"url": "", "name": "Pentatone"}, "conductor": {"url": "/music/musicians/seiji-ozawa/", "pk": 2308, "slug": "seiji-ozawa", "name": "Seiji Ozawa"}, "catno": "5186204", "composer": {"url": "/music/musicians/maurice-ravel/", "pk": 158, "slug": "maurice-ravel", "name": "Maurice Ravel"}, "attribution": "", "soloists": [], "title": "Miroirs: Une barque sur l'ocean", "url": "http://wqxr.demo2.wnyc.net/music/recordings/46518/", "additional_composers": [], "audio_may_download": true, "length": 462, "pk": 46518, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=5186204&id=142803&label=Pentatone", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/boston-symphony-orchestra/", "pk": 119, "slug": "boston-symphony-orchestra", "name": "Boston Symphony Orchestra"}, "additional_ensembles": []}, "id": "entry_2373994", "time": "08:50 AM"}, {"iso_start_time": "2019-12-23T13:43:49.257000+00:00", "info": {"reclabel": {"url": "", "name": "Decca"}, "conductor": {"url": "/music/musicians/diego-fasolis/", "pk": 12828, "slug": "diego-fasolis", "name": "Diego Fasolis"}, "catno": "001894802", "composer": {"url": "/music/musicians/agostino-steffani/", "pk": 13352, "slug": "agostino-steffani", "name": "Agostino Steffani"}, "attribution": "", "soloists": [], "title": "Henrico Leone: Suite", "url": "http://wqxr.demo2.wnyc.net/music/recordings/30832/", "additional_composers": [], "audio_may_download": true, "length": 320, "pk": 30832, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=001894802&id=135442&label=Decca", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/i-barocchisti/", "pk": 2744, "slug": "i-barocchisti", "name": "I Barocchisti"}, "additional_ensembles": []}, "id": "entry_2373988", "time": "08:43 AM"}, {"iso_start_time": "2019-12-23T13:34:05.695000+00:00", "info": {"reclabel": {"url": "", "name": "Sony Classical"}, "conductor": {"url": "/music/musicians/gustavo-dudamel/", "pk": 5188, "slug": "gustavo-dudamel", "name": "Gustavo Dudamel"}, "catno": "76182", "composer": {"url": "/music/musicians/emile-waldteufel/", "pk": 6197, "slug": "emile-waldteufel", "name": "Emile Waldteufel"}, "attribution": "", "soloists": [], "title": "Skaters' Waltz", "url": "http://wqxr.demo2.wnyc.net/music/recordings/60327/", "additional_composers": [], "audio_may_download": true, "length": 468, "pk": 60327, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=76182&id=147663&label=Sony+Classical", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/vienna-philharmonic-orchestra/", "pk": 29, "slug": "vienna-philharmonic-orchestra", "name": "Vienna Philharmonic Orchestra"}, "additional_ensembles": []}, "id": "entry_2373978", "time": "08:34 AM"}, {"iso_start_time": "2019-12-23T13:27:43.427000+00:00", "info": {"reclabel": null, "conductor": null, "catno": "", "composer": null, "attribution": "", "soloists": [], "title": "Violin Sonata: III. Allegro", "url": "http://wqxr.demo2.wnyc.net/music/recordings/66434/", "additional_composers": [], "audio_may_download": true, "length": 269, "pk": 66434, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=&id=154803&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2373970", "time": "08:27 AM"}, {"iso_start_time": "2019-12-23T13:25:27.221000+00:00", "info": {"reclabel": null, "conductor": null, "catno": "71319", "composer": null, "attribution": "", "soloists": [], "title": "Fum, Fum, Fum", "url": "http://wqxr.demo2.wnyc.net/music/recordings/68609/", "additional_composers": [], "audio_may_download": true, "length": 128, "pk": 68609, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=71319&id=156739&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2373967", "time": "08:25 AM"}, {"iso_start_time": "2019-12-23T13:15:49.419000+00:00", "info": {"reclabel": {"url": "", "name": "CPO"}, "conductor": {"url": "/music/musicians/bohdan-warchal/", "pk": 7610, "slug": "bohdan-warchal", "name": "Bohdan Warchal"}, "catno": "999144", "composer": {"url": "/music/musicians/leopold-mozart/", "pk": 6546, "slug": "leopold-mozart", "name": "Leopold Mozart"}, "attribution": "", "soloists": [], "title": "Symphony in F Major", "url": "http://wqxr.demo2.wnyc.net/music/recordings/33562/", "additional_composers": [], "audio_may_download": true, "length": 556, "pk": 33562, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=999144&id=135959&label=CPO", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/slovak-chamber-orchestra/", "pk": 1551, "slug": "slovak-chamber-orchestra", "name": "Slovak Chamber Orchestra"}, "additional_ensembles": []}, "id": "entry_2373958", "time": "08:15 AM"}, {"iso_start_time": "2019-12-23T13:09:22.070000+00:00", "info": {"reclabel": null, "conductor": null, "catno": "1359", "composer": null, "attribution": "", "soloists": [], "title": "Concertino for Flute and Small Orchestra", "url": "http://wqxr.demo2.wnyc.net/music/recordings/66619/", "additional_composers": [], "audio_may_download": true, "length": 301, "pk": 66619, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=1359&id=154832&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2373951", "time": "08:09 AM"}, {"iso_start_time": "2019-12-23T13:06:17.913000+00:00", "info": {"reclabel": {"url": "", "name": "CBS/Sony"}, "conductor": {"url": "/music/musicians/leopold-stokowski/", "pk": 33, "slug": "leopold-stokowski", "name": "Leopold Stokowski"}, "catno": "46356", "composer": {"url": "/music/musicians/georges-bizet/", "pk": 257, "slug": "georges-bizet", "name": "Georges Bizet"}, "attribution": "", "soloists": [], "title": "Carmen: Intermezzo, Act III", "url": "http://wqxr.demo2.wnyc.net/music/recordings/13061/", "additional_composers": [], "audio_may_download": true, "length": 184, "pk": 13061, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=46356&id=112943&label=CBS%2FSony", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/national-philharmonic-orchestra/", "pk": 594, "slug": "national-philharmonic-orchestra", "name": "National Philharmonic Orchestra"}, "additional_ensembles": []}, "id": "entry_2373947", "time": "08:06 AM"}, {"iso_start_time": "2019-12-23T12:58:37.622000+00:00", "info": {"reclabel": {"url": "", "name": "Naxos"}, "conductor": {"url": "/music/musicians/marin-alsop/", "pk": 874, "slug": "marin-alsop", "name": "Marin Alsop"}, "catno": "8573620", "composer": {"url": "/music/musicians/sergei-prokofiev/", "pk": 261, "slug": "sergei-prokofiev", "name": "Sergei Prokofiev"}, "attribution": "", "soloists": [], "title": "Love for Three Oranges, Op. 33: March; Scherzo", "url": "http://wqxr.demo2.wnyc.net/music/recordings/61282/", "additional_composers": [], "audio_may_download": true, "length": 233, "pk": 61282, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=8573620&id=150627&label=Naxos", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/sao-paulo-symphony-orchestra/", "pk": 2656, "slug": "sao-paulo-symphony-orchestra", "name": "Sao Paulo Symphony Orchestra"}, "additional_ensembles": []}, "id": "entry_2373939", "time": "07:58 AM"}, {"iso_start_time": "2019-12-23T12:49:30.501000+00:00", "info": {"reclabel": {"url": "", "name": "Naxos"}, "conductor": {"url": "/music/musicians/kevin-mallon/", "pk": 13983, "slug": "kevin-mallon", "name": "Kevin Mallon"}, "catno": "8557484", "composer": {"url": "/music/musicians/samuel-arnold/", "pk": 20913, "slug": "samuel-arnold", "name": "Samuel Arnold"}, "attribution": "", "soloists": [], "title": "Overture in D major, Op. 8/4", "url": "http://wqxr.demo2.wnyc.net/music/recordings/50358/", "additional_composers": [], "audio_may_download": true, "length": 441, "pk": 50358, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=8557484&id=145384&label=Naxos", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/toronto-chamber-orchestra/", "pk": 1118, "slug": "toronto-chamber-orchestra", "name": "Toronto Chamber Orchestra"}, "additional_ensembles": []}, "id": "entry_2373929", "time": "07:49 AM"}, {"iso_start_time": "2019-12-23T12:43:24.979000+00:00", "info": {"reclabel": {"url": "", "name": "Deutsche Grammophon"}, "conductor": null, "catno": "4776634", "composer": {"url": "/music/musicians/felix-mendelssohn/", "pk": 1699, "slug": "felix-mendelssohn", "name": "Felix Mendelssohn"}, "attribution": "", "soloists": [{"instruments": ["violin"], "musician": {"url": "/music/musicians/daniel-hope/", "pk": 430, "slug": "daniel-hope", "name": "Daniel Hope"}, "role": ""}], "title": "Octet in E-flat, Op. 20: Scherzo", "url": "http://wqxr.demo2.wnyc.net/music/recordings/18341/", "additional_composers": [], "audio_may_download": true, "length": 258, "pk": 18341, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=4776634&id=121412&label=Deutsche+Grammophon", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/soloists-of-the-chamber-orchestra-of-europe/", "pk": 2021, "slug": "soloists-of-the-chamber-orchestra-of-europe", "name": "Soloists of the Chamber Orchestra of Europe"}, "additional_ensembles": []}, "id": "entry_2373920", "time": "07:43 AM"}, {"iso_start_time": "2019-12-23T12:36:55.559000+00:00", "info": {"reclabel": {"url": "", "name": "Reference Recordings"}, "conductor": {"url": "/music/musicians/christophe-chagnard/", "pk": 18868, "slug": "christophe-chagnard", "name": "Christophe Chagnard"}, "catno": "134", "composer": {"url": "/music/musicians/camille-saint-saens_/", "pk": 9541, "slug": "camille-saint-saens_", "name": "Camille Saint-Saens"}, "attribution": "", "soloists": [{"instruments": ["piano"], "musician": {"url": "/music/musicians/joel-fan/", "pk": 2798, "slug": "joel-fan", "name": "Joel Fan"}, "role": ""}], "title": "Wedding Cake: Valse-Caprice for piano and strings, Op. 76", "url": "http://wqxr.demo2.wnyc.net/music/recordings/44565/", "additional_composers": [], "audio_may_download": true, "length": 378, "pk": 44565, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=134&id=140853&label=Reference+Recordings", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/northwest-sinfonietta/", "pk": 4410, "slug": "northwest-sinfonietta", "name": "Northwest Sinfonietta"}, "additional_ensembles": []}, "id": "entry_2373913", "time": "07:36 AM"}, {"iso_start_time": "2019-12-23T12:31:45.120000+00:00", "info": {"reclabel": null, "conductor": null, "catno": "25488", "composer": null, "attribution": "", "soloists": [], "title": "Cantata BWV 40, \"Darzu ist erschienen der Sohn Gottes\": Darzu ist erschienen de", "url": "http://wqxr.demo2.wnyc.net/music/recordings/66095/", "additional_composers": [], "audio_may_download": true, "length": 210, "pk": 66095, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=25488&id=154415&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2373909", "time": "07:31 AM"}, {"iso_start_time": "2019-12-23T12:25:40.535000+00:00", "info": {"reclabel": {"url": "", "name": "Warner Classics"}, "conductor": {"url": "/music/musicians/eric-jacobsen/", "pk": 3963, "slug": "eric-jacobsen", "name": "Eric Jacobsen"}, "catno": "0190295875213", "composer": {"url": "/music/musicians/antonin-dvorak/", "pk": 522, "slug": "antonin-dvorak", "name": "Antonin Dvorak"}, "attribution": "", "soloists": [{"instruments": ["cello"], "musician": {"url": "/music/musicians/yo-yo-ma/", "pk": 25, "slug": "yo-yo-ma", "name": "Yo-Yo Ma"}, "role": ""}], "title": "Rusalka: Song To The Moon", "url": "http://wqxr.demo2.wnyc.net/music/recordings/57304/", "additional_composers": [{"url": "/music/musicians/jesse-diener-bennett/", "pk": 22601, "slug": "jesse-diener-bennett", "name": "Jesse Diener-Bennett"}], "audio_may_download": true, "length": 319, "pk": 57304, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=0190295875213&id=148392&label=Warner+Classics", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/the-knights/", "pk": 999, "slug": "the-knights", "name": "The Knights"}, "additional_ensembles": []}, "id": "entry_2373902", "time": "07:25 AM"}, {"iso_start_time": "2019-12-23T12:17:34.771000+00:00", "info": {"reclabel": {"url": "", "name": "Naxos"}, "conductor": {"url": "/music/musicians/petter-sundkvist/", "pk": 19349, "slug": "petter-sundkvist", "name": "Petter Sundkvist"}, "catno": "8557498", "composer": {"url": "/music/musicians/joseph-martin-kraus/", "pk": 11888, "slug": "joseph-martin-kraus", "name": "Joseph Martin Kraus"}, "attribution": "", "soloists": [], "title": "Pantomime in G Major", "url": "http://wqxr.demo2.wnyc.net/music/recordings/54678/", "additional_composers": [], "audio_may_download": true, "length": 466, "pk": 54678, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=8557498&id=146945&label=Naxos", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/swedish-chamber-orchestra/", "pk": 1567, "slug": "swedish-chamber-orchestra", "name": "Swedish Chamber Orchestra"}, "additional_ensembles": []}, "id": "entry_2373892", "time": "07:17 AM"}, {"iso_start_time": "2019-12-23T12:12:28.226000+00:00", "info": {"reclabel": null, "conductor": null, "catno": "8573947", "composer": null, "attribution": "", "soloists": [], "title": "La source, Op. 44", "url": "http://wqxr.demo2.wnyc.net/music/recordings/66936/", "additional_composers": [], "audio_may_download": true, "length": 232, "pk": 66936, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=8573947&id=155126&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2373885", "time": "07:12 AM"}, {"iso_start_time": "2019-12-23T12:04:41.252000+00:00", "info": {"reclabel": null, "conductor": null, "catno": "29591000", "composer": null, "attribution": "", "soloists": [], "title": "Concerto No. 9 in D Major, RV 230", "url": "http://wqxr.demo2.wnyc.net/music/recordings/67402/", "additional_composers": [], "audio_may_download": true, "length": 418, "pk": 67402, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=29591000&id=155646&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2373874", "time": "07:04 AM"}, {"iso_start_time": "2019-12-23T11:52:08.745000+00:00", "info": {"reclabel": null, "conductor": null, "catno": "", "composer": null, "attribution": "", "soloists": [], "title": "Fritiof Suite: Prelude", "url": "http://wqxr.demo2.wnyc.net/music/recordings/66455/", "additional_composers": [], "audio_may_download": true, "length": 543, "pk": 66455, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=&id=154814&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2373861", "time": "06:52 AM"}, {"iso_start_time": "2019-12-23T11:48:25.877000+00:00", "info": {"reclabel": null, "conductor": null, "catno": "6013", "composer": null, "attribution": "", "soloists": [], "title": "Magnolia: My Lady Love", "url": "http://wqxr.demo2.wnyc.net/music/recordings/66464/", "additional_composers": [], "audio_may_download": true, "length": 179, "pk": 66464, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=6013&id=154823&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2373859", "time": "06:48 AM"}, {"iso_start_time": "2019-12-23T11:43:41.331000+00:00", "info": {"reclabel": null, "conductor": null, "catno": "8559075", "composer": null, "attribution": "", "soloists": [], "title": "Suite No. 1, Op. 42: In October", "url": "http://wqxr.demo2.wnyc.net/music/recordings/67870/", "additional_composers": [], "audio_may_download": true, "length": 287, "pk": 67870, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=8559075&id=156425&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2373856", "time": "06:43 AM"}, {"iso_start_time": "2019-12-23T11:32:38.703000+00:00", "info": {"reclabel": {"url": "", "name": "Ars Production"}, "conductor": {"url": "/music/musicians/constantin-trinks/", "pk": 23311, "slug": "constantin-trinks", "name": "Constantin Trinks"}, "catno": "38107", "composer": {"url": "/music/musicians/wolfgang-amadeus-mozart/", "pk": 8, "slug": "wolfgang-amadeus-mozart", "name": "Wolfgang Amadeus Mozart"}, "attribution": "", "soloists": [], "title": "Symphony No. 32 in G, K. 318", "url": "http://wqxr.demo2.wnyc.net/music/recordings/60766/", "additional_composers": [], "audio_may_download": true, "length": 537, "pk": 60766, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=38107&id=150468&label=Ars+Production", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/darmstadt-state-orchestra/", "pk": 6042, "slug": "darmstadt-state-orchestra", "name": "Darmstadt State Orchestra"}, "additional_ensembles": []}, "id": "entry_2373843", "time": "06:32 AM"}, {"iso_start_time": "2019-12-23T11:28:22.760000+00:00", "info": {"reclabel": null, "conductor": null, "catno": "5008", "composer": null, "attribution": "", "soloists": [], "title": "Hymns and Sacred Songs: Wonderful and Strange", "url": "http://wqxr.demo2.wnyc.net/music/recordings/68608/", "additional_composers": [], "audio_may_download": true, "length": 175, "pk": 68608, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=5008&id=156888&label=", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2373838", "time": "06:28 AM"}, {"iso_start_time": "2019-12-23T11:25:58.830000+00:00", "info": {"reclabel": {"url": "", "name": "Avie"}, "conductor": null, "catno": "2254", "composer": {"url": "/music/musicians/traditional/", "pk": 21, "slug": "traditional", "name": "Traditional"}, "attribution": "", "soloists": [{"instruments": ["guitar"], "musician": {"url": "/music/musicians/mattias-jacobsson/", "pk": 12732, "slug": "mattias-jacobsson", "name": "Mattias Jacobsson"}, "role": ""}], "title": "El Noi de la Mare", "url": "http://wqxr.demo2.wnyc.net/music/recordings/25206/", "additional_composers": [{"url": "/music/musicians/miguel-llobet/", "pk": 6521, "slug": "miguel-llobet", "name": "Miguel Llobet"}], "audio_may_download": true, "length": 149, "pk": 25206, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=2254&id=129895&label=Avie", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2373833", "time": "06:25 AM"}, {"iso_start_time": "2019-12-23T11:17:53.258000+00:00", "info": {"reclabel": {"url": "", "name": "Bridge"}, "conductor": {"url": "/music/musicians/martin-west/", "pk": 11926, "slug": "martin-west", "name": "Martin West"}, "catno": "9418", "composer": {"url": "/music/musicians/carl-maria-von-weber/", "pk": 2504, "slug": "carl-maria-von-weber", "name": "Carl Maria Von Weber"}, "attribution": "", "soloists": [{"instruments": ["clarinet"], "musician": {"url": "/music/musicians/alexander-fiterstein/", "pk": 8056, "slug": "alexander-fiterstein", "name": "Alexander Fiterstein"}, "role": ""}], "title": "Clarinet Concerto No. 2 in E-flat, Op. 74: III. Alla polacca", "url": "http://wqxr.demo2.wnyc.net/music/recordings/41012/", "additional_composers": [], "audio_may_download": true, "length": 395, "pk": 41012, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=9418&id=139163&label=Bridge", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/san-francisco-ballet-orchestra/", "pk": 1127, "slug": "san-francisco-ballet-orchestra", "name": "San Francisco Ballet Orchestra"}, "additional_ensembles": []}, "id": "entry_2373827", "time": "06:17 AM"}, {"iso_start_time": "2019-12-23T11:08:12.470000+00:00", "info": {"reclabel": {"url": "", "name": "CPO"}, "conductor": {"url": "/music/musicians/ludger-remy/", "pk": 440, "slug": "ludger-remy", "name": "Ludger Remy"}, "catno": "999418", "composer": {"url": "/music/musicians/carl-philipp-emanuel-bach/", "pk": 107, "slug": "carl-philipp-emanuel-bach", "name": "Carl Philipp Emanuel Bach"}, "attribution": "", "soloists": [], "title": "Symphony in C, Wq. 174", "url": "http://wqxr.demo2.wnyc.net/music/recordings/19260/", "additional_composers": [], "audio_may_download": true, "length": 551, "pk": 19260, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=999418&id=122328&label=CPO", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/les-amis-de-philippe/", "pk": 2093, "slug": "les-amis-de-philippe", "name": "Les Amis de Philippe"}, "additional_ensembles": []}, "id": "entry_2373814", "time": "06:08 AM"}, {"iso_start_time": "2019-12-23T11:02:59.709000+00:00", "info": {"reclabel": {"url": "", "name": "Edition Classics"}, "conductor": null, "catno": "1086", "composer": {"url": "/music/musicians/frederic-chopin/", "pk": 946, "slug": "frederic-chopin", "name": "Frederic Chopin"}, "attribution": "", "soloists": [{"instruments": ["piano"], "musician": {"url": "/music/musicians/ivana-gavric/", "pk": 22770, "slug": "ivana-gavric", "name": "Ivana Gavric"}, "role": ""}], "title": "Berceuse in D-flat, Op. 57", "url": "http://wqxr.demo2.wnyc.net/music/recordings/58894/", "additional_composers": [], "audio_may_download": true, "length": 298, "pk": 58894, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=1086&id=148936&label=Edition+Classics", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2373810", "time": "06:02 AM"}, {"iso_start_time": "2019-12-23T10:56:10.430000+00:00", "info": {"reclabel": {"url": "", "name": "Opening Day"}, "conductor": null, "catno": "7450", "composer": {"url": "/music/musicians/enrique-crespo/", "pk": 20678, "slug": "enrique-crespo", "name": "Enrique Crespo"}, "attribution": "", "soloists": [], "title": "Vals Peruano", "url": "http://wqxr.demo2.wnyc.net/music/recordings/49423/", "additional_composers": [], "audio_may_download": true, "length": 217, "pk": 49423, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=7450&id=144793&label=Opening+Day", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/canadian-brass/", "pk": 631, "slug": "canadian-brass", "name": "Canadian Brass"}, "additional_ensembles": []}, "id": "entry_2373804", "time": "05:56 AM"}, {"iso_start_time": "2019-12-23T10:54:13+00:00", "info": {"reclabel": {"url": "", "name": "Opening Day"}, "conductor": null, "catno": "7450", "composer": {"url": "/music/musicians/enrique-crespo/", "pk": 20678, "slug": "enrique-crespo", "name": "Enrique Crespo"}, "attribution": "", "soloists": [], "title": "Vals Peruano", "url": "http://wqxr.demo2.wnyc.net/music/recordings/49423/", "additional_composers": [], "audio_may_download": true, "length": 217, "pk": 49423, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=7450&id=144793&label=Opening+Day", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/canadian-brass/", "pk": 631, "slug": "canadian-brass", "name": "Canadian Brass"}, "additional_ensembles": []}, "id": "entry_1568876", "time": "05:54 AM"}, {"iso_start_time": "2019-12-23T10:47:51.053000+00:00", "info": {"reclabel": {"url": "", "name": "CPO"}, "conductor": {"url": "/music/musicians/johannes-goritzki/", "pk": 6555, "slug": "johannes-goritzki", "name": "Johannes Goritzki"}, "catno": "999738-2", "composer": {"url": "/music/musicians/georges-onslow/", "pk": 22487, "slug": "georges-onslow", "name": "Georges Onslow"}, "attribution": "", "soloists": [], "title": "Symphony No. 4 in G Major, Op. 71: III. Andantino molto cantabile", "url": "http://wqxr.demo2.wnyc.net/music/recordings/60460/", "additional_composers": [], "audio_may_download": true, "length": 469, "pk": 60460, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=999738-2&id=148229&label=CPO", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/north-german-radio-orchestra/", "pk": 317, "slug": "north-german-radio-orchestra", "name": "North German Radio Orchestra"}, "additional_ensembles": []}, "id": "entry_2373795", "time": "05:47 AM"}, {"iso_start_time": "2019-12-23T10:46:24+00:00", "info": {"reclabel": {"url": "", "name": "CPO"}, "conductor": {"url": "/music/musicians/johannes-goritzki/", "pk": 6555, "slug": "johannes-goritzki", "name": "Johannes Goritzki"}, "catno": "999738-2", "composer": {"url": "/music/musicians/georges-onslow/", "pk": 22487, "slug": "georges-onslow", "name": "Georges Onslow"}, "attribution": "", "soloists": [], "title": "Symphony No. 4 in G Major, Op. 71: III. Andantino molto cantabile", "url": "http://wqxr.demo2.wnyc.net/music/recordings/60460/", "additional_composers": [], "audio_may_download": true, "length": 469, "pk": 60460, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=999738-2&id=148229&label=CPO", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/north-german-radio-orchestra/", "pk": 317, "slug": "north-german-radio-orchestra", "name": "North German Radio Orchestra"}, "additional_ensembles": []}, "id": "entry_2260430", "time": "05:46 AM"}, {"iso_start_time": "2019-12-23T10:31:22.853000+00:00", "info": {"reclabel": {"url": "", "name": "Bella Musica"}, "conductor": {"url": "/music/musicians/leo-gruber/", "pk": 23464, "slug": "leo-gruber", "name": "Leo Gruber"}, "catno": "5990550", "composer": {"url": "/music/musicians/josef-bayer/", "pk": 23465, "slug": "josef-bayer", "name": "Josef Bayer"}, "attribution": "", "soloists": [], "title": "The Fairy Doll: Ballet Suite", "url": "http://wqxr.demo2.wnyc.net/music/recordings/61639/", "additional_composers": [], "audio_may_download": true, "length": 886, "pk": 61639, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=5990550&id=150739&label=Bella+Musica", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/vienna-folk-opera-orchestra/", "pk": 6125, "slug": "vienna-folk-opera-orchestra", "name": "Vienna Folk Opera Orchestra"}, "additional_ensembles": []}, "id": "entry_2373778", "time": "05:31 AM"}, {"iso_start_time": "2019-12-23T10:30:36+00:00", "info": {"reclabel": {"url": "", "name": "Bella Musica"}, "conductor": {"url": "/music/musicians/leo-gruber/", "pk": 23464, "slug": "leo-gruber", "name": "Leo Gruber"}, "catno": "5990550", "composer": {"url": "/music/musicians/josef-bayer/", "pk": 23465, "slug": "josef-bayer", "name": "Josef Bayer"}, "attribution": "", "soloists": [], "title": "The Fairy Doll: Ballet Suite", "url": "http://wqxr.demo2.wnyc.net/music/recordings/61639/", "additional_composers": [], "audio_may_download": true, "length": 886, "pk": 61639, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=5990550&id=150739&label=Bella+Musica", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/vienna-folk-opera-orchestra/", "pk": 6125, "slug": "vienna-folk-opera-orchestra", "name": "Vienna Folk Opera Orchestra"}, "additional_ensembles": []}, "id": "entry_1718907", "time": "05:30 AM"}]}], "endtime": "10:00 AM", "id": "event_0530AM", "end_timestamp": "2019-12-23T10:00:00", "top_commentcount": 0, "show_url": "https://wqxr.demo2.wnyc.net/shows/morning", "start_timestamp": "2019-12-23T05:30:00", "object_id": 317, "isObject": true, "current": "", "starttime": "05:30", "time": "05:30 AM", "scheduleteasehead": "<div class=\"program\"><a href=\"https://wqxr.demo2.wnyc.net/shows/morning\">Mornings with Jeff Spurgeon</a></div>\n<div class=\"expand\"><div class=\"arrow\"></div></div>\n<div class=\"options\"><div></div></div>\n", "scheduletease": "\n<div class=\"program clearfix\">\n  \n    \n      <div          class=\"image\"      >\n    \n\n      <a        href=\"https://wqxr.demo2.wnyc.net/shows/morning\">    <img src=\"https://media.demo.nypr.digital/i/60/60/l/80/1/JeffSpurgeon_WQXR_ShowPageSquares.png\"         alt=\"\"     />\n      </a>      </div>\n\n  <div class=\"text\">\n    <div class=\"tease\"><div class=\"no-object\">\n<p>Jeff Spurgeon\u00a0is the morning host on WQXR.</p>\n</div></div>\n      <ul class=\"hosts\">\n      <li>Host: </li>\n      \n<li><a href=\"/people/jeff-spurgeon/\">Jeff Spurgeon</a></li>\n\n      </ul>\n    \n\n<div class=\"scheduled-item-link\">\n  Go to program: <a href=\"https://wqxr.demo2.wnyc.net/shows/morning\">Mornings with Jeff Spurgeon</a>\n</div>\n\n    <div class=\"expand\"></div>\n  </div>\n</div>\n"}, {"event_url": "https://wqxr.demo2.wnyc.net/shows/annie-bergen", "evenOdd": "odd", "iso_end_timestamp": "2019-12-23T20:00:00+00:00", "top_playlisturl": "https://wnyc.demo2.wnyc.net/music/playlists/show/annie-bergen/2019/dec/23/", "event_title": "Middays with Annie Bergen", "show_id": 103285, "isEpisode": false, "show_title": "Middays with Annie Bergen", "iso_start_timestamp": "2019-12-23T15:00:00+00:00", "playlists": [{"url": "https://wnyc.demo2.wnyc.net/music/playlists/show/annie-bergen/2019/dec/23/", "has_comments": false, "comment_count": 0, "id": "playlist_80911", "played": [{"iso_start_time": "2019-12-23T17:53:00.696000+00:00", "info": {"reclabel": {"url": "", "name": "Virgin"}, "conductor": {"url": "/music/musicians/fabio-biondi/", "pk": 408, "slug": "fabio-biondi", "name": "Fabio Biondi"}, "catno": "45465", "composer": {"url": "/music/musicians/antonio-vivaldi/", "pk": 544, "slug": "antonio-vivaldi", "name": "Antonio Vivaldi"}, "attribution": "", "soloists": [{"instruments": ["violin"], "musician": {"url": "/music/musicians/fabio-biondi/", "pk": 408, "slug": "fabio-biondi", "name": "Fabio Biondi"}, "role": ""}], "title": "Concerto in E-flat Major, Op. 8/5, RV 253 \"La tempesta di mare\"", "url": "http://wqxr.demo2.wnyc.net/music/recordings/2999/", "additional_composers": [], "audio_may_download": true, "length": 488, "pk": 2999, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=45465&id=103024&label=Virgin", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/europa-galante/", "pk": 84, "slug": "europa-galante", "name": "Europa Galante"}, "additional_ensembles": []}, "id": "entry_2374219", "time": "12:53 PM"}, {"iso_start_time": "2019-12-23T17:36:05.291000+00:00", "info": {"reclabel": {"url": "", "name": "Naxos"}, "conductor": {"url": "/music/musicians/leonard-slatkin/", "pk": 473, "slug": "leonard-slatkin", "name": "Leonard Slatkin"}, "catno": "8572888", "composer": {"url": "/music/musicians/maurice-ravel/", "pk": 158, "slug": "maurice-ravel", "name": "Maurice Ravel"}, "attribution": "", "soloists": [], "title": "Valses nobles et sentimentales", "url": "http://wqxr.demo2.wnyc.net/music/recordings/35550/", "additional_composers": [], "audio_may_download": true, "length": 920, "pk": 35550, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=8572888&id=136172&label=Naxos", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/national-orchestra-of-lyon/", "pk": 1177, "slug": "national-orchestra-of-lyon", "name": "National Orchestra of Lyon"}, "additional_ensembles": []}, "id": "entry_2374207", "time": "12:36 PM"}, {"iso_start_time": "2019-12-23T17:32:32.543000+00:00", "info": {"reclabel": {"url": "", "name": "True North"}, "conductor": null, "catno": "270020", "composer": {"url": "/music/musicians/mikhl-gelbart/", "pk": 23417, "slug": "mikhl-gelbart", "name": "Mikhl Gelbart"}, "attribution": "", "soloists": [], "title": "I Have a Little Dreidel", "url": "http://wqxr.demo2.wnyc.net/music/recordings/61327/", "additional_composers": [], "audio_may_download": true, "length": 195, "pk": 61327, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=270020&id=150644&label=True+North", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/canadian-brass/", "pk": 631, "slug": "canadian-brass", "name": "Canadian Brass"}, "additional_ensembles": []}, "id": "entry_2374203", "time": "12:32 PM"}, {"iso_start_time": "2019-12-23T17:02:18.100000+00:00", "info": {"reclabel": {"url": "", "name": "Angel/EMI"}, "conductor": {"url": "/music/musicians/evgeny-kissin/", "pk": 4161, "slug": "evgeny-kissin", "name": "Evgeny Kissin"}, "catno": "26645", "composer": {"url": "/music/musicians/wolfgang-amadeus-mozart/", "pk": 8, "slug": "wolfgang-amadeus-mozart", "name": "Wolfgang Amadeus Mozart"}, "attribution": "", "soloists": [{"instruments": ["piano"], "musician": {"url": "/music/musicians/evgeny-kissin/", "pk": 4161, "slug": "evgeny-kissin", "name": "Evgeny Kissin"}, "role": ""}], "title": "Piano Concerto No. 27 in B-flat Major, K. 595", "url": "http://wqxr.demo2.wnyc.net/music/recordings/17546/", "additional_composers": [], "audio_may_download": true, "length": 1771, "pk": 17546, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=26645&id=119011&label=Angel%2FEMI", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/kremerata-baltica/", "pk": 368, "slug": "kremerata-baltica", "name": "Kremerata Baltica"}, "additional_ensembles": []}, "id": "entry_2374186", "time": "12:02 PM"}, {"iso_start_time": "2019-12-23T16:58:45.705000+00:00", "info": {"reclabel": {"url": "", "name": "Etcetera"}, "conductor": null, "catno": "1600", "composer": {"url": "/music/musicians/eugene-goossens/", "pk": 10618, "slug": "eugene-goossens", "name": "Eugene Goossens"}, "attribution": "", "soloists": [], "title": "Suite, Op. 6: Serenade", "url": "http://wqxr.demo2.wnyc.net/music/recordings/64986/", "additional_composers": [], "audio_may_download": true, "length": 170, "pk": 64986, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=1600&id=153574&label=Etcetera", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/ensemble-lumaka/", "pk": 6391, "slug": "ensemble-lumaka", "name": "Ensemble Lumaka"}, "additional_ensembles": []}, "id": "entry_2374182", "time": "11:58 AM"}, {"iso_start_time": "2019-12-23T16:17:11.462000+00:00", "info": {"reclabel": {"url": "", "name": "SFS Media"}, "conductor": {"url": "/music/musicians/michael-tilson-thomas/", "pk": 583, "slug": "michael-tilson-thomas", "name": "Michael Tilson Thomas"}, "catno": "71", "composer": {"url": "/music/musicians/robert-schumann/", "pk": 368, "slug": "robert-schumann", "name": "Robert Schumann"}, "attribution": "", "soloists": [], "title": "Symphony No. 2 in C, Op. 61", "url": "http://wqxr.demo2.wnyc.net/music/recordings/60855/", "additional_composers": [], "audio_may_download": true, "length": 2393, "pk": 60855, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=71&id=150485&label=SFS+Media", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/san-francisco-symphony/", "pk": 122, "slug": "san-francisco-symphony", "name": "San Francisco Symphony"}, "additional_ensembles": []}, "id": "entry_2374142", "time": "11:17 AM"}, {"iso_start_time": "2019-12-23T16:08:23.777000+00:00", "info": {"reclabel": {"url": "", "name": "Arte Nova"}, "conductor": {"url": "/music/musicians/jurgen-geise/", "pk": 10962, "slug": "jurgen-geise", "name": "Jurgen Geise"}, "catno": "74321-30505", "composer": {"url": "/music/musicians/francesco-manfredini/", "pk": 9201, "slug": "francesco-manfredini", "name": "Francesco Manfredini"}, "attribution": "", "soloists": [], "title": "Concerto grosso per il Santissimo Natale in C major, Op. 3/12", "url": "http://wqxr.demo2.wnyc.net/music/recordings/20772/", "additional_composers": [], "audio_may_download": true, "length": 505, "pk": 20772, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=74321-30505&id=124366&label=Arte+Nova", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/cis-collegium-mozarteum-salzburg/", "pk": 2286, "slug": "cis-collegium-mozarteum-salzburg", "name": "Cis Collegium Mozarteum Salzburg"}, "additional_ensembles": []}, "id": "entry_2374132", "time": "11:08 AM"}, {"iso_start_time": "2019-12-23T16:02:21.090000+00:00", "info": {"reclabel": {"url": "", "name": "CBS/Sony"}, "conductor": null, "catno": "36679", "composer": {"url": "/music/musicians/isaac-albeniz/", "pk": 526, "slug": "isaac-albeniz", "name": "Isaac Albeniz"}, "attribution": "", "soloists": [{"instruments": ["guitar"], "musician": {"url": "/music/musicians/john-williams/", "pk": 527, "slug": "john-williams", "name": "John Williams"}, "role": ""}], "title": "Suite espanola: No. 1, 'Granada,' Op. 47", "url": "http://wqxr.demo2.wnyc.net/music/recordings/10333/", "additional_composers": [], "audio_may_download": true, "length": 272, "pk": 10333, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=36679&id=110559&label=CBS%2FSony", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": null, "additional_ensembles": []}, "id": "entry_2374126", "time": "11:02 AM"}, {"iso_start_time": "2019-12-23T15:51:57.543000+00:00", "info": {"reclabel": {"url": "", "name": "CPO"}, "conductor": {"url": "/music/musicians/frank-beermann/", "pk": 22786, "slug": "frank-beermann", "name": "Frank Beermann"}, "catno": "777122-2", "composer": {"url": "/music/musicians/heinrich-von-herzogenberg/", "pk": 11396, "slug": "heinrich-von-herzogenberg", "name": "Heinrich von Herzogenberg"}, "attribution": "", "soloists": [], "title": "Symphony No. 1 in C Minor, Op. 50: II. Adagio, ma non troppo", "url": "http://wqxr.demo2.wnyc.net/music/recordings/59618/", "additional_composers": [], "audio_may_download": true, "length": 589, "pk": 59618, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=777122-2&id=148264&label=CPO", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/north-german-radio-orchestra/", "pk": 317, "slug": "north-german-radio-orchestra", "name": "North German Radio Orchestra"}, "additional_ensembles": []}, "id": "entry_2374115", "time": "10:51 AM"}, {"iso_start_time": "2019-12-23T15:35:35.490000+00:00", "info": {"reclabel": {"url": "", "name": "Arabesque"}, "conductor": {"url": "/music/musicians/kazimierz-kord/", "pk": 6006, "slug": "kazimierz-kord", "name": "Kazimierz Kord"}, "catno": "26702", "composer": {"url": "/music/musicians/frederic-chopin/", "pk": 946, "slug": "frederic-chopin", "name": "Frederic Chopin"}, "attribution": "", "soloists": [{"instruments": ["piano"], "musician": {"url": "/music/musicians/garrick-ohlsson/", "pk": 4146, "slug": "garrick-ohlsson", "name": "Garrick Ohlsson"}, "role": ""}], "title": "Grand Fantasy on Polish Airs in A, Op. 13", "url": "http://wqxr.demo2.wnyc.net/music/recordings/9735/", "additional_composers": [], "audio_may_download": true, "length": 893, "pk": 9735, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=26702&id=109884&label=Arabesque", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/warsaw-philharmonic/", "pk": 1122, "slug": "warsaw-philharmonic", "name": "Warsaw Philharmonic"}, "additional_ensembles": []}, "id": "entry_2374097", "time": "10:35 AM"}, {"iso_start_time": "2019-12-23T15:20:55.402000+00:00", "info": {"reclabel": {"url": "", "name": "Naxos"}, "conductor": {"url": "/music/musicians/uwe-grodd/", "pk": 2929, "slug": "uwe-grodd", "name": "Uwe Grodd"}, "catno": "8554341", "composer": {"url": "/music/musicians/johann-baptist-vanhal/", "pk": 20892, "slug": "johann-baptist-vanhal", "name": "Johann Baptist Vanhal"}, "attribution": "", "soloists": [], "title": "Symphony in A major, B A9", "url": "http://wqxr.demo2.wnyc.net/music/recordings/50357/", "additional_composers": [], "audio_may_download": true, "length": 781, "pk": 50357, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=8554341&id=145264&label=Naxos", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/nicolaus-esterhazy-sinfonia/", "pk": 2244, "slug": "nicolaus-esterhazy-sinfonia", "name": "Nicolaus Esterhazy Sinfonia"}, "additional_ensembles": []}, "id": "entry_2374082", "time": "10:20 AM"}, {"iso_start_time": "2019-12-23T15:16:22.375000+00:00", "info": {"reclabel": {"url": "", "name": "Rondeau Production"}, "conductor": {"url": "/music/musicians/jorg-breiding/", "pk": 18766, "slug": "jorg-breiding", "name": "Jorg Breiding"}, "catno": "7017", "composer": {"url": "/music/musicians/john-f-wade/", "pk": 10950, "slug": "john-f-wade", "name": "John F. Wade"}, "attribution": "", "soloists": [{"instruments": ["percussion"], "musician": {"url": "/music/musicians/lorenz-hahnheiser/", "pk": 18767, "slug": "lorenz-hahnheiser", "name": "Lorenz Hahnheiser"}, "role": ""}], "title": "O come, all ye faithful (Adeste Fideles)", "url": "http://wqxr.demo2.wnyc.net/music/recordings/44403/", "additional_composers": [{"url": "/music/musicians/david-willcocks/", "pk": 6539, "slug": "david-willcocks", "name": "David Willcocks"}], "audio_may_download": true, "length": 262, "pk": 44403, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=7017&id=141110&label=Rondeau+Production", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/hanover-boys-choir/", "pk": 2957, "slug": "hanover-boys-choir", "name": "Hanover Boys' Choir"}, "additional_ensembles": [{"url": "/music/ensembles/london-brass/", "pk": 1607, "slug": "london-brass", "name": "London Brass"}]}, "id": "entry_2374076", "time": "10:16 AM"}, {"iso_start_time": "2019-12-23T15:04:22.462000+00:00", "info": {"reclabel": {"url": "", "name": "Telarc"}, "conductor": {"url": "/music/musicians/david-zinman/", "pk": 605, "slug": "david-zinman", "name": "David Zinman"}, "catno": "80192", "composer": {"url": "/music/musicians/edward-elgar/", "pk": 1070, "slug": "edward-elgar", "name": "Edward Elgar"}, "attribution": "", "soloists": [], "title": "Serenade in E Minor, Op. 20", "url": "http://wqxr.demo2.wnyc.net/music/recordings/10409/", "additional_composers": [], "audio_may_download": true, "length": 708, "pk": 10409, "arkiv_link": "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=80192&id=110637&label=Telarc", "audio": "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/", "ensemble": {"url": "/music/ensembles/baltimore-symphony-orchestra/", "pk": 163, "slug": "baltimore-symphony-orchestra", "name": "Baltimore Symphony Orchestra"}, "additional_ensembles": []}, "id": "entry_2374062", "time": "10:04 AM"}]}], "endtime": "03:00 PM", "id": "event_1000AM", "end_timestamp": "2019-12-23T15:00:00", "top_commentcount": 0, "show_url": "https://wqxr.demo2.wnyc.net/shows/annie-bergen", "start_timestamp": "2019-12-23T10:00:00", "object_id": 103285, "isObject": true, "current": "current", "starttime": "10:00", "time": "10:00 AM", "scheduleteasehead": "<div class=\"program\"><a href=\"https://wqxr.demo2.wnyc.net/shows/annie-bergen\">Middays with Annie Bergen</a></div>\n<div class=\"expand\"><div class=\"arrow\"></div></div>\n<div class=\"options\"><div></div></div>\n", "scheduletease": "\n<div class=\"program clearfix\">\n  \n    \n      <div          class=\"image\"      >\n    \n\n      <a        href=\"https://wqxr.demo2.wnyc.net/shows/annie-bergen\">    <img src=\"https://media.demo.nypr.digital/i/60/60/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png\"         alt=\"\"     />\n      </a>      </div>\n\n  <div class=\"text\">\n    <div class=\"tease\"><div class=\"no-object\">\n<p>Annie Bergen is the midday host on WQXR.</p>\n</div></div>\n      <ul class=\"hosts\">\n      <li>Host: </li>\n      \n<li><a href=\"/people/annie-bergen/\">Annie Bergen</a></li>\n\n      </ul>\n    \n\n<div class=\"scheduled-item-link\">\n  Go to program: <a href=\"https://wqxr.demo2.wnyc.net/shows/annie-bergen\">Middays with Annie Bergen</a>\n</div>\n\n    <div class=\"expand\"></div>\n  </div>\n</div>\n"}, {"event_url": "https://wqxr.demo2.wnyc.net/shows/elliott-forrest", "evenOdd": "even", "iso_end_timestamp": "2019-12-24T00:00:00+00:00", "event_title": "Afternoons with Elliott Forrest", "show_id": 15726, "isEpisode": false, "show_title": "Afternoons with Elliott Forrest", "iso_start_timestamp": "2019-12-23T20:00:00+00:00", "playlists": [], "endtime": "07:00 PM", "id": "event_0300PM", "end_timestamp": "2019-12-23T19:00:00", "show_url": "https://wqxr.demo2.wnyc.net/shows/elliott-forrest", "start_timestamp": "2019-12-23T15:00:00", "object_id": 15726, "isObject": true, "current": "", "starttime": "03:00", "time": "03:00 PM", "scheduleteasehead": "<div class=\"program\"><a href=\"https://wqxr.demo2.wnyc.net/shows/elliott-forrest\">Afternoons with Elliott Forrest</a></div>\n<div class=\"expand\"><div class=\"arrow\"></div></div>\n<div class=\"options\"><div></div></div>\n", "scheduletease": "\n<div class=\"program clearfix\">\n  \n    \n      <div          class=\"image\"      >\n    \n\n      <a        href=\"https://wqxr.demo2.wnyc.net/shows/elliott-forrest\">    <img src=\"https://media.demo.nypr.digital/i/60/60/l/80/1/ElliottForrest_WQXR_ShowPageSquares.png\"         alt=\"\"     />\n      </a>      </div>\n\n  <div class=\"text\">\n    <div class=\"tease\"><div class=\"no-object\">\n<p>Elliott Forrest is the weekday afternoon host on WQXR.</p>\n</div></div>\n      <ul class=\"hosts\">\n      <li>Host: </li>\n      \n<li><a href=\"/people/elliott-forrest/\">Elliott Forrest</a></li>\n\n      </ul>\n    \n\n<div class=\"scheduled-item-link\">\n  Go to program: <a href=\"https://wqxr.demo2.wnyc.net/shows/elliott-forrest\">Afternoons with Elliott Forrest</a>\n</div>\n\n    <div class=\"expand\"></div>\n  </div>\n</div>\n"}, {"event_url": "https://wqxr.demo2.wnyc.net/shows/terrance-mcknight", "evenOdd": "odd", "iso_end_timestamp": "2019-12-24T04:00:00+00:00", "event_title": "Evenings with Terrance McKnight", "show_id": 320, "isEpisode": false, "show_title": "Evenings with Terrance McKnight", "iso_start_timestamp": "2019-12-24T00:00:00+00:00", "playlists": [], "endtime": "11:00 PM", "id": "event_0700PM", "end_timestamp": "2019-12-23T23:00:00", "show_url": "https://wqxr.demo2.wnyc.net/shows/terrance-mcknight", "start_timestamp": "2019-12-23T19:00:00", "object_id": 320, "isObject": true, "current": "", "starttime": "07:00", "time": "07:00 PM", "scheduleteasehead": "<div class=\"program\"><a href=\"https://wqxr.demo2.wnyc.net/shows/terrance-mcknight\">Evenings with Terrance McKnight</a></div>\n<div class=\"expand\"><div class=\"arrow\"></div></div>\n<div class=\"options\"><div></div></div>\n", "scheduletease": "\n<div class=\"program clearfix\">\n  \n    \n      <div          class=\"image\"      >\n    \n\n      <a        href=\"https://wqxr.demo2.wnyc.net/shows/terrance-mcknight\">    <img src=\"https://media.demo.nypr.digital/i/60/60/l/80/1/TerranceMcKnight_WQXR_ShowPageSquares.png\"         alt=\"\"     />\n      </a>      </div>\n\n  <div class=\"text\">\n    <div class=\"tease\"><div class=\"no-object\">\n<p>Terrance McKnight is the evening host on WQXR.</p>\n</div></div>\n      <ul class=\"hosts\">\n      <li>Host: </li>\n      \n<li><a href=\"/people/terrance-mcknight/\">Terrance McKnight</a></li>\n\n      </ul>\n    \n\n<div class=\"scheduled-item-link\">\n  Go to program: <a href=\"https://wqxr.demo2.wnyc.net/shows/terrance-mcknight\">Evenings with Terrance McKnight</a>\n</div>\n\n    <div class=\"expand\"></div>\n  </div>\n</div>\n"}, {"event_url": "https://wqxr.demo2.wnyc.net/shows/exploring-music", "evenOdd": "even", "iso_end_timestamp": "2019-12-24T05:00:00+00:00", "event_title": "Exploring Music", "show_id": 321, "isEpisode": false, "show_title": "Exploring Music", "iso_start_timestamp": "2019-12-24T04:00:00+00:00", "playlists": [], "endtime": "12:00 AM", "id": "event_1100PM", "end_timestamp": "2019-12-24T00:00:00", "show_url": "https://wqxr.demo2.wnyc.net/shows/exploring-music", "start_timestamp": "2019-12-23T23:00:00", "object_id": 321, "isObject": true, "current": "", "starttime": "11:00", "time": "11:00 PM", "scheduleteasehead": "<div class=\"program\"><a href=\"https://wqxr.demo2.wnyc.net/shows/exploring-music\">Exploring Music</a></div>\n<div class=\"expand\"><div class=\"arrow\"></div></div>\n<div class=\"options\"><div></div></div>\n", "scheduletease": "\n<div class=\"program clearfix\">\n  \n    \n      <div          class=\"image\"      >\n    \n\n      <a        href=\"https://wqxr.demo2.wnyc.net/shows/exploring-music\">    <img src=\"https://media.demo.nypr.digital/i/60/60/l/80/1/ExploringMusic_WQXR_ShowPageSquares.png\"         alt=\"\"     />\n      </a>      </div>\n\n  <div class=\"text\">\n    <div class=\"tease\"><div class=\"no-object\">\n<p>Exploring Music with Bill McGlaughlin is an exciting weekday program that delves into a wide assortment of topics in classical music. Each weekly series builds off a single theme ranging from composer biographies to explorations of various cultures, musical styles and time periods.</p>\n<!--<p><a href=\"https://exploringmusic.wfmt.com/\" target=\"_blank\">Exploring Music&nbsp;playlist and episode information.</a></p>-->\n</div></div>\n    \n\n<div class=\"scheduled-item-link\">\n  Go to program: <a href=\"https://wqxr.demo2.wnyc.net/shows/exploring-music\">Exploring Music</a>\n</div>\n\n    <div class=\"expand\"></div>\n  </div>\n</div>\n"}]} );
-  this.get('/api/v3/shows/:slug', {"data":{"type":"show","id":"103285","attributes":{"slug":"annie-bergen","title":"Middays with Annie Bergen","url":"https://wqxr.demo2.wnyc.net/shows/annie-bergen","linkroll":[{"href":null,"nav-slug":"about","title":"About"}],"about":{"body":"<p>Stay sharp and focused during your workdays with Annie Bergen. She brings you Midday Mozart at noon, a major work for the Two O’clock Special and her soothing voice keeps you company while you get it all done. Send your greetings to annie@wqxr.org or tweet her @AnnieWQXR.</p>\n<blockquote>\n<p>“It’s my privilege to share the greatest music ever made each day. I feel honored to ignite a day, stir up a memory or soothe a soul through the artistry of so many great musicians. It’s a dream come true!”</p>\n</blockquote>","people":[{"name":"Annie Bergen","social":[{"contact-string":"@AnnieWQXR","service":"twitter"},{"contact-string":"","service":"facebook"},{"contact-string":"","service":"instagram"}],"url":"/people/annie-bergen/","job-title":"WQXR Host","image":{"alt-text":"Annie Bergen","name":"2019/11/AnnieBergen_1883.jpg","source":null,"url":"https://media.demo.nypr.digital/i/1860/1239/h/80/2019/11/AnnieBergen_1883.jpg","h":1239,"is-display":true,"crop":"h","caption":"Annie Bergen","credits-url":"","template":"https://media.demo.nypr.digital/i/%s/%s/%s/%s/2019/11/AnnieBergen_1883.jpg","w":1860,"id":37901,"credits-name":"WQXR"},"slug":"annie-bergen"}],"social":[{"contact-string":"@AnnieWQXR","service":"twitter"},{"contact-string":"","service":"facebook"},{"contact-string":"","service":"instagram"}]},"description":"<p>Stay sharp and focused during your workdays with Annie Bergen. She brings you Midday Mozart at noon, a major work for the Two O&rsquo;clock Special and her soothing voice keeps you company while you get it all done. Send your greetings to annie@wqxr.org or tweet her @AnnieWQXR.</p>\r\n<blockquote>\r\n<p>&ldquo;It&rsquo;s my privilege to share the greatest music ever made each day. I feel honored to ignite a day, stir up a memory or soothe a soul&nbsp;through the artistry of so many great musicians. It&rsquo;s a dream come true!&rdquo;</p>\r\n</blockquote>","social-links":null,"bg-color":"rgba(0,0,0,1)","featured":null,"sidebar-chunks":[null,null],"donate-chunk":{"content":"","slug":""},"listing-object-type":"show","rss-feed":"http://wqxr.demo2.wnyc.net/feeds/shows/annie-bergen","edit-link":["cms/show/103285"],"podcast-links":null,"itunes-podcast-id":null,"studios-marquee-mobile-offset":null,"cms-pk":103285,"tease":"<p>Annie Bergen is the midday host on WQXR.</p>","schedule-summary":"Airs weekdays at 10 am on WQXR.","contact-email":"Annie@WQXR.org"},"relationships":{"image":{"data":{"type":"image","id":"163632"}},"marquee-image":{"data":{"type":"image","id":"163694"}},"studios-marquee-image":{"data":null},"fb-image":{"data":null},"producing-organizations":{"meta":{"count":1},"data":[{"type":"producing-organization","id":"74"}]}}},"included":[{"type":"image","id":"163632","attributes":{"caption":"","credits-url":"","credits-name":"wqxr","crop":"l","h":1400,"is-display":true,"name":"1/AnnieBergen_WQXR_ShowPageSquares.png","source":"","template":"https://media.demo.nypr.digital/i/%s/%s/%s/%s/1/AnnieBergen_WQXR_ShowPageSquares.png","url":"https://media.demo.nypr.digital/i/1400/1400/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png","w":1400}},{"type":"image","id":"163694","attributes":{"caption":"","credits-url":"","credits-name":"wqxr","crop":"l","h":200,"is-display":true,"name":"1/AnnieBergen_HostMarquee_0OUErBq.png","source":"","template":"https://media.demo.nypr.digital/i/%s/%s/%s/%s/1/AnnieBergen_HostMarquee_0OUErBq.png","url":"https://media.demo.nypr.digital/i/1200/200/l/80/1/AnnieBergen_HostMarquee_0OUErBq.png","w":1200}},{"type":"producing-organization","id":"74","attributes":{"name":"WQXR","url":"http://www.wqxr.org"},"relationships":{"logo":{"data":null}}}]});
-  this.get(`/whats-on/v1/whats-on`, {"meta": {"message": ""}, "data": {"type": "metadata", "id": "1", "attributes": {"Item": {"metadata": {"epoch_start_time": 1577123580, "mm_composer1": "Antonio Vivaldi", "mm_conductor": "Fabio Biondi, conductor", "length": "487960", "playlist_hist_preview": [{"air_break": true}, {"air_break": true}, {"air_break": true}], "title": "Concerto in E-flat, RV 253 \"La tempesta di mare\"", "mm_ensemble1": "Europa Galante", "iso_start_time": "2019-12-23T17:53:00+00:00", "start_time": "2019-12-23 12:53:00.696", "david_guid": "{4E08DFE5-C604-4137-A38E-AF4023269092}", "mm_reclabel": "Virgin", "catno": "45465", "mm_soloist1": "Fabio Biondi, violin", "mm_uid": "103024"}}, "ResponseMetadata": {"RequestId": "9N05BFKNP6AGF1IIFHR7LQBBMVVV4KQNSO5AEMVJF66Q9ASUAAJG", "HTTPStatusCode": 200, "HTTPHeaders": {"server": "Server", "date": "Mon, 23 Dec 2019 17:57:40 GMT", "content-type": "application/x-amz-json-1.0", "content-length": "690", "connection": "keep-alive", "x-amzn-requestid": "9N05BFKNP6AGF1IIFHR7LQBBMVVV4KQNSO5AEMVJF66Q9ASUAAJG", "x-amz-crc32": "635999270"}, "RetryAttempts": 0}}}});
+  this.get("/api/v1/list/streams", {
+    count: 13,
+    expires: "2019-12-23T13:04:25",
+    results: [
+      {
+        premium: false,
+        source_tags: "",
+        aac_streams: "",
+        image_logo:
+          "https://media.demo.nypr.digital/i/1400/1400/l/80/1/Indivisible_3.png",
+        site_id: 14,
+        mobile_stream: "",
+        whats_on: false,
+        twitter_handle: "",
+        stream_type: [3, "web video"],
+        id: 45,
+        always_broadcasting: false,
+        site_priority: 4,
+        blackberry_stream: "https://indivisible.wnyc.org/wnycsp",
+        name: "Indivisible",
+        svg_logo:
+          "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/WNYC_FM_2_Dy0Ob0m.svg",
+        audio_bumper: null,
+        slug: "indivisible",
+        schedule_url:
+          "http://account.demo2.wnyc.net/schedule/?scheduleStation=indivisible",
+        has_playlists: false,
+        urls: {
+          ipod: "",
+          rtsp: "https://indivisible.wnyc.org/wnycsp",
+          aac_pls: ["/stream/indivisible/aac.pls"],
+          windows_asx: ["/stream/indivisible/windows.asx"],
+          rtmp: [
+            "(rtmp://wnyc-wowza.streamguys.com/takeaway,mp4:takeaway.stream)"
+          ],
+          mobile_aac: "",
+          web_aac: "",
+          aac: [],
+          windows: ["https://indivisible.wnyc.org/wnycsp"],
+          mobile: "",
+          mp3: ["https://indivisible.wnyc.org/wnycsp"],
+          mp3_pls: ["/stream/indivisible/mp3.pls"]
+        },
+        short_description: "",
+        windows_streams: "https://indivisible.wnyc.org/wnycsp",
+        mp3_streams: "https://indivisible.wnyc.org/wnycsp"
+      },
+      {
+        premium: true,
+        source_tags: "wqxr_app",
+        image_logo:
+          "https://media.demo.nypr.digital/i/300/300/c/80/1/wqxr_2.png",
+        site_id: 3,
+        whats_on: false,
+        twitter_handle: "",
+        stream_type: [3, "web video"],
+        id: 10,
+        always_broadcasting: false,
+        site_priority: 4,
+        name: "Fundraiser Free WQXR",
+        svg_logo:
+          "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/WQXR_4_Ke7lP4W.svg",
+        audio_bumper: null,
+        slug: "wqxr-special2-same-as-holiday",
+        playlist_url:
+          "http://culture.demo2.wnyc.net/playlist-daily/?scheduleStation=wqxr-special2-same-as-holiday",
+        schedule_url:
+          "http://culture.demo2.wnyc.net/schedule/?scheduleStation=wqxr-special2-same-as-holiday",
+        has_playlists: true,
+        short_description: ""
+      },
+      {
+        premium: false,
+        source_tags: "wnyc_site",
+        aac_streams: "",
+        image_logo:
+          "https://media.demo.nypr.digital/i/500/500/l/80/1/wnyc_2_1_ucwLL8o.png",
+        site_id: 1,
+        mobile_stream: "",
+        whats_on: false,
+        twitter_handle: "",
+        stream_type: [2, "web audio"],
+        id: 6,
+        always_broadcasting: true,
+        site_priority: 1,
+        blackberry_stream: "https://specialstream.wnyc.org/wnycsp",
+        name: "Special Programming 2",
+        svg_logo:
+          "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/SpecialStreams.svg",
+        audio_bumper: null,
+        slug: "takeaway",
+        schedule_url:
+          "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=takeaway",
+        has_playlists: false,
+        urls: {
+          ipod: "https://takeaway.wnyc.org/wnycsp",
+          rtsp: "https://specialstream.wnyc.org/wnycsp",
+          aac_pls: ["/stream/takeaway/aac.pls"],
+          windows_asx: ["/stream/takeaway/windows.asx"],
+          rtmp: [
+            "(rtmp://wnyc-wowza.streamguys.com/takeaway,mp4:takeaway.stream)"
+          ],
+          mobile_aac: "",
+          web_aac: "",
+          aac: [],
+          windows: [],
+          mobile: "",
+          mp3: ["https://takeaway.wnyc.org/wnycsp"],
+          mp3_pls: ["/stream/takeaway/mp3.pls"]
+        },
+        short_description: "",
+        windows_streams: "",
+        mp3_streams: "https://takeaway.wnyc.org/wnycsp"
+      },
+      {
+        premium: false,
+        source_tags: "wnyc_site",
+        aac_streams: "http://fm939.wnyc.org/wnycfm.aac",
+        image_logo:
+          "https://media.demo.nypr.digital/i/500/500/c/80/1/wnyc_2_1.png",
+        site_id: 1,
+        mobile_stream: "https://fm939.wnyc.org/wnycfm-mobile",
+        whats_on: 882225,
+        twitter_handle: "",
+        stream_type: [2, "web audio"],
+        id: 1,
+        always_broadcasting: true,
+        site_priority: 1,
+        blackberry_stream: "https://fm939.wnyc.org/wnycfm-web",
+        name: "WNYC 93.9 FM",
+        svg_logo:
+          "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/WNYC_FM_2.svg",
+        audio_bumper:
+          "https://audio.wnyc.org/streambumper/streambumper000001_wnycfm.mp3",
+        slug: "wnyc-fm939",
+        schedule_url:
+          "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=wnyc-fm939",
+        has_playlists: false,
+        urls: {
+          ipod: "https://hls-live.wnyc.org/wnycfm/playlist.m3u8",
+          rtsp: "https://fm939.wnyc.org/wnycfm-web",
+          aac_pls: ["/stream/wnyc-fm939/aac.pls"],
+          windows_asx: ["/stream/wnyc-fm939/windows.asx"],
+          rtmp: ["(rtmp://wnyc-wowza.streamguys.com:80/wnycfm,mp4:wnycfm.sdp)"],
+          mobile_aac: "https://fm939.wnyc.org/wnycfm-mobile.aac",
+          web_aac: "",
+          aac: ["http://fm939.wnyc.org/wnycfm.aac"],
+          windows: ["http://fm939.wnyc.org/wnycfm"],
+          mobile: "https://fm939.wnyc.org/wnycfm-mobile",
+          mp3: ["http://fm939.wnyc.org/wnycfm"],
+          mp3_pls: ["/stream/wnyc-fm939/mp3.pls"]
+        },
+        short_description: "News, Culture & Talk",
+        windows_streams: "http://fm939.wnyc.org/wnycfm",
+        mp3_streams: "http://fm939.wnyc.org/wnycfm"
+      },
+      {
+        premium: false,
+        source_tags: "wnyc_site",
+        aac_streams: "http://am820.wnyc.org/wnycam.aac",
+        image_logo:
+          "https://media.demo.nypr.digital/i/500/500/c/80/1/wnyc_2_1.png",
+        site_id: 1,
+        mobile_stream: "https://am820.wnyc.org/wnycam-mobile",
+        whats_on: 882225,
+        twitter_handle: "",
+        stream_type: [2, "web audio"],
+        id: 2,
+        always_broadcasting: true,
+        site_priority: 2,
+        blackberry_stream: "https://am820.wnyc.org/wnycam-web",
+        name: "WNYC AM 820",
+        svg_logo:
+          "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/WNYC_AM_2.svg",
+        audio_bumper:
+          "https://audio.wnyc.org/streambumper/streambumper000002_wnycam.mp3",
+        slug: "wnyc-am820",
+        schedule_url:
+          "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=wnyc-am820",
+        has_playlists: false,
+        urls: {
+          ipod: "https://hls-live.wnyc.org/wnycam/playlist.m3u8",
+          rtsp: "https://am820.wnyc.org/wnycam-web",
+          aac_pls: ["/stream/wnyc-am820/aac.pls"],
+          windows_asx: ["/stream/wnyc-am820/windows.asx"],
+          rtmp: ["(rtmp://wnyc-wowza.streamguys.com:80/wnycam,mp4:wnycam.sdp)"],
+          mobile_aac: "https://am820.wnyc.org/wnycam-mobile.aac",
+          web_aac: "",
+          aac: ["http://am820.wnyc.org/wnycam.aac"],
+          windows: ["http://am820.wnyc.org/wnycam"],
+          mobile: "https://am820.wnyc.org/wnycam-mobile",
+          mp3: ["http://am820.wnyc.org/wnycam"],
+          mp3_pls: ["/stream/wnyc-am820/mp3.pls"]
+        },
+        short_description: "News, Culture & Talk",
+        windows_streams: "http://am820.wnyc.org/wnycam",
+        mp3_streams: "http://am820.wnyc.org/wnycam"
+      },
+      {
+        premium: false,
+        source_tags: "wnyc_site,wqxr_app,wnyc_app",
+        aac_streams: "http://specialstream.wnyc.org/wnyc-special.aac",
+        image_logo:
+          "https://media.demo.nypr.digital/i/1400/1400/l/80/1/holiday_standards.png",
+        site_id: 1,
+        mobile_stream: "https://specialstream.wnyc.org/wnyc-special-mobile",
+        whats_on: 818984,
+        twitter_handle: "",
+        stream_type: [3, "web video"],
+        id: 5,
+        always_broadcasting: true,
+        site_priority: 5,
+        blackberry_stream: "https://specialstream.wnyc.org/wnyc-special-web",
+        name: "Special Programming 1",
+        svg_logo:
+          "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/holiday_standards_R4mFhQw.svg",
+        audio_bumper: null,
+        slug: "special-events-stream",
+        schedule_url:
+          "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=special-events-stream",
+        has_playlists: false,
+        urls: {
+          ipod: "https://hls-live.wnyc.org/wnycsp/playlist.m3u8",
+          rtsp: "https://specialstream.wnyc.org/wnyc-special-web",
+          aac_pls: ["/stream/special-events-stream/aac.pls"],
+          windows_asx: ["/stream/special-events-stream/windows.asx"],
+          rtmp: [
+            "(rtmp://wnyc-wowza.streamguys.com/wnyc-special,wnyc-special.stream)"
+          ],
+          mobile_aac: "https://specialstream.wnyc.org/wnyc-special-mobile.aac",
+          web_aac: "",
+          aac: ["http://specialstream.wnyc.org/wnyc-special.aac"],
+          windows: ["http://specialstream.wnyc.org/wnyc-special"],
+          mobile: "https://specialstream.wnyc.org/wnyc-special-mobile",
+          mp3: ["http://specialstream.wnyc.org/wnyc-special"],
+          mp3_pls: ["/stream/special-events-stream/mp3.pls"]
+        },
+        short_description: "Swinging holiday soundtrack",
+        windows_streams: "http://specialstream.wnyc.org/wnyc-special",
+        mp3_streams: "http://specialstream.wnyc.org/wnyc-special"
+      },
+      {
+        premium: false,
+        source_tags: "wnyc_app",
+        aac_streams: "https://stream.wqxr.org/qxr-special.aac",
+        image_logo:
+          "https://media.demo.nypr.digital/i/1400/1400/l/80/1/WQXR_HolidayChannel.png",
+        site_id: 1,
+        mobile_stream: "https://stream.wqxr.org/qxr-special-mobile",
+        whats_on: false,
+        twitter_handle: "",
+        stream_type: [3, "web video"],
+        id: 46,
+        always_broadcasting: true,
+        site_priority: 5,
+        blackberry_stream: "https://stream.wqxr.org/qxr-special-web",
+        name: "WQXR Holiday Channel",
+        svg_logo:
+          "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/holiday_channel_wqxr.svg",
+        audio_bumper: null,
+        slug: "wqxr-holiday-channel-on-wnyc",
+        schedule_url:
+          "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=wqxr-holiday-channel-on-wnyc",
+        has_playlists: false,
+        urls: {
+          ipod: "",
+          rtsp: "https://stream.wqxr.org/qxr-special-web",
+          aac_pls: ["/stream/wqxr-holiday-channel-on-wnyc/aac.pls"],
+          windows_asx: ["/stream/wqxr-holiday-channel-on-wnyc/windows.asx"],
+          rtmp: [
+            "(rtmp://wnyc-wowza.streamguys.com:80/qxr-special,mp4:qxr-special)"
+          ],
+          mobile_aac: "https://stream.wqxr.org/qxr-special-mobile.aac",
+          web_aac: "",
+          aac: ["https://stream.wqxr.org/qxr-special.aac"],
+          windows: ["https://stream.wqxr.org/qxr-special"],
+          mobile: "https://stream.wqxr.org/qxr-special-mobile",
+          mp3: ["https://stream.wqxr.org/qxr-special"],
+          mp3_pls: ["/stream/wqxr-holiday-channel-on-wnyc/mp3.pls"]
+        },
+        short_description: "Classical holiday music stream",
+        windows_streams: "https://stream.wqxr.org/qxr-special",
+        mp3_streams: "https://stream.wqxr.org/qxr-special"
+      },
+      {
+        premium: false,
+        source_tags: "wnyc_site",
+        aac_streams: "",
+        image_logo:
+          "https://media.demo.nypr.digital/i/500/500/c/80/1/njpr_3.png",
+        site_id: 1,
+        mobile_stream: "https://njpr.wnyc.org/njprweb-mobile",
+        whats_on: 882225,
+        twitter_handle: "",
+        stream_type: [2, "web audio"],
+        id: 8,
+        always_broadcasting: true,
+        site_priority: 6,
+        blackberry_stream: "https://njpr.wnyc.org/njprweb-web",
+        name: "NJPR",
+        svg_logo:
+          "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/NJPR_1.svg",
+        audio_bumper:
+          "https://audio.wnyc.org/streambumper/streambumper000007_njpr.mp3",
+        slug: "njpr",
+        schedule_url:
+          "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=njpr",
+        has_playlists: false,
+        urls: {
+          ipod: "https://hls-live.wnyc.org/njpr-hls/playlist.m3u8",
+          rtsp: "https://njpr.wnyc.org/njprweb-web",
+          aac_pls: ["/stream/njpr/aac.pls"],
+          windows_asx: ["/stream/njpr/windows.asx"],
+          rtmp: ["(rtmp://wnyc-wowza.streamguys.com/wnjy,mp4:wnjy.stream)"],
+          mobile_aac: "",
+          web_aac: "",
+          aac: [],
+          windows: ["http://njpr.wnyc.org/njprweb"],
+          mobile: "https://njpr.wnyc.org/njprweb-mobile",
+          mp3: ["http://njpr.wnyc.org/njprweb"],
+          mp3_pls: ["/stream/njpr/mp3.pls"]
+        },
+        short_description: "New Jersey News, Culture, Talk",
+        windows_streams: "http://njpr.wnyc.org/njprweb",
+        mp3_streams: "http://njpr.wnyc.org/njprweb"
+      },
+      {
+        premium: false,
+        source_tags: "wqxr_app, wqxr_site, wnyc_site",
+        aac_streams: "http://tjc.wnyc.org/js-stream.aac",
+        image_logo:
+          "https://media.demo.nypr.digital/i/1400/1400/l/80/2018/11/american_standards_red_square.png",
+        site_id: 1,
+        mobile_stream: "https://tjc.wnyc.org/js-stream-mobile",
+        whats_on: 436,
+        twitter_handle: "jonathanwnyc",
+        stream_type: [3, "web video"],
+        id: 11,
+        always_broadcasting: true,
+        site_priority: 10,
+        blackberry_stream: "https://tjc.wnyc.org/js-stream-web",
+        name: "American Standards",
+        svg_logo:
+          "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/american_standards_red.svg",
+        audio_bumper:
+          "https://audio.wnyc.org/streambumper/streambumper000004_tjc.mp3",
+        slug: "jonathan-channel",
+        playlist_url:
+          "http://wnyc.demo2.wnyc.net/playlist-daily/?scheduleStation=jonathan-channel",
+        schedule_url:
+          "http://wnyc.demo2.wnyc.net/schedule/?scheduleStation=jonathan-channel",
+        has_playlists: true,
+        urls: {
+          ipod: "https://hls-live.wnyc.org/tjc/playlist.m3u8",
+          rtsp: "https://tjc.wnyc.org/js-stream-web",
+          aac_pls: ["/stream/jonathan-channel/aac.pls"],
+          windows_asx: ["/stream/jonathan-channel/windows.asx"],
+          rtmp: [
+            "(rtmp://wnyc-wowza.streamguys.com:80/js-stream,js-stream.stream)"
+          ],
+          mobile_aac: "https://tjc.wnyc.org/js-stream-mobile.aac",
+          web_aac: "",
+          aac: ["http://tjc.wnyc.org/js-stream.aac"],
+          windows: ["http://tjc.wnyc.org/js-stream"],
+          mobile: "https://tjc.wnyc.org/js-stream-mobile",
+          mp3: ["http://tjc.wnyc.org/js-stream"],
+          mp3_pls: ["/stream/jonathan-channel/mp3.pls"]
+        },
+        short_description: "Great American Songs from WNYC",
+        windows_streams: "http://tjc.wnyc.org/js-stream",
+        mp3_streams: "http://tjc.wnyc.org/js-stream"
+      },
+      {
+        premium: false,
+        source_tags: "wqxr_app, wqxr_site",
+        aac_streams: "http://stream.wqxr.org/wqxr.aac",
+        image_logo:
+          "https://media.demo.nypr.digital/i/500/500/c/80/1/wqxr_1_1.png",
+        site_id: 2,
+        mobile_stream: "https://stream.wqxr.org/wqxr-mobile",
+        whats_on: 103285,
+        twitter_handle: "wqxr",
+        stream_type: [2, "web audio"],
+        id: 3,
+        always_broadcasting: true,
+        site_priority: 1,
+        blackberry_stream: "https://stream.wqxr.org/wqxr-web",
+        name: "WQXR 105.9 FM",
+        svg_logo:
+          "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/WQXR_4.svg",
+        audio_bumper:
+          "https://audio.wnyc.org/streambumper/streambumper000003_wqxr.mp3",
+        slug: "wqxr",
+        playlist_url:
+          "http://wqxr.demo2.wnyc.net/playlist-daily/?scheduleStation=wqxr",
+        schedule_url:
+          "http://wqxr.demo2.wnyc.net/schedule/?scheduleStation=wqxr",
+        has_playlists: true,
+        urls: {
+          ipod: "https://hls-live.wnyc.org/wqxr/playlist.m3u8",
+          rtsp: "https://stream.wqxr.org/wqxr-web",
+          aac_pls: ["/stream/wqxr/aac.pls"],
+          windows_asx: ["/stream/wqxr/windows.asx"],
+          rtmp: ["(rtmp://wnyc-wowza.streamguys.com:80/wqxr,classical)"],
+          mobile_aac: "https://stream.wqxr.org/wqxr-mobile.aac",
+          web_aac: "",
+          aac: ["http://stream.wqxr.org/wqxr.aac"],
+          windows: ["http://stream.wqxr.org/wqxr"],
+          mobile: "https://stream.wqxr.org/wqxr-mobile",
+          mp3: ["http://stream.wqxr.org/wqxr"],
+          mp3_pls: ["/stream/wqxr/mp3.pls"]
+        },
+        short_description: "The Best in Classical Music",
+        windows_streams: "http://stream.wqxr.org/wqxr",
+        mp3_streams: "http://stream.wqxr.org/wqxr"
+      },
+      {
+        premium: false,
+        source_tags: "wqxr_app, wqxr_site",
+        aac_streams: "https://q2stream.wqxr.org/q2.aac",
+        image_logo:
+          "https://media.demo.nypr.digital/i/600/600/l/80/1/ns_showcard-newsounds-radio-1.jpg",
+        site_id: 2,
+        mobile_stream: "https://q2stream.wqxr.org/q2-mobile",
+        whats_on: 842041,
+        twitter_handle: "q2music",
+        stream_type: [3, "web video"],
+        id: 4,
+        always_broadcasting: true,
+        site_priority: 2,
+        blackberry_stream: "https://q2stream.wqxr.org/q2-web",
+        name: "New Sounds",
+        svg_logo:
+          "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/Q2Music.svg",
+        audio_bumper:
+          "https://audio.wnyc.org/streambumper/streambumper000006_ns.mp3",
+        slug: "q2",
+        playlist_url:
+          "http://wqxr.demo2.wnyc.net/playlist-daily/?scheduleStation=q2",
+        schedule_url: "http://wqxr.demo2.wnyc.net/schedule/?scheduleStation=q2",
+        has_playlists: true,
+        urls: {
+          ipod: "https://hls-live.wnyc.org/q2/playlist.m3u8",
+          rtsp: "https://q2stream.wqxr.org/q2-web",
+          aac_pls: ["/stream/q2/aac.pls"],
+          windows_asx: ["/stream/q2/windows.asx"],
+          rtmp: ["(rtmp://wnyc-wowza.streamguys.com:80/q2,q2.sdp)"],
+          mobile_aac: "https://q2stream.wqxr.org/q2-mobile.aac",
+          web_aac: "",
+          aac: ["https://q2stream.wqxr.org/q2.aac"],
+          windows: ["https://q2stream.wqxr.org/q2"],
+          mobile: "https://q2stream.wqxr.org/q2-mobile",
+          mp3: ["https://q2stream.wqxr.org/q2"],
+          mp3_pls: ["/stream/q2/mp3.pls"]
+        },
+        short_description: "Hand-picked music, genre free.",
+        windows_streams: "https://q2stream.wqxr.org/q2",
+        mp3_streams: "https://q2stream.wqxr.org/q2"
+      },
+      {
+        premium: false,
+        source_tags: "wqxr_app,wqxr_site,wnyc_site",
+        aac_streams: "https://stream.wqxr.org/qxr-special.aac",
+        image_logo:
+          "https://media.demo.nypr.digital/i/1400/1400/l/80/1/WQXR_HolidayChannel.png",
+        site_id: 2,
+        mobile_stream: "https://stream.wqxr.org/qxr-special-mobile",
+        whats_on: 899627,
+        twitter_handle: "",
+        stream_type: [3, "web video"],
+        id: 12,
+        always_broadcasting: true,
+        site_priority: 4,
+        blackberry_stream: "https://stream.wqxr.org/qxr-special-web",
+        name: "Holiday Channel",
+        svg_logo:
+          "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/holiday_channel_wqxr_blue_lhD2oYZ.svg",
+        audio_bumper: null,
+        slug: "wqxr-special2",
+        playlist_url:
+          "http://wqxr.demo2.wnyc.net/playlist-daily/?scheduleStation=wqxr-special2",
+        schedule_url:
+          "http://wqxr.demo2.wnyc.net/schedule/?scheduleStation=wqxr-special2",
+        has_playlists: true,
+        urls: {
+          ipod: "",
+          rtsp: "https://stream.wqxr.org/qxr-special-web",
+          aac_pls: ["/stream/wqxr-special2/aac.pls"],
+          windows_asx: ["/stream/wqxr-special2/windows.asx"],
+          rtmp: [
+            "(rtmp://wnyc-wowza.streamguys.com:80/qxr-special,mp4:qxr-special)"
+          ],
+          mobile_aac: "https://stream.wqxr.org/qxr-special-mobile.aac",
+          web_aac: "",
+          aac: ["https://stream.wqxr.org/qxr-special.aac"],
+          windows: ["https://stream.wqxr.org/qxr-special"],
+          mobile: "https://stream.wqxr.org/qxr-special-mobile",
+          mp3: ["https://stream.wqxr.org/qxr-special"],
+          mp3_pls: ["/stream/wqxr-special2/mp3.pls"]
+        },
+        short_description: "Classical holiday music stream",
+        windows_streams: "https://stream.wqxr.org/qxr-special",
+        mp3_streams: "https://stream.wqxr.org/qxr-special"
+      },
+      {
+        premium: false,
+        source_tags: "wqxr_app, wqxr_site",
+        aac_streams: "http://opera-stream.wqxr.org/operavore.aac",
+        image_logo:
+          "https://media.demo.nypr.digital/i/500/500/c/80/1/operavore_2.png",
+        site_id: 2,
+        mobile_stream: "https://opera-stream.wqxr.org/operavore-mobile",
+        whats_on: 177251,
+        twitter_handle: "operavore",
+        stream_type: [3, "web video"],
+        id: 7,
+        always_broadcasting: false,
+        site_priority: 6,
+        blackberry_stream: "https://opera-stream.wqxr.org/operavore-web",
+        name: "Operavore",
+        svg_logo:
+          "https://media.demo.nypr.digital/media/shared/cms_stationstream/svg_image/Operavore_4.svg",
+        audio_bumper:
+          "https://audio.wnyc.org/streambumper/streambumper000005_opera.mp3",
+        slug: "wqxr-special",
+        playlist_url:
+          "http://wqxr.demo2.wnyc.net/playlist-daily/?scheduleStation=wqxr-special",
+        schedule_url:
+          "http://wqxr.demo2.wnyc.net/schedule/?scheduleStation=wqxr-special",
+        has_playlists: true,
+        urls: {
+          ipod: "https://hls-live.wnyc.org/operavore/playlist.m3u8",
+          rtsp: "https://opera-stream.wqxr.org/operavore-web",
+          aac_pls: ["/stream/wqxr-special/aac.pls"],
+          windows_asx: ["/stream/wqxr-special/windows.asx"],
+          rtmp: [
+            "(rtmp://wnyc-wowza.streamguys.com:80/operavore,operavore.stream)"
+          ],
+          mobile_aac: "https://opera-stream.wqxr.org/operavore-mobile.aac",
+          web_aac: "",
+          aac: ["http://opera-stream.wqxr.org/operavore.aac"],
+          windows: ["http://opera-stream.wqxr.org/operavore"],
+          mobile: "https://opera-stream.wqxr.org/operavore-mobile",
+          mp3: ["http://opera-stream.wqxr.org/operavore"],
+          mp3_pls: ["/stream/wqxr-special/mp3.pls"]
+        },
+        short_description: "All Opera - All The Time",
+        windows_streams: "http://opera-stream.wqxr.org/operavore",
+        mp3_streams: "http://opera-stream.wqxr.org/operavore"
+      }
+    ]
+  });
+  this.get("/api/v1/list/streams/:slug", wqxrStreamResponse);
+  this.get("/api/v1/whats_on", {
+    "wnyc-fm939": {
+      name: "WNYC 93.9 FM",
+      current_playlist_item: null,
+      expires: "2019-12-23T13:04:33",
+      current_show: {
+        iso_start: "2019-12-23T17:00:00+00:00",
+        description:
+          "<p><span>ALL OF IT with Alison Stewart is a live daily conversation about culture and the culture in and around New York City.</span></p>",
+        fullImage: {
+          url:
+            "https://media.demo.nypr.digital/i/300/300/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+          width: 300,
+          caption: "",
+          type: "image/png",
+          height: 300
+        },
+        site_id: 1,
+        start_ts: 1577120400.0,
+        iso_end: "2019-12-23T19:00:00+00:00",
+        listImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        pk: 882225,
+        show_url: "https://wnyc.demo2.wnyc.net/shows/all-of-it",
+        end: "2019-12-23T14:00:00-0500",
+        title: "All of It",
+        url: "https://wnyc.demo2.wnyc.net/shows/all-of-it",
+        end_ts: 1577127600.0,
+        schedule_ref: "ShowSchedule:1398",
+        group_slug: "all-of-it",
+        detailImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        start: "2019-12-23T12:00:00-0500"
+      },
+      future: [],
+      has_playlists: false,
+      expires_ts: 1577124273.0,
+      slug: "wnyc-fm939"
+    },
+    q2: {
+      name: "New Sounds",
+      current_playlist_item: {
+        start_time_ts: 1577123991.0,
+        stream: "q2",
+        playlist_entry_id: 2374221,
+        start_time: "2019-12-23T12:59:51",
+        playlist_page_url:
+          "http://newsounds.demo2.wnyc.net/playlists/show/new-sounds-radio/2019/dec/23/",
+        comments_url: "/api/list/comments/177/80910/",
+        iso_start_time: "2019-12-23T17:59:51+00:00",
+        catalog_entry: {
+          reclabel: { url: "", name: "" },
+          conductor: null,
+          catno: "",
+          composer: {
+            url: "/music/musicians/laura-gibson/",
+            pk: 11842,
+            slug: "laura-gibson",
+            name: "Laura Gibson"
+          },
+          attribution: "",
+          soloists: [
+            {
+              instruments: [],
+              musician: {
+                url: "/music/musicians/laura-gibson/",
+                pk: 11842,
+                slug: "laura-gibson",
+                name: "Laura Gibson"
+              },
+              role: "vocals"
+            },
+            {
+              instruments: [],
+              musician: {
+                url: "/music/musicians/ethan-rose/",
+                pk: 11843,
+                slug: "ethan-rose",
+                name: "Ethan Rose"
+              },
+              role: ""
+            }
+          ],
+          title: "Tall Grass Darkstar",
+          url: "http://wqxr.demo2.wnyc.net/music/recordings/23281/",
+          additional_composers: [
+            {
+              url: "/music/musicians/ethan-rose/",
+              pk: 11843,
+              slug: "ethan-rose",
+              name: "Ethan Rose"
+            }
+          ],
+          audio_may_download: true,
+          length: 343,
+          pk: 23281,
+          arkiv_link:
+            "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=&id=127235&label=",
+          audio:
+            "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+          ensemble: null,
+          additional_ensembles: []
+        }
+      },
+      expires: "2019-12-23T13:05:44",
+      current_show: {
+        iso_start: "2019-12-23T15:00:00+00:00",
+        description:
+          "<p><span>Home for the musically curious. Serving hand-picked, genre-free music 24/7.</span></p>",
+        fullImage: {
+          url:
+            "https://media.demo.nypr.digital/i/300/300/l/80/1/ns_social-avatar.jpg",
+          width: 300,
+          caption: "New Sounds",
+          type: "image/jpeg",
+          height: 300
+        },
+        site_id: 15,
+        start_ts: 1577113200.0,
+        iso_end: "2019-12-23T21:00:00+00:00",
+        listImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/1/ns_social-avatar.jpg",
+          width: 60,
+          caption: "New Sounds",
+          type: "image/jpeg",
+          height: 60
+        },
+        pk: 842041,
+        show_url: "https://newsounds.demo2.wnyc.net/shows/new-sounds-radio",
+        end: "2019-12-23T16:00:00-0500",
+        title: "New Sounds Radio",
+        url: "https://newsounds.demo2.wnyc.net/shows/new-sounds-radio",
+        end_ts: 1577134800.0,
+        schedule_ref: "ShowSchedule:1394",
+        group_slug: "new-sounds-radio",
+        detailImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/1/ns_social-avatar.jpg",
+          width: 60,
+          caption: "New Sounds",
+          type: "image/jpeg",
+          height: 60
+        },
+        start: "2019-12-23T10:00:00-0500"
+      },
+      future: [
+        {
+          start_time_ts: 1577124008.0,
+          stream: "q2",
+          playlist_entry_id: 2374225,
+          start_time: "2019-12-23T13:00:08",
+          playlist_page_url:
+            "http://newsounds.demo2.wnyc.net/playlists/show/new-sounds-radio/2019/dec/23/",
+          comments_url: "/api/list/comments/177/80910/",
+          iso_start_time: "2019-12-23T18:00:08+00:00",
+          catalog_entry: {
+            reclabel: { url: "", name: "Ghostly International" },
+            conductor: null,
+            catno: "323",
+            composer: {
+              url: "/music/musicians/matthew-dear/",
+              pk: 24756,
+              slug: "matthew-dear",
+              name: "Matthew Dear"
+            },
+            attribution: "",
+            soloists: [],
+            title: "Bunny\u0092s Dream",
+            url: "http://wqxr.demo2.wnyc.net/music/recordings/64820/",
+            additional_composers: [],
+            audio_may_download: true,
+            length: 430,
+            pk: 64820,
+            arkiv_link:
+              "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=323&id=153509&label=Ghostly+International",
+            audio:
+              "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+            ensemble: null,
+            additional_ensembles: []
+          }
+        }
+      ],
+      has_playlists: true,
+      expires_ts: 1577124344.0,
+      slug: "q2"
+    },
+    "jonathan-channel": {
+      name: "American Standards",
+      current_playlist_item: null,
+      expires: "2019-12-23T13:04:33",
+      current_show: {
+        iso_start: "2019-12-23T17:00:00+00:00",
+        description:
+          "<p>American Standards is an unparalleled showcase for this timeless music spanning the entire history of the songbook, from early Tin Pan Alley recordings to interpretations by contemporary artists. This is your home for enduring music by legendary composers and songwriters, bought to life by Ella Fitzgerald, Dianne Reeves, Frank Sinatra, C\u00e9cile McLorin Salvant, and many more. It\u2019s the sound of a diverse and dynamic America, with the songs and voices that have filled theaters and scored films for nearly a century.</p>",
+        fullImage: {
+          url:
+            "https://media.demo.nypr.digital/i/300/300/l/80/2018/11/american_standards_red_square.png",
+          width: 300,
+          caption: "American Standards",
+          type: "image/png",
+          height: 300
+        },
+        site_id: 1,
+        start_ts: 1577120400.0,
+        iso_end: "2019-12-23T21:00:00+00:00",
+        listImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/2018/11/american_standards_red_square.png",
+          width: 60,
+          caption: "American Standards",
+          type: "image/png",
+          height: 60
+        },
+        pk: 436,
+        show_url: "https://wnyc.demo2.wnyc.net/shows/new-standards",
+        end: "2019-12-23T16:00:00-0500",
+        title: "New Standards",
+        url: "https://wnyc.demo2.wnyc.net/shows/new-standards",
+        end_ts: 1577134800.0,
+        schedule_ref: "ShowSchedule:904",
+        group_slug: "new-standards",
+        detailImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/2018/11/american_standards_red_square.png",
+          width: 60,
+          caption: "American Standards",
+          type: "image/png",
+          height: 60
+        },
+        start: "2019-12-23T12:00:00-0500"
+      },
+      future: [
+        {
+          start_time_ts: 1577134929.0,
+          stream: "jonathan-channel",
+          playlist_entry_id: 2374179,
+          start_time: "2019-12-23T16:02:09",
+          playlist_page_url:
+            "http://wnyc.demo2.wnyc.net/playlists/show/new-standards/2019/dec/23/",
+          comments_url: "/api/list/comments/177/80913/",
+          iso_start_time: "2019-12-23T21:02:09+00:00",
+          catalog_entry: {
+            reclabel: { url: "", name: "Reprise" },
+            conductor: null,
+            catno: "10142",
+            composer: {
+              url: "/music/musicians/richard-rodgers/",
+              pk: 3789,
+              slug: "richard-rodgers",
+              name: "Richard Rodgers"
+            },
+            attribution: "",
+            soloists: [
+              {
+                instruments: [],
+                musician: {
+                  url: "/music/musicians/frank-sinatra/",
+                  pk: 10385,
+                  slug: "frank-sinatra",
+                  name: "Frank Sinatra"
+                },
+                role: ""
+              }
+            ],
+            title: "Hello Young Lovers",
+            url: "http://wqxr.demo2.wnyc.net/music/recordings/35219/",
+            additional_composers: [
+              {
+                url: "/music/musicians/oscar-hammerstein/",
+                pk: 17015,
+                slug: "oscar-hammerstein",
+                name: "Oscar Hammerstein"
+              },
+              {
+                url: "/music/musicians/oscar-hammerstein-ii/",
+                pk: 4568,
+                slug: "oscar-hammerstein-ii",
+                name: "Oscar Hammerstein II"
+              },
+              { url: "/music/musicians/sr/", pk: 23585, slug: "sr", name: "SR" }
+            ],
+            audio_may_download: true,
+            length: 223,
+            pk: 35219,
+            arkiv_link:
+              "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=10142&id=968754&label=Reprise",
+            audio:
+              "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+            ensemble: {
+              url: "/music/ensembles/gordon-jenkins/",
+              pk: 5109,
+              slug: "gordon-jenkins",
+              name: "Gordon Jenkins"
+            },
+            additional_ensembles: []
+          }
+        }
+      ],
+      has_playlists: true,
+      expires_ts: 1577124273.0,
+      slug: "jonathan-channel"
+    },
+    njpr: {
+      name: "NJPR",
+      current_playlist_item: null,
+      expires: "2019-12-23T13:04:33",
+      current_show: {
+        iso_start: "2019-12-23T17:00:00+00:00",
+        description:
+          "<p><span>ALL OF IT with Alison Stewart is a live daily conversation about culture and the culture in and around New York City.</span></p>",
+        fullImage: {
+          url:
+            "https://media.demo.nypr.digital/i/300/300/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+          width: 300,
+          caption: "",
+          type: "image/png",
+          height: 300
+        },
+        site_id: 1,
+        start_ts: 1577120400.0,
+        iso_end: "2019-12-23T19:00:00+00:00",
+        listImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        pk: 882225,
+        show_url: "https://wnyc.demo2.wnyc.net/shows/all-of-it",
+        end: "2019-12-23T14:00:00-0500",
+        title: "All of It",
+        url: "https://wnyc.demo2.wnyc.net/shows/all-of-it",
+        end_ts: 1577127600.0,
+        schedule_ref: "ShowSchedule:1398",
+        group_slug: "all-of-it",
+        detailImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        start: "2019-12-23T12:00:00-0500"
+      },
+      future: [],
+      has_playlists: false,
+      expires_ts: 1577124273.0,
+      slug: "njpr"
+    },
+    "wnyc-am820": {
+      name: "WNYC AM 820",
+      current_playlist_item: null,
+      expires: "2019-12-23T13:04:33",
+      current_show: {
+        iso_start: "2019-12-23T17:00:00+00:00",
+        description:
+          "<p><span>ALL OF IT with Alison Stewart is a live daily conversation about culture and the culture in and around New York City.</span></p>",
+        fullImage: {
+          url:
+            "https://media.demo.nypr.digital/i/300/300/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+          width: 300,
+          caption: "",
+          type: "image/png",
+          height: 300
+        },
+        site_id: 1,
+        start_ts: 1577120400.0,
+        iso_end: "2019-12-23T19:00:00+00:00",
+        listImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        pk: 882225,
+        show_url: "https://wnyc.demo2.wnyc.net/shows/all-of-it",
+        end: "2019-12-23T14:00:00-0500",
+        title: "All of It",
+        url: "https://wnyc.demo2.wnyc.net/shows/all-of-it",
+        end_ts: 1577127600.0,
+        schedule_ref: "ShowSchedule:1398",
+        group_slug: "all-of-it",
+        detailImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/2018/09/All_Of_It_NoWNYC_NoName.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        start: "2019-12-23T12:00:00-0500"
+      },
+      future: [],
+      has_playlists: false,
+      expires_ts: 1577124273.0,
+      slug: "wnyc-am820"
+    },
+    "special-events-stream": {
+      name: "Special Programming 1",
+      current_playlist_item: null,
+      expires: "2019-12-23T13:04:33",
+      current_show: {
+        iso_start: "2019-12-23T17:00:00+00:00",
+        description:
+          "<p>Enjoy holiday favorites from the Songbook and beyond all season long.</p>",
+        fullImage: {
+          url:
+            "https://media.demo.nypr.digital/i/300/300/l/80/1/holiday_standards.png",
+          width: 300,
+          caption: "",
+          type: "image/png",
+          height: 300
+        },
+        site_id: 1,
+        start_ts: 1577120400.0,
+        iso_end: "2019-12-23T23:00:00+00:00",
+        listImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/1/holiday_standards.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        pk: 818984,
+        show_url: "https://wnyc.demo2.wnyc.net/shows/holiday-standards",
+        end: "2019-12-23T18:00:00-0500",
+        title: "Holiday Standards",
+        url: "https://wnyc.demo2.wnyc.net/shows/holiday-standards",
+        end_ts: 1577142000.0,
+        schedule_ref: "ShowSchedule:1254",
+        group_slug: "holiday-standards",
+        detailImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/1/holiday_standards.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        start: "2019-12-23T12:00:00-0500"
+      },
+      future: [],
+      has_playlists: false,
+      expires_ts: 1577124273.0,
+      slug: "special-events-stream"
+    },
+    wqxr: {
+      name: "WQXR 105.9 FM",
+      current_playlist_item: {
+        start_time_ts: 1577124116.0,
+        stream: "wqxr",
+        playlist_entry_id: 2374227,
+        start_time: "2019-12-23T13:01:56",
+        playlist_page_url:
+          "http://wqxr.demo2.wnyc.net/playlists/show/annie-bergen/2019/dec/23/",
+        comments_url: "/api/list/comments/177/80911/",
+        iso_start_time: "2019-12-23T18:01:56.866000+00:00",
+        catalog_entry: {
+          reclabel: { url: "", name: "RCA" },
+          conductor: null,
+          catno: "787510",
+          composer: {
+            url: "/music/musicians/ludwig-van-beethoven/",
+            pk: 201,
+            slug: "ludwig-van-beethoven",
+            name: "Ludwig van Beethoven"
+          },
+          attribution: "",
+          soloists: [
+            {
+              instruments: ["piano"],
+              musician: {
+                url: "/music/musicians/rudolf-buchbinder/",
+                pk: 3041,
+                slug: "rudolf-buchbinder",
+                name: "Rudolf Buchbinder"
+              },
+              role: ""
+            }
+          ],
+          title:
+            'Piano Sonata No. 13 in E-Flat Major, Op. 27, No. 1 "Sonata quasi una fantasia"',
+          url: "http://wqxr.demo2.wnyc.net/music/recordings/24654/",
+          additional_composers: [],
+          audio_may_download: true,
+          length: 858,
+          pk: 24654,
+          arkiv_link:
+            "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=787510&id=129239&label=RCA",
+          audio:
+            "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+          ensemble: null,
+          additional_ensembles: []
+        }
+      },
+      expires: "2019-12-23T13:11:23",
+      current_show: {
+        iso_start: "2019-12-23T15:00:00+00:00",
+        description: "<p>Annie Bergen is the midday host on WQXR.</p>",
+        fullImage: {
+          url:
+            "https://media.demo.nypr.digital/i/300/300/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png",
+          width: 300,
+          caption: "",
+          type: "image/png",
+          height: 300
+        },
+        site_id: 2,
+        start_ts: 1577113200.0,
+        iso_end: "2019-12-23T20:00:00+00:00",
+        listImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        pk: 103285,
+        show_url: "https://wqxr.demo2.wnyc.net/shows/annie-bergen",
+        end: "2019-12-23T15:00:00-0500",
+        title: "Middays with Annie Bergen",
+        url: "https://wqxr.demo2.wnyc.net/shows/annie-bergen",
+        end_ts: 1577131200.0,
+        schedule_ref: "ShowSchedule:1132",
+        group_slug: "annie-bergen",
+        detailImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        start: "2019-12-23T10:00:00-0500"
+      },
+      future: [],
+      has_playlists: true,
+      expires_ts: 1577124683.0,
+      slug: "wqxr"
+    },
+    "wqxr-special2": {
+      name: "Holiday Channel",
+      current_playlist_item: {
+        start_time_ts: 1577124215.0,
+        stream: "wqxr-special2",
+        playlist_entry_id: 2374226,
+        start_time: "2019-12-23T13:03:35",
+        playlist_page_url:
+          "http://wqxr.demo2.wnyc.net/playlists/show/wqxr-holiday-channel/2019/dec/23/",
+        comments_url: "/api/list/comments/177/80915/",
+        iso_start_time: "2019-12-23T18:03:35+00:00",
+        catalog_entry: {
+          reclabel: { url: "", name: "RCA" },
+          conductor: null,
+          catno: "5625",
+          composer: {
+            url: "/music/musicians/jerry-herman/",
+            pk: 6634,
+            slug: "jerry-herman",
+            name: "Jerry Herman"
+          },
+          attribution: "",
+          soloists: [],
+          title: "We Need A Little Christmas",
+          url: "http://wqxr.demo2.wnyc.net/music/recordings/11760/",
+          additional_composers: [
+            {
+              url: "/music/musicians/mitch-farber/",
+              pk: 6632,
+              slug: "mitch-farber",
+              name: "Mitch Farber"
+            }
+          ],
+          audio_may_download: true,
+          length: 276,
+          pk: 11760,
+          arkiv_link:
+            "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=5625&id=112159&label=RCA",
+          audio:
+            "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+          ensemble: {
+            url: "/music/ensembles/the-hampton-string-quartet/",
+            pk: 1279,
+            slug: "the-hampton-string-quartet",
+            name: "The Hampton String Quartet"
+          },
+          additional_ensembles: []
+        }
+      },
+      expires: "2019-12-23T13:08:21",
+      current_show: {
+        iso_start: "2019-12-23T17:00:00+00:00",
+        description:
+          "<p>WQXR welcomes the 2019 holiday season with a 24-hour stream dedicated to classical\u00a0Christmas and wintertime favorites.\u00a0</p>",
+        fullImage: {
+          url:
+            "https://media.demo.nypr.digital/i/300/300/l/80/1/WQXR_HolidayChannel.png",
+          width: 300,
+          caption: "",
+          type: "image/png",
+          height: 300
+        },
+        site_id: 2,
+        start_ts: 1577120400.0,
+        iso_end: "2019-12-23T23:00:00+00:00",
+        listImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/1/WQXR_HolidayChannel.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        pk: 899627,
+        show_url: "https://wqxr.demo2.wnyc.net/shows/wqxr-holiday-channel",
+        end: "2019-12-23T18:00:00-0500",
+        title: "WQXR Holiday Channel",
+        url: "https://wqxr.demo2.wnyc.net/shows/wqxr-holiday-channel",
+        end_ts: 1577142000.0,
+        schedule_ref: "ShowSchedule:1410",
+        group_slug: "wqxr-holiday-channel",
+        detailImage: {
+          url:
+            "https://media.demo.nypr.digital/i/60/60/l/80/1/WQXR_HolidayChannel.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        start: "2019-12-23T12:00:00-0500"
+      },
+      future: [
+        {
+          start_time_ts: 1577124501.0,
+          stream: "wqxr-special2",
+          playlist_entry_id: 2374229,
+          start_time: "2019-12-23T13:08:21",
+          playlist_page_url:
+            "http://wqxr.demo2.wnyc.net/playlists/show/wqxr-holiday-channel/2019/dec/23/",
+          comments_url: "/api/list/comments/177/80915/",
+          iso_start_time: "2019-12-23T18:08:21+00:00",
+          catalog_entry: {
+            reclabel: { url: "", name: "Decca" },
+            conductor: {
+              url: "/music/musicians/stephen-cleobury/",
+              pk: 713,
+              slug: "stephen-cleobury",
+              name: "Stephen Cleobury"
+            },
+            catno: "4779095",
+            composer: {
+              url: "/music/musicians/felix-mendelssohn/",
+              pk: 1699,
+              slug: "felix-mendelssohn",
+              name: "Felix Mendelssohn"
+            },
+            attribution: "",
+            soloists: [
+              {
+                instruments: ["organ"],
+                musician: {
+                  url: "/music/musicians/david-briggs/",
+                  pk: 22083,
+                  slug: "david-briggs",
+                  name: "David Briggs"
+                },
+                role: ""
+              }
+            ],
+            title: "Hark the Herald Angels Sing",
+            url: "http://wqxr.demo2.wnyc.net/music/recordings/55561/",
+            additional_composers: [
+              {
+                url: "/music/musicians/p-ledger/",
+                pk: 22171,
+                slug: "p-ledger",
+                name: "P. Ledger"
+              }
+            ],
+            audio_may_download: true,
+            length: 182,
+            pk: 55561,
+            arkiv_link:
+              "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=4779095&id=146876&label=Decca",
+            audio:
+              "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+            ensemble: {
+              url: "/music/ensembles/choir-kings-college-cambridge/",
+              pk: 1800,
+              slug: "choir-kings-college-cambridge",
+              name: "Choir of King's College, Cambridge"
+            },
+            additional_ensembles: []
+          }
+        }
+      ],
+      has_playlists: true,
+      expires_ts: 1577124501.0,
+      slug: "wqxr-special2"
+    },
+    "wqxr-special": {
+      name: "Operavore",
+      current_playlist_item: {
+        start_time_ts: 1577124135.0,
+        stream: "wqxr-special",
+        playlist_entry_id: 2374223,
+        start_time: "2019-12-23T13:02:15",
+        playlist_page_url:
+          "http://wqxr.demo2.wnyc.net/playlists/show/operavorestream/2019/dec/23/",
+        comments_url: "/api/list/comments/177/80914/",
+        iso_start_time: "2019-12-23T18:02:15+00:00",
+        catalog_entry: {
+          reclabel: { url: "", name: "EMI" },
+          conductor: {
+            url: "/music/musicians/tullio-serafin/",
+            pk: 3826,
+            slug: "tullio-serafin",
+            name: "Tullio Serafin"
+          },
+          catno: "56287",
+          composer: {
+            url: "/music/musicians/ruggiero-leoncavallo/",
+            pk: 6176,
+            slug: "ruggiero-leoncavallo",
+            name: "Ruggiero Leoncavallo"
+          },
+          attribution: "",
+          soloists: [
+            {
+              instruments: ["baritone"],
+              musician: {
+                url: "/music/musicians/tito-gobbi/",
+                pk: 9425,
+                slug: "tito-gobbi",
+                name: "Tito Gobbi"
+              },
+              role: ""
+            }
+          ],
+          title: "Pagliacci: Prologue",
+          url: "http://wqxr.demo2.wnyc.net/music/recordings/22169/",
+          additional_composers: [],
+          audio_may_download: true,
+          length: 464,
+          pk: 22169,
+          arkiv_link:
+            "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=56287&id=126185&label=EMI",
+          audio:
+            "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+          ensemble: {
+            url: "/music/ensembles/orchestra-del-teatro-alla-scala-di-milano/",
+            pk: 2397,
+            slug: "orchestra-del-teatro-alla-scala-di-milano",
+            name: "Orchestra del Teatro alla Scala di Milano"
+          },
+          additional_ensembles: []
+        }
+      },
+      expires: "2019-12-23T13:10:09",
+      current_show: {
+        iso_start: "2019-12-23T17:00:00+00:00",
+        description:
+          "<p>WQXR's 24-hour stream dedicated to opera. Enjoy this continuous, carefully programmed mix of opera arias, duets, scenes choruses and instrumental numbers. The Operavore stream is updated with a different program each day.</p>",
+        fullImage: {
+          url:
+            "https://media.demo.nypr.digital/i/300/300/c/80/1/operavore_2.png",
+          width: 300,
+          caption: "",
+          type: "image/png",
+          height: 300
+        },
+        site_id: 2,
+        start_ts: 1577120400.0,
+        iso_end: "2019-12-23T23:00:00+00:00",
+        listImage: {
+          url: "https://media.demo.nypr.digital/i/60/60/c/80/1/operavore_2.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        pk: 177251,
+        show_url: "https://wqxr.demo2.wnyc.net/shows/operavorestream",
+        end: "2019-12-23T18:00:00-0500",
+        title: "Operavore",
+        url: "https://wqxr.demo2.wnyc.net/shows/operavorestream",
+        end_ts: 1577142000.0,
+        schedule_ref: "ShowSchedule:980",
+        group_slug: "operavorestream",
+        detailImage: {
+          url: "https://media.demo.nypr.digital/i/60/60/c/80/1/operavore_2.png",
+          width: 60,
+          caption: "",
+          type: "image/png",
+          height: 60
+        },
+        start: "2019-12-23T12:00:00-0500"
+      },
+      future: [
+        {
+          start_time_ts: 1577124645.0,
+          stream: "wqxr-special",
+          playlist_entry_id: 2374228,
+          start_time: "2019-12-23T13:10:45",
+          playlist_page_url:
+            "http://wqxr.demo2.wnyc.net/playlists/show/operavorestream/2019/dec/23/",
+          comments_url: "/api/list/comments/177/80914/",
+          iso_start_time: "2019-12-23T18:10:45+00:00",
+          catalog_entry: {
+            reclabel: { url: "", name: "Teldec" },
+            conductor: {
+              url: "/music/musicians/joseph-jennings/",
+              pk: 4215,
+              slug: "joseph-jennings",
+              name: "Joseph Jennings"
+            },
+            catno: "85555",
+            composer: {
+              url: "/music/musicians/traditional/",
+              pk: 21,
+              slug: "traditional",
+              name: "Traditional"
+            },
+            attribution: "",
+            soloists: [
+              {
+                instruments: ["soprano"],
+                musician: {
+                  url: "/music/musicians/dawn-upshaw/",
+                  pk: 46,
+                  slug: "dawn-upshaw",
+                  name: "Dawn Upshaw"
+                },
+                role: ""
+              }
+            ],
+            title: "The Truth From Above (Herefordshire Carol)",
+            url: "http://wqxr.demo2.wnyc.net/music/recordings/11669/",
+            additional_composers: [
+              {
+                url: "/music/musicians/ralph-vaughn-williams/",
+                pk: 6670,
+                slug: "ralph-vaughn-williams",
+                name: "Ralph Vaughn Williams"
+              }
+            ],
+            audio_may_download: true,
+            length: 274,
+            pk: 11669,
+            arkiv_link:
+              "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=85555&id=112037&label=Teldec",
+            audio:
+              "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+            ensemble: {
+              url: "/music/ensembles/chanticleer/",
+              pk: 366,
+              slug: "chanticleer",
+              name: "Chanticleer"
+            },
+            additional_ensembles: []
+          }
+        }
+      ],
+      has_playlists: true,
+      expires_ts: 1577124609.0,
+      slug: "wqxr-special"
+    }
+  });
+  this.get("/api/v1/whats_on/:slug", whatsOnResponse);
+  this.get("/api/v1/whats_on/:slug/:count/", {
+    has_playlists: true,
+    future: [],
+    current_show: {
+      iso_start: "2019-12-23T15:00:00+00:00",
+      description: "<p>Annie Bergen is the midday host on WQXR.</p>",
+      fullImage: {
+        url:
+          "https://media.demo.nypr.digital/i/300/300/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png",
+        width: 300,
+        caption: "",
+        type: "image/png",
+        height: 300
+      },
+      site_id: 2,
+      start_ts: 1577113200.0,
+      iso_end: "2019-12-23T20:00:00+00:00",
+      listImage: {
+        url:
+          "https://media.demo.nypr.digital/i/60/60/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png",
+        width: 60,
+        caption: "",
+        type: "image/png",
+        height: 60
+      },
+      pk: 103285,
+      show_url: "https://wqxr.demo2.wnyc.net/shows/annie-bergen",
+      end: "2019-12-23T15:00:00-0500",
+      title: "Middays with Annie Bergen",
+      url: "https://wqxr.demo2.wnyc.net/shows/annie-bergen",
+      end_ts: 1577131200.0,
+      schedule_ref: "ShowSchedule:1132",
+      group_slug: "annie-bergen",
+      detailImage: {
+        url:
+          "https://media.demo.nypr.digital/i/60/60/l/80/1/AnnieBergen_WQXR_ShowPageSquares.png",
+        width: 60,
+        caption: "",
+        type: "image/png",
+        height: 60
+      },
+      start: "2019-12-23T10:00:00-0500"
+    },
+    expires: "2019-12-23T13:16:25",
+    current_playlist_item: {
+      start_time_ts: 1577124116.0,
+      stream: "wqxr",
+      playlist_entry_id: 2374227,
+      start_time: "2019-12-23T13:01:56",
+      playlist_page_url:
+        "http://wqxr.demo2.wnyc.net/playlists/show/annie-bergen/2019/dec/23/",
+      comments_url: "/api/list/comments/177/80911/",
+      iso_start_time: "2019-12-23T18:01:56.866000+00:00",
+      catalog_entry: {
+        reclabel: { url: "", name: "RCA" },
+        conductor: null,
+        catno: "787510",
+        composer: {
+          url: "/music/musicians/ludwig-van-beethoven/",
+          pk: 201,
+          slug: "ludwig-van-beethoven",
+          name: "Ludwig van Beethoven"
+        },
+        attribution: "",
+        soloists: [
+          {
+            instruments: ["piano"],
+            musician: {
+              url: "/music/musicians/rudolf-buchbinder/",
+              pk: 3041,
+              slug: "rudolf-buchbinder",
+              name: "Rudolf Buchbinder"
+            },
+            role: ""
+          }
+        ],
+        title:
+          'Piano Sonata No. 13 in E-Flat Major, Op. 27, No. 1 "Sonata quasi una fantasia"',
+        url: "http://wqxr.demo2.wnyc.net/music/recordings/24654/",
+        additional_composers: [],
+        audio_may_download: true,
+        length: 858,
+        pk: 24654,
+        arkiv_link:
+          "http://www.arkivmusic.com/classical/Playlist?source=WQXR&cat=787510&id=129239&label=RCA",
+        audio:
+          "https://www.podtrac.com/pts/redirect.mp3/demo-audio.wnyc.org/_cms-qa-test/",
+        ensemble: null,
+        additional_ensembles: []
+      }
+    }
+  });
+  this.get("/api/v1/playlist-daily/:slug/:year/:month/:day", playlistDailyResponse)
+  this.get("/api/v3/shows/:slug", annieBergenResponse);
+  this.get(`/whats-on/v1/whats-on`, womsResponse);
 
   /*
     Shorthand cheatsheet:

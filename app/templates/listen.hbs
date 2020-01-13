@@ -17,7 +17,7 @@
         @width=352
         @altText={{onAirTitle}}
       />
-      <div class="show-title">{{onAirTitle}}</div>
+      <div class="show-title" data-test-element="show-title">{{onAirTitle}}</div>
         {{#if (or twitterHandle emailAddress)}}
         <div class="message-the-show">
           <ToggleBox class="message-the-show-toggle-box" as |toggle|>
@@ -60,6 +60,7 @@
         <div class="currently-listening-to">
           <div class="currently-listening-to-label">Currently Playing</div>
           <TrackInfo
+            data-test-component="current-track"
             @trackTitle={{this.nowPlaying.track.title}}
             @ensembleName={{this.nowPlaying.track.ensembleName}}
             @conductorName={{this.nowPlaying.track.conductorName}}
@@ -74,8 +75,9 @@
         <div class="recently-played">
           <div class="recently-played-label">Recent Music</div>
           <div class="recently-played-song-list">
-            {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track|}}
+            {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track index|}}
               <TrackInfo
+                data-test-component={{concat "recent-track-" (inc index 1)}}
                 @trackTitle={{track.title}}
                 @ensembleName={{track.ensembleName}}
                 @conductorName={{track.conductorName}}

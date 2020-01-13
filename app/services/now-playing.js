@@ -84,8 +84,13 @@ export default Service.extend({
     this.set('stream', stream);
 
     if (stream.currentShow) {
-      let show   = await this.store.findRecord('show', stream.currentShow.group_slug);
-      this.set('show', show);
+      try {
+        let show   = await this.store.findRecord('show', stream.currentShow.group_slug);
+        this.set('show', show);
+      }
+      catch(e) {
+        // 404'd
+      }
     } else {
       this.set('show', undefined);
     }
