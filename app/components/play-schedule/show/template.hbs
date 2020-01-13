@@ -7,7 +7,7 @@
         {{#if isLive}}
           <span class="playlist-show-info-on-air-now">ON AIR NOW</span>
         {{/if}}
-        <span class="playlist-show-info-time-range" data-time={{startTime}}>
+        <span class="playlist-show-info-time-range hide-in-fastboot {{if this.isFastBoot "is-fastboot"}}" data-time={{startTime}}>
           {{format-show-time startTime endTime}}
         </span>
       </div>
