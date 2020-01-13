@@ -22,8 +22,8 @@
 
   .composer {
     color: $denim-blue;
-    font-family: $font-heading;
-    font-size: 22px;
+    font-family: $font-body;
+    font-size: 18px;
     font-weight: 900;
 
     @include media("<medium") {
@@ -36,6 +36,7 @@
     display: flex;
     font-family: $font-body-bold;
     font-size: 12px;
+    font-weight: bold;
     letter-spacing: 1.2px;
     justify-content: flex-end;
     margin-left: 32px;
@@ -47,7 +48,7 @@
   .title {
     color: #000000;
     font-family: $font-body;
-    font-size: 14px;
+    font-size: $font-size-s;
     margin-right: 5px;
     margin-top: 4px;
     text-align: left;

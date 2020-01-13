@@ -1,6 +1,17 @@
 @import '../vars/colors';
 @import '../vars/fonts';
 
+// //general dot styling
+// .dot {
+//   background-color: $water-blue;
+//   margin-left: -4px;
+//   margin-right: 20px;
+//   margin-top: 14px;
+//   width: 16px;
+//   height: 16px;
+//   border-radius: 8px;
+// }
+
 .playlist-history-container {
   display: flex;
   justify-content: center;
@@ -152,8 +163,8 @@
     margin-bottom: 8px;
     max-width: 633px;
     @include media("<medium") {
-      font-size: 17px;
-      line-height: 1.29;
+      font-size: 28px;
+      line-height: 38px;
       text-align: center;
     }
   }
@@ -228,10 +239,9 @@
 
     .composer {
       color: $denim-blue;
-      font-size: 38px;
-      font-weight: 900px;
-      line-height: 0.95;
-      padding-bottom: 16px;
+      font-family: $font-body;
+      font-size: 18px;
+      font-weight: 900;
       @include media("<medium") {
         font-size: 28px;
         line-height: 1.18;
@@ -246,11 +256,14 @@
     }
 
     .title {
-      color: black;
-      font-size: 18px;
-      line-height: normal;
-      font-weight: bold;
-      margin-top: 0px;
+      color: #000000;
+      font-family: $font-body;
+      font-size: $font-size-s;
+      margin-right: 5px;
+      margin-top: 4px;
+      text-align: left;
+      line-height: 16px;
+      text-transform: none;
       @include media("<medium") {
         font-size: 14px;
         line-height: 1.71;
@@ -282,6 +295,15 @@
   flex-direction: column;
   @include media("<medium") {
     width: 100%;
+  }
+
+  .dot {
+    background-color: $water-blue;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    margin-right: 16px;
+    margin-top: 8px;
   }
 
   .recently-played-label {

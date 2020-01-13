@@ -73,6 +73,7 @@
           {{#link-to "playlist-history-today" class="view-full-playlist-history-button"}}View Full Playlist{{/link-to}}
 =======
       <div class="currently-listening-to">
+        {{!-- <div class="dot"></div> --}}
         <div class="currently-listening-to-label">Currently Playing</div>
         <TrackInfo @trackTitle={{this.nowPlaying.track.title}} @ensembleName={{this.nowPlaying.track.ensembleName}}
           @conductorName={{this.nowPlaying.track.conductorName}} @composerName={{this.nowPlaying.track.composerName}}
@@ -80,9 +81,10 @@
       </div>
       {{/if}}
 
+
       {{#if (not (is-empty this.recentlyPlayed))}}
       <div class="recently-played">
-        <div class="recently-played-label">Recent Music</div>
+        <div class="recently-played-label">Recently Played Songs</div>
         <div class="recently-played-song-list">
           {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track|}}
           <TrackInfo @trackTitle={{track.title}} @ensembleName={{track.ensembleName}}
