@@ -11,7 +11,7 @@ export default DS.Model.extend({
   showSlug: attr(),
   showTitle: attr(),
   showId: attr(),
-  show: belongsTo({ async: false }),
+  show: belongsTo({ async: true }),
   playlistDaily: belongsTo({ async: false }),
   // episode: belongsTo('story', { async: false }),
   tracks: hasMany('tracks', { async: false, inverse: 'airing' }),

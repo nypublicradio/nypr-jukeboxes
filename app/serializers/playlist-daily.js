@@ -1,6 +1,8 @@
 import ApplicationSerializer from './application';
 import transformAttributes from '../utils/transform-attributes';
 import generateTrackUniqueId from '../utils/generate-track-unique-id';
+import generateAiringUniqueId from '../utils/generate-airing-unique-id';
+
 import moment from 'moment';
 import { get } from '@ember/object';
 
@@ -81,10 +83,11 @@ export default ApplicationSerializer.extend({
     let included = [];
 
     let airings = events.map(event => {
+      let airingAttrs = transformAttributes(event, airingAttributeTransform);
       let airing = {
-        id: event.id,
+        id: generateAiringUniqueId(airingAttrs),
         type: 'airing',
-        attributes: transformAttributes(event, airingAttributeTransform)
+        attributes: airingAttrs
       };
 
       if (event.playlist && event.playlist.length > 0) {
@@ -92,6 +95,12 @@ export default ApplicationSerializer.extend({
 
         if (tracks.length > 0) {
           airing.relationships = {
+            show: {
+              data: {
+                id: airingAttrs.show_slug,
+                type: 'show',
+              }
+            },
             tracks: {
               data: tracks.map(t => ({ id: t.id, type: t.type }))
             }

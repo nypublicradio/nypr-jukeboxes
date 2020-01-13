@@ -3,7 +3,6 @@ import config from '../config/environment';
 import { getOwner } from '@ember/application';
 import { inject as service } from '@ember/service';
 import { reads } from '@ember/object/computed';
-import { get } from '@ember/object';
 import ENV from '../config/environment';
 import { run } from '@ember/runloop';
 
@@ -14,6 +13,7 @@ export default Service.extend({
   hifi: service(),
   nowPlaying: service(),
   websockets: service(),
+  router: service(),
   socketRef: null,
   isConnected: false,
   firstUpdateReceived: false,
@@ -65,8 +65,7 @@ export default Service.extend({
       this.set('lastMessage', data);
       this.processWomsData(data);
       let owner = getOwner(this);
-      let applicationController = owner.lookup('controller:application');
-      let currentRoute = get(applicationController, 'currentRouteName');
+      let currentRoute = this.router.currentRouteName;
       let route = owner.lookup(`route:${currentRoute}`);
       route.refresh();
     }
