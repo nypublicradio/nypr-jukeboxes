@@ -4,6 +4,17 @@ import womsResponse from './responses/woms';
 import whatsOnResponse from './responses/whats-on';
 import wqxrStreamResponse from './responses/wqxr-stream';
 
+import { Server } from 'mock-socket';
+const mockServer = new Server('wss://example.com');
+
+mockServer.on('connection', socket => {
+  socket.on('message', () => {
+    socket.send(JSON.stringify(womsResponse));
+  });
+  socket.on('close', () => {});
+  socket.close();
+});
+
 export default function() {
   // These comments are here to help you get started. Feel free to delete them.
 

@@ -1,32 +1,63 @@
-import { module, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setup, visit, mockServer } from 'ember-cli-fastboot-testing/test-support';
+import { setupTime } from '../helpers/time';
+
+import annieBergenResponse from 'nypr-jukeboxes/mirage/responses/shows-annie-bergen';
+import playlistDailyResponse from 'nypr-jukeboxes/mirage/responses/playlist-daily';
+import womsResponse from 'nypr-jukeboxes/mirage/responses/woms';
+import whatsOnResponse from 'nypr-jukeboxes/mirage/responses/whats-on';
+import wqxrStreamResponse from 'nypr-jukeboxes/mirage/responses/wqxr-stream';
 
 module('FastBoot | index test', function(hooks) {
   setup(hooks);
+  setupTime(hooks, { freezeDateAt: new Date("2020-01-13T18:29:00+00:00")})
 
-  skip('it renders a page...', async function(assert) {
+  test('it renders a page...', async function(assert) {
+    await mockServer.get('/whats-on/v1/whats-on?stream=wqxr', womsResponse)
+    await mockServer.get(`/api/v1/playlist-daily/wqxr/2020/jan/13/`, playlistDailyResponse);
+    await mockServer.get('/api/v1/whats_on/wqxr/3/', whatsOnResponse);
+    await mockServer.get('/api/v1/list/streams/wqxr/', wqxrStreamResponse);
+    await mockServer.get('/api/v3/shows/annie-bergen/', annieBergenResponse)
 
-    await mockServer.get('/api/v1/list/streams/', {
-      count: 1,
-      results: [{
-        name: 'WQXR 105.9 FM',
-        id: 3,
-        slug: 'wqxr',
-        source_tags: "wqxr_site",
-        always_broadcasting: true
-      }]
-    });
-
-    await mockServer.get('/api/v1/whats_on/', {
-      wqxr: {
-        name: 'WQXR 105.9 FM',
-        slug: 'wqxr'
+    let { statusCode } = await visit('/listen', {
+      metadata: {
+        test: {
+          freezeDateAt: "2020-01-13T18:29:00+00:00"
+        }
       }
     });
 
-    await visit('/');
+    assert.equal(statusCode, 200);
+    assert.dom('[data-test-element=show-title]').hasText('Middays with Annie Bergen');
 
-    assert.dom('.jukebox-display__current-stream').hasText('WQXR 105.9 FM');
+    assert.dom('[data-test-component=current-track] [data-test-element=track-info-composer]').hasText('Antonin Dvorak')
+    assert.dom('[data-test-component=current-track] [data-test-element=track-info-title]').hasText('Serenade in D Minor for Wind Ensemble, Op. 44 (B77) ');
+  });
+
+  test('it handles a 404 for the show request...', async function(assert) {
+    await mockServer.get('/whats-on/v1/whats-on?stream=wqxr', womsResponse)
+    await mockServer.get(`/api/v1/playlist-daily/wqxr/2020/jan/13/`, playlistDailyResponse);
+
+    let whatsOnResponseWithAiringSlug = Object.assign({}, whatsOnResponse)
+    whatsOnResponseWithAiringSlug.current_show = {
+      group_slug: 'airing'
+    }
+    await mockServer.get('/api/v1/whats_on/wqxr/3/', whatsOnResponseWithAiringSlug);
+    await mockServer.get('/api/v1/list/streams/wqxr/', wqxrStreamResponse);
+    await mockServer.get('/api/v3/shows/annie-bergen/', annieBergenResponse)
+
+    let { statusCode } = await visit('/listen',
+      {
+        metadata: {
+          test: {
+            freezeDate: "2020-01-13T18:29:00+00:00"
+          }
+        }
+      }
+    );
+
+    assert.equal(statusCode, 200);
+    assert.dom('[data-test-element=show-title]').hasText('WQXR 105.9 FM');
   });
 
 });

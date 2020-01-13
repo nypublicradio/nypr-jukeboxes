@@ -1,8 +1,8 @@
-
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { schedule } from '@ember/runloop';
 import { get } from "@ember/object";
+import tk from 'timekeeper';
 
 export default Route.extend({
   router: service(),
@@ -38,6 +38,17 @@ export default Route.extend({
       schedule('afterRender', () => this.dataLayer.sendPageView());
     });
     this.hifi.set('volume', 100);
+
+    if (get(this, 'isFastBoot')) {
+      // For fastboot tests we need to freeze the date to match our test responses,
+      // and there's no good hookto do that in ember-cli-fastboot-testing right now, so we're
+      // passing some custom params into the request
+      
+      let { test } = this.fastboot.get('metadata');
+      if (test && test.freezeDateAt) {
+        tk.freeze(test.freezeDateAt)
+      }
+    }
   },
 
   async model() {
