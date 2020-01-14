@@ -4,7 +4,6 @@ import { schedule } from '@ember/runloop';
 import { get } from "@ember/object";
 import tk from 'timekeeper';
 import moment from 'moment';
-import Ember from 'ember';
 
 export default Route.extend({
   router: service(),
@@ -54,7 +53,7 @@ export default Route.extend({
       // so we're passing some custom params into the request
 
       let { testOptions } = this.fastboot.get('metadata');
-      if (Ember.testing && testOptions && testOptions.freezeDateAt) {
+      if (testOptions && testOptions.freezeDateAt) {
         tk.freeze(new Date(testOptions.freezeDateAt))
         moment.now = function () { return new Date(); }
       }
