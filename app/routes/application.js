@@ -1,8 +1,9 @@
-
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { schedule } from '@ember/runloop';
 import { get } from "@ember/object";
+import tk from 'timekeeper';
+import moment from 'moment';
 
 export default Route.extend({
   router: service(),
@@ -46,10 +47,16 @@ export default Route.extend({
   },
 
   beforeModel() {
-    // Don't start poll in Fastboot
-    if (get(this, 'isFastBoot')) {
-      this.set('session.noRefresh', true);
-      return;
+    if (this.fastboot.isFastBoot) {
+      // For fastboot tests we need to freeze the date to match our test responses
+      // and there's no good hook to do that in ember-cli-fastboot-testing
+      // so we're passing some custom params into the request
+
+      let testOptions = this.fastboot.get('metadata.testOptions');
+      if (testOptions && testOptions.freezeDateAt) {
+        tk.freeze(new Date(testOptions.freezeDateAt))
+        moment.now = function () { return new Date(); }
+      }
     }
   },
 

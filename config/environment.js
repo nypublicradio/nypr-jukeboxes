@@ -8,7 +8,7 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'auto',
     'ember-cli-mirage': {
-      autostart: true // https://github.com/samselikoff/ember-cli-mirage/blob/master/CHANGELOG.md#how-it-works-in-different-types-of-tests
+      autostart: false // https://github.com/samselikoff/ember-cli-mirage/blob/master/CHANGELOG.md#how-it-works-in-different-types-of-tests
     },
     emberHifi: {
       debug: false
@@ -80,8 +80,8 @@ module.exports = function(environment) {
     ENV.etagAPI = 'http://api.example.com/api/v1/browser_id/';
     ENV.authAPI = 'http://api.example.com/auth';
     ENV.membershipAPI = 'http://api.example.com/membership';
-    ENV.womsAPI = 'wss://t5xpql2hqf.execute-api.us-east-1.amazonaws.com/sandbox',
-    ENV.womsRestAPI = '/whats-on',
+    ENV.womsAPI = 'wss://example.com';
+    ENV.womsRestAPI = '/whats-on';
 
     ENV.platformEventsAPI = 'http://example.com';
     ENV.fastboot.hostWhitelist = ['/.*/'];

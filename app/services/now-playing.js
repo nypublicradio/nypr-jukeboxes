@@ -19,8 +19,17 @@ export default Service.extend({
   // we are on newstandards.org.
 
   name: reads('stream.name'),
-  slug: computed('slugFromHost', 'stream.slug', function() {
-    return this.slugFromHost || this.stream.slug;
+  slug: computed('slugFromHost', 'stream.slug', {
+    get() {
+      if (this._slug) {
+        return this._slug;
+      }
+
+      return this.slugFromHost || this.stream.slug;
+    },
+    set(k, value) {
+      return this._slug = value;
+    }
   }),
 
   track: null,
@@ -84,8 +93,13 @@ export default Service.extend({
     this.set('stream', stream);
 
     if (stream.currentShow) {
-      let show   = await this.store.findRecord('show', stream.currentShow.group_slug);
-      this.set('show', show);
+      try {
+        let show  = await this.store.findRecord('show', stream.currentShow.group_slug);
+        this.set('show', show);
+      }
+      catch(e) {
+        this.set('show', undefined); // 404'd, no show
+      }
     } else {
       this.set('show', undefined);
     }
