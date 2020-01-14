@@ -55,7 +55,6 @@
   }
 }
 
-
 button {
   appearance: none;
   position: relative; // for transition icons
@@ -98,9 +97,9 @@ button {
   > * {
     pointer-events: none;
   }
+}
 
-  // Hide times in fastboot
-  .hide-in-fastboot.is-fastboot {
-    opacity: 0;
-  }
+// Hide times in fastboot
+.hide-in-fastboot.is-fastboot {
+  opacity: 0!important;
 }
