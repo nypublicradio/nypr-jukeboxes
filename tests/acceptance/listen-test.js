@@ -30,7 +30,7 @@ module('Acceptance | listen', function(hooks) {
   });
 
   test('visiting /listen when group_slug is bad', async function(assert) {
-    let whatsOnResponseWithAiringSlug = Object.assign(whatsOnResponse, {})
+    let whatsOnResponseWithAiringSlug = whatsOnResponse()
     whatsOnResponseWithAiringSlug.current_show = {
       group_slug: 'airing'
     }

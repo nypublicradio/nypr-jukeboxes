@@ -9,7 +9,7 @@ const mockServer = new Server('wss://example.com');
 
 mockServer.on('connection', socket => {
   socket.on('message', () => {
-    socket.send(JSON.stringify(womsResponse));
+    socket.send(JSON.stringify(womsResponse()));
   });
   socket.on('close', () => {});
   socket.close();
@@ -583,7 +583,7 @@ export default function() {
       }
     ]
   });
-  this.get("/api/v1/list/streams/:slug", wqxrStreamResponse);
+  this.get("/api/v1/list/streams/:slug", wqxrStreamResponse());
   this.get("/api/v1/whats_on", {
     "wnyc-fm939": {
       name: "WNYC 93.9 FM",
@@ -1472,7 +1472,7 @@ export default function() {
       slug: "wqxr-special"
     }
   });
-  this.get("/api/v1/whats_on/:slug", whatsOnResponse);
+  this.get("/api/v1/whats_on/:slug", whatsOnResponse());
   this.get("/api/v1/whats_on/:slug/:count/", {
     has_playlists: true,
     future: [],
@@ -1565,9 +1565,9 @@ export default function() {
       }
     }
   });
-  this.get("/api/v1/playlist-daily/:slug/:year/:month/:day", playlistDailyResponse)
-  this.get("/api/v3/shows/:slug", annieBergenResponse);
-  this.get(`/whats-on/v1/whats-on`, womsResponse);
+  this.get("/api/v1/playlist-daily/:slug/:year/:month/:day", playlistDailyResponse())
+  this.get("/api/v3/shows/:slug", annieBergenResponse());
+  this.get(`/whats-on/v1/whats-on`, womsResponse());
 
   /*
     Shorthand cheatsheet:

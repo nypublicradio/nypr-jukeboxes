@@ -13,11 +13,11 @@ module('FastBoot | index test', function(hooks) {
   setupTime(hooks, { freezeDateAt: new Date("2020-01-13T18:29:00+00:00")})
 
   test('it renders a page...', async function(assert) {
-    await mockServer.get('/whats-on/v1/whats-on?stream=wqxr', womsResponse)
-    await mockServer.get(`/api/v1/playlist-daily/wqxr/2020/jan/13/`, playlistDailyResponse);
-    await mockServer.get('/api/v1/whats_on/wqxr/3/', whatsOnResponse);
-    await mockServer.get('/api/v1/list/streams/wqxr/', wqxrStreamResponse);
-    await mockServer.get('/api/v3/shows/annie-bergen/', annieBergenResponse)
+    await mockServer.get('/whats-on/v1/whats-on?stream=wqxr', womsResponse())
+    await mockServer.get(`/api/v1/playlist-daily/wqxr/2020/jan/13/`, playlistDailyResponse());
+    await mockServer.get('/api/v1/whats_on/wqxr/3/', whatsOnResponse());
+    await mockServer.get('/api/v1/list/streams/wqxr/', wqxrStreamResponse());
+    await mockServer.get('/api/v3/shows/annie-bergen/', annieBergenResponse())
 
     let { statusCode } = await visit('/listen', {
       metadata: {
@@ -35,16 +35,11 @@ module('FastBoot | index test', function(hooks) {
   });
 
   test('it handles a 404 for the show request...', async function(assert) {
-    await mockServer.get('/whats-on/v1/whats-on?stream=wqxr', womsResponse)
-    await mockServer.get(`/api/v1/playlist-daily/wqxr/2020/jan/13/`, playlistDailyResponse);
-
-    let whatsOnResponseWithAiringSlug = Object.assign({}, whatsOnResponse)
-    whatsOnResponseWithAiringSlug.current_show = {
-      group_slug: 'airing'
-    }
-    await mockServer.get('/api/v1/whats_on/wqxr/3/', whatsOnResponseWithAiringSlug);
-    await mockServer.get('/api/v1/list/streams/wqxr/', wqxrStreamResponse);
-    await mockServer.get('/api/v3/shows/annie-bergen/', annieBergenResponse)
+    await mockServer.get('/whats-on/v1/whats-on?stream=wqxr', womsResponse())
+    await mockServer.get(`/api/v1/playlist-daily/wqxr/2020/jan/13/`, playlistDailyResponse());
+    await mockServer.get('/api/v1/whats_on/wqxr/3/', {}, 404);
+    await mockServer.get('/api/v1/list/streams/wqxr/', wqxrStreamResponse());
+    await mockServer.get('/api/v3/shows/annie-bergen/', {}, 404)
 
     let { statusCode } = await visit('/listen',
       {

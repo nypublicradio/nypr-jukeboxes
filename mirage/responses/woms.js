@@ -1,4 +1,5 @@
-export default   {
+export default function() {
+  return {
     "meta": {
       "message": ""
     },
@@ -87,3 +88,4 @@ export default   {
       }
     }
   }
+}
