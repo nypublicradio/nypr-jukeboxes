@@ -19,8 +19,17 @@ export default Service.extend({
   // we are on newstandards.org.
 
   name: reads('stream.name'),
-  slug: computed('slugFromHost', 'stream.slug', function() {
-    return this.slugFromHost || this.stream.slug;
+  slug: computed('slugFromHost', 'stream.slug', {
+    get() {
+      if (this._slug) {
+        return this._slug;
+      }
+
+      return this.slugFromHost || this.stream.slug;
+    },
+    set(k, value) {
+      return this._slug = value;
+    }
   }),
 
   track: null,
