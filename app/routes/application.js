@@ -52,7 +52,7 @@ export default Route.extend({
       // and there's no good hook to do that in ember-cli-fastboot-testing
       // so we're passing some custom params into the request
 
-      let { testOptions } = this.fastboot.get('metadata');
+      let testOptions = this.fastboot.get('metadata.testOptions');
       if (testOptions && testOptions.freezeDateAt) {
         tk.freeze(new Date(testOptions.freezeDateAt))
         moment.now = function () { return new Date(); }
