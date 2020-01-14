@@ -8,6 +8,10 @@ import womsResponse from 'nypr-jukeboxes/mirage/responses/woms';
 import whatsOnResponse from 'nypr-jukeboxes/mirage/responses/whats-on';
 import wqxrStreamResponse from 'nypr-jukeboxes/mirage/responses/wqxr-stream';
 
+// IMPORTANT NOTE: If you run these tests through http://localhost:4200/tests instead of
+// running ember test --server, they will fail! I wish they didn't, but this needs to be resolved first:
+// https://github.com/ember-fastboot/fastboot/issues/218
+
 module('FastBoot | index test', function(hooks) {
   setup(hooks);
   setupTime(hooks, { freezeDateAt: new Date("2020-01-13T18:29:00+00:00")})
