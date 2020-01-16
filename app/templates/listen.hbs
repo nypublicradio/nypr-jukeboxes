@@ -50,32 +50,47 @@
     {{#liquid-if (or this.nowPlaying.hasCurrentTrack (not (is-empty this.recentlyPlayed)))}}
     <div class="playlist-history">
       {{#if this.nowPlaying.track}}
-      <div class="currently-listening-to">
-        {{!-- <div class="dot"></div> --}}
-        {{!-- <div class="currently-listening-to-label">Currently Playing</div> --}}
-        {{!-- <TrackInfo @trackTitle={{this.nowPlaying.track.title}} @ensembleName={{this.nowPlaying.track.ensembleName}}
-          @conductorName={{this.nowPlaying.track.conductorName}} @composerName={{this.nowPlaying.track.composerName}}
-          @startTime={{this.nowPlaying.track.startTime}} @isLive={{true}} /> --}}
-          
-          <CurrentlyPlayingTrackInfo @trackTitle={{this.nowPlaying.track.title}} @ensembleName={{this.nowPlaying.track.ensembleName}}
-          @conductorName={{this.nowPlaying.track.conductorName}} @composerName={{this.nowPlaying.track.composerName}}
-          @startTime={{this.nowPlaying.track.startTime}} @isLive={{true}} />
-      </div>
+        <div class="playlist-section-title">
+          <div class="dot mod-large"></div>
+          <span>Currently Playing</span>
+        </div>
+        <div class="playlist-section">
+          <TrackInfo 
+              @trackTitle={{this.nowPlaying.track.title}} 
+              @ensembleName={{this.nowPlaying.track.ensembleName}}
+              @conductorName={{this.nowPlaying.track.conductorName}} @composerName={{this.nowPlaying.track.composerName}}
+              @startTime={{this.nowPlaying.track.startTime}} 
+              @isLive={{true}} /> 
+        </div>
       {{/if}}
 
 
       {{#if (not (is-empty this.recentlyPlayed))}}
-      <div class="recently-played">
-        <div class="recently-played-label">Recently Played Songs</div>
-        <div class="recently-played-song-list">
+      {{!-- <div class="recently-played"> --}}
+        
+        <div class="playlist-section-title">
+          <div class="dot"></div>
+          <span>Recently Played Songs</span>
+        </div>
+        <div class="playlist-section">
           {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track|}}
           <TrackInfo @trackTitle={{track.title}} @ensembleName={{track.ensembleName}}
             @conductorName={{track.conductorName}} @composerName={{track.composerName}}
-            @startTime={{track.startTime}} />
+            @startTime={{track.startTime}}/>
           {{/each}}
-        </div>
-        {{#link-to "playlist-history-today" class="view-full-playlist-history-button"}}View Full Playlist{{/link-to}}
+
+{{!-- {{if (eq 0 index)}}
+            {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track index|}}
+            <li>
+              Index: {{index}} Content: {{track}}
+            </li>
+          {{/each}}
+          {{/if}} --}}
+
+
+        {{!-- </div> --}}
       </div>
+      {{#link-to "playlist-history-today" class="view-full-playlist-history-button"}}View Full Playlist{{/link-to}}
       {{/if}}
     </div>
     {{/liquid-if}}
