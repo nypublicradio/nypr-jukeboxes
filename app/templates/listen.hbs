@@ -78,6 +78,7 @@
           {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track|}}
           <TrackInfo 
             data-test-component={{concat "recent-track-" (inc index 1)}}
+            data-test-element="track-info-composer"
             @trackTitle={{track.title}} 
             @ensembleName={{track.ensembleName}}
             @conductorName={{track.conductorName}} 
