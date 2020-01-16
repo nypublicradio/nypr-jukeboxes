@@ -13,7 +13,7 @@ export default Controller.extend({
   isFastBoot: reads('fastboot.isFastBoot'),
   MINUTES_UNTIL_STALE: 61,
 
-  recentlyPlayed: computed('clock.minute', 'model.currentAiring', 'model.recentTracks', function() {
+  recentlyPlayed: computed('clock.minute', 'model.recentTracks', function() {
     let now = moment();
 
     return this.store.peekAll('track')

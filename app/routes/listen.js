@@ -2,7 +2,6 @@ import Ember from 'ember';
 import Route from '@ember/routing/route';
 import { inject as service} from '@ember/service';
 import rsvp from "rsvp";
-import moment from "moment";
 
 export default Route.extend({
   nowPlaying: service(),
@@ -15,15 +14,11 @@ export default Route.extend({
   },
 
   async model() {
-    let serverDate = moment.tz(moment(), "America/New_York")
-    let playlistHistory = await this.store.findRecord('playlist-daily', `wqxr/${serverDate.format('YYYY/MMM/DD').toLowerCase()}`, { reload: true });
-
     await this.get('nowPlaying').refreshStream()
 
     return rsvp.hash({
-      currentAiring: playlistHistory.airings.findBy('isLive', true),
       stream: this.nowPlaying.stream,
-      show: this.nowPlaying.show,
+      show: this.nowPlaying.show
     });
   },
 
