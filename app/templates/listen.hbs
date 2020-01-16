@@ -1,8 +1,12 @@
 <div class="listen">
   <div class="on-air-now">
     <div class="on-air-now-upper">
-
-      <OnAirImage @stream={{model.stream}} @show={{model.show}} @height=200 @width=200 @altText={{onAirTitle}} />
+      <OnAirImage 
+      @stream={{model.stream}} 
+      @show={{model.show}} 
+      @height=200 
+      @width=200 
+      @altText={{onAirTitle}} />
       <div class="on-air-now-inner">
         <div class="label-title-message-play">
                 <div class="on-air-now-label">ON AIR NOW</div>
@@ -64,10 +68,7 @@
         </div>
       {{/if}}
 
-
-      {{#if (not (is-empty this.recentlyPlayed))}}
-      {{!-- <div class="recently-played"> --}}
-        
+      {{#if (not (is-empty this.recentlyPlayed))}}        
         <div class="playlist-section-title">
           <div class="dot"></div>
           <span>Recently Played Songs</span>
@@ -78,17 +79,6 @@
             @conductorName={{track.conductorName}} @composerName={{track.composerName}}
             @startTime={{track.startTime}}/>
           {{/each}}
-
-{{!-- {{if (eq 0 index)}}
-            {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track index|}}
-            <li>
-              Index: {{index}} Content: {{track}}
-            </li>
-          {{/each}}
-          {{/if}} --}}
-
-
-        {{!-- </div> --}}
       </div>
       {{#link-to "playlist-history-today" class="view-full-playlist-history-button"}}View Full Playlist{{/link-to}}
       {{/if}}
