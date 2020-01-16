@@ -10,7 +10,7 @@
       <div class="on-air-now-inner">
         <div class="label-title-message-play">
                 <div class="on-air-now-label">ON AIR NOW</div>
-          <div class="show-title">{{onAirTitle}}</div>
+          <div class="show-title" data-test-component="show-title">{{onAirTitle}}</div>
 
           {{#if (or twitterHandle emailAddress)}}
           <div class="message-the-show">
@@ -59,12 +59,14 @@
           <span>Currently Playing</span>
         </div>
         <div class="playlist-section">
-          <TrackInfo data-test-component="current-track"
-              @trackTitle={{this.nowPlaying.track.title}} 
-              @ensembleName={{this.nowPlaying.track.ensembleName}}
-              @conductorName={{this.nowPlaying.track.conductorName}} @composerName={{this.nowPlaying.track.composerName}}
-              @startTime={{this.nowPlaying.track.startTime}} 
-              @isLive={{true}} /> 
+          <TrackInfo 
+            data-test-component="current-track"
+            @trackTitle={{this.nowPlaying.track.title}} 
+            @ensembleName={{this.nowPlaying.track.ensembleName}}
+            @conductorName={{this.nowPlaying.track.conductorName}} @composerName={{this.nowPlaying.track.composerName}}
+            @startTime={{this.nowPlaying.track.startTime}} 
+            @isLive={{true}} 
+          /> 
         </div>
       {{/if}}
 
@@ -76,12 +78,13 @@
         <div class="playlist-section">
           {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track|}}
           <TrackInfo 
-          data-test-component={{concat "recent-track-" (inc index 1)}}
-          @trackTitle={{track.title}} 
-          @ensembleName={{track.ensembleName}}
-          @conductorName={{track.conductorName}} 
-          @composerName={{track.composerName}}
-          @startTime={{track.startTime}}/>
+            data-test-component={{concat "recent-track-" (inc index 1)}}
+            @trackTitle={{track.title}} 
+            @ensembleName={{track.ensembleName}}
+            @conductorName={{track.conductorName}} 
+            @composerName={{track.composerName}}
+            @startTime={{track.startTime}}
+          />
           {{/each}}
       </div>
       {{#link-to "playlist-history-today" class="view-full-playlist-history-button"}}View Full Playlist{{/link-to}}
