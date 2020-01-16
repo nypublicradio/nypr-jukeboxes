@@ -59,7 +59,7 @@
           <span>Currently Playing</span>
         </div>
         <div class="playlist-section">
-          <TrackInfo 
+          <TrackInfo data-test-component="current-track"
               @trackTitle={{this.nowPlaying.track.title}} 
               @ensembleName={{this.nowPlaying.track.ensembleName}}
               @conductorName={{this.nowPlaying.track.conductorName}} @composerName={{this.nowPlaying.track.composerName}}
@@ -75,9 +75,13 @@
         </div>
         <div class="playlist-section">
           {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track|}}
-          <TrackInfo @trackTitle={{track.title}} @ensembleName={{track.ensembleName}}
-            @conductorName={{track.conductorName}} @composerName={{track.composerName}}
-            @startTime={{track.startTime}}/>
+          <TrackInfo 
+          data-test-component={{concat "recent-track-" (inc index 1)}}
+          @trackTitle={{track.title}} 
+          @ensembleName={{track.ensembleName}}
+          @conductorName={{track.conductorName}} 
+          @composerName={{track.composerName}}
+          @startTime={{track.startTime}}/>
           {{/each}}
       </div>
       {{#link-to "playlist-history-today" class="view-full-playlist-history-button"}}View Full Playlist{{/link-to}}
