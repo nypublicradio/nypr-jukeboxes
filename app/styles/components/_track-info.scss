@@ -44,6 +44,9 @@
     opacity: 0.5;
     color: #000000;
     text-transform: uppercase;
+    @include media("<medium") {
+      margin-left: 0px;
+    }
   }
 
   .title {
@@ -55,6 +58,9 @@
     text-align: left;
     line-height: 16px;
     text-transform: none;
+    @include media("<medium") {
+      font-size: 14px;
+    }
   }
 
   .dot {
