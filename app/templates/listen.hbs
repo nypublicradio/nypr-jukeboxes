@@ -75,7 +75,7 @@
           <span>Recently Played Songs</span>
         </div>
         <div class="playlist-section">
-          {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track|}}
+          {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track index|}}
           <TrackInfo 
             data-test-component={{concat "recent-track-" (inc index 1)}}
             data-test-element="track-info-composer"
