@@ -4,7 +4,7 @@
 module.exports = {
   extends: 'recommended',
   rules: {
-    'block-indentation': false
+    'block-indentation': true
   },
   pending: [
     'modules/internal-addons/component/**'
