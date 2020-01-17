@@ -1,7 +1,7 @@
 <div class="static-main-header">
   <div class="col" id="wqxr-logo" data-test-element="header-logo">
-    {{#link-to 'listen'}}
-    {{svg-jar "wqxr-log-frq" class="site-header-title-logo"}}
+    {{#link-to "listen"}}
+      {{svg-jar "wqxr-log-frq" class="site-header-title-logo"}}
     {{/link-to}}
   </div>
   <div class="col" id="live-nyc-txt-box">
@@ -10,20 +10,18 @@
 </div>
 
 {{#sticky-element class="site-header" as |state|}}
-<div class="horizontal-nav-container {{if state.isSticky 'is-sticky'}}">
-  {{horizontal-nav
-    navRoot='listen'
-    defaultSlug='listen'
-    channelSlug='listen'
-    links=links
-    activeTabIndex=activeTabIndex}}
-
-</div>
+  <div class="horizontal-nav-container {{if state.isSticky "is-sticky"}}">
+    {{horizontal-nav
+      navRoot="listen"
+      defaultSlug="listen"
+      channelSlug="listen"
+      links=links
+      activeTabIndex=activeTabIndex}}
+  </div>
 {{/sticky-element}}
 
 <div class="donate-button-link">
-  <a href="https://pledge3.wqxr.org/donate/main/onestep/?ref=button-donate-header" target="_blank"
-    class="donate-button-opacity">
+  <a href="https://pledge3.wqxr.org/donate/main/onestep/?ref=button-donate-header" target="_blank" rel="noopener" class="donate-button-opacity">
     <button class="donate-button">
       Donate
     </button>

@@ -4,8 +4,8 @@
       <div class="c-main-footer__col1 top-half-header u-spacing--triple">
         <div class="c-main-footer__branding">
           <div class="c-main-footer__logo main-logo">
-            {{#link-to 'index'}}
-            <NyprASvg @icon='wqxr-logo' />
+            {{#link-to "index"}}
+              <NyprASvg @icon="wqxr-logo" />
             {{/link-to}}
           </div>
         </div>
@@ -13,11 +13,11 @@
         <div class="c-main-footer__utility">
           <div class="c-main-footer__social">
             <div class="c-main-footer__slogan u-spacing">
-              {{yield (hash slogan=(component 'blank-template'))}}
+              {{yield (hash slogan=(component "blank-template"))}}
             </div>
 
             <div class="about-and-connect">
-              <NyprMShareTools class="about-us-div" @label='About Us' as |share|>
+              <NyprMShareTools class="about-us-div" @label="About Us">
                 <div class="about-us-left">
                   <a href="https://www.wnyc.org/resources/912769/fcc_eeo_public_file_report.pdf"
                     class="about-us-links inline" target="_blank" rel="noopener">
@@ -44,21 +44,21 @@
                 </div>
               </NyprMShareTools>
 
-              <NyprMShareTools class="social-media-links" @label='Connect' as |share|>
+              <NyprMShareTools class="social-media-links" @label="Connect" as |share|>
                 <div class="social-media__container">
 
-                  <share.link @service='spotify' @username='3kRXZieRfyb2lCAFtVB76u' />
+                  <share.link @service="spotify" @username="3kRXZieRfyb2lCAFtVB76u" />
 
-                  <share.link @service='facebook' @username='WQXRClassical' />
+                  <share.link @service="facebook" @username="WQXRClassical" />
 
-                  <share.link @service='twitter' @username='WQXR' />
+                  <share.link @service="twitter" @username="WQXR" />
 
-                  <share.link @service='instagram' @username='wqxr_classical' />
+                  <share.link @service="instagram" @username="wqxr_classical" />
 
-                  <share.link @service='youtube' @username='UCNaGXxDBmCNQGpwm3hxK9sw' />
+                  <share.link @service="youtube" @username="UCNaGXxDBmCNQGpwm3hxK9sw" />
                 </div>
 
-                <a class="feedback-link" href="https://www.surveymonkey.com/r/XQQSB68" target="_blank">
+                <a class="feedback-link" href="https://www.surveymonkey.com/r/XQQSB68" target="_blank" rel="noopener">
                   <div class="feedback tertiary-hover">SEND US YOUR FEEDBACK</div>
                 </a>
 
@@ -70,7 +70,7 @@
 
       <div class="c-main-footer__col2">
         <div class="c-main-footer__signup">
-          {{yield (hash signup=(component 'blank-template'))}}
+          {{yield (hash signup=(component "blank-template"))}}
         </div>
       </div>
     </div>
@@ -80,12 +80,14 @@
         {{svg-jar "nypr-logo"}}
       </div>
 
-      <BrandsLinkroll @exclude='wqxr' />
+      <BrandsLinkroll @exclude="wqxr" />
 
       <div class="c-main-footer__copyright">
-        <p class="u-font--secondary-style u-font--xs u-color--white term-links">&copy; {{moment-format (now) 'YYYY'}}
+        <p class="u-font--secondary-style u-font--xs u-color--white term-links">
+          &copy; {{moment-format (now) "YYYY"}}
           New York
-          Public Radio. All Rights Reserved.</p>
+          Public Radio. All Rights Reserved.
+        </p>
       </div>
     </div>
   </div>
