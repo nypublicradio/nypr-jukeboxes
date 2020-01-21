@@ -8,8 +8,8 @@ let config = require('./environment');
 module.exports = {
   resilient: false,
   sandboxGlobals: {},
-  // setupFastboot: fastbootInstance => {
-  //   process.env.APP_CONFIG = JSON.stringify(config('test'));
-  //   fastbootInstance.reload()
-  // }
+  setupFastboot: fastbootInstance => {
+    process.env.APP_CONFIG = JSON.stringify(config('test'));
+    fastbootInstance.reload()
+  }
 };
