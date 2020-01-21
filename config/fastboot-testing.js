@@ -9,7 +9,19 @@ module.exports = {
   resilient: false,
   sandboxGlobals: {},
   setupFastboot: fastbootInstance => {
+    let oldConfig;
+    if (process.env.APP_CONFIG) {
+      oldConfig = process.env.APP_CONFIG;
+    }
+
     process.env.APP_CONFIG = JSON.stringify(config('test'));
     fastbootInstance.reload()
+
+    if (oldConfig) {
+      process.env.APP_CONFIG = oldConfig;
+    }
+    else {
+      delete process.env.APP_CONFIG
+    }
   }
 };
