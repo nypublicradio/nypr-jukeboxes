@@ -3,13 +3,15 @@ import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
 import { setupTime } from '../helpers/time';
+import { setupSockets } from '../helpers/socket';
 import whatsOnResponse from 'nypr-jukeboxes/mirage/responses/whats-on';
 
 module('Acceptance | listen', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
   setupTime(hooks, { freezeDateAt: new Date("2020-01-13T18:29:00+00:00")})
-
+  setupSockets(hooks);
+  
   test('visiting /listen', async function(assert) {
     await visit('/listen');
     assert.equal(currentURL(), '/listen');
@@ -25,7 +27,7 @@ module('Acceptance | listen', function(hooks) {
     assert.dom('[data-test-component=recent-track-2] [data-test-element=track-info-composer]').hasText('Franz Joseph Haydn')
     assert.dom('[data-test-component=recent-track-2] [data-test-element=track-info-title]').hasText('Piano Concerto in D Hob. 18')
 
-    assert.dom('[data-test-component=recent-track-3] [data-test-element=track-info-composer]').hasText('')
+    assert.dom('[data-test-component=recent-track-3] [data-test-element=track-info-composer]').hasText('Louise Farrenc')
     assert.dom('[data-test-component=recent-track-3] [data-test-element=track-info-title]').hasText('Overture No. 2 in E-flat Major, Op. 23')
   });
 

@@ -4,18 +4,17 @@ import generateTrackUniqueId from '../utils/generate-track-unique-id';
 import { get } from '@ember/object';
 
 const trackAttributeTransform = {
-  trackTitle: 'Item.metadata.title',
-  composerName: 'Item.metadata.mm_composer1',
-  ensembleName: 'Item.metadata.mm_ensemble1',
-  conductorName: 'Item.metadata.mm_conductor',
-  startTime:'Item.metadata.iso_start_time',
-  catno: 'Item.metadata.catno'
+  trackTitle: 'title',
+  composerName: 'mm_composer1',
+  ensembleName: 'mm_ensemble1',
+  conductorName: 'mm_conductor',
+  startTime: 'iso_start_time',
+  catno: 'catno'
 }
 
 export default ApplicationSerializer.extend({
   normalizeSingleResponse(store, modelClass, payload) {
     let normalizedPayload;
-
     if (get(payload, 'data.attributes.Item.metadata.air_break')) {
 
       normalizedPayload = {
@@ -28,14 +27,33 @@ export default ApplicationSerializer.extend({
         }
       };
     }
-    else {
-      let trackAttributes = transformAttributes(get(payload, 'data.attributes'), trackAttributeTransform);
-
-      let track = {
+    else if (get(payload, 'data.attributes.Item.metadata')) {
+      let tracks = []
+      let trackAttributes = transformAttributes(get(payload, 'data.attributes.Item.metadata'), trackAttributeTransform);
+      tracks.push({
         id: generateTrackUniqueId(trackAttributes),
         type: 'track',
         attributes: trackAttributes
+      })
+
+      let rawTracks       = get(payload, 'data.attributes.Item.metadata.playlist_hist_preview');
+      if (rawTracks) {
+        let otherTracks = rawTracks.map(t => transformAttributes(t, trackAttributeTransform));
+        otherTracks.forEach(trackAttributes => {
+          tracks.push({
+            id: generateTrackUniqueId(trackAttributes),
+            type: 'track',
+            attributes: trackAttributes
+          })
+        })
       }
+
+      let tracksRelationships = tracks.map(track => {
+        return {
+          type: track.type,
+          id: track.id
+        }
+      })
 
       normalizedPayload = {
         data: {
@@ -43,19 +61,22 @@ export default ApplicationSerializer.extend({
           type: 'whats_on',
           relationships: {
             tracks: {
-              data: [
-                {
-                  type: track.type,
-                  id: track.id
-                }
-              ]
+              data: tracksRelationships
             }
           }
         },
-        included: [track]
+        included: tracks
       }
     }
-
+    else {
+      normalizedPayload = {
+        data: {
+          id: 'whats-on',
+          type: 'whats_on',
+          attributes: {}
+        }
+      };
+    }
     return this._super(store, modelClass, normalizedPayload);
   }
 });

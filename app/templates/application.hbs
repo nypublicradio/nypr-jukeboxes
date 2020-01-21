@@ -2,10 +2,9 @@
 
 <ShowHeader @activeTabIndex={{activeTabIndex}} @links={{links}} />
 {{#liquid-if showOnboardMessage}}
-<OnboardMessage
-  @onHideOnboardMessage={{action "hideOnboardMessage"}}
-/>
+  <OnboardMessage @onHideOnboardMessage={{action "hideOnboardMessage"}}/>
 {{/liquid-if}}
+
 {{outlet}}
 
 <NyprOFooter as |footer|>
@@ -15,7 +14,7 @@
     </p>
 
     <p class="second-slogan">
-      WQXR is supported by <a class="jlgreene" href="https://jlgreene.org/" target="_blank">{{svg-jar "jlgreene-logo" class="jlgreene-logo"}}</a>
+      WQXR is supported by <a class="jlgreene" href="https://jlgreene.org/" target="_blank" rel="noopener">{{svg-jar "jlgreene-logo" class="jlgreene-logo"}}</a>
     </p>
   </footer.slogan>
 

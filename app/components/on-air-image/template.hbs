@@ -1,7 +1,7 @@
 {{#if show.about.people.firstObject.image}}
   <img
    alt="image for {{altText}}"
-   src="{{image-template show.about.people.firstObject.image.template width height show.about.people.firstObject.image.crop}}">
+   src={{image-template show.about.people.firstObject.image.template width height show.about.people.firstObject.image.crop}}>
 {{else}}
   {{#if stream.currentShow.fullImage.url}}
     <img

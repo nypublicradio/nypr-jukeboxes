@@ -43,7 +43,7 @@ export default Route.extend({
 
   async model() {
     // This calls into the woms rest API to get the currently playing track
-    await this.nowPlaying.load()
+    await this.nowPlaying.load();
   },
 
   beforeModel() {

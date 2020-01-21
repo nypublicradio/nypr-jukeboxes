@@ -1,19 +1,11 @@
 import annieBergenResponse from './responses/shows-annie-bergen';
 import playlistDailyResponse from './responses/playlist-daily';
-import womsResponse from './responses/woms';
+import asRest from './responses/woms/as-rest';
+import womsSocketResponse from './responses/woms/socket/david';
 import whatsOnResponse from './responses/whats-on';
 import wqxrStreamResponse from './responses/wqxr-stream';
 
-import { Server } from 'mock-socket';
-const mockServer = new Server('wss://example.com');
 
-mockServer.on('connection', socket => {
-  socket.on('message', () => {
-    socket.send(JSON.stringify(womsResponse()));
-  });
-  socket.on('close', () => {});
-  socket.close();
-});
 
 export default function() {
   // These comments are here to help you get started. Feel free to delete them.
@@ -27,6 +19,8 @@ export default function() {
   // this.urlPrefix = '';    // make this `http://localhost:8080`, for example, if your API is on a different server
   // this.namespace = '';    // make this `/api`, for example, if your API is namespaced
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
+
+  this.logging = true;       // print log of intercepted requests in console
 
   /*------------------------------------------------------------
     legacy (v1) endpoints
@@ -1567,7 +1561,7 @@ export default function() {
   });
   this.get("/api/v1/playlist-daily/:slug/:year/:month/:day", playlistDailyResponse())
   this.get("/api/v3/shows/:slug", annieBergenResponse());
-  this.get(`/whats-on/v1/whats-on`, womsResponse());
+  this.get(`/whats-on/v1/whats-on`, asRest(womsSocketResponse()));
 
   /*
     Shorthand cheatsheet:
