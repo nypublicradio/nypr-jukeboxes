@@ -1,3 +1,4 @@
+import uuid from 'uuid/v1';
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { schedule } from '@ember/runloop';
@@ -12,6 +13,7 @@ export default Route.extend({
   woms: service(),
   hifi: service(),
   fastboot: service(),
+  session: service(),
   dataLayer: service('nypr-metrics/data-layer'),
 
   title(tokens = []) {
@@ -35,6 +37,9 @@ export default Route.extend({
 
   init() {
     this._super(...arguments);
+
+    this.dataLayer.push({sessionID: uuid()});
+
     this.router.on('routeDidChange', () => {
       schedule('afterRender', () => this.dataLayer.sendPageView());
     });
@@ -57,6 +62,9 @@ export default Route.extend({
         tk.freeze(new Date(testOptions.freezeDateAt))
         moment.now = function () { return new Date(); }
       }
+    } else {
+      this.session.syncBrowserId()
+        .then(id => this.dataLayer.push({IDCustomEvents: id}));
     }
   },
 

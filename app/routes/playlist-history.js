@@ -6,9 +6,11 @@ import moment from 'moment';
 
 export default Route.extend({
   metadata: service(),
+  dataLayer: service('nypr-metrics/data-layer'),
 
   beforeModel() {
     this._super(...arguments);
+    this.dataLayer.push({template: 'playlist'});
     let controller = this.controllerFor('application');
     controller.send('setNavSlug', 'playlist-history');
   },

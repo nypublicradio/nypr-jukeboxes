@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 import { not, readOnly, reads } from '@ember/object/computed';
 
 export default Component.extend(InViewportMixin, {
-  classNames: ['play-button'],
+  classNames: ['play-button', 'gtm__click-tracking'],
   classNameBindings: ['isPlaying:is-playing:is-paused', 'isLoading'],
 
   hifi                : service(),
