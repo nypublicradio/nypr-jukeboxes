@@ -41,7 +41,7 @@
     "ember-cli-deploy-json-config": "1.0.0",
     "ember-cli-deploy-manifest": "1.1.0",
     "ember-cli-deploy-revision-data": "1.0.0",
-    "ember-cli-deploy-s3": "1.1.0",
+    "ember-cli-deploy-s3": "1.4.0",
     "ember-cli-deploy-s3-index": "^1.0.1",
     "ember-cli-document-title-northm": "^1.0.3",
     "ember-cli-dotenv": "^2.0.0",
