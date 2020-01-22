@@ -90,7 +90,7 @@
         {{#if (not (is-empty this.recentlyPlayed))}}
           <div class="playlist-section-title">
             <div class="dot"></div>
-            <span>Recently Played Songs</span>
+            <span>Recently Played</span>
           </div>
           <div class="playlist-section">
             {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track index|}}
