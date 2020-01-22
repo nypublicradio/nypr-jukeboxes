@@ -49,6 +49,7 @@
               class="play-button mod-main-page"
               data-action="Clicked Play/Pause Stream: jukebox-display"
               data-label={{model.stream.name}} title={{model.stream.name}} @playItemId={{model.stream.slug}}
+              @playerLabel="main player"
               @onEnterViewport={{action "updatePlayerState" false}}
               @onExitViewport={{action "updatePlayerState" true}}
             />

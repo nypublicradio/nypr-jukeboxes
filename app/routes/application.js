@@ -38,7 +38,7 @@ export default Route.extend({
   init() {
     this._super(...arguments);
 
-    this.dataLayer.push({sessionID: uuid()});
+    this.dataLayer.push({sessionID: uuid(), siteSource: 'jukebox'});
 
     this.router.on('routeDidChange', () => {
       schedule('afterRender', () => this.dataLayer.sendPageView());
