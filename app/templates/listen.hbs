@@ -1,6 +1,7 @@
 <div class="listen">
   <div class="on-air-now">
     <div class="on-air-now-upper">
+      <div class="on-air-now-label">ON AIR NOW</div>
       <OnAirImage
         @stream={{model.stream}}
         @show={{model.show}}
@@ -10,7 +11,6 @@
       />
       <div class="on-air-now-inner">
         <div class="label-title-message-play">
-          <div class="on-air-now-label">ON AIR NOW</div>
           <div class="show-title" data-test-element="show-title">{{onAirTitle}}</div>
           {{#if (or twitterHandle emailAddress)}}
             <div class="message-the-show">
