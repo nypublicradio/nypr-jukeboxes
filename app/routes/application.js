@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import uuid from 'uuid/v1';
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
@@ -37,6 +38,12 @@ export default Route.extend({
 
   init() {
     this._super(...arguments);
+
+    // allow click tracking attributes to be added when using link-to
+    const { LinkComponent } = Ember;
+    LinkComponent.reopen({
+      attributeBindings: ['data-category', 'data-action', 'data-label', 'data-value']
+    });
 
     this.dataLayer.push({sessionID: uuid(), siteSource: 'jukebox'});
 
