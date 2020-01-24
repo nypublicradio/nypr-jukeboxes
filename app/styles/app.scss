@@ -103,3 +103,9 @@ button {
 .hide-in-fastboot.is-fastboot {
   opacity: 0;
 }
+
+// Ensure clicks are handled by  handled by .c-share-tools__link so gtm clicks register
+// with configure attributes (data-category, data-action, date-label, data-value)
+.c-share-tools__link.gtm__click-tracking * {
+  pointer-events: none;
+}

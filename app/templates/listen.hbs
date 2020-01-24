@@ -27,7 +27,12 @@
                           @service="twitter"
                           @username={{twitterHandle}}
                           @title="Twitter"
-                          @clickAction={{action "openTwitterMention"}} @target="_self"
+                          @clickAction={{action "openTwitterMention"}}
+                          @target="_self"
+                          @class="gtm__click-tracking"
+                          @dataCategory="Non-Jukebox Player"
+                          @dataAction="Message"
+                          @dataLabel="Twitter"
                         />
                       {{/if}}
                       {{#if emailAddress}}
@@ -35,6 +40,10 @@
                           @service="email"
                           @username={{emailAddress}}
                           @title="Email"
+                          @class="gtm__click-tracking"
+                          @dataCategory="Non-Jukebox Player"
+                          @dataAction="Message"
+                          @dataLabel="Email"
                         />
                       {{/if}}
                     </div>
