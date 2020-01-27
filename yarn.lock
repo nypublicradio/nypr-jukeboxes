@@ -10195,10 +10195,10 @@ nypr-auth@^0.2.5:
     ember-get-config "^0.2.2"
     ember-simple-auth "^1.7.0"
 
-nypr-design-system@^2.10.0:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/nypr-design-system/-/nypr-design-system-2.10.0.tgz#3bd8e33ed5d8cac6b8824118194388d39cc8267b"
-  integrity sha512-8aqVDH+YD8Tb7b5HV34iG11OvR1Y8odmjwuOXTo3Dgtql1jGLJmGlIDCsNrjdfSmwdE73YI7OQaknWPZ/RLYwQ==
+nypr-design-system@^2.10.1:
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/nypr-design-system/-/nypr-design-system-2.10.1.tgz#dbfcc04b81305b1724f342ac829c6b76a2427986"
+  integrity sha512-/RlD2P+ipqNCuDYFJfzFmTUBzbMsZXdCZJZL7bKoKv+j8BcXdvSZGPhK0gstW1S9S1zL6EB/qar/YFk6KE2Pvg==
   dependencies:
     "@babel/core" "^7.0.0"
     broccoli-merge-files "^0.8.0"
@@ -13329,6 +13329,11 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
+
+uuid@3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
+  integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
 
 uuid@^3.3.2, uuid@^3.3.3:
   version "3.3.3"

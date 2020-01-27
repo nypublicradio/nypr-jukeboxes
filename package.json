@@ -88,7 +88,7 @@
     "nypr-ads": "^0.2.0",
     "nypr-audio-services": "nypublicradio/nypr-audio-services#jkeen/upgrades",
     "nypr-auth": "^0.2.5",
-    "nypr-design-system": "^2.10.0",
+    "nypr-design-system": "^2.10.1",
     "nypr-metrics": "^0.7.1",
     "nypr-pattern-lab": "https://github.com/nypublicradio/pattern-lab#bkammin/change_package_name_to_pattern_lab",
     "nypr-player": "http://github.com/nypublicradio/nypr-player#jkeen/remove-nypr-ui",
