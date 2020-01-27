@@ -76,6 +76,13 @@ export default Route.extend({
   },
 
   setupController: function(/*controller, model*/) {
+    if (window && window.addEventListener && !Ember.testing) {
+      window.addEventListener('beforeunload', function() {
+        this.dataLayer.push({
+          event: 'beforeunload'
+        });
+      });
+    }
     this.get('woms').initializeWOMS();
   }
 });
