@@ -36,6 +36,11 @@ export default Route.extend({
     });
   },
 
+  setupController: function(controller/*, model*/) {
+    controller.accessedCount = controller.accessedCount ? controller.accessedCount + 1 : 1;
+    this.dataLayer.push({playlist: controller.accessedCount});
+  },
+
   actions: {
     didTransition: function() {
       let controller = this.controllerFor('application');
