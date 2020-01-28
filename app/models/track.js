@@ -13,18 +13,15 @@ export default DS.Model.extend({
   ensembleName   : attr(),
   conductorName  : attr(),
   trackLength    : attr(),
-
   startTime      : attr('date'),
-
   artist         : alias('composerName'),
   title          : alias('trackTitle'),
-
   show           : belongsTo({async: false}),
   airing         : belongsTo('airing', {async: false, inverse: 'tracks'}),
 
   catalogEntry   : attr(),
   catno          : attr(),
-
+  mmUid          : attr(),
   readSoloists: function(catalogEntry) {
     let soloists = "";
     getWithDefault(catalogEntry, 'soloists', []).forEach(function(soloist) {

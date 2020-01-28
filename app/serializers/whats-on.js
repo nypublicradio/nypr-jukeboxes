@@ -5,6 +5,7 @@ import { get } from '@ember/object';
 
 const trackAttributeTransform = {
   trackTitle: 'title',
+  mmUid: 'mm_uid',
   composerName: 'mm_composer1',
   ensembleName: 'mm_ensemble1',
   conductorName: 'mm_conductor',
