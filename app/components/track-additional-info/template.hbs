@@ -1,6 +1,6 @@
 {{#if (or @ensembleName @conductorName)}}
   <ToggleBox @verticalPosition={{@verticalPosition}} @horizontalPosition={{@horizontalPosition}} @open={{true}} @customIconPlacement={{true}} class="secondary-metadata-toggle-box" as |toggle|>
-    <toggle.trigger @class=" gtm__click-tracking-expand-track-info">
+    <toggle.trigger @class="gtm__click-tracking-expand-track-info">
       {{yield (hash icon=toggle.icon)}}
     </toggle.trigger>
     <toggle.dropdown>
