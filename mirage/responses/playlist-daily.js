@@ -27,6 +27,7 @@
                   },
                   "conductor": null,
                   "catno": "347",
+                  "mm_uid": "347",
                   "composer": {
                     "url": "/music/musicians/frederic-chopin/",
                     "pk": 946,
@@ -71,6 +72,7 @@
                   },
                   "conductor": null,
                   "catno": "4777463",
+                  "mm_uid": "4777463",
                   "composer": {
                     "url": "/music/musicians/antonio-vivaldi/",
                     "pk": 544,
@@ -125,6 +127,7 @@
                     "name": "Michael Tilson Thomas"
                   },
                   "catno": "47182",
+                  "mm_uid": "47182",
                   "composer": {
                     "url": "/music/musicians/leos-janacek_/",
                     "pk": 9553,
@@ -234,6 +237,7 @@
                     "name": "Constantine Orbelian"
                   },
                   "catno": "3372",
+                  "mm_uid": "3372",
                   "composer": {
                     "url": "/music/musicians/saverio-mercadante/",
                     "pk": 22229,
@@ -283,6 +287,7 @@
                   },
                   "conductor": null,
                   "catno": "77118",
+                  "mm_uid": "77118",
                   "composer": {
                     "url": "/music/musicians/felix-mendelssohn/",
                     "pk": 1699,
@@ -324,6 +329,7 @@
                     "name": "Leonard Slatkin"
                   },
                   "catno": "06612",
+                  "mm_uid": "06612",
                   "composer": {
                     "url": "/music/musicians/howard-hanson/",
                     "pk": 432,
@@ -360,6 +366,7 @@
                   },
                   "conductor": null,
                   "catno": "7102",
+                  "mm_uid": "7102",
                   "composer": {
                     "url": "/music/musicians/wolfgang-amadeus-mozart/",
                     "pk": 8,
@@ -421,6 +428,7 @@
                     "name": "Dmitry Yablonsky"
                   },
                   "catno": "557352",
+                  "mm_uid": "557352",
                   "composer": {
                     "url": "/music/musicians/antonin-dvorak/",
                     "pk": 522,
@@ -462,6 +470,7 @@
                     "name": "Pierre Boulez"
                   },
                   "catno": "447747",
+                  "mm_uid": "447747",
                   "composer": {
                     "url": "/music/musicians/bela-bartok_/",
                     "pk": 9597,
@@ -550,6 +559,7 @@
                   },
                   "conductor": null,
                   "catno": "902132",
+                  "mm_uid": "902132",
                   "composer": {
                     "url": "/music/musicians/johann-gottlieb-graun/",
                     "pk": 11569,
@@ -604,6 +614,7 @@
                     "name": "Sir Edward Downes"
                   },
                   "catno": "91592",
+                  "mm_uid": "91592",
                   "composer": {
                     "url": "/music/musicians/arnold-bax/",
                     "pk": 208,
@@ -640,6 +651,7 @@
                   },
                   "conductor": null,
                   "catno": "456904",
+                  "mm_uid": "456904",
                   "composer": {
                     "url": "/music/musicians/ludwig-van-beethoven/",
                     "pk": 201,
@@ -689,6 +701,7 @@
                     "name": "Howard Griffiths"
                   },
                   "catno": "777209",
+                  "mm_uid": "777209",
                   "composer": {
                     "url": "/music/musicians/johann-wilhelm-wilms/",
                     "pk": 22264,
@@ -790,6 +803,7 @@
                     "name": "Geoffrey Simon"
                   },
                   "catno": "8412",
+                  "mm_uid": "8412",
                   "composer": {
                     "url": "/music/musicians/bedrich-smetana/",
                     "pk": 58,
@@ -831,6 +845,7 @@
                     "name": "Dominik Kiefer"
                   },
                   "catno": "7185",
+                  "mm_uid": "7185",
                   "composer": {
                     "url": "/music/musicians/jean-baptiste-lully/",
                     "pk": 2114,
@@ -872,6 +887,7 @@
                     "name": "Paul Bateman"
                   },
                   "catno": "469",
+                  "mm_uid": "469",
                   "composer": {
                     "url": "/music/musicians/oliver-davis/",
                     "pk": 21987,
@@ -1003,6 +1019,7 @@
                   },
                   "conductor": null,
                   "catno": "10708",
+                  "mm_uid": "10708",
                   "composer": {
                     "url": "/music/musicians/edward-elgar/",
                     "pk": 1070,
@@ -1046,6 +1063,7 @@
                   },
                   "conductor": null,
                   "catno": "4196142",
+                  "mm_uid": "4196142",
                   "composer": {
                     "url": "/music/musicians/arcangelo-corelli/",
                     "pk": 907,
@@ -1087,6 +1105,7 @@
                     "name": "Riccardo Muti"
                   },
                   "catno": "422399",
+                  "mm_uid": "422399",
                   "composer": {
                     "url": "/music/musicians/richard-strauss/",
                     "pk": 162,
@@ -1123,6 +1142,7 @@
                   },
                   "conductor": null,
                   "catno": "65391",
+                  "mm_uid": "65391",
                   "composer": {
                     "url": "/music/musicians/robert-schumann/",
                     "pk": 368,
@@ -1172,6 +1192,7 @@
                     "name": "Nicola Benedetti"
                   },
                   "catno": "000768202",
+                  "mm_uid": "000768202",
                   "composer": {
                     "url": "/music/musicians/wolfgang-amadeus-mozart/",
                     "pk": 8,
@@ -1218,6 +1239,7 @@
                   "reclabel": null,
                   "conductor": null,
                   "catno": "807952",
+                  "mm_uid": "807952",
                   "composer": null,
                   "attribution": "",
                   "soloists": [],
@@ -1249,6 +1271,7 @@
                     "name": "Bernard Labadie"
                   },
                   "catno": "9900",
+                  "mm_uid": "9900",
                   "composer": {
                     "url": "/music/musicians/george-frideric-handel/",
                     "pk": 6953,
@@ -1303,6 +1326,7 @@
                     "name": "Pablo Gonzalez"
                   },
                   "catno": "573264",
+                  "mm_uid": "573264",
                   "composer": {
                     "url": "/music/musicians/enrique-granados/",
                     "pk": 3768,
@@ -1344,6 +1368,7 @@
                     "name": "David Lloyd-Jones"
                   },
                   "catno": "8555069",
+                  "mm_uid": "8555069",
                   "composer": {
                     "url": "/music/musicians/gustav-holst/",
                     "pk": 1526,
@@ -1380,6 +1405,7 @@
                   },
                   "conductor": null,
                   "catno": "415363",
+                  "mm_uid": "415363",
                   "composer": {
                     "url": "/music/musicians/gioacchino-rossini/",
                     "pk": 3582,
@@ -1421,6 +1447,7 @@
                     "name": "Marek Stilec"
                   },
                   "catno": "8572985",
+                  "mm_uid": "8572985",
                   "composer": {
                     "url": "/music/musicians/zdenek-fibich/",
                     "pk": 11394,
@@ -1457,6 +1484,7 @@
                   },
                   "conductor": null,
                   "catno": "3973072",
+                  "mm_uid": "3973072",
                   "composer": {
                     "url": "/music/musicians/ludwig-van-beethoven/",
                     "pk": 201,
@@ -1493,6 +1521,7 @@
                   },
                   "conductor": null,
                   "catno": "1001",
+                  "mm_uid": "1001",
                   "composer": {
                     "url": "/music/musicians/johann-sebastian-bach/",
                     "pk": 115,
@@ -1534,6 +1563,7 @@
                     "name": "Jeffrey Tate"
                   },
                   "catno": "49196",
+                  "mm_uid": "49196",
                   "composer": {
                     "url": "/music/musicians/richard-wagner/",
                     "pk": 769,
@@ -1567,6 +1597,7 @@
                   "reclabel": null,
                   "conductor": null,
                   "catno": "340392",
+                  "mm_uid": "340392",
                   "composer": null,
                   "attribution": "",
                   "soloists": [],
@@ -1598,6 +1629,7 @@
                     "name": "Jan Corazolla"
                   },
                   "catno": "64",
+                  "mm_uid": "64",
                   "composer": {
                     "url": "/music/musicians/christoph-willibald-gluck/",
                     "pk": 1976,
@@ -1634,6 +1666,7 @@
                   },
                   "conductor": null,
                   "catno": "855043",
+                  "mm_uid": "855043",
                   "composer": {
                     "url": "/music/musicians/felix-mendelssohn/",
                     "pk": 1699,
@@ -1683,6 +1716,7 @@
                     "name": "Andrew Litton"
                   },
                   "catno": "2164",
+                  "mm_uid": "2164",
                   "composer": {
                     "url": "/music/musicians/aaron-copland/",
                     "pk": 213,
@@ -1716,6 +1750,7 @@
                   "reclabel": null,
                   "conductor": null,
                   "catno": "1287",
+                  "mm_uid": "1287",
                   "composer": null,
                   "attribution": "",
                   "soloists": [],
@@ -1747,6 +1782,7 @@
                     "name": "Alan Buribayev"
                   },
                   "catno": "2246",
+                  "mm_uid": "2246",
                   "composer": {
                     "url": "/music/musicians/antonin-dvorak/",
                     "pk": 522,
@@ -1855,6 +1891,7 @@
                     "name": "Osmo Vanska"
                   },
                   "catno": "1645",
+                  "mm_uid": "1645",
                   "composer": {
                     "url": "/music/musicians/jean-sibelius/",
                     "pk": 424,
@@ -1896,6 +1933,7 @@
                     "name": "Eugene Ormandy"
                   },
                   "catno": "39784",
+                  "mm_uid": "39784",
                   "composer": {
                     "url": "/music/musicians/peter-ilyich-tchaikovsky/",
                     "pk": 37,
@@ -1937,6 +1975,7 @@
                     "name": "Matthias Bamert"
                   },
                   "catno": "10203",
+                  "mm_uid": "10203",
                   "composer": {
                     "url": "/music/musicians/josef-myslivecek/",
                     "pk": 14409,
@@ -1973,6 +2012,7 @@
                   },
                   "conductor": null,
                   "catno": "4780217",
+                  "mm_uid": "4780217",
                   "composer": {
                     "url": "/music/musicians/francisco-tarrega/",
                     "pk": 5021,
@@ -2034,6 +2074,7 @@
                     "name": "Adrian Boult"
                   },
                   "catno": "245",
+                  "mm_uid": "245",
                   "composer": {
                     "url": "/music/musicians/george-butterworth/",
                     "pk": 612,
@@ -2075,6 +2116,7 @@
                     "name": "Adrian Boult"
                   },
                   "catno": "245",
+                  "mm_uid": "245",
                   "composer": {
                     "url": "/music/musicians/george-butterworth/",
                     "pk": 612,
@@ -2116,6 +2158,7 @@
                     "name": "Domonkos Heja"
                   },
                   "catno": "256462409",
+                  "mm_uid": "256462409",
                   "composer": {
                     "url": "/music/musicians/erno-ernst-von-dohnanyi/",
                     "pk": 3059,
@@ -2157,6 +2200,7 @@
                     "name": "Domonkos Heja"
                   },
                   "catno": "256462409",
+                  "mm_uid": "256462409",
                   "composer": {
                     "url": "/music/musicians/erno-ernst-von-dohnanyi/",
                     "pk": 3059,
@@ -2198,6 +2242,7 @@
                     "name": "Harold Farberman"
                   },
                   "catno": "5020",
+                  "mm_uid": "5020",
                   "composer": {
                     "url": "/music/musicians/johann-michael-haydn/",
                     "pk": 4971,
@@ -2239,6 +2284,7 @@
                     "name": "Harold Farberman"
                   },
                   "catno": "5020",
+                  "mm_uid": "5020",
                   "composer": {
                     "url": "/music/musicians/johann-michael-haydn/",
                     "pk": 4971,
@@ -2355,6 +2401,7 @@
                     "name": "Pierre Boulez"
                   },
                   "catno": "457693",
+                  "mm_uid": "457693",
                   "composer": {
                     "url": "/music/musicians/maurice-ravel/",
                     "pk": 158,
@@ -2442,6 +2489,7 @@
                   "reclabel": null,
                   "conductor": null,
                   "catno": "999820",
+                  "mm_uid": "999820",
                   "composer": null,
                   "attribution": "",
                   "soloists": [],
@@ -2473,6 +2521,7 @@
                     "name": "Sir Charles Mackerras"
                   },
                   "catno": "80490",
+                  "mm_uid": "80490",
                   "composer": {
                     "url": "/music/musicians/george-frideric-handel/",
                     "pk": 6953,
@@ -2514,6 +2563,7 @@
                     "name": "Pietari Inkinen"
                   },
                   "catno": "8570068",
+                  "mm_uid": "8570068",
                   "composer": {
                     "url": "/music/musicians/jean-sibelius/",
                     "pk": 424,
@@ -2555,6 +2605,7 @@
                     "name": "Leonard Bernstein"
                   },
                   "catno": "63081",
+                  "mm_uid": "63081",
                   "composer": {
                     "url": "/music/musicians/georges-bizet/",
                     "pk": 257,
@@ -2591,6 +2642,7 @@
                   },
                   "conductor": null,
                   "catno": "353492",
+                  "mm_uid": "353492",
                   "composer": {
                     "url": "/music/musicians/wolfgang-amadeus-mozart/",
                     "pk": 8,
@@ -2676,6 +2728,7 @@
                     "name": "Leopold Stokowski"
                   },
                   "catno": "9024",
+                  "mm_uid": "9024",
                   "composer": {
                     "url": "/music/musicians/richard-wagner/",
                     "pk": 769,
@@ -2717,6 +2770,7 @@
                     "name": "Simon Standage"
                   },
                   "catno": "716",
+                  "mm_uid": "716",
                   "composer": {
                     "url": "/music/musicians/giuseppe-torelli/",
                     "pk": 9249,
@@ -2778,6 +2832,7 @@
                   },
                   "conductor": null,
                   "catno": "859121",
+                  "mm_uid": "859121",
                   "composer": {
                     "url": "/music/musicians/felix-mendelssohn/",
                     "pk": 1699,
@@ -2839,6 +2894,7 @@
                     "name": "Michael Stern"
                   },
                   "catno": "87894",
+                  "mm_uid": "87894",
                   "composer": {
                     "url": "/music/musicians/camille-saint-saens_/",
                     "pk": 9541,
@@ -2893,6 +2949,7 @@
                     "name": "Frank Beermann"
                   },
                   "catno": "9998692",
+                  "mm_uid": "9998692",
                   "composer": {
                     "url": "/music/musicians/friedrich-ernst-fesca/",
                     "pk": 24552,
@@ -2934,6 +2991,7 @@
                     "name": "David Zinman"
                   },
                   "catno": "80271",
+                  "mm_uid": "80271",
                   "composer": {
                     "url": "/music/musicians/hector-berlioz/",
                     "pk": 1231,
@@ -3016,6 +3074,7 @@
                     "name": "Gerard Schwarz"
                   },
                   "catno": "572693",
+                  "mm_uid": "572693",
                   "composer": {
                     "url": "/music/musicians/nikolai-rimsky-korsakov/",
                     "pk": 5070,
@@ -3057,6 +3116,7 @@
                     "name": "Andras Schiff"
                   },
                   "catno": "425676",
+                  "mm_uid": "425676",
                   "composer": {
                     "url": "/music/musicians/johann-sebastian-bach/",
                     "pk": 115,
@@ -3111,6 +3171,7 @@
                     "name": "Christian Benda"
                   },
                   "catno": "8573066",
+                  "mm_uid": "8573066",
                   "composer": {
                     "url": "/music/musicians/francois-andre-danican-philidor/",
                     "pk": 20949,

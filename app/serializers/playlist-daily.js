@@ -18,7 +18,7 @@ const trackAttributeTransform = {
   composerName   : 'info.composer.name',
   conductorName  : 'info.conductor.name',
   ensembleName   : 'info.ensemble.name',
-  catno          : 'info.catno',
+  mmUid          : 'info.mm_uid',
   trackLength    : 'length',
   catalogEntry   : 'info'
 }
