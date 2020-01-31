@@ -29,10 +29,10 @@
                           @title="Twitter"
                           @clickAction={{action "openTwitterMention"}}
                           @target="_self"
-                          @class="gtm__click-tracking"
-                          @dataCategory="Non-Jukebox Player"
-                          @dataAction="Message"
-                          @dataLabel="Twitter"
+                          class="gtm__click-tracking"
+                          data-category="Non-Jukebox Player"
+                          data-action="Message"
+                          data-label="Twitter"
                         />
                       {{/if}}
                       {{#if emailAddress}}
@@ -40,10 +40,10 @@
                           @service="email"
                           @username={{emailAddress}}
                           @title="Email"
-                          @class="gtm__click-tracking"
-                          @dataCategory="Non-Jukebox Player"
-                          @dataAction="Message"
-                          @dataLabel="Email"
+                          class="gtm__click-tracking"
+                          data-category="Non-Jukebox Player"
+                          data-action="Message"
+                          data-label="Email"
                         />
                       {{/if}}
                     </div>
