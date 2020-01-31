@@ -13,7 +13,7 @@ export default Controller.extend({
   isFastBoot: reads('fastboot.isFastBoot'),
   MINUTES_UNTIL_STALE: 61,
 
-  recentlyPlayed: computed('clock.minute', 'model.recentTracks', function() {
+  recentlyPlayed: computed('clock.minute', 'model.currentAiring', 'model.recentTracks', function() {
     let now = moment();
 
     return this.store.peekAll('track')
@@ -22,9 +22,9 @@ export default Controller.extend({
       .reverse();
   }),
 
-  twitterHandle: computed('model.show.about.social', function() {
-    if (this.model.show && this.model.show.about.social) {
-      let twitter = this.model.show.about.social.filter(function(s) {
+  twitterHandle: computed('nowPlaying.show.about.social', function() {
+    if (this.nowPlaying.show && this.nowPlaying.get('show.about.social')) {
+      let twitter = this.nowPlaying.get('show.about.social').filter(function(s) {
         return s.service == 'twitter';
       });
       if (twitter.length > 0) {
@@ -34,13 +34,13 @@ export default Controller.extend({
     return undefined;
   }),
 
-  emailAddress: reads('model.show.contactEmail'),
+  emailAddress: reads('nowPlaying.show.contactEmail'),
 
-  onAirTitle: computed('model.stream.currentShow.title', 'model.stream.name', function() {
-    if (get(this, 'model.stream.currentShow.title')) {
-      return get(this, 'model.stream.currentShow.title');
-    } else if (get(this, 'model.stream.name')) {
-      return get(this, 'model.stream.name');
+  onAirTitle: computed('nowPlaying.show.title', 'nowPlaying.stream.name', function() {
+    if (get(this, 'nowPlaying.show.title')) {
+      return get(this, 'nowPlaying.show.title');
+    } else if (get(this, 'nowPlaying.stream.name')) {
+      return get(this, 'nowPlaying.stream.name');
     }
     return undefined;
   }),
