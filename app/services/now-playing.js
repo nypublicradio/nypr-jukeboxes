@@ -46,7 +46,7 @@ export default Service.extend({
   stream: null,
   showTitle: reads('show.title'),
   episodeTitle: reads('show.episodeTitle'),
-  showHost: reads('show.currentHost'),
+  showHost: reads('show.about.people.firstObject.name'),
 
   show: null,
   showSlug: reads('show.slug'),

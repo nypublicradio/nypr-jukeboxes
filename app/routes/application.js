@@ -1,3 +1,5 @@
+import Ember from 'ember';
+import uuid from 'uuid/v1';
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { schedule } from '@ember/runloop';
@@ -12,6 +14,7 @@ export default Route.extend({
   woms: service(),
   hifi: service(),
   fastboot: service(),
+  session: service(),
   dataLayer: service('nypr-metrics/data-layer'),
 
   title(tokens = []) {
@@ -35,6 +38,15 @@ export default Route.extend({
 
   init() {
     this._super(...arguments);
+
+    // allow click tracking attributes to be added when using link-to
+    const { LinkComponent } = Ember;
+    LinkComponent.reopen({
+      attributeBindings: ['data-category', 'data-action', 'data-label', 'data-value']
+    });
+
+    this.dataLayer.push({sessionID: uuid(), siteSource: 'jukebox'});
+
     this.router.on('routeDidChange', () => {
       schedule('afterRender', () => this.dataLayer.sendPageView());
     });
@@ -57,10 +69,20 @@ export default Route.extend({
         tk.freeze(new Date(testOptions.freezeDateAt))
         moment.now = function () { return new Date(); }
       }
+    } else {
+      this.session.syncBrowserId()
+        .then(id => this.dataLayer.push({IDCustomEvents: id}));
     }
   },
 
   setupController: function(/*controller, model*/) {
+    if (window && window.addEventListener && !Ember.testing) {
+      window.addEventListener('beforeunload', function() {
+        this.dataLayer.push({
+          event: 'beforeunload'
+        });
+      });
+    }
     this.get('woms').initializeWOMS();
   }
 });

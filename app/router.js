@@ -16,6 +16,7 @@ Router.map(function() {
   this.route('listen');
   this.route('playlist-history', { path: 'playlist-history/:year/:month/:day' });
   this.route('playlist-history-today', { path: 'playlist-history'});
+  this.route('404', { path: '*' });
 });
 
 export default Router;

@@ -6,9 +6,11 @@ import rsvp from "rsvp";
 export default Route.extend({
   nowPlaying: service(),
   metadata: service(),
+  dataLayer: service('nypr-metrics/data-layer'),
 
   beforeModel() {
     this._super(...arguments);
+    this.dataLayer.push({template: 'homepage'});
     let controller = this.controllerFor('application');
     controller.send('setNavSlug', 'listen');
   },

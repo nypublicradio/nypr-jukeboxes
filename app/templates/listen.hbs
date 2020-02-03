@@ -27,7 +27,12 @@
                           @service="twitter"
                           @username={{twitterHandle}}
                           @title="Twitter"
-                          @clickAction={{action "openTwitterMention"}} @target="_self"
+                          @clickAction={{action "openTwitterMention"}}
+                          @target="_self"
+                          class="gtm__click-tracking"
+                          data-category="Non-Jukebox Player"
+                          data-action="Message"
+                          data-label="Twitter"
                         />
                       {{/if}}
                       {{#if emailAddress}}
@@ -35,6 +40,10 @@
                           @service="email"
                           @username={{emailAddress}}
                           @title="Email"
+                          class="gtm__click-tracking"
+                          data-category="Non-Jukebox Player"
+                          data-action="Message"
+                          data-label="Email"
                         />
                       {{/if}}
                     </div>
@@ -49,6 +58,7 @@
               class="play-button mod-main-page"
               data-action="Clicked Play/Pause Stream: jukebox-display"
               data-label={{model.stream.name}} title={{model.stream.name}} @playItemId={{model.stream.slug}}
+              @playerLabel="main player"
               @onEnterViewport={{action "updatePlayerState" false}}
               @onExitViewport={{action "updatePlayerState" true}}
             />
@@ -104,7 +114,7 @@
               />
             {{/each}}
           </div>
-          {{#link-to "playlist-history-today" class="view-full-playlist-history-button"}}View Full Playlist{{/link-to}}
+          {{#link-to "playlist-history-today" class="view-full-playlist-history-button gtm__click-tracking" data-category="Non-Jukebox Player" data-action="View Playlist"}}View Full Playlist{{/link-to}}
         {{/if}}
       </div>
     {{/liquid-if}}

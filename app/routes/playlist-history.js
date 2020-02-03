@@ -6,9 +6,11 @@ import moment from 'moment';
 
 export default Route.extend({
   metadata: service(),
+  dataLayer: service('nypr-metrics/data-layer'),
 
   beforeModel() {
     this._super(...arguments);
+    this.dataLayer.push({template: 'playlist'});
     let controller = this.controllerFor('application');
     controller.send('setNavSlug', 'playlist-history');
   },
@@ -32,6 +34,11 @@ export default Route.extend({
   afterModel() {
     this.get('metadata').setHeadData({
     });
+  },
+
+  setupController: function(controller/*, model*/) {
+    controller.accessedCount = controller.accessedCount ? controller.accessedCount + 1 : 1;
+    this.dataLayer.push({playlist: controller.accessedCount});
   },
 
   actions: {

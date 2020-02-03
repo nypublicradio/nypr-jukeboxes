@@ -4,8 +4,10 @@ import { inject as service } from '@ember/service';
 import { not, readOnly, reads } from '@ember/object/computed';
 
 export default Component.extend(InViewportMixin, {
-  classNames: ['play-button'],
+  classNames: ['play-button', 'gtm__click-tracking'],
   classNameBindings: ['isPlaying:is-playing:is-paused', 'isLoading'],
+  dataLayer: service(),
+  playerLabel: 'persistent', // default
 
   hifi                : service(),
   dj                  : service(),
@@ -28,6 +30,7 @@ export default Component.extend(InViewportMixin, {
     else {
       this.dj.play(this.playItemId);
     }
+    this.dataLayer.push({ playerSource: this.playerLabel });
   },
 
   onEnterViewport: function() {},

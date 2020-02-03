@@ -1562,6 +1562,7 @@ export default function() {
   this.get("/api/v1/playlist-daily/:slug/:year/:month/:day", playlistDailyResponse())
   this.get("/api/v3/shows/:slug", annieBergenResponse());
   this.get(`/whats-on/v1/whats-on`, asRest(womsSocketResponse()));
+  this.get(`http://api.example.com/api/v1/browser_id/`, {success: true});
 
   /*
     Shorthand cheatsheet:

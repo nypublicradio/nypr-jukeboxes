@@ -3,7 +3,13 @@
     <ul class="horizontal-nav__list">
       {{#each parsedLinks as |link index|}}
         <li class={{if (eq index activeTabIndex) "is-active horizontal-nav__list-item" "horizontal-nav__list-item"}}>
-          {{link-to link.title link.route classNames="horizontal-nav__link"}}
+          {{link-to link.title
+                    link.route
+                    classNames=(concat "horizontal-nav__link" (if (and clickTracking link.clickTracking) " gtm__click-tracking" ""))
+                    data-category=(if (and clickTracking link.clickTracking) dataCategory)
+                    data-action=(if (and clickTracking link.clickTracking) link.dataAction)
+                    data-label=(if (and clickTracking link.clickTracking) link.title)
+          }}
         </li>
       {{/each}}
     </ul>
