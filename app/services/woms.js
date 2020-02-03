@@ -60,7 +60,7 @@ export default Service.extend({
 
   socketMessageHandler(event) {
     let data = JSON.parse(event.data);
-    if (data.Item && data.Item.metadata) {
+    if (data) {
       this.firstUpdateReceived = true;
       this.set('lastMessage', data);
       this.processWomsData(data);
