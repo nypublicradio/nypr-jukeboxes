@@ -20,6 +20,7 @@ export default function() {
           "name": "Myung-Whun Chung"
         },
         "catno": "471 613-2",
+        "mm_uid": "125296",
         "composer": {
           "url": "/music/musicians/antonin-dvorak/",
           "pk": 522,
@@ -106,6 +107,7 @@ export default function() {
             "name": "Pierre Boulez"
           },
           "catno": "457693",
+          "mm_uid": "110109",
           "composer": {
             "url": "/music/musicians/maurice-ravel/",
             "pk": 158,
@@ -151,6 +153,7 @@ export default function() {
             "name": "Scott Yoo"
           },
           "catno": "9438A/B",
+          "mm_uid": "142369",
           "composer": {
             "url": "/music/musicians/franz-joseph-haydn/",
             "pk": 1334,
@@ -201,6 +204,7 @@ export default function() {
           "reclabel": null,
           "conductor": null,
           "catno": "999820",
+          "mm_uid": "154783",
           "composer": null,
           "attribution": "",
           "soloists": [],
