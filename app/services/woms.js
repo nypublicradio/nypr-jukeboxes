@@ -64,7 +64,7 @@ export default Service.extend({
     // Real solution should be to remove the duplicate messages
     // https://jira.wnyc.org/browse/DSODA-398
 
-    if (data.mm_uid) {
+    if (data.mm_uid || data.Item) {
       this.firstUpdateReceived = true;
       this.set('lastMessage', data);
       this.processWomsData(data);
