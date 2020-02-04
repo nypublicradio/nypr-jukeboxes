@@ -60,7 +60,11 @@ export default Service.extend({
 
   socketMessageHandler(event) {
     let data = JSON.parse(event.data);
-    if (data) {
+    // HACK: filter out invalid messages from woms.
+    // Real solution should be to remove the duplicate messages
+    // https://jira.wnyc.org/browse/DSODA-398
+
+    if (data.mm_uid || data.Item) {
       this.firstUpdateReceived = true;
       this.set('lastMessage', data);
       this.processWomsData(data);
