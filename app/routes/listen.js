@@ -1,7 +1,6 @@
 import Ember from 'ember';
 import Route from '@ember/routing/route';
 import { inject as service} from '@ember/service';
-import rsvp from "rsvp";
 
 export default Route.extend({
   nowPlaying: service(),
@@ -16,16 +15,18 @@ export default Route.extend({
   },
 
   async model() {
-    await this.get('nowPlaying').refreshStream()
+    // Things are loaded in the application route before we get here
 
-    return rsvp.hash({
-      stream: this.nowPlaying.stream,
-      show: this.nowPlaying.show
-    });
+    // we're getting attributes off of the nowPlaying service and
+    // not the model so the attributes will update live without
+    // having to refresh the route
+    
+    return {}
   },
 
   afterModel() {
     this.get('metadata').setHeadData({
+
     });
   },
 

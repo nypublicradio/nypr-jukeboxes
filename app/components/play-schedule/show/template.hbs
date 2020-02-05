@@ -12,7 +12,9 @@
         </span>
       </div>
 
-      <div class="playlist-show-info-title">{{if title title this.nowPlaying.stream.name}}</div>
+      <div class="playlist-show-info-title">
+        {{or title this.nowPlaying.stream.name}}
+      </div>
     </div>
 
     {{#if tracks}}

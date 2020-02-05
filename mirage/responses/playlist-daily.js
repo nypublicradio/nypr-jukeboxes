@@ -2360,6 +2360,7 @@
                     "name": "Myung-Whun Chung"
                   },
                   "catno": "471 613-2",
+                  "mm_uid": "125296",
                   "composer": {
                     "url": "/music/musicians/antonin-dvorak/",
                     "pk": 522,
@@ -2401,7 +2402,7 @@
                     "name": "Pierre Boulez"
                   },
                   "catno": "457693",
-                  "mm_uid": "457693",
+                  "mm_uid": "110109",
                   "composer": {
                     "url": "/music/musicians/maurice-ravel/",
                     "pk": 158,
@@ -2465,6 +2466,7 @@
                     }
                   ],
                   "title": "Piano Concerto in D Hob. 18",
+                  "mm_uid": "142369",
                   "url": "http://wqxr.demo2.wnyc.net/music/recordings/55425/",
                   "additional_composers": [],
                   "audio_may_download": true,
@@ -2489,7 +2491,7 @@
                   "reclabel": null,
                   "conductor": null,
                   "catno": "999820",
-                  "mm_uid": "999820",
+                  "mm_uid": "154783",
                   "composer": null,
                   "attribution": "",
                   "soloists": [],

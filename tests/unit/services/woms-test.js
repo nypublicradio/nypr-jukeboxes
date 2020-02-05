@@ -129,6 +129,8 @@ module('Unit | Service | woms', function(hooks) {
 
   test('it stores current track metadata received from woms backend', function(assert) {
     let woms = this.owner.lookup('service:woms');
+    let nowPlaying = this.owner.lookup('service:nowPlaying');
+
     let socketRef = {
       off: function() {},
     }
@@ -151,8 +153,6 @@ module('Unit | Service | woms', function(hooks) {
       data: '{"Item": {"metadata": {"mm_ensemble1": "Anima Eterna", "iso_start_time": "2019-12-11T17:45:36+00:00", "david_guid": "{D29A31C7-CCD1-4065-B630-076E4E12254E}", "album": "Beethoven | Complete Symphonies", "mm_reclabel": "Alpha", "catno": "380", "mm_composer1": "Ludwig van Beethoven", "mm_conductor": "Jos van Immerseel, conductor", "length": "654486", "mm_uid": "152565", "iso_real_start_time": "2019-12-11T17:45:36+00:00", "real_start_time": "2019-12-11 12:45:36.728", "title": "The Consecration of the House, Op. 124"}}, "ResponseMetadata": {"RequestId": "F8AK56KLQLSKKKIUSE5ODFA1MVVV4KQNSO5AEMVJF66Q9ASUAAJG", "HTTPStatusCode": 200, "HTTPHeaders": {"server": "Server", "date": "Tue, 12 Nov 2019 18:44:06 GMT", "content-type": "application/x-amz-json-1.0", "content-length": "515", "connection": "keep-alive", "x-amzn-requestid": "F8AK56KLQLSKKKIUSE5ODFA1MVVV4KQNSO5AEMVJF66Q9ASUAAJG", "x-amz-crc32": "4043524355"}, "RetryAttempts": 0}}'
     });
 
-
-    let nowPlaying = this.owner.lookup('service:nowPlaying');
     assert.equal(nowPlaying.composerName, 'Ludwig van Beethoven');
     assert.equal(nowPlaying.ensembleName, 'Anima Eterna');
     assert.equal(nowPlaying.trackTitle, 'The Consecration of the House, Op. 124');

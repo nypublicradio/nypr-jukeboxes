@@ -69,6 +69,7 @@
     "ember-in-viewport": "^3.6.1",
     "ember-load-initializers": "^1.1.0",
     "ember-moment": "7.6.0",
+    "ember-poll": "^1.4.0",
     "ember-qunit": "^4.5.1",
     "ember-resolver": "^5.0.1",
     "ember-sinon": "^4.1.1",

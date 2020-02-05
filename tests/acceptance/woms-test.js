@@ -14,7 +14,7 @@ module('Acceptance | woms', function(hooks) {
   setupTime(hooks, { freezeDateAt: new Date("2020-01-13T18:29:00+00:00")})
   setupSockets(hooks);
 
-  test('empty woms payload should only display stream info', async function(assert) {
+  test('empty woms payload should only display history from playlist endpoint', async function(assert) {
     // First, make make sure the rest call we make returns nothing, so the display will be blank
     this.server.get('/whats-on/v1/whats-on', {
       data: {},
@@ -22,17 +22,33 @@ module('Acceptance | woms', function(hooks) {
     }, 200);
 
     await visit('/listen');
-    assert.dom('[data-test-element="playlist-history"]').doesNotExist();
+
+    assert.dom('[data-test-component=recent-track-1] [data-test-element=track-info-composer]').hasText('Antonin Dvorak')
+    assert.dom('[data-test-component=recent-track-1] [data-test-element=track-info-title]').hasText('Serenade in D Minor for Wind Ensemble, Op. 44 (B77) ')
+
+    assert.dom('[data-test-component=recent-track-2] [data-test-element=track-info-composer]').hasText('Maurice Ravel')
+    assert.dom('[data-test-component=recent-track-2] [data-test-element=track-info-title]').hasText('Pavane for a Dead Princess')
+
+    assert.dom('[data-test-component=recent-track-3] [data-test-element=track-info-composer]').hasText('Franz Joseph Haydn')
+    assert.dom('[data-test-component=recent-track-3] [data-test-element=track-info-title]').hasText('Piano Concerto in D Hob. 18')
   });
 
-  test('playlist history appears upon update from woms socket', async function(assert) {
+  test('currently playing track appears after initial update from woms', async function(assert) {
     this.server.get('/whats-on/v1/whats-on', {
       data: {},
       meta: {}
     }, 200);
 
     await visit('/listen');
-    assert.dom('[data-test-element="playlist-history"]').doesNotExist();
+
+    assert.dom('[data-test-component=recent-track-1] [data-test-element=track-info-composer]').hasText('Antonin Dvorak')
+    assert.dom('[data-test-component=recent-track-1] [data-test-element=track-info-title]').hasText('Serenade in D Minor for Wind Ensemble, Op. 44 (B77) ')
+
+    assert.dom('[data-test-component=recent-track-2] [data-test-element=track-info-composer]').hasText('Maurice Ravel')
+    assert.dom('[data-test-component=recent-track-2] [data-test-element=track-info-title]').hasText('Pavane for a Dead Princess')
+
+    assert.dom('[data-test-component=recent-track-3] [data-test-element=track-info-composer]').hasText('Franz Joseph Haydn')
+    assert.dom('[data-test-component=recent-track-3] [data-test-element=track-info-title]').hasText('Piano Concerto in D Hob. 18')
 
     // Send the woms update
     this.mockSocketServer.emit('message', JSON.stringify(womsDavidSocketResponse()))
