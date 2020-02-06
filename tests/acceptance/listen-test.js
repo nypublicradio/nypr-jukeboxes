@@ -11,7 +11,7 @@ module('Acceptance | listen', function(hooks) {
   setupMirage(hooks);
   setupTime(hooks, { freezeDateAt: new Date("2020-01-13T18:29:00+00:00")})
   setupSockets(hooks);
-  
+
   test('visiting /listen', async function(assert) {
     await visit('/listen');
     assert.equal(currentURL(), '/listen');
@@ -31,16 +31,29 @@ module('Acceptance | listen', function(hooks) {
     assert.dom('[data-test-component=recent-track-3] [data-test-element=track-info-title]').hasText('Overture No. 2 in E-flat Major, Op. 23')
   });
 
-  test('visiting /listen when group_slug is bad', async function(assert) {
+  test('/listen loads when group slug is bad and show request 404s', async function(assert) {
     let whatsOnResponseWithAiringSlug = whatsOnResponse()
-    whatsOnResponseWithAiringSlug.current_show = {
-      group_slug: 'airing'
-    }
-
+    whatsOnResponseWithAiringSlug.current_show = { group_slug: 'airing' }
     this.server.get("/api/v1/whats_on/wqxr/3/", whatsOnResponseWithAiringSlug);
+    this.server.get("/api/v3/shows/airing/", {}, 404);
+
     await visit('/listen');
     assert.equal(currentURL(), '/listen');
+    assert.dom('[data-test-element=show-title]').hasText('Middays with Annie Bergen');
+  });
 
+  test('on air title is stream name when show is unavailable', async function(assert) {
+    let whatsOnResponseWithAiringSlug = whatsOnResponse()
+    whatsOnResponseWithAiringSlug.current_show = { group_slug: 'airing' }
+    this.server.get("/api/v1/whats_on/wqxr/3/", whatsOnResponseWithAiringSlug);
+    this.server.get("/api/v1/playlist-daily/wqxr/2020/jan/13", {
+      "events": [
+      ]
+    })
+    this.server.get("/api/v3/shows/airing/", {}, 404);
+
+    await visit('/listen');
+    assert.equal(currentURL(), '/listen');
     assert.dom('[data-test-element=show-title]').hasText('WQXR 105.9 FM');
-  })
+  });
 });

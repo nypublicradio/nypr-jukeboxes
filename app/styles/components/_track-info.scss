@@ -76,6 +76,9 @@
     .u-icon--xs path {
       fill: #000000;
     }
+    .toggle-box__label * {
+      pointer-events: none;
+    }
   }
 }
 

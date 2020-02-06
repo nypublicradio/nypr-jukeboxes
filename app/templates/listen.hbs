@@ -3,8 +3,8 @@
     <div class="on-air-now-upper">
       <div class="on-air-now-label">ON AIR NOW</div>
       <OnAirImage
-        @stream={{model.stream}}
-        @show={{model.show}}
+        @stream={{this.nowPlaying.stream}}
+        @show={{this.nowPlaying.show}}
         @height={{200}}
         @width={{200}}
         @altText={{onAirTitle}}
@@ -27,7 +27,12 @@
                           @service="twitter"
                           @username={{twitterHandle}}
                           @title="Twitter"
-                          @clickAction={{action "openTwitterMention"}} @target="_self"
+                          @clickAction={{action "openTwitterMention"}}
+                          @target="_self"
+                          class="gtm__click-tracking"
+                          data-category="Non-Jukebox Player"
+                          data-action="Message"
+                          data-label="Twitter"
                         />
                       {{/if}}
                       {{#if emailAddress}}
@@ -35,6 +40,10 @@
                           @service="email"
                           @username={{emailAddress}}
                           @title="Email"
+                          class="gtm__click-tracking"
+                          data-category="Non-Jukebox Player"
+                          data-action="Message"
+                          data-label="Email"
                         />
                       {{/if}}
                     </div>
@@ -48,7 +57,10 @@
             <PlayButton
               class="play-button mod-main-page"
               data-action="Clicked Play/Pause Stream: jukebox-display"
-              data-label={{model.stream.name}} title={{model.stream.name}} @playItemId={{model.stream.slug}}
+              data-label={{this.nowPlaying.stream.name}}
+              title={{this.nowPlaying.stream.name}}
+              @playItemId={{this.nowPlaying.stream.slug}}
+              @playerLabel="main player"
               @onEnterViewport={{action "updatePlayerState" false}}
               @onExitViewport={{action "updatePlayerState" true}}
             />
@@ -56,8 +68,8 @@
         </div>
         <div class="image-label">
           <OnAirImage
-            @stream={{model.stream}}
-            @show={{model.show}}
+            @stream={{this.nowPlaying.stream}}
+            @show={{this.nowPlaying.show}}
             @height={{325}}
             @width={{325}}
             @altText={{onAirTitle}}
@@ -104,7 +116,7 @@
               />
             {{/each}}
           </div>
-          {{#link-to "playlist-history-today" class="view-full-playlist-history-button"}}View Full Playlist{{/link-to}}
+          {{#link-to "playlist-history-today" class="view-full-playlist-history-button gtm__click-tracking" data-category="Non-Jukebox Player" data-action="View Playlist"}}View Full Playlist{{/link-to}}
         {{/if}}
       </div>
     {{/liquid-if}}

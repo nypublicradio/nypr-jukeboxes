@@ -10,15 +10,15 @@ const originalPlatformNow = get(Ember, 'run.backburner._platform.now');
 
 export async function setupTime(hooks, options = {}) {
   hooks.beforeEach(async function() {
+    trySet(Ember, 'run.backburner._platform.now', () => originalDate());
     if (options.freezeDateAt) {
-      trySet(Ember, 'run.backburner._platform.now', () => originalDate());
       tk.freeze(options.freezeDateAt);
     }
   });
 
   hooks.afterEach(async function() {
+    trySet(Ember, 'run.backburner._platform.now', originalPlatformNow);
     if (options.freezeDateAt) {
-      trySet(Ember, 'run.backburner._platform.now', originalPlatformNow);
       tk.reset();
     }
   });

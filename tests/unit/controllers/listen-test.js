@@ -3,6 +3,7 @@ import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import { run } from '@ember/runloop';
 import moment from "moment";
+import Service from '@ember/service';
 
 function createPHPTracksInStore(store, startTimes) {
   var tracks = [];
@@ -30,8 +31,7 @@ module('Unit | Controller | listen', function(hooks) {
   });
 
   test('twitter handle is retrieved from show object', function(assert) {
-    let controller = this.owner.lookup('controller:listen');
-    let model = {
+    const NowPlayingService = Service.extend({
       show: EmberObject.create({
         about: {
           "social": [
@@ -41,9 +41,12 @@ module('Unit | Controller | listen', function(hooks) {
           ]
         }
       })
-    }
-    controller.set('model', model);
+    });
 
+
+    this.owner.register('service:nowPlaying', NowPlayingService);
+
+    let controller = this.owner.lookup('controller:listen');
     assert.equal(controller.get('twitterHandle'), "AnnieWQXR");
   });
 });

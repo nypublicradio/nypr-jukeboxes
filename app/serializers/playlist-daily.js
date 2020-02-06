@@ -18,7 +18,7 @@ const trackAttributeTransform = {
   composerName   : 'info.composer.name',
   conductorName  : 'info.conductor.name',
   ensembleName   : 'info.ensemble.name',
-  catno          : 'info.catno',
+  mmUid          : 'info.mm_uid',
   trackLength    : 'length',
   catalogEntry   : 'info'
 }
@@ -27,7 +27,7 @@ const airingAttributeTransform = {
   startTime    : 'iso_start_timestamp',
   endTime      : 'iso_end_timestamp',
   showSlug     : function(e) {
-    return e.event_url ? e.event_url.split('/').pop() : undefined;
+    return e.show_url ? e.show_url.split('/').pop() : undefined;
   },
   showId       : 'show_id',
   showTitle    : function(e) {
@@ -93,20 +93,18 @@ export default ApplicationSerializer.extend({
       if (event.playlist && event.playlist.length > 0) {
         let tracks = event.playlist.map(track => this._generateTrackPayload(track, airing))
 
-        if (tracks.length > 0) {
-          airing.relationships = {
-            show: {
-              data: {
-                id: airingAttrs.show_slug,
-                type: 'show',
-              }
-            },
-            tracks: {
-              data: tracks.map(t => ({ id: t.id, type: t.type }))
+        airing.relationships = {
+          show: {
+            data: {
+              id: airingAttrs.show_slug,
+              type: 'show',
             }
+          },
+          tracks: {
+            data: tracks.map(t => ({ id: t.id, type: t.type }))
           }
-          tracks.forEach(t => included.push(t));
         }
+        tracks.forEach(t => included.push(t));
       }
 
       return airing

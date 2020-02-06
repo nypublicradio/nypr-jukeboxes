@@ -69,6 +69,7 @@
     "ember-in-viewport": "^3.6.1",
     "ember-load-initializers": "^1.1.0",
     "ember-moment": "7.6.0",
+    "ember-poll": "^1.4.0",
     "ember-qunit": "^4.5.1",
     "ember-resolver": "^5.0.1",
     "ember-sinon": "^4.1.1",
@@ -78,6 +79,7 @@
     "ember-svg-jar": "^2.2.3",
     "ember-test-selectors": "^2.1.0",
     "ember-truth-helpers": "^2.0.0",
+    "ember-uuid": "^2.1.0",
     "ember-websockets": "^7.2.0",
     "eslint-plugin-ember": "^7.1.0",
     "imagesloaded": "^4.1.4",
@@ -86,13 +88,15 @@
     "mock-socket": "^9.0.3",
     "nypr-ads": "^0.2.0",
     "nypr-audio-services": "nypublicradio/nypr-audio-services#jkeen/upgrades",
-    "nypr-design-system": "^2.10.0",
+    "nypr-auth": "^0.2.5",
+    "nypr-design-system": "^2.10.2",
     "nypr-metrics": "^0.7.1",
     "nypr-pattern-lab": "https://github.com/nypublicradio/pattern-lab#bkammin/change_package_name_to_pattern_lab",
     "nypr-player": "http://github.com/nypublicradio/nypr-player#jkeen/remove-nypr-ui",
     "qunit-dom": "^0.9.2",
     "sass": "^1.14.1",
-    "timekeeper": "^2.2.0"
+    "timekeeper": "^2.2.0",
+    "uuid": "^3.3.3"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"

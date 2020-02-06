@@ -9,7 +9,7 @@ module('Unit | Utility | generate-track-unique-id', function() {
       conductor_name  : 'Conductor Name',
       ensemble_name   : 'Ensemble Name',
       start_time      : "2019-12-01T12:00:00+00:00",
-      catno           : "12345"
+      mm_uid          : "12345"
     });
 
     assert.equal(result, 't_12345_2019-12-01');

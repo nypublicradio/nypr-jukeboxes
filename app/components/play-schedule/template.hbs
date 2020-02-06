@@ -1,4 +1,4 @@
-{{#each (sort-by (concat "startTime:" @sortDirection) (filter-by "isCurrent" true schedule.airings)) as |airing|}}
+{{#each (sort-by (concat "startTime:" @sortDirection) (filter-by "isCurrent" true schedule.airings)) as |airing index|}}
   <div class="playlist">
     {{play-schedule/show
       image             = (image-template airing.show.image.template 500 500 "l" 80)
@@ -8,7 +8,7 @@
       episode           = airing.episode
       tracks            = airing.tracks
       sortDirection     = @sortDirection
-      isPlaylistVisible = airing.isLive
+      isPlaylistVisible = (eq index 0)
     }}
   </div>
 {{/each}}

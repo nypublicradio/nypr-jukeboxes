@@ -24,6 +24,7 @@ module('FastBoot | index test', function(hooks) {
     await mockServer.get('/api/v1/list/streams/wqxr/', wqxrStreamResponse());
     await mockServer.get('/api/v3/shows/annie-bergen/', annieBergenResponse())
 
+
     let { statusCode } = await visit('/listen', {
       metadata: {
         testOptions: {
