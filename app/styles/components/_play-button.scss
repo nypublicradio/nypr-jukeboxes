@@ -149,9 +149,6 @@
   svg {
     // Essential for radiating waves animation
     overflow:visible;
-    @include media(">=medium") {
-      margin-top: 25px;
-    }
   }
 
   &:hover {
