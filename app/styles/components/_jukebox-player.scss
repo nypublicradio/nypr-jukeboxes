@@ -18,7 +18,6 @@ $nypr-player-backdrop-color                  : rgba($white, 0.75);
 $nypr-player-progress-played-color           : $white;
 $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
 
-
 .jukebox-player {
   display: grid;
   grid-template-columns: calc(50% - 45px) 90px calc(50% - 90px);
@@ -46,12 +45,6 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
   width: 100%;
 }
 
-.jukebox-player .mod-scrolling-overflow {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 .jukebox-player-show {
   grid-column-start: 1;
   grid-column-end: 2;
@@ -72,8 +65,7 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     align-self: center;
     justify-self: left;
 
-
-    position: absolute;
+    // position: absolute;
     white-space: nowrap;
   }
 }
@@ -84,10 +76,10 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     font-size: 10px;
     letter-spacing: 1px;
     max-width: 250px;
-    white-space: nowrap;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    width: 100%;
 
     @include media("<medium") {
       text-align: left;
@@ -197,8 +189,6 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
   grid-row-start: 1;
   grid-row-end: span 3;
 
-  justify-content: space-between;
-
   line-height: 1.22;
   align-self: center;
   justify-content: left;
@@ -209,8 +199,11 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
   flex-direction: column;
   justify-content: space-around;
   align-content: flex-start;
-  flex-shrink: 2;
   text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
 
   @include media("<medium"){
     margin-top: -5px;
@@ -219,13 +212,9 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     grid-row-start: 2;
     grid-row-end: span 3;
     width: 100%;
-
     align-self: center;
     justify-content: space-around;
-
     position: relative;
-    text-overflow: ellipsis;
-    overflow: hidden;
   }
 }
 
@@ -246,11 +235,13 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     line-height: 1.22;
     font-size: 12px;
     font-weight: normal;
-    @include toggleBoxCaret(8px, #FFF);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
 
+    @include toggleBoxCaret(8px, #FFF);
     @include media("<medium") {
-      text-overflow: ellipsis;
-      overflow: hidden;
       width: 100%;
     }
   }
@@ -259,36 +250,12 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     font-family: $font-heading;
     font-weight: bold;
     font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
 
     @include media("<medium") {
-      text-overflow: ellipsis;
-      overflow: hidden;
       width: 100%;
-    }
-  }
-
-
-  .text-crawl {
-    white-space: nowrap;
-    display: inline-block;
-    vertical-align: bottom;
-    max-width: calc(100% - 5px);
-    overflow: hidden;
-
-    a {
-      color: white;
-      font-size: 16px;
-    }
-
-    .text-crawl-scroll {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: block;
-    }
-
-    &.is-scrolling .text-crawl-scroll {
-      position: relative;
-      text-overflow: clip;
-      overflow: visible;
     }
   }
