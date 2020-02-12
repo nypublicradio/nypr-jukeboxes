@@ -21,7 +21,7 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
 
 .jukebox-player {
   display: grid;
-  grid-template-columns: 1fr 90px 1fr;
+  grid-template-columns: calc(50% - 45px) 90px calc(50% - 90px);
   grid-template-rows: 33% 33% 33%;
   color: #FFF;
 
@@ -37,9 +37,19 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
 
   @include media('<medium') {
     display: grid;
-    grid-template-columns: 1fr 64px;
+    grid-template-columns: 1fr 50px;
     grid-template-rows: 33% 33% 33%;
   }
+}
+
+.jukebox-player .secondary-metadata-toggle-box {
+  width: 100%;
+}
+
+.jukebox-player .mod-scrolling-overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .jukebox-player-show {
@@ -62,7 +72,8 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     align-self: center;
     justify-self: left;
 
-    position: relative;
+
+    position: absolute;
     white-space: nowrap;
   }
 }
@@ -73,6 +84,14 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     font-size: 10px;
     letter-spacing: 1px;
     max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    @include media("<medium") {
+      text-align: left;
+    }
   }
 
 .jukebox-player-listen-button {
@@ -94,41 +113,117 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     grid-column-start: 2;
     grid-column-end: 2;
     align-self: center;
-    justify-self: right;
+    justify-self: flex-start;
     margin: 0;
+  }
+}
+
+.jukebox-player-controls {
+  @include media("<medium") {
+    display: none;
+  }
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: $nypr-player-background-color;
+  height: 100%;
+
+  .nypr-player-volume-slider-track::after {
+    z-index: 0;
+  }
+
+  .nypr-player-volume-control {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+    margin-right: -20px;
+  }
+
+  .nypr-player-volume-slider-wrapper {
+    height: 30px;
+  }
+
+  .nypr-player-volume.is-muted {
+    .mod-volume-unmuted {
+      display: none;
+    }
+    .mod-volume-muted {
+      display: inline-block;
+    }
+  }
+
+  .nypr-player-volume {
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 20px;
+    @include media("<medium") {
+      margin-right: -10px;
+    }
+
+    .mod-volume-unmuted {
+      display: inline-block;
+    }
+    .mod-volume-muted {
+      display: none;
+    }
+  }
+
+  .nypr-player-button.mod-volume {
+    order: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-basis: 0;
+    margin-right: -5px;
+
+    svg {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
   }
 }
 
 .jukebox-player-track {
   grid-column-start: 3;
   grid-column-end: 3;
-  grid-row-start: 0;
+  grid-row-start: 1;
   grid-row-end: span 3;
-  align-self: center;
-  justify-content: left;
+
+  justify-content: space-between;
 
   line-height: 1.22;
+  align-self: center;
+  justify-content: left;
+  flex-shrink: 2;
   text-align: left;
-  min-width: 30%;
   height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-content: flex-start;
-  align-items: flex-start;
-
+  flex-shrink: 2;
   text-align: left;
 
   @include media("<medium"){
+    margin-top: -5px;
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: span 1;
     grid-row-start: 2;
-    grid-row-end: span 2;
+    grid-row-end: span 3;
+    width: 100%;
+
     align-self: center;
     justify-content: space-around;
 
     position: relative;
-    white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
   }

@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
   dj: service(),
+  hifi: service(),
   classNames: ['jukebox-player'],
 
   actions: {
@@ -14,5 +15,11 @@ export default Component.extend({
         await this.dj.play(this.streamSlug);
       }
     },
+    setVolume(vol) {
+      this.hifi.set('volume', vol);
+    },
+    toggleMute() {
+      this.hifi.toggleMute();
+    }
   }
 });
