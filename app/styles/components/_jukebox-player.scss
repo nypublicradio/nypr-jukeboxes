@@ -18,10 +18,9 @@ $nypr-player-backdrop-color                  : rgba($white, 0.75);
 $nypr-player-progress-played-color           : $white;
 $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
 
-
 .jukebox-player {
   display: grid;
-  grid-template-columns: 1fr 90px 1fr;
+  grid-template-columns: calc(50% - 45px) 90px calc(50% - 90px);
   grid-template-rows: 33% 33% 33%;
   color: #FFF;
 
@@ -37,9 +36,13 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
 
   @include media('<medium') {
     display: grid;
-    grid-template-columns: 1fr 64px;
+    grid-template-columns: 1fr 50px;
     grid-template-rows: 33% 33% 33%;
   }
+}
+
+.jukebox-player .secondary-metadata-toggle-box {
+  width: 100%;
 }
 
 .jukebox-player-show {
@@ -62,7 +65,7 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     align-self: center;
     justify-self: left;
 
-    position: relative;
+    // position: absolute;
     white-space: nowrap;
   }
 }
@@ -73,6 +76,14 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     font-size: 10px;
     letter-spacing: 1px;
     max-width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+
+    @include media("<medium") {
+      text-align: left;
+    }
   }
 
 .jukebox-player-listen-button {
@@ -94,43 +105,116 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     grid-column-start: 2;
     grid-column-end: 2;
     align-self: center;
-    justify-self: right;
+    justify-self: flex-start;
     margin: 0;
+  }
+}
+
+.jukebox-player-controls {
+  @include media("<medium") {
+    display: none;
+  }
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: $nypr-player-background-color;
+  height: 100%;
+
+  .nypr-player-volume-slider-track::after {
+    z-index: 0;
+  }
+
+  .nypr-player-volume-control {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+    margin-right: -20px;
+  }
+
+  .nypr-player-volume-slider-wrapper {
+    height: 30px;
+  }
+
+  .nypr-player-volume.is-muted {
+    .mod-volume-unmuted {
+      display: none;
+    }
+    .mod-volume-muted {
+      display: inline-block;
+    }
+  }
+
+  .nypr-player-volume {
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 20px;
+    @include media("<medium") {
+      margin-right: -10px;
+    }
+
+    .mod-volume-unmuted {
+      display: inline-block;
+    }
+    .mod-volume-muted {
+      display: none;
+    }
+  }
+
+  .nypr-player-button.mod-volume {
+    order: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-basis: 0;
+    margin-right: -5px;
+
+    svg {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
   }
 }
 
 .jukebox-player-track {
   grid-column-start: 3;
   grid-column-end: 3;
-  grid-row-start: 0;
+  grid-row-start: 1;
   grid-row-end: span 3;
-  align-self: center;
-  justify-content: left;
 
   line-height: 1.22;
+  align-self: center;
+  justify-content: left;
+  flex-shrink: 2;
   text-align: left;
-  min-width: 30%;
   height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-content: flex-start;
-  align-items: flex-start;
-
   text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
 
   @include media("<medium"){
+    margin-top: -5px;
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: span 1;
     grid-row-start: 2;
-    grid-row-end: span 2;
+    grid-row-end: span 3;
+    width: 100%;
     align-self: center;
     justify-content: space-around;
-
     position: relative;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
   }
 }
 
@@ -151,11 +235,13 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     line-height: 1.22;
     font-size: 12px;
     font-weight: normal;
-    @include toggleBoxCaret(8px, #FFF);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
 
+    @include toggleBoxCaret(8px, #FFF);
     @include media("<medium") {
-      text-overflow: ellipsis;
-      overflow: hidden;
       width: 100%;
     }
   }
@@ -164,36 +250,12 @@ $nypr-player-progress-downloaded-color       : darken($denim-blue, 20%);
     font-family: $font-heading;
     font-weight: bold;
     font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
 
     @include media("<medium") {
-      text-overflow: ellipsis;
-      overflow: hidden;
       width: 100%;
-    }
-  }
-
-
-  .text-crawl {
-    white-space: nowrap;
-    display: inline-block;
-    vertical-align: bottom;
-    max-width: calc(100% - 5px);
-    overflow: hidden;
-
-    a {
-      color: white;
-      font-size: 16px;
-    }
-
-    .text-crawl-scroll {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: block;
-    }
-
-    &.is-scrolling .text-crawl-scroll {
-      position: relative;
-      text-overflow: clip;
-      overflow: visible;
     }
   }

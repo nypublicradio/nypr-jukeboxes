@@ -3,8 +3,6 @@ import { inject as service } from '@ember/service';
 import { set } from "@ember/object";
 import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
-import move from 'ember-animated/motions/move';
-import { easeInAndOut } from 'ember-animated/easings/cosine';
 
 export default Controller.extend({
   dj             : service(),
@@ -23,18 +21,6 @@ export default Controller.extend({
     }
     return !this.cookies.exists('showOnboardMessage');
   }),
-
-  * showPlayerAnimation(context) { //eslint-disable-line
-    let { insertedSprites, removedSprites } = context;
-    for (let sprite of insertedSprites) {
-      sprite.startTranslatedBy(0, 500);
-      move(sprite, {easing: easeInAndOut, duration: 500});
-    }
-    for (let sprite of removedSprites.reverse()) {
-      sprite.endTranslatedBy(0, 500);
-      move(sprite, {easing: easeInAndOut, duration: 500});
-    }
-  },
 
   actions: {
     setNavSlug(navSlug) {

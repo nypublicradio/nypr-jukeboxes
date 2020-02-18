@@ -46,10 +46,6 @@ export default Controller.extend({
   }),
 
   actions: {
-    updatePlayerState(state) {
-      this.appController.set('showPlayer', state);
-    },
-
     openTwitterMention() {
       let height = 450;
       let width = 560;
