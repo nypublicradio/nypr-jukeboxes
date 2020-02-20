@@ -2,7 +2,9 @@ import { helper } from '@ember/component/helper';
 import moment from 'moment';
   
 export function helperFunction(params) {
-  let momentDate = moment(params[0],'YYYY-MM-DDTHH:mm:ss').add(params[1], 'days').startOf('day');
+  console.log('today date', params[0]) 
+  console.log('what date', params[1]) //1
+  let momentDate = moment(params[0],'YYYY-MM-DDTHH:mm:ss').add(params[7], 'days').startOf('day');
   return !isAfterToday(momentDate);
 }
 

@@ -7,7 +7,14 @@ export function formattedDay(timestamp) {
     return 'Today';
   } else if (isYesterday(momentDate)) {
     return 'Yesterday';
-  } else {
+  }
+
+  else if (isTomorrow(momentDate)) {
+    return 'Tomorrow';
+  }
+  
+  
+  else {
     return momentDate.format('dddd');
   }
 }
@@ -20,6 +27,11 @@ function isToday(momentDate) {
 function isYesterday(momentDate) {
   let yesterday = moment().subtract(1, 'days').startOf('day');
   return momentDate.isSame(yesterday, 'd');
+}
+
+function isTomorrow(momentDate) {
+  let tomorrow = moment().add(1, 'days').startOf('day');
+  return momentDate.isSame(tomorrow, 'd');
 }
 
 export default helper(formattedDay);
