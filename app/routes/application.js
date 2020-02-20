@@ -2,7 +2,7 @@ import Ember from 'ember';
 import uuid from 'uuid/v1';
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import { schedule } from '@ember/runloop';
+import { scheduleOnce } from '@ember/runloop';
 import { get } from "@ember/object";
 import tk from 'timekeeper';
 import moment from 'moment';
@@ -47,9 +47,14 @@ export default Route.extend({
 
     this.dataLayer.push({sessionID: uuid(), siteSource: 'jukebox'});
 
-    this.router.on('routeDidChange', () => {
-      schedule('afterRender', () => this.dataLayer.sendPageView());
+    this.router.on('routeDidChange', (transition) => {
+      if (this._isNewPageView(transition)) {
+        scheduleOnce('afterRender', () => {
+          this.dataLayer.sendPageView()
+        });
+      }
     });
+
     this.hifi.set('volume', 100);
   },
 
@@ -84,5 +89,11 @@ export default Route.extend({
       });
     }
     this.get('woms').initializeWOMS();
+  },
+
+  _isNewPageView: function(transition) {
+    return !transition.from ||  // first page view
+           transition.from.name !== transition.to.name || // different route
+           JSON.stringify(transition.from.params) !== JSON.stringify(transition.to.params); // different path
   }
 });
