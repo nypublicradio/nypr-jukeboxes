@@ -21,9 +21,21 @@
                 (moment-format (moment-add model.serverDate 1 precision="days") "DD")
                 class="date-selector-forward"
       }}
-        <span>{{formatted-picker-date model.serverDate 1}}</span>
+        <span>hewwo {{formatted-picker-date model.serverDate 1 }}</span>
         {{svg-jar "left-arrow"}}
       {{/link-to}}
+      
+      {{else}}
+      {{#link-to "playlist-history"
+                (moment-format (moment-add model.serverDate 1 precision="days") "YYYY")
+                (moment-format (moment-add model.serverDate 1 precision="days") "MM")
+                (moment-format (moment-add model.serverDate 1 precision="days") "DD")
+                class="date-selector-forward"
+      }}
+        <span> {{formatted-picker-date model.serverDate 1 }}</span>
+        {{svg-jar "left-arrow"}}
+      {{/link-to}}
+
     {{/if}}
   </div>
 
