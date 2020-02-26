@@ -2,6 +2,7 @@
 import DS from 'ember-data';
 import attr from 'ember-data/attr';
 import { belongsTo, hasMany } from 'ember-data/relationships';
+import { computed } from '@ember/object';
 
 export default DS.Model.extend({
   startTime: attr('date'),
@@ -13,20 +14,19 @@ export default DS.Model.extend({
   playlistDaily: belongsTo({ async: false }),
   // episode: belongsTo('story', { async: false }),
   tracks: hasMany('tracks', { async: false, inverse: 'airing' }),
-  isCurrent: true,
-  isLive: false,
+  currentTime: new Date(),
 
   setTime(currentTime) {
-    let isLive      = (currentTime >= new Date(this.startTime) && currentTime <= new Date(this.endTime));
-    let isCurrent   = isLive || (currentTime > new Date(this.endTime));
-
-    if (isLive != this.isLive) {
-      this.set('isLive', isLive);
-      this.notifyPropertyChange('isLive');
-    }
-    if (isCurrent != this.isCurrent) {
-      this.set('isCurrent', isCurrent);
-      this.notifyPropertyChange('isPast');
-    }
-  }
+    this.set('currentTime', currentTime);
+  },
+  isLive: computed('currentTime', 'startTime', 'endTime', function() {
+    return this.currentTime >= new Date(this.startTime) && this.currentTime <= new Date(this.endTime);
+  }),
+  isCurrent: computed('isLive', 'currentTime', 'startTime', 'endTime', function() {
+    let isPast = this.currentTime > new Date(this.endTime);
+    let isFuture = this.currentTime < new Date(this.startTime);
+    return this.isLive || isPast || isFuture;
+  }),
 });
+
+
