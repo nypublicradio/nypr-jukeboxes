@@ -7,7 +7,12 @@ export function formattedPickerDate(params) {
     return 'TODAY';
   } else if (isYesterday(momentDate)) {
     return 'YESTERDAY';
-  } else if (isLessThanOneWeekAgo(momentDate)) {
+  } 
+  else if (isTomorrow(momentDate)) {
+    return "TOMORROW";
+  }
+  
+    else if (isLessThanOneWeekAgo(momentDate)) {
     return momentDate.format("dddd");
   } else if (isLessThanAYearAGo(momentDate)) {
     return momentDate.format("dddd, MMM Do");
@@ -24,6 +29,11 @@ function isToday(momentDate) {
 function isYesterday(momentDate) {
 	let yesterday = moment().subtract(1, 'days').startOf('day');
   return momentDate.isSame(yesterday, 'd');
+}
+
+function isTomorrow(momentDate) {
+  let tomorrow = moment().add(1, 'days').startOf('day');
+  return momentDate.isSame(tomorrow, 'd');
 }
 
 function isLessThanOneWeekAgo(momentDate) {
