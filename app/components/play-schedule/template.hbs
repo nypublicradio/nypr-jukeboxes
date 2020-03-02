@@ -1,4 +1,5 @@
-{{#each (sort-by (concat "startTime:" @sortDirection) schedule.airings) as |airing index|}}
+{{!-- {{#each (sort-by (concat "startTime:" @sortDirection) schedule.airings) as |airing index|}} --}}
+{{#each (sort-by (concat "startTime:" @sortDirection)(filter-by "isCurrent" schedule.airings)) as |airing index|}}
   <div class="playlist">
     {{play-schedule/show
       image             = (image-template airing.show.image.template 500 500 "l" 80)
