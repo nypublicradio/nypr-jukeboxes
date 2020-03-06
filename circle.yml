@@ -99,10 +99,14 @@ jobs:
           command: ../codeclimate/cc-test-reporter before-build
       - run:
           name: Test
+          environment:
+            CIRCLE_TEST_RESULTS: test-results
           command: npx ember test
       - run:
           name: Upload CodeClimate test results
           command: ../codeclimate/cc-test-reporter after-build --exit-code $?
+      - store_test_results:
+          path: test-results/
 
   # test-static-cypress:
   #   <<: *defaults
