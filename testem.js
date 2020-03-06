@@ -1,3 +1,5 @@
+const circle = process.env.CIRCLE_TEST_RESULTS;
+
 /* eslint-env node */
 module.exports = {
   test_page: 'tests/index.html?hidepassed',
@@ -23,6 +25,10 @@ module.exports = {
       ].filter(Boolean)
     }
   }
+
+  reporter: circle ? 'xunit' : 'tap',
+  report_file: circle ? `${circle}/test.xml` : null,
+  xunit_intermediate_output: true,
 };
 
 
