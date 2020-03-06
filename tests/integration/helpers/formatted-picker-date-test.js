@@ -9,6 +9,8 @@ module('Integration | Helper | formatted-picker-date', function(hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function(assert) {
+    let days_in_year = moment().isLeapYear() ? 366 : 365;
+
     this.set('inputValue', moment().format('YYYY-MM-DDTHH:mm:ss'));
     this.set('increment', 0);
     await render(hbs`{{formatted-picker-date inputValue increment}}`);
@@ -35,17 +37,18 @@ module('Integration | Helper | formatted-picker-date', function(hooks) {
     assert.equal(this.element.textContent.trim(), moment().add(-7, 'days').format("dddd, MMM Do"));
 
     this.set('inputValue', moment().format('YYYY-MM-DDTHH:mm:ss'));
-    this.set('increment', -364);
+    this.set('increment', -(days_in_year - 1));
     await render(hbs`{{formatted-picker-date inputValue increment}}`);
     assert.equal(this.element.textContent.trim(), moment().add(-364, 'days').format("dddd, MMM Do"));
 
     this.set('inputValue', moment().format('YYYY-MM-DDTHH:mm:ss'));
-    this.set('increment', -365);
+
+    this.set('increment', -days_in_year);
     await render(hbs`{{formatted-picker-date inputValue increment}}`);
-    assert.equal(this.element.textContent.trim(), moment().add(-365, 'days').format("dddd, MMM Do, YYYY"));
+    assert.equal(this.element.textContent.trim(), moment().subtract(days_in_year, 'days').format("dddd, MMM Do, YYYY"));
 
     this.set('inputValue', moment().format('YYYY-MM-DDTHH:mm:ss'));
-    this.set('increment', -366);
+    this.set('increment', -(366 + 1));
     await render(hbs`{{formatted-picker-date inputValue increment}}`);
     assert.equal(this.element.textContent.trim(), moment().add(-366, 'days').format("dddd, MMM Do, YYYY"));
   });
