@@ -24,12 +24,11 @@ module.exports = {
         '--window-size=1440,900'
       ].filter(Boolean)
     }
-  }
+  },
 
   reporter: circle ? 'xunit' : 'tap',
   report_file: circle ? `${circle}/test.xml` : null,
   xunit_intermediate_output: true,
 };
-
 
 process.env.TZ = 'America/New_York';
