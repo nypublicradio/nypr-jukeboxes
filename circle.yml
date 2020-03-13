@@ -185,7 +185,7 @@ workflows:
           requires:
             - test-static
 
-deploy-demo:
+  deploy-demo:
     jobs:
       - build-static:
           filters:
