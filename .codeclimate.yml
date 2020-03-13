@@ -11,3 +11,10 @@ exclude_patterns:
   - "fastboot.js"
   - "testem.js"
   - "README.md"
+
+version: "2"
+checks:
+  complex-logic:
+    enabled: false
+
+
