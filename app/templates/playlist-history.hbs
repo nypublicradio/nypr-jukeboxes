@@ -11,29 +11,29 @@
               (moment-format (moment-add model.serverDate -1 precision="days") "DD")
               class="date-selector-back"
     }}
-    {{svg-jar "left-arrow"}}
-    <span>{{formatted-picker-date model.serverDate -1}}</span>
+      {{svg-jar "left-arrow"}}
+      <span>{{formatted-picker-date model.serverDate -1}}</span>
     {{/link-to}}
     {{#if (can-show-schedule-for-date model.serverDate 1)}}
-    {{#link-to "playlist-history"
-              (moment-format (moment-add model.serverDate 1 precision="days") "YYYY")
-              (moment-format (moment-add model.serverDate 1 precision="days") "MM")
-              (moment-format (moment-add model.serverDate 1 precision="days") "DD")
-              class="date-selector-forward"
+      {{#link-to "playlist-history"
+                (moment-format (moment-add model.serverDate 1 precision="days") "YYYY")
+                (moment-format (moment-add model.serverDate 1 precision="days") "MM")
+                (moment-format (moment-add model.serverDate 1 precision="days") "DD")
+                class="date-selector-forward"
       }}
-    <span>{{formatted-picker-date model.serverDate 1 }}</span>
-    {{svg-jar "left-arrow"}}
-    {{/link-to}}
+        <span>{{formatted-picker-date model.serverDate 1 }}</span>
+        {{svg-jar "left-arrow"}}
+      {{/link-to}}
     {{else}}
-    {{#link-to "playlist-history"
+      {{#link-to "playlist-history"
               (moment-format (moment-add model.serverDate 1 precision="days") "YYYY")
               (moment-format (moment-add model.serverDate 1 precision="days") "MM")
               (moment-format (moment-add model.serverDate 1 precision="days") "DD")
               class="date-selector-forward"
         }}
-    <span> {{formatted-picker-date model.serverDate 1 }}</span>
-    {{svg-jar "left-arrow"}}
-    {{/link-to}}
+        <span> {{formatted-picker-date model.serverDate 1 }}</span>
+        {{svg-jar "left-arrow"}}
+      {{/link-to}}
     {{/if}}
   </div>
 
