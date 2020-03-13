@@ -185,7 +185,7 @@ workflows:
           requires:
             - test-static
 
-  deploy-demo:
+deploy-demo:
     jobs:
       - build-static:
           filters:
@@ -194,12 +194,27 @@ workflows:
             tags: 
               only: demo
       - test-static:
+          filters:
+            branches:
+              only: master
+            tags: 
+              only: demo
           requires:
             - build-static
       - deploy-static-demo:
+          filters:
+            branches:
+              only: master
+            tags: 
+              only: demo
           requires:
             - test-static
       - deploy-fastboot-demo:
+          filters:
+            branches:
+              only: master
+            tags: 
+              only: demo
           requires:
             - test-static
 
