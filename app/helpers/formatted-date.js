@@ -1,5 +1,6 @@
 import { helper } from '@ember/component/helper';
 import moment from 'moment';
+import {isYesterday, isToday} from '../helpers/formatted-picker-date'
   
 export function formattedDate(timestamp) {
   let momentDate = moment(timestamp,'YYYY-MM-DDTHH:mm:ss');
@@ -8,17 +9,6 @@ export function formattedDate(timestamp) {
   } else {
     return momentDate.format("MMMM Do, YYYY");
   }
-}
-
-// todo: this code is duplicated in formatted-day
-function isToday(momentDate) {
-  let today = moment().startOf('day');
-  return momentDate.isSame(today, 'd');
-}
-
-function isYesterday(momentDate) {
-	let yesterday = moment().subtract(1, 'days').startOf('day');
-    return momentDate.isSame(yesterday, 'd');
 }
 
 export default helper(formattedDate);

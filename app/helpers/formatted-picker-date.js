@@ -1,12 +1,14 @@
 import { helper } from '@ember/component/helper';
 import moment from 'moment';
   
-export function formattedPickerDate(params) {
+function formattedPickerDate(params) {
   let momentDate = moment(params[0],'YYYY-MM-DDTHH:mm:ss').add(params[1], 'days').startOf('day');
   if (isToday(momentDate)) {
     return 'TODAY';
   } else if (isYesterday(momentDate)) {
     return 'YESTERDAY';
+  } else if (isTomorrow(momentDate)) {
+    return "TOMORROW";
   } else if (isLessThanOneWeekAgo(momentDate)) {
     return momentDate.format("dddd");
   } else if (isLessThanAYearAGo(momentDate)) {
@@ -16,14 +18,19 @@ export function formattedPickerDate(params) {
   }
 }
 
-function isToday(momentDate) {
+export function isToday(momentDate) {
   let today = moment().startOf('day');
   return momentDate.isSame(today, 'd');
 }
 
-function isYesterday(momentDate) {
+export function isYesterday(momentDate) {
 	let yesterday = moment().subtract(1, 'days').startOf('day');
   return momentDate.isSame(yesterday, 'd');
+}
+
+export function isTomorrow(momentDate) {
+  let tomorrow = moment().add(1, 'days').startOf('day');
+  return momentDate.isSame(tomorrow, 'd');
 }
 
 function isLessThanOneWeekAgo(momentDate) {
