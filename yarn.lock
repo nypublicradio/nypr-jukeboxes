@@ -5616,6 +5616,17 @@ ember-hash-helper-polyfill@^0.2.0:
     ember-cli-babel "^6.8.2"
     ember-cli-version-checker "^2.1.0"
 
+ember-hifi@^1.1.7:
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/ember-hifi/-/ember-hifi-1.17.0.tgz#678a6e9833128ba5ffe38bc55c836ca7d32c771f"
+  integrity sha512-6E7VpvlEsOYTVEVaj4pxGqpUp3E2NZegT5AgxfsPrSaGcTycNxb3ZjeGe+y1ka/UW0diVnwB5bcSspW5xqTKEQ==
+  dependencies:
+    ember-cli-babel "^7.7.3"
+    ember-copy "^1.0.0"
+    ember-poll "^1.4.0"
+    hls.js "^0.12.2"
+    howler "^2.0.5"
+
 ember-hifi@^1.11.1, ember-hifi@^1.15.0, ember-hifi@^1.15.1:
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/ember-hifi/-/ember-hifi-1.16.0.tgz#f9e19cb894eb86482dae323f5de66dc77060128d"
@@ -5625,16 +5636,6 @@ ember-hifi@^1.11.1, ember-hifi@^1.15.0, ember-hifi@^1.15.1:
     ember-copy "^1.0.0"
     ember-poll "^1.4.0"
     hls.js "^0.8.8"
-    howler "^2.0.5"
-
-"ember-hifi@http://github.com/nypublicradio/ember-hifi#feature/diagnostics-and-docs":
-  version "1.16.0"
-  resolved "http://github.com/nypublicradio/ember-hifi#8557f381e700af1d913346e097fc91423fa2439e"
-  dependencies:
-    ember-cli-babel "^7.7.3"
-    ember-copy "^1.0.0"
-    ember-poll "^1.4.0"
-    hls.js "^0.12.2"
     howler "^2.0.5"
 
 ember-holygrail-layout@0.3.1, ember-holygrail-layout@^0.3.0:
