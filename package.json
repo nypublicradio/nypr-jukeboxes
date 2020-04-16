@@ -65,7 +65,7 @@
     "ember-data-factory-guy": "^3.9.5",
     "ember-export-application-global": "^2.0.0",
     "ember-fetch": "^6.5.1",
-    "ember-hifi": "http://github.com/nypublicradio/ember-hifi#feature/diagnostics-and-docs",
+    "ember-hifi": "^1.1.7",
     "ember-in-viewport": "^3.6.1",
     "ember-load-initializers": "^1.1.0",
     "ember-moment": "7.6.0",
