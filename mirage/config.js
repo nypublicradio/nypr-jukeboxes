@@ -1,6 +1,5 @@
 import playlistDailyResponse from './responses/playlist-daily';
-import asRest from './responses/woms/as-rest';
-import womsSocketResponse from './responses/woms/socket/david';
+import womsResponse from './responses/woms/david';
 import whatsOnResponse from './responses/whats-on'
 import whatsOnCountResponse from './responses/whats-on-count';
 import whatsOnCurrentResponse from './responses/whats-on-current';
@@ -45,7 +44,7 @@ export default function() {
   this.get("/api/v3/shows/elliott-forrest", elliottForrestResponse());
   this.get("/api/v3/shows/airing", {}, 404);
 
-  this.get(`/whats-on/v1/whats-on`, asRest(womsSocketResponse()));
+  this.get(`/whats-on/v1/whats-on`, womsResponse());
   this.get(`http://api.example.com/api/v1/browser_id/`, {success: true});
 
   /*

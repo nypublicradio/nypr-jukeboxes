@@ -34,7 +34,7 @@ export default Service.extend({
   }),
 
   name: reads('stream.name'),
-  track: reads('whatsOn.tracks.firstObject'),
+  track: reads('whatsOn.currentTrack'),
   trackId: reads('track.id'),
   composerName: reads('track.composerName'),
   trackTitle: reads('track.trackTitle'),
@@ -150,8 +150,8 @@ export default Service.extend({
     // This will be obsoleted when tracks from woms include show information
     // and we can update the serializer to do this processing
 
-    if (this.whatsOn && this.whatsOn.tracks && this.whatsOn.tracks.length > 0 && this.show) {
-      this.whatsOn.tracks.forEach(track => {
+    if (this.whatsOn && this.whatsOn.recentTracks && this.whatsOn.recentTracks.length > 0 && this.show) {
+      this.whatsOn.recentTracks.forEach(track => {
         if (!track.show) {
           track.set('show', this.show);
         }

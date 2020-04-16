@@ -14,6 +14,8 @@ export default DS.Model.extend({
   conductorName  : attr(),
   trackLength    : attr(),
   startTime      : attr('date'),
+  epochStartTime : attr(),
+  reclabel       : attr(),
   artist         : alias('composerName'),
   title          : alias('trackTitle'),
   show           : belongsTo({async: false}),
@@ -22,6 +24,8 @@ export default DS.Model.extend({
   catalogEntry   : attr(),
   catno          : attr(),
   mmUid          : attr(),
+  soloists       : attr(),
+
   readSoloists: function(catalogEntry) {
     let soloists = "";
     getWithDefault(catalogEntry, 'soloists', []).forEach(function(soloist) {

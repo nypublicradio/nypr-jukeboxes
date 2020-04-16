@@ -2,7 +2,6 @@ import ApplicationSerializer from './application';
 import transformAttributes from '../utils/transform-attributes';
 import generateTrackUniqueId from '../utils/generate-track-unique-id';
 import generateAiringUniqueId from '../utils/generate-airing-unique-id';
-
 import moment from 'moment';
 import { get } from '@ember/object';
 
@@ -60,7 +59,9 @@ export default ApplicationSerializer.extend({
   },
 
   _generateTrackPayload(track, airing) {
+
     let trackAttrs = transformAttributes(track, trackAttributeTransform);
+
     return {
       id: generateTrackUniqueId(trackAttrs),
       type: 'track',
@@ -96,7 +97,7 @@ export default ApplicationSerializer.extend({
         airing.relationships = {
           show: {
             data: {
-              id: airingAttrs.show_slug,
+              id: airingAttrs['show-slug'],
               type: 'show',
             }
           },
@@ -114,7 +115,7 @@ export default ApplicationSerializer.extend({
 
     let normalizedPayload = {
       data: {
-        type: 'playlist_daily',
+        type: 'playlist-daily',
         id,
         relationships: {
           airings: {

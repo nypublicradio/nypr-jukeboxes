@@ -1,8 +1,11 @@
 import DS from 'ember-data';
 const { Model } = DS;
-import { hasMany } from 'ember-data/relationships';
+import { hasMany, belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
   airBreak: false,
-  tracks: hasMany('tracks', {async: false})
+  currentTrack: belongsTo('track', {async: false}),
+  recentTracks: hasMany('tracks', {async: false}),
+  show: belongsTo('show'),
+  track: belongsTo('track', {async: false})
 });

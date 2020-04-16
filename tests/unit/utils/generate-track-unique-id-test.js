@@ -1,17 +1,16 @@
 import generateTrackUniqueId from 'nypr-jukeboxes/utils/generate-track-unique-id';
 import { module, test } from 'qunit';
-
 module('Unit | Utility | generate-track-unique-id', function() {
   test('it works', function(assert) {
     let result = generateTrackUniqueId({
-      track_title     : 'Track Title',
-      composer_name   : 'Composer Name',
-      conductor_name  : 'Conductor Name',
-      ensemble_name   : 'Ensemble Name',
-      start_time      : "2019-12-01T12:00:00+00:00",
-      mm_uid          : "12345"
+      "track-title"     : 'Track Title',
+      "composer-name"   : 'Composer Name',
+      "conductor-name"  : 'Conductor Name',
+      "ensemble-name"   : 'Ensemble Name',
+      "start-time"      : "2020-01-13T23:43:30+00:00",
+      "mm-uid"          : "119529"
     });
 
-    assert.equal(result, 't_12345_2019-12-01');
+    assert.equal(result, `wqxr_1578959010_119529`);
   });
 });

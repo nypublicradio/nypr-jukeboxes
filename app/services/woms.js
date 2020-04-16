@@ -63,8 +63,7 @@ export default Service.extend({
     // HACK: filter out invalid messages from woms.
     // Real solution should be to remove the duplicate messages
     // https://jira.wnyc.org/browse/DSODA-398
-
-    if (data.mm_uid || data.Item) {
+    if (data) {
       this.firstUpdateReceived = true;
       this.set('lastMessage', data);
       this.processWomsData(data);
@@ -75,17 +74,10 @@ export default Service.extend({
     }
   },
 
-  processWomsData(data) {
+  processWomsData(payload) {
     var modelClass = this.store.modelFor('whats-on');
     var serializer = this.store.serializerFor('whats-on');
-
-    var normalized = serializer.normalizeSingleResponse(this.store, modelClass, {
-      data: {
-        attributes: data,
-        id: 'whats-on',
-        type: 'whats-on'
-      }
-    }, data.id);
+    var normalized = serializer.normalizeSingleResponse(this.store, modelClass, payload, payload.data.id);
 
     // This will update the existing model if it exists, adds it if it doesn't
     let model = this.store.push(normalized);

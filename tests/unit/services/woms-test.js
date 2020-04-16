@@ -3,7 +3,7 @@ import { setupTest } from 'ember-qunit';
 import sinon from 'sinon';
 import { getOwner } from '@ember/application';
 import moment from 'moment';
-
+import womsDavidSocketResponse from 'nypr-jukeboxes/mirage/responses/woms/david';
 module('Unit | Service | woms', function(hooks) {
   setupTest(hooks);
 
@@ -149,15 +149,13 @@ module('Unit | Service | woms', function(hooks) {
     stub.withArgs('route:listen').returns(routeStub);
     stub.callThrough()
 
-    woms.socketMessageHandler({
-      data: '{"Item": {"metadata": {"mm_ensemble1": "Anima Eterna", "iso_start_time": "2019-12-11T17:45:36+00:00", "david_guid": "{D29A31C7-CCD1-4065-B630-076E4E12254E}", "album": "Beethoven | Complete Symphonies", "mm_reclabel": "Alpha", "catno": "380", "mm_composer1": "Ludwig van Beethoven", "mm_conductor": "Jos van Immerseel, conductor", "length": "654486", "mm_uid": "152565", "iso_real_start_time": "2019-12-11T17:45:36+00:00", "real_start_time": "2019-12-11 12:45:36.728", "title": "The Consecration of the House, Op. 124"}}, "ResponseMetadata": {"RequestId": "F8AK56KLQLSKKKIUSE5ODFA1MVVV4KQNSO5AEMVJF66Q9ASUAAJG", "HTTPStatusCode": 200, "HTTPHeaders": {"server": "Server", "date": "Tue, 12 Nov 2019 18:44:06 GMT", "content-type": "application/x-amz-json-1.0", "content-length": "515", "connection": "keep-alive", "x-amzn-requestid": "F8AK56KLQLSKKKIUSE5ODFA1MVVV4KQNSO5AEMVJF66Q9ASUAAJG", "x-amz-crc32": "4043524355"}, "RetryAttempts": 0}}'
-    });
+    woms.socketMessageHandler({data: JSON.stringify(womsDavidSocketResponse())});
 
-    assert.equal(nowPlaying.composerName, 'Ludwig van Beethoven');
-    assert.equal(nowPlaying.ensembleName, 'Anima Eterna');
-    assert.equal(nowPlaying.trackTitle, 'The Consecration of the House, Op. 124');
-    assert.equal(nowPlaying.conductorName, 'Jos van Immerseel, conductor');
-    assert.equal(moment(nowPlaying.trackStartTime).isSame(moment("2019-12-11T17:45:36+00:00"), 'minute'), true);
+    assert.equal(nowPlaying.composerName, 'Antonin Dvorak');
+    assert.equal(nowPlaying.ensembleName, 'Members of the Vienna Philharmonic');
+    assert.equal(nowPlaying.trackTitle, 'Serenade in D Minor for Wind Ensemble, Op. 44 (B77)');
+    assert.equal(nowPlaying.conductorName, 'Myung-Whun Chung, conductor');
+    assert.equal(moment(nowPlaying.trackStartTime).isSame(moment("2020-01-13T18:28:13+00:00"), 'minute'), true);
 
     womsOwner.lookup.restore();
   });

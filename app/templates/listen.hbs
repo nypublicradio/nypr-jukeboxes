@@ -88,6 +88,7 @@
           <div class="playlist-section">
             <TrackInfo
               data-test-component="current-track"
+              data-test-track-id={{this.nowPlaying.track.id}}
               @trackTitle={{this.nowPlaying.track.title}}
               @ensembleName={{this.nowPlaying.track.ensembleName}} @conductorName={{this.nowPlaying.track.conductorName}}
               @composerName={{this.nowPlaying.track.composerName}}
@@ -106,6 +107,7 @@
             {{#each (take 3 (filter-by "isLive" false this.recentlyPlayed)) as |track index|}}
               <TrackInfo
                 data-test-component={{concat "recent-track-" (inc index 1)}}
+                data-test-track-id={{track.id}}
                 @trackTitle={{track.title}}
                 @ensembleName={{track.ensembleName}}
                 @conductorName={{track.conductorName}}
