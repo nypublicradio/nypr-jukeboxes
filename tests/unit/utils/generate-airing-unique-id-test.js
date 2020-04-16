@@ -8,9 +8,9 @@ module('Unit | Utility | generate-airing-unique-id', function() {
     moment.tz.setDefault("America/New_York");
 
     let result = generateAiringUniqueId({
-      show_id     : '124',
-      start_time  : "2019-12-01T12:00:00+00:00",
-      end_time    : "2019-12-01T13:00:00+00:00",
+      "show-id"     : '124',
+      "start-time"  : "2019-12-01T12:00:00+00:00",
+      "end-time"    : "2019-12-01T13:00:00+00:00",
     });
 
     assert.equal(result, 'a_124_2019-12-01_07:00_2019-12-01_08:00');

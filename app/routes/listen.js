@@ -20,7 +20,7 @@ export default Route.extend({
     // we're getting attributes off of the nowPlaying service and
     // not the model so the attributes will update live without
     // having to refresh the route
-    
+
     return {}
   },
 

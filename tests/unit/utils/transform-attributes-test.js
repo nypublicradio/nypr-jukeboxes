@@ -3,7 +3,7 @@ import { module, test } from 'qunit';
 
 module('Unit | Utility | transform-attributes', function() {
 
-  test('it underscores the keys for the serializer', function(assert) {
+  test('it dasherizes the keys for the serializer', function(assert) {
     let transform = {
       trackTitle     : 'info.title',
       composerName   : 'info.composer',
@@ -27,11 +27,11 @@ module('Unit | Utility | transform-attributes', function() {
     let result = transformAttributes(data, transform);
 
     assert.deepEqual(result, {
-      track_title: "Track Title",
-      composer_name: "Composer Name",
-      conductor_name: "Conductor Name",
-      ensemble_name: "Ensemble Name",
-      start_time: "2019-12-01T12:00:00+00:00",
+      "track-title": "Track Title",
+      "composer-name": "Composer Name",
+      "conductor-name": "Conductor Name",
+      "ensemble-name": "Ensemble Name",
+      "start-time": "2019-12-01T12:00:00+00:00",
       catno: "12345"
     });
   });
@@ -60,11 +60,11 @@ module('Unit | Utility | transform-attributes', function() {
     let result = transformAttributes(data, transform);
 
     assert.deepEqual(result, {
-      track_title: "Track Title",
-      composer_name: "Composer Name",
-      conductor_name: "Conductor Name",
-      ensemble_name: "Ensemble Name",
-      start_time: 1575201600000,
+      "track-title": "Track Title",
+      "composer-name": "Composer Name",
+      "conductor-name": "Conductor Name",
+      "ensemble-name": "Ensemble Name",
+      "start-time": 1575201600000,
       catno: "12345"
     });
   });

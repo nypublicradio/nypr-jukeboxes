@@ -4,9 +4,8 @@ import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
 import { setupTime } from '../helpers/time';
 import { setupSockets } from '../helpers/socket';
-import asRest from 'nypr-jukeboxes/mirage/responses/woms/as-rest';
-import womsDavidSocketResponse from 'nypr-jukeboxes/mirage/responses/woms/socket/david';
-import womsDavidSocketResponse2 from 'nypr-jukeboxes/mirage/responses/woms/socket/david2';
+import womsDavidSocketResponse from 'nypr-jukeboxes/mirage/responses/woms/david';
+import womsDavidSocketResponse2 from 'nypr-jukeboxes/mirage/responses/woms/david2';
 
 module('Acceptance | woms', function(hooks) {
   setupApplicationTest(hooks);
@@ -16,11 +15,8 @@ module('Acceptance | woms', function(hooks) {
 
   test('empty woms payload should only display history from playlist endpoint', async function(assert) {
     // First, make make sure the rest call we make returns nothing, so the display will be blank
-    this.server.get('/whats-on/v1/whats-on', {
-      data: {},
-      meta: {}
-    }, 200);
-
+    this.server.get('/whats-on/v1/whats-on', {data: null}, 200);
+    
     await visit('/listen');
 
     assert.dom('[data-test-component=recent-track-1] [data-test-element=track-info-composer]').hasText('Antonin Dvorak')
@@ -34,10 +30,8 @@ module('Acceptance | woms', function(hooks) {
   });
 
   test('currently playing track appears after initial update from woms', async function(assert) {
-    this.server.get('/whats-on/v1/whats-on', {
-      data: {},
-      meta: {}
-    }, 200);
+    this.server.get('/whats-on/v1/whats-on', {data: null}, 200);
+
 
     await visit('/listen');
 
@@ -69,7 +63,7 @@ module('Acceptance | woms', function(hooks) {
   })
 
   test('playlist history changes after update from woms socket', async function(assert) {
-    this.server.get('/whats-on/v1/whats-on', asRest(womsDavidSocketResponse()));
+    this.server.get('/whats-on/v1/whats-on', womsDavidSocketResponse());
 
     await visit('/listen');
 
