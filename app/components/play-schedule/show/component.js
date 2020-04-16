@@ -10,6 +10,10 @@ export default Component.extend({
   fastboot: service(),
   isFastBoot: reads('fastboot.isFastBoot'),
 
+  didInsertElement() {
+    this.set('isPlaylistVisible', this.isLive)
+  },
+
   actions: {
     togglePlaylistVisible() {
       this.toggleProperty('isPlaylistVisible');
