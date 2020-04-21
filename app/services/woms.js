@@ -82,6 +82,7 @@ export default Service.extend({
     // This will update the existing model if it exists, adds it if it doesn't
     let model = this.store.push(normalized);
     this.nowPlaying.updateWhatsOn(model);
+    this.nowPlaying.refreshNowPlayingFromPublisher();
   },
 
   socketClosedHandler(/*event*/) {
