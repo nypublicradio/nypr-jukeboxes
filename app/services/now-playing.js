@@ -131,13 +131,13 @@ export default Service.extend({
     // load the stream, which will load the current show
     await this.getStream()
 
+    let whatsOn = await this.store.queryRecord('whats-on', {stream: this.slug});
+    this.updateWhatsOn(whatsOn);
+
     // Load playlist daily to populate schedule models on frontend
     let serverDate = moment.tz(moment(), "America/New_York")
     await this.loadSchedule(serverDate);
     await this.updateSchedule()
-
-    let whatsOn = await this.store.queryRecord('whats-on', {stream: this.slug});
-    this.updateWhatsOn(whatsOn);
   },
 
   updateWhatsOn(whatsOn) {
