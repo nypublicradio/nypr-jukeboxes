@@ -103,7 +103,7 @@ export default Service.extend({
   async refreshNowPlayingFromPublisher() {
     /* 2020-04-21 With WOMS mainly running off of nexgen these days, most of the track data is missing composers. While we agreed that it should not be a frontend task to decide which data source is correct/valid and that our APIs should be able to be trusted, until we can fix the music master link with WOMs (the real solution) we determined the best workaround is to call publisher's crusty playlist API to fill in the missing data after every WOMs update. This temporarily makes WOMs more of a service that says "hey, there's an update available! Go find out what it is" rather than telling us what that update is. Sad trombone* -JK
 
-    We should be able to stop this once this gets fixed: https://jira.wnyc.org/browse/DSODA-375
+    TODO: We should be able to stop this once this gets fixed: https://jira.wnyc.org/browse/DSODA-375
     */
 
     return await this.loadSchedule(moment.tz(moment(), "America/New_York"))

@@ -3,7 +3,7 @@ import ApplicationSerializer from './application';
 export default ApplicationSerializer.extend({
 
   _normalizeResponse(store, primaryModelClass, payload /*, id, requestType, isSingle */) {
-    /* 2020-04-21 HACK: we should be able to delete this method entirely after this is fixed: https://jira.wnyc.org/browse/DSODA-375
+    /* 2020-04-21 TODO: we should be able to delete this method entirely after this is fixed: https://jira.wnyc.org/browse/DSODA-375
 
     This crudely merges incoming (and mostly likely incomplete) records from woms with existing (mostly likely more complete) records we have in the ember-data store from publisher. This prevents the UI from flashing needlessly when records get updated with incorrect data, rendered, corrected, and rendered.
 
