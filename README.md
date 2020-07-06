@@ -20,6 +20,7 @@ You will need the following things properly installed on your computer.
 * `git clone <repository-url>` this repository
 * `cd nypr-jukeboxes`
 * `yarn install`
+* `cp .env.sample .env`
 
 ## Running / Development
 
