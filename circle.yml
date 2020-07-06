@@ -167,7 +167,7 @@ workflows:
       - build-static:
           filters:
             branches:
-              ignore: /master|[A-Za-z-_]+/[A-Za-z-_\d]+/
+              ignore: /main|[A-Za-z-_]+/[A-Za-z-_\d]+/
       - test-static:
           requires:
             - build-static
@@ -190,13 +190,13 @@ workflows:
       - build-static:
           filters:
             branches:
-              only: master
+              only: main
             tags: 
               only: demo
       - test-static:
           filters:
             branches:
-              only: master
+              only: main
             tags: 
               only: demo
           requires:
@@ -204,7 +204,7 @@ workflows:
       - deploy-static-demo:
           filters:
             branches:
-              only: master
+              only: main
             tags: 
               only: demo
           requires:
@@ -212,7 +212,7 @@ workflows:
       - deploy-fastboot-demo:
           filters:
             branches:
-              only: master
+              only: main
             tags: 
               only: demo
           requires:
