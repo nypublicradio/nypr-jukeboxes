@@ -30,6 +30,7 @@ logs/
 
 # misc
 /.env*
+/.idea*
 /.pnp*
 /.sass-cache
 /connect.lock
