@@ -143,6 +143,7 @@
   svg {
     // Essential for radiating waves animation
     overflow:visible;
+    max-width: 100%;
   }
 
   &:hover {

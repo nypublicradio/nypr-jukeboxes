@@ -10215,10 +10215,9 @@ nypr-auth@^0.2.5:
     ember-get-config "^0.2.2"
     ember-simple-auth "^1.7.0"
 
-nypr-design-system@3.0.1-beta4:
+nypr-design-system@nypublicradio/nypr-design-system#3fb1afe86d2057bbd53f25b7db132897b221a017:
   version "3.0.1-beta4"
-  resolved "https://registry.yarnpkg.com/nypr-design-system/-/nypr-design-system-3.0.1-beta4.tgz#ecb66647764f36cd2b2a5eba0597417f86e5e1cf"
-  integrity sha512-QrScFEXE/j5pgF4VBYC8/Q82Eb6BMv8+HuwJk/J99HXDl0U4G+4oROc+wSabyaDvfQ7/LNlHSa6mhMvcqIlSsA==
+  resolved "https://codeload.github.com/nypublicradio/nypr-design-system/tar.gz/3fb1afe86d2057bbd53f25b7db132897b221a017"
   dependencies:
     "@babel/core" "^7.0.0"
     "@panosvoudouris/addon-versions" "^1.0.1"
@@ -10294,10 +10293,6 @@ nypr-metrics@0.7.1, nypr-metrics@^0.7.1:
     ember-cli-babel "^6.6.0"
     ember-get-config "^0.2.2"
     ember-metrics "^0.12.1"
-
-"nypr-pattern-lab@https://github.com/nypublicradio/pattern-lab#bkammin/change_package_name_to_pattern_lab":
-  version "4.0.0"
-  resolved "https://github.com/nypublicradio/pattern-lab#6622a9d96ce9866c5af74010bce047ebfceb024e"
 
 "nypr-player@http://github.com/nypublicradio/nypr-player#jkeen/remove-nypr-ui":
   version "0.4.3"

@@ -57,6 +57,7 @@
   background-image: linear-gradient(to bottom, white 0, $c-denim-blue 0%);
   background-position: 100% 142px;
   background-repeat: repeat-x;
+  color: #ffffff;
 
   &__inner {
     @include media(">xlarge") {
@@ -135,6 +136,7 @@
       flex-direction: row;
       max-width: 378px;
     }
+
     margin-right: 50px;
   }
 
@@ -164,6 +166,7 @@
   }
 
   &__nypr-logo {
+    width: 120px;
     @include media(">xlarge") {
       margin: 0 $space-and-half 0 0;
     }
@@ -190,7 +193,14 @@
 
   .c-main-footer__slogan p {
     display: inline-block;
+    line-height: 1.8;
+    margin-top: 0;
   }
+
+  .c-main-footer__slogan a {
+    text-decoration: none;
+  }
+
   .c-toggle-box__content {
     min-width: 320px;
     max-width: 400px;
@@ -268,6 +278,18 @@
     fill: white;
     padding-top: 5px;
     padding-bottom: 25px;
+
+    a {
+      padding: 5px;
+      margin: 0 4px;
+      height: 30px;
+      width: 30px;
+    }
+
+    svg {
+      height: 20px;
+      width: 20px;
+    }
   }
 
   .feedback {
@@ -327,6 +349,7 @@
     vertical-align: middle;
     transform: perspective(1px) translateZ(0);
     position: relative;
+
     &:hover,
     &:focus,
     &:active {
@@ -354,6 +377,7 @@
   .jlgreene {
     text-decoration: none;
     border-bottom: 0;
+
     .jlgreene-logo {
       path {
         fill: $white;
@@ -369,6 +393,7 @@
       position: relative;
       top: 3px;
       display: inline;
+
       &:hover {
         opacity: 0.8;
       }
@@ -428,6 +453,7 @@
   display: inline-block;
   width: fit-content;
   clear: both;
+  text-decoration: none;
 }
 
 .u-has-accent:hover {
@@ -471,6 +497,17 @@
   padding-left: 5px;
 }
 
+.c-main-footer__brand-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 48px;
+}
+
+.c-main-footer__copyright p {
+  font-size: 12px;
+}
+
 //MOBILE//
 
 @include media("<=small") {
@@ -488,15 +525,15 @@
     justify-content: space-between;
   }
 
-  _:-ms-lang(x), .c-share-tools { 
+  _:-ms-lang(x), .c-share-tools {
     flex-wrap: nowrap;
   }
 
-  _:-ms-lang(x), .c-share-tools__group { 
+  _:-ms-lang(x), .c-share-tools__group {
     margin-top: 10px;
   }
 
-  _:-ms-lang(x), .about-and-connect { 
+  _:-ms-lang(x), .about-and-connect {
     margin-bottom: 20px;
   }
 

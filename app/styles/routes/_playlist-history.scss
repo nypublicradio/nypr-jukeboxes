@@ -76,12 +76,16 @@
     text-transform: uppercase;
     margin-bottom: 54px;
 
+    a {
+      text-decoration: none;
+    }
+
     a span {
       color: #ffffff;
     }
-    
+
     .date-selector-back {
-	      	
+
     }
 
     .date-selector-forward {
