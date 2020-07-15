@@ -55,6 +55,11 @@
   }
 }
 
+img {
+  height: auto;
+  max-width: 100%;
+}
+
 a {
   transition: all .15s ease-in-out;
 }

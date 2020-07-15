@@ -58,7 +58,7 @@
   }
 }
 
-.site-header-title-logo { 
+.site-header-title-logo {
   display: inline;
 }
 
@@ -83,7 +83,7 @@
   width: -moz-max-content;
 }
 
-_:-ms-lang(x), .live-nyc-txt { 
+_:-ms-lang(x), .live-nyc-txt {
   display: table;
 }
 
@@ -97,7 +97,7 @@ _:-ms-lang(x), .live-nyc-txt {
   border-color: white;
   height: 30px;
   width: 140px;
-  line-height: 1; 
+  line-height: 1;
 
   &:hover {
     opacity: 100%;
@@ -166,7 +166,7 @@ _:-ms-lang(x), .live-nyc-txt {
     float: left;
   }
 
-  .col { 
+  .col {
     padding: 20px 10px 5px 10px;
   }
 
@@ -209,7 +209,6 @@ _:-ms-lang(x), .live-nyc-txt {
 }
 
 .horizontal-nav__container {
-  padding-left: 25px;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch;
 

@@ -167,8 +167,9 @@
 
   &__nypr-logo {
     width: 120px;
+    margin: 0 $space-and-half $space-and-half 0;
     @include media(">xlarge") {
-      margin: 0 $space-and-half 0 0;
+      margin: 0 $space 0 0;
     }
 
     path,
@@ -613,5 +614,10 @@
   .c-main-footer__brand-group {
     display: flex;
     flex-direction: column;
+  }
+
+  .c-share-tools__group {
+    display: flex;
+    align-items: center;
   }
 }

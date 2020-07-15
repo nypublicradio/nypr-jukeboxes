@@ -7,16 +7,20 @@
 }
 
 .brands-linkroll-nav-list {
+  list-style: none;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   width: 262px;
   height: 90px;
+  margin: 0;
+  padding: 0;
 }
 
 .brands-linkroll-nav-list-item {
   white-space: nowrap;
   width: 50%;
+  padding: 6px;
 }
 
 .brands-linkroll-nav-list-item-link {
