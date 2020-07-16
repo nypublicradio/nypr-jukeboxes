@@ -11,6 +11,7 @@
     margin-left: 0px;
   }
 }
+
 .listen {
   display: flex;
   flex-direction: column;
@@ -38,7 +39,13 @@
       height: 65px;
       justify-content: center;
     }
+
+    svg {
+      width: 60px;
+      height: 60px;
+    }
   }
+
   @include media("<medium") {
     top: 0;
     justify-content: center;
@@ -67,15 +74,18 @@
       margin-bottom: 24px;
       justify-content: center;
     }
+
     > .show-image {
       max-height: 100px;
       max-width: 100px;
       filter: grayscale(100%);
       margin: 16px auto 10px auto;
       display: block;
+
       img {
         border-radius: 50%;
       }
+
       @include media(">=medium") {
         display: none;
       }
@@ -106,6 +116,7 @@
     @include media(">medium") {
       display: flex;
     }
+
     .show-image {
       height: 244px;
       width: 244px;
@@ -119,6 +130,7 @@
         margin-right: auto;
         margin-bottom: 10px;
       }
+
       img {
         border-radius: 50%;
         height: 100%;
@@ -127,12 +139,12 @@
     }
   }
 
- .label-title {
-  @include media("<medium") {
-    display: flex;
-    flex-direction: column-reverse;
+  .label-title {
+    @include media("<medium") {
+      display: flex;
+      flex-direction: column-reverse;
+    }
   }
-}
 
   .show-title {
     font-family: $font-heading;
@@ -158,9 +170,11 @@
 
   .message-the-show-toggle-box {
     display: inline-flex;
+
     .toggle-box__label {
       display: inline-flex;
     }
+
     > button:focus {
       outline: none;
     }
@@ -177,11 +191,16 @@
         padding-left: 0px;
       }
     }
+
     .u-icon--xs {
       height: 12px;
       fill: #ffffff;
       margin-left: 4px;
       margin-top: 3px;
+
+      path {
+        fill: #ffffff;
+      }
     }
   }
 
@@ -295,7 +314,7 @@ $left_margin: 32px;
 
 
 .listen-message-the-show-popup {
-  // using negative to correct the padding of parent element, which does not 
+  // using negative to correct the padding of parent element, which does not
   // have a class name specific to the 'Message the Show' popup
   margin: -1px -6px;
 
@@ -309,6 +328,9 @@ $left_margin: 32px;
     display: flex;
     flex-direction: row;
     margin-top: 10px;
+    text-decoration: none;
+    font-weight: normal;
+
     &:first-child {
       margin-top: 0px;
     }
@@ -318,12 +340,10 @@ $left_margin: 32px;
 
     svg {
       height: 12px;
-      path {
-        fill: white;
-      }
+      width: 12px;
     }
 
-   .c-share-tools__link-title {
+    .c-share-tools__link-title {
       color: #ffffff;
       font-family: $font-body-bold;
       font-size: 12px;

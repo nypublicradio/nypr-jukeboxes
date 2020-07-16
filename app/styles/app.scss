@@ -5,8 +5,6 @@
 @import "vars/animations";
 @import "vars/tools.sg-updates";
 
-@import "node_modules/nypr-pattern-lab/source/scss/themes/default/default.scss";
-
 @import "normalize";
 @import "components/horizontal-nav";
 @import "components/onboard-message";
@@ -53,6 +51,15 @@
       background-size: 100% auto;
     }
   }
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+a {
+  transition: all .15s ease-in-out;
 }
 
 button {
