@@ -8,7 +8,7 @@ module('Integration | Component | jukebox-player', function(hooks) {
 
   test('it renders track artist and show', async function(assert) {
     await render(hbs`
-      <JukeboxPlayer
+      <NyprOAudioPlayer
         @trackTitle="Track Title"
         @showTitle="Show Title"
         @composerName="Track Composer"
@@ -22,7 +22,7 @@ module('Integration | Component | jukebox-player', function(hooks) {
 
   test('it renders without artist element when artist is missing', async function(assert) {
     await render(hbs`
-      <JukeboxPlayer
+      <NyprOAudioPlayer
         @trackTitle="Track Title"
         @showTitle="Show Title"
       />
@@ -35,7 +35,7 @@ module('Integration | Component | jukebox-player', function(hooks) {
 
   test('it renders without title element when title is missing', async function(assert) {
     await render(hbs`
-      <JukeboxPlayer
+      <NyprOAudioPlayer
         @showTitle="Show Title"
       />
     `);

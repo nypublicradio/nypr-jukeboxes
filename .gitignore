@@ -53,3 +53,7 @@ package.json.ember-try
 .env.deploy.*
 !.env.sample
 !.env.deploy.sample
+
+# yalc
+.yalc/
+yalc.lock
