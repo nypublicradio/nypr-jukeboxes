@@ -1,13 +1,13 @@
 <div class="dot"></div>
 <div class="metadata">
-  <TrackAdditionalInfo @ensembleName={{ensembleName}} @conductorName={{conductorName}} as |options|>
+  <NyprMTrackAdditionalInfo @ensembleName={{ensembleName}} @conductorName={{conductorName}} as |options|>
     <div data-test-element="track-info-composer" class="composer">
       {{composerName}}
     </div>
     <div data-test-element="track-info-title" class="title">
       {{trackTitle}} {{options.icon}}
     </div>
-  </TrackAdditionalInfo>
+  </NyprMTrackAdditionalInfo>
 </div>
 
 <div class="start-time {{unless isLive "hide-in-fastboot"}} {{if this.isFastBoot "is-fastboot"}}" data-test-element="track-info-start-time" data-time={{startTime}}>
