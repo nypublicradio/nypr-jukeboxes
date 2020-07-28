@@ -14,7 +14,7 @@
           <div class="show-title" data-test-element="show-title">{{onAirTitle}}</div>
           {{#if (or twitterHandle emailAddress)}}
             <div class="message-the-show">
-              <ToggleBox class="message-the-show-toggle-box" as |toggle|>
+              <NyprMToggleBox class="message-the-show-toggle-box" as |toggle|>
                 <toggle.trigger>
                   <div class="message-the-show-title">MESSAGE THE SHOW</div>
                 </toggle.trigger>
@@ -49,7 +49,7 @@
                     </div>
                   </NyprMShareTools>
                 </toggle.dropdown>
-              </ToggleBox>
+              </NyprMToggleBox>
             </div>
           {{/if}}
 

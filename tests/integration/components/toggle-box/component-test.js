@@ -10,7 +10,7 @@ module('Integration | Component | toggle-box', function(hooks) {
 
   test('it renders', async function(assert) {
     await render(hbs`
-      <ToggleBox as |toggle|>
+      <NyprMToggleBox as |toggle|>
         <toggle.trigger as |options|>
           <span class="the-label">Toggle Box Label</span>
         </toggle.trigger>
@@ -18,7 +18,7 @@ module('Integration | Component | toggle-box', function(hooks) {
         <toggle.dropdown>
           Dropdown Contents
         </toggle.dropdown>
-      </ToggleBox>
+      </NyprMToggleBox>
     `);
 
     // target span b/c there's an icon with assistive text in the label
