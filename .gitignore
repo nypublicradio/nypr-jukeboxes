@@ -39,6 +39,8 @@ logs/
 /npm-debug.log*
 /testem.log
 /yarn-error.log
+/.yalc
+/yalc.lock
 
 # ember-try
 .node_modules.ember-try/
