@@ -89,7 +89,7 @@
     "nypr-ads": "^0.2.0",
     "nypr-audio-services": "nypublicradio/nypr-audio-services#jkeen/upgrades",
     "nypr-auth": "^0.2.5",
-    "nypr-design-system": "nypublicradio/nypr-design-system#eeb16dcec02ab8ab8627643e353f85a07b910b15",
+    "nypr-design-system": "3.1.2",
     "nypr-metrics": "^0.7.1",
     "nypr-player": "http://github.com/nypublicradio/nypr-player#jkeen/remove-nypr-ui",
     "qunit-dom": "^0.9.2",
