@@ -8,7 +8,9 @@ module.exports = function(defaults) {
     // Add options here
     autoImport: {},
     'nypr-design-system': {
-      themes: ['wqxr', 'white-label']
+      themes: env && env.toUpperCase() === 'PROD' ?
+        ['wqxr'] :
+        ['wqxr', 'white-label', 'deprecated']
     },
     sassOptions: {
       includePaths: [
