@@ -7,6 +7,9 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
     autoImport: {},
+    'nypr-design-system': {
+      themes: ['wqxr', 'white-label']
+    },
     sassOptions: {
       includePaths: [
         'node_modules/include-media/dist',
