@@ -3,12 +3,16 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+var env = process.env.ENV;
+
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
     autoImport: {},
     'nypr-design-system': {
-      themes: ['wqxr', 'white-label']
+      themes: env && env.toUpperCase() === 'PROD' ?
+        ['wqxr'] :
+        ['wqxr', 'white-label', 'deprecated']
     },
     sassOptions: {
       includePaths: [
