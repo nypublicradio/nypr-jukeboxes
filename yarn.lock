@@ -5662,9 +5662,9 @@ dot-case@^3.0.3:
     tslib "^1.10.0"
 
 dot-prop@^4.1.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-4.2.0.tgz#1f19e0c2e1aa0e32797c49799f2837ac6af69c57"
-  integrity sha512-tUMXrxlExSW6U2EXiiKGSBVdYgtV8qlHL+C10TsW4PURY/ic+eaysnSkwB4kA/mBlCyy/IKDJ+Lc3wbWeaXtuQ==
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-4.2.1.tgz#45884194a71fc2cda71cbb4bceb3a4dd2f433ba4"
+  integrity sha512-l0p4+mIuJIua0mhxGoh4a+iNL9bmeK5DvnSVQa6T0OhrVmaEa1XScX5Etc673FePCJOArq/4Pa2cLGODUWTPOQ==
   dependencies:
     is-obj "^1.0.0"
 
@@ -11927,13 +11927,13 @@ nypr-fastboot@nypublicradio/nypr-fastboot#nc/fork:
     ember-cli-htmlbars "^4.0.0"
 
 nypr-metrics@0.7.1, nypr-metrics@^0.7.1:
-  version "0.3.1"
+  version "0.7.1"
   resolved "https://registry.yarnpkg.com/nypr-metrics/-/nypr-metrics-0.7.1.tgz#abff6c17475a3dd74d68de39b47dba5219eeabe6"
   integrity sha512-tjCQcXoNjEcKpHQ5kiLdUl9tzHyoui3qashJDBtupgKB/61zY1HaQGLYZvnAw4yEOX/Fv1CUriWZLuV1wZgjHg==
   dependencies:
-    ember-cli-babel "^6.6.0"
+    ember-cli-babel "^7.0.0"
     ember-get-config "^0.2.2"
-    ember-metrics "^0.12.1"
+    ember-poll "^1.2.0"
 
 "nypr-player@http://github.com/nypublicradio/nypr-player#jkeen/remove-nypr-ui":
   version "0.4.3"
