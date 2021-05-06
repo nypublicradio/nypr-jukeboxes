@@ -11927,13 +11927,13 @@ nypr-fastboot@nypublicradio/nypr-fastboot#nc/fork:
     ember-cli-htmlbars "^4.0.0"
 
 nypr-metrics@0.7.1, nypr-metrics@^0.7.1:
-  version "0.3.1"
+  version "0.7.1"
   resolved "https://registry.yarnpkg.com/nypr-metrics/-/nypr-metrics-0.7.1.tgz#abff6c17475a3dd74d68de39b47dba5219eeabe6"
   integrity sha512-tjCQcXoNjEcKpHQ5kiLdUl9tzHyoui3qashJDBtupgKB/61zY1HaQGLYZvnAw4yEOX/Fv1CUriWZLuV1wZgjHg==
   dependencies:
-    ember-cli-babel "^6.6.0"
+    ember-cli-babel "^7.0.0"
     ember-get-config "^0.2.2"
-    ember-metrics "^0.12.1"
+    ember-poll "^1.2.0"
 
 "nypr-player@http://github.com/nypublicradio/nypr-player#jkeen/remove-nypr-ui":
   version "0.4.3"
@@ -15328,9 +15328,9 @@ underscore.string@^3.2.2, underscore.string@~3.3.4:
     util-deprecate "^1.0.2"
 
 underscore@>=1.8.3:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
-  integrity sha512-5/4etnCkd9c8gwgowi5/om/mYO5ajCaOgdzj/oW+0eQV9WxKBDZw5+ycmKmeaTXjInS/W0BzpGLo2xR2aBwZdg==
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.13.1.tgz#0c1c6bd2df54b6b69f2314066d65b6cde6fcf9d1"
+  integrity sha512-hzSoAVtJF+3ZtiFX0VgfFPHEDRm7Y/QPjGyNo4TVdnDTdft3tr8hEkD25a1jC+TjTuE7tkHGKkhwCgs9dgBB2g==
 
 unherit@^1.0.4:
   version "1.1.3"
