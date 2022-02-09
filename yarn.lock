@@ -11351,9 +11351,9 @@ morgan@^1.9.0, morgan@^1.9.1:
     on-headers "~1.0.1"
 
 mout@^1.0.0:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/mout/-/mout-1.2.2.tgz#c9b718a499806a0632cede178e80f436259e777d"
-  integrity sha512-w0OUxFEla6z3d7sVpMZGBCpQvYh8PHS1wZ6Wu9GNKHMpAHWJ0if0LsQZh3DlOqw55HlhJEOMLpFnwtxp99Y5GA==
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/mout/-/mout-1.2.3.tgz#bd1477d8c7f2db5fcf43c91de30b6cc746b78e10"
+  integrity sha512-vtE+eZcSj/sBkIp6gxB87MznryWP+gHIp0XX9SKrzA5TAkvz6y7VTuNruBjYdJozd8NY5i9XVIsn8cn3SwNjzg==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -11927,13 +11927,13 @@ nypr-fastboot@nypublicradio/nypr-fastboot#nc/fork:
     ember-cli-htmlbars "^4.0.0"
 
 nypr-metrics@0.7.1, nypr-metrics@^0.7.1:
-  version "0.3.1"
+  version "0.7.1"
   resolved "https://registry.yarnpkg.com/nypr-metrics/-/nypr-metrics-0.7.1.tgz#abff6c17475a3dd74d68de39b47dba5219eeabe6"
   integrity sha512-tjCQcXoNjEcKpHQ5kiLdUl9tzHyoui3qashJDBtupgKB/61zY1HaQGLYZvnAw4yEOX/Fv1CUriWZLuV1wZgjHg==
   dependencies:
-    ember-cli-babel "^6.6.0"
+    ember-cli-babel "^7.0.0"
     ember-get-config "^0.2.2"
-    ember-metrics "^0.12.1"
+    ember-poll "^1.2.0"
 
 "nypr-player@http://github.com/nypublicradio/nypr-player#jkeen/remove-nypr-ui":
   version "0.4.3"
