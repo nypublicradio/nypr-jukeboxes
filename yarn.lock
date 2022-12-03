@@ -5424,9 +5424,9 @@ decamelize@^1.0.0, decamelize@^1.1.0, decamelize@^1.1.1, decamelize@^1.1.2, deca
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 decompress-response@^3.3.0:
   version "3.3.0"
@@ -11927,13 +11927,13 @@ nypr-fastboot@nypublicradio/nypr-fastboot#nc/fork:
     ember-cli-htmlbars "^4.0.0"
 
 nypr-metrics@0.7.1, nypr-metrics@^0.7.1:
-  version "0.3.1"
+  version "0.7.1"
   resolved "https://registry.yarnpkg.com/nypr-metrics/-/nypr-metrics-0.7.1.tgz#abff6c17475a3dd74d68de39b47dba5219eeabe6"
   integrity sha512-tjCQcXoNjEcKpHQ5kiLdUl9tzHyoui3qashJDBtupgKB/61zY1HaQGLYZvnAw4yEOX/Fv1CUriWZLuV1wZgjHg==
   dependencies:
-    ember-cli-babel "^6.6.0"
+    ember-cli-babel "^7.0.0"
     ember-get-config "^0.2.2"
-    ember-metrics "^0.12.1"
+    ember-poll "^1.2.0"
 
 "nypr-player@http://github.com/nypublicradio/nypr-player#jkeen/remove-nypr-ui":
   version "0.4.3"
